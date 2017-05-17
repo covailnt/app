@@ -2,7 +2,9 @@
   "parser"  : "babel-eslint",
   "extends" : [
     "standard",
-    "standard-react"
+    "standard-react",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "plugins": [
     "babel"
@@ -22,7 +24,6 @@
     "max-len": [2, 120, 2],
     "generator-star-spacing": 0,
     "babel/generator-star-spacing": 1,
-    "jsx-quotes": ["error", "prefer-single"],
-    "import/no-unresolved": 2
+    "jsx-quotes": ["error", "prefer-single"]
   }
 }

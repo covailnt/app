@@ -3,7 +3,6 @@ import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 
 // Themeing/Styling
-import Theme from 'theme'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {cyan500} from 'material-ui/styles/colors'
