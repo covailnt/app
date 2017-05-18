@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from 'containers/Navbar'
+import Navbar from '../../groups/Navbar'
 import classes from './CoreLayout.scss'
-import 'styles/core.scss'
+import '../../styles/core.scss'
 
-export const CoreLayout = ({ children }) => (
+const CoreLayout = ({ children }) => (
   <div className={classes.container}>
     <Navbar />
     <div className={classes.children}>
