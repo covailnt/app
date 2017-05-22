@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import Paper from 'material-ui/Paper'
 import Snackbar from 'material-ui/Snackbar'
@@ -10,9 +10,9 @@ import {
   isEmpty,
   pathToJS
 } from 'react-redux-firebase'
-import { UserIsNotAuthenticated } from 'utils/router'
-import { LIST_PATH, LOGIN_PATH } from '../../../constants'
-import SignupForm from '../components/SignupForm'
+import { UserIsNotAuthenticated } from '../../utils/router'
+import { LIST_PATH, LOGIN_PATH } from '../../constants'
+import SignupForm from './SignupForm'
 
 import classes from './SignupContainer.scss'
 

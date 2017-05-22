@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import Paper from 'material-ui/Paper'
 import Snackbar from 'material-ui/Snackbar'
 
 import { connect } from 'react-redux'
-import { UserIsNotAuthenticated } from 'utils/router'
+import { UserIsNotAuthenticated } from '../../utils/router'
 import {
   firebaseConnect,
   isLoaded,
@@ -14,7 +14,7 @@ import {
 } from 'react-redux-firebase'
 
 import { SIGNUP_PATH } from 'constants'
-import LoginForm from '../components/LoginForm'
+import LoginForm from './LoginForm'
 
 import classes from './LoginContainer.scss'
 

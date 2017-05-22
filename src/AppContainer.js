@@ -1,6 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+
+import Home from './routes/Home'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Routes from './routes'
+import { history } from './store/createStore'
 
 // Themeing/Styling
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -24,20 +29,18 @@ const muiTheme = getMuiTheme({
 })
 
 export default class AppContainer extends Component {
-
   static propTypes = {
-    routes: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired
   }
 
   render () {
-    const { routes, store } = this.props
+    const { store } = this.props
     return (
       <Provider store={store}>
         <MuiThemeProvider muiTheme={muiTheme}>
-          <Router history={browserHistory}>
-            {routes}
-          </Router>
+          <ConnectedRouter history={history}>
+            <Routes />
+          </ConnectedRouter>
         </MuiThemeProvider>
       </Provider>
     )

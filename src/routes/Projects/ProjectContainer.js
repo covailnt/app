@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded, dataToJS } from 'react-redux-firebase'
-import LoadingSpinner from 'elements/LoadingSpinner'
+import LoadingSpinner from '../../elements/LoadingSpinner'
 import classes from './ProjectContainer.scss'
 
 // Get project path from firebase based on params prop (route params)
@@ -25,7 +24,7 @@ export default class Project extends Component {
     if (!isLoaded(project)) {
       return <LoadingSpinner />
     }
-    
+
     return (
       <div className={classes.container}>
         <h2>Project Container</h2>
