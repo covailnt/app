@@ -89,7 +89,7 @@ export default class Projects extends Component {
                    key={`${project.name}-Collab-${key}`}
                    project={project}
                    onCollabClick={this.collabClick}
-                   onSelect={() => this.context.router.push(`${LIST_PATH}/${key}`)}
+                   onSelect={() => this.props.history.push(`${LIST_PATH}/${key}`)}
                    onDelete={this.deleteProject}
                  />
               ))
