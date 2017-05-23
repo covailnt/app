@@ -3,10 +3,10 @@ import Paper from 'material-ui/Paper'
 import { connect } from 'react-redux'
 import { firebaseConnect, pathToJS, isLoaded } from 'react-redux-firebase'
 import { reduxFirebase as fbReduxSettings } from '../../config'
-import { UserIsAuthenticated } from '../../utils/router'
-import defaultUserImageUrl from '../../static/User.png'
+import { UserIsAuthenticated } from '../../_utils/router'
+import defaultUserImageUrl from '../../_static/User.png'
 import LoadingSpinner from '../../elements/LoadingSpinner'
-import AccountForm from './AccountForm'
+import AccountForm from '../../wrappers/AccountForm'
 import classes from './AccountContainer.scss'
 
 @UserIsAuthenticated // redirect to /login if user is not authenticated

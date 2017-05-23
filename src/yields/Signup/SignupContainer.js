@@ -10,9 +10,9 @@ import {
   isEmpty,
   pathToJS
 } from 'react-redux-firebase'
-import { UserIsNotAuthenticated } from '../../utils/router'
+import { UserIsNotAuthenticated } from '../../_utils/router'
 import { LIST_PATH, LOGIN_PATH } from '../../constants'
-import SignupForm from './SignupForm'
+import SignupForm from '../../groups/SignupForm'
 
 import classes from './SignupContainer.scss'
 

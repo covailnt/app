@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import RaisedButton from 'material-ui/RaisedButton'
-import TextField from '../../../elements/TextField'
-import { required, validateEmail } from '../../../utils/form'
+import TextField from '../../elements/TextField'
+import { required, validateEmail } from '../../_utils/form'
 import { SIGNUP_FORM_NAME } from 'constants'
 import classes from './SignupForm.scss'
 const buttonStyle = { width: '100%' }

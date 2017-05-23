@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AppContainer from './AppContainer'
-import createStore from './store/createStore'
+import createStore from './_store/createStore'
 
 // ========================================================
 // Store and History Instantiation

@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import RaisedButton from 'material-ui/RaisedButton'
-import TextField from '../../../elements/TextField'
-import { ACCOUNT_FORM_NAME } from '../../../constants'
-import ProviderDataForm from '../ProviderDataForm'
+import TextField from '../../elements/TextField'
+import { ACCOUNT_FORM_NAME } from '../../constants'
+import ProviderDataForm from '../../groups/ProviderForm'
 import classes from './AccountForm.scss'
 
 export const AccountForm = ({ account, handleSubmit, submitting }) => (

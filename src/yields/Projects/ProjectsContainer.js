@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { firebaseConnect, populatedDataToJS, pathToJS, isLoaded, isEmpty } from 'react-redux-firebase'
 import { LIST_PATH } from 'constants'
 import LoadingSpinner from '../../elements/LoadingSpinner'
-import ProjectTile from './ProjectTile'
-import NewProjectTile from './NewProjectTile'
-import NewProjectDialog from './NewProjectDialog'
+import ProjectTile from '../../groups/ProjectTile'
+import NewProjectTile from '../../groups/NewProjectTile'
+import NewProjectDialog from '../../groups/NewProjectDialog'
 import classes from './ProjectsContainer.scss'
 
 const populates = [

@@ -20,7 +20,7 @@ import {
   LOGIN_PATH,
   SIGNUP_PATH
 } from 'constants'
-import defaultUserImage from '../../static/User.png'
+import defaultUserImage from '../../_static/User.png'
 import classes from './Navbar.scss'
 
 const buttonStyle = {

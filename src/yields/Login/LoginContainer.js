@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper'
 import Snackbar from 'material-ui/Snackbar'
 
 import { connect } from 'react-redux'
-import { UserIsNotAuthenticated } from '../../utils/router'
+import { UserIsNotAuthenticated } from '../../_utils/router'
 import {
   firebaseConnect,
   isLoaded,
@@ -14,7 +14,7 @@ import {
 } from 'react-redux-firebase'
 
 import { SIGNUP_PATH } from 'constants'
-import LoginForm from './LoginForm'
+import LoginForm from '../../groups/LoginForm'
 
 import classes from './LoginContainer.scss'
 

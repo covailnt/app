@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../groups/Navbar'
 import classes from './CoreLayout.scss'
-import '../../styles/core.scss'
+import '../../_styles/core.scss'
 
 const CoreLayout = ({ children }) => (
   <div className={classes.container}>

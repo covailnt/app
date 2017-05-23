@@ -1,24 +1,28 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 // We only need to import the modules necessary for initial render
 // import CoreLayout from '../templates/CoreLayout/CoreLayout'
-import Home from './Home'
-import Login from './Login'
-import Signup from './Signup'
-import Projects from './Projects'
-import Account from './Account'
+import Home from './yields/Home'
+import Login from './yields/Login'
+import Signup from './yields/Signup'
+import Project from './yields/Project'
+import Projects from './yields/Projects'
+import Account from './yields/Account'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
 const Routes = () => (
   <div>
-    <Route exact path='/' component={Home} />
-    <Route path='/login' component={Login} />
-    <Route path='/account' component={Account} />
-    <Route path='/projects' component={Projects} />
-    <Route path='/signup' component={Signup} />
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route path='/login' component={Login} />
+      <Route path='/account' component={Account} />
+      <Route path='/projects/:id' component={Project} />
+      <Route path='/projects' component={Projects} />
+      <Route path='/signup' component={Signup} />
+    </Switch>
   </div>
 )
 

@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
-
-import Home from './routes/Home'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Routes from './routes'
-import { history } from './store/createStore'
+import Routes from './routes.js'
+import { history } from './_store/createStore'
 
 // Themeing/Styling
 import getMuiTheme from 'material-ui/styles/getMuiTheme'

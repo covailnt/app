@@ -4,11 +4,11 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Checkbox from 'material-ui/Checkbox'
 
 import { Field, reduxForm } from 'redux-form'
-import TextField from '../../../elements/TextField'
+import TextField from '../../elements/TextField'
 import { RECOVER_PATH, LOGIN_FORM_NAME } from 'constants'
 import classes from './LoginForm.scss'
 
-import { required, validateEmail } from '../../../utils/form'
+import { required, validateEmail } from '../../_utils/form'
 
 export const LoginForm = ({ handleSubmit, submitting }) => (
   <form className={classes.container} onSubmit={handleSubmit}>

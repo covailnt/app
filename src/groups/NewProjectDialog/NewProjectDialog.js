@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import { Field, reduxForm } from 'redux-form'
-import TextField from '../../../elements/TextField'
-import { required } from '../../../utils/form'
-import { NEW_PROJECT_FORM_NAME } from '../../../constants'
+import TextField from '../../elements/TextField'
+import { required } from '../../_utils/form'
+import { NEW_PROJECT_FORM_NAME } from '../../constants'
 
 import classes from './NewProjectDialog.scss'
 
