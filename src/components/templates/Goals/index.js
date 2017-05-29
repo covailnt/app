@@ -1,6 +1,9 @@
 import {Component} from 'react';
 import CreateGoal from '../CreateGoal';
 import {connect} from 'react-redux';
+import {Fa} from 'components/elements';
+import style from './style';
+
 class Goals extends Component {
   constructor(){
     super();
@@ -16,11 +19,17 @@ class Goals extends Component {
     return (
       <div>
         <CreateGoal />
-        {this.goals.map((goal)=>(
-          <div key={goal.id}>
-            {goal.name}
-          </div>
-        ))}
+        <div className={style('goals')}>
+          {this.goals.map((goal)=>(
+            <div key={goal.id} className={style('goal')}>
+              <Fa icon='circle' className={style('marker')}/>
+              <span className={style('name')}>{goal.name}</span>
+              <br />
+              {goal.date}
+              <br />
+            </div>
+          ))}
+        </div>
       </div>
     )
   }

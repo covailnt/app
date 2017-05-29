@@ -32,8 +32,8 @@ class CreateGoal extends Component {
     return (
       <div>
         <Modal visible={this.state.visible} title='Create Goal' onClose={this.closeModal}>
-          <TextField onChange={this.handleChange.bind(null, 'name')} placeholder='Name' />
           <form onSubmit={this.handleSave}>
+            <TextField onChange={this.handleChange.bind(null, 'name')} placeholder='Name' />
             <br />
             <br />
             <TextArea placeholder='description' onChange={this.handleChange.bind(null, 'description')} />

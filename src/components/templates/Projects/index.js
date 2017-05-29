@@ -3,6 +3,7 @@ import {projectActions} from 'actions';
 import style from './style';
 import {Fa} from 'components/elements';
 import {connect} from 'react-redux';
+import CreateProject from '../CreateProject';
 
 class Projects extends Component {
   constructor(){
@@ -10,6 +11,7 @@ class Projects extends Component {
     
     this.state = {};
     this.handleProject = this.handleProject.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
   get currentUser(){
     return this.props.currentUser || {}
@@ -23,22 +25,39 @@ class Projects extends Component {
     )
     this.props.history.push('/goals');
   }
+  handleSelect(project){
+    this.setState({project})
+  }
+  get currentProject(){
+    return this.state.project || this.props.currentProject || this.props.projects[0] || {}
+  }
   render(){
     return (
       <div>
-        {this.projects.map((project)=>(
-          <div
-            key={project.id}
-            className={style('project')}
-          >
-            <div className={style('name')}>
-              {project.name}
-              <span onClick={this.handleProject.bind(null, project) } className={'pull-right'}>
-                <Fa className={style('launch')} icon={'chevron-right'} />
-              </span>
+        <div className={style('projectsContainer')}>
+          <CreateProject />
+          {this.projects.map((project)=>(
+            <div
+              key={project.id}
+              className={style('project')}
+            >
+              <div onClick={this.handleSelect.bind(null, project)}>
+                <span className={style('name')}>{project.name}</span>
+                <span onClick={this.handleProject.bind(null, project) } className={'pull-right'}>
+                  <Fa className={style('launch')} icon={'folder-open'} />
+                </span>
+              </div>
             </div>
+          ))}
+        </div>
+        <div className={style("projectContainer")}>
+          <div className={style("projectName")}>
+            {this.currentProject.name}
           </div>
-        ))}
+          <div className={style("projectDescription")}>
+            {this.currentProject.description}
+          </div>
+        </div>
       </div>
     )
   }
@@ -46,7 +65,8 @@ class Projects extends Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
-    projects: state.projects
+    projects: state.projects,
+    currentProject: state.currentProject
   }
 }
 

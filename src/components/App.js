@@ -14,7 +14,7 @@ class AppComponent extends Component {
     return (
       <Router>
         <div>
-          {this.props.currentUser ? (
+          {this.props.currentUser.uid ? (
             <Authenticated />
           ) : (
             <UnAuthenticated />

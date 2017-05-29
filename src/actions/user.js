@@ -7,6 +7,9 @@ export const authenticate = ()=>{
     firebase.auth().signInWithRedirect(provider)
 }
 
-export const logout = ()=>(
+export const logout = ()=>{
   firebase.auth().signOut()
-)
+  window.store.dispatch({
+    type: 'LOGOUT'
+  })
+}

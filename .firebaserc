@@ -2,6 +2,7 @@
   "projects": {
     "master": "iris-ef501",
     "stage": "iris-ef501",
-    "prod": "iris-ef501"
+    "prod": "iris-ef501",
+    "default": "iris-ef501"
   }
 }

@@ -1,7 +1,7 @@
 import dev from './dev';
 import dist from './dist';
 let config;
-if(process.env.NODE_ENV == 'production'){
+if(false && process.env.NODE_ENV == 'production'){
   config = dist;
 }else{
   config = dev;

@@ -14,8 +14,11 @@ firebase.auth().onAuthStateChanged(function(user) {
       value: user
     })
   }
+  start()
 });
 
 
-// Render the main component into the dom
-ReactDOM.render( <Provider store={appStore}><App /></Provider>, document.getElementById('app'));
+const start = ()=>{
+  // Render the main component into the dom
+  ReactDOM.render( <Provider store={appStore}><App /></Provider>, document.getElementById('app'));
+}
