@@ -1,10 +1,9 @@
-import Input from './style'
+import TextArea from './style'
 export default (props)=>(
-  <Input
-    type={props.type}
+  <TextArea
     onChange={props.onChange}
     value={props.value}
-    className={`input-${props.type} ${props.className}`}
+    className={`textarea ${props.className}`}
     placeholder={props.placeholder}
   />
 )

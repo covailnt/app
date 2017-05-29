@@ -16,10 +16,45 @@ export const create = (options)=>{
       name: options.name,
       description: options.description || '',
       goalId: goal.id,
-      resourceId: options.resourceId,
+      points: options.points,
+      type: options.type,
+      status: '',
       owner: currentUser().uid
     }
-
+    if(options.resourceId){
+      values.resourceId = options.resourceId
+    }
     tasks().push(values);
   }
+}
+
+export const updateStatus = (id, value)=>{
+  let val = '';
+  if(value == '' || !value){
+    val = 'started'
+  }else if(value == 'started'){
+    val = 'completed'
+  }
+
+  tasks().child(id).child('status').set(val);
+}
+
+export const toggleTimer = (id, value)=>{
+  if(value){
+    const end = new Date().getTime()
+    firebase.database().ref('timers').push({
+      starts: value,
+      ends: end,
+      elapsed: end - value,
+      owner: currentUser().uid,
+      taskId: id
+    })
+    tasks().child(id).child('timerStart').remove();
+  }else{
+    tasks().child(id).child('timerStart').set(new Date().getTime());
+  }
+}
+
+export const assignTask = (id, value)=>{
+  tasks().child(id).child('resourceId').set(value);
 }

@@ -4,7 +4,7 @@ try{
 }catch(error){
 
 }
-function currentProject(state = sessionState, action) {
+function currentGoal(state = sessionState, action) {
   switch (action.type) {
     case 'SET_CURRENT_GOAL':
       state =  {...action.value}
@@ -21,4 +21,4 @@ function currentProject(state = sessionState, action) {
   }
 }
 
-export default currentProject;
+export default currentGoal;

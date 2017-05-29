@@ -1,4 +1,20 @@
 import {StyleSheet, css} from 'aphrodite'
+
+const type = {
+  position: 'absolute',
+  fontFamily: 'Lato',
+  width: '2.3em',
+  height: '2.3em',
+  lineHeight: '2.3em',
+  color: '#3d372a',
+  fontWeight: 800,
+  textAlign: 'center',
+  display: 'inline-block',
+  borderRadius: '8px',
+  left: '.6em',
+  top: '6.5em'
+}
+
 const stylesheet = StyleSheet.create({
   taskContainer: {
     boxSizing: 'border-box',
@@ -6,8 +22,9 @@ const stylesheet = StyleSheet.create({
     display: 'inline-block'
   },
   task: {
+    position: 'relative',
     margin: '1em',
-    backgroundColor: '#323a45',
+    backgroundColor: '#2c333e',
     borderRadius: '8px 0px 8px 0px',
     overflow: 'hidden',
     display: 'block'
@@ -15,8 +32,25 @@ const stylesheet = StyleSheet.create({
   taskTitle: {
     padding: '1em',
     fontWeight: 600,
-    color: '#abcbf1',
-    backgroundColor: '#2c333e'
+    color: '#e2effe',
+    position: 'relative',
+   // backgroundColor: '#323a45',
+    paddingLeft: '4.5em'
+  },
+  taskPoints: {
+    position: 'absolute',
+    fontFamily: 'Lato',
+    width: '2.3em',
+    height: '2.3em',
+    lineHeight: '2.3em',
+    color: '#3d372a',
+    fontWeight: 800,
+    textAlign: 'center',
+    display: 'inline-block',
+    borderRadius: '8px',
+    backgroundColor: '#fdbe41',
+    left: '.6em',
+    top: '3.9em'
   },
   taskDescription:{
     padding: '1em'
@@ -25,7 +59,47 @@ const stylesheet = StyleSheet.create({
     padding: '1em'
   },
   taskAssignment: {
-    padding: '1em'
+    fontFamily: 'Lato',
+    width: '3.5em',
+    height: '3em',
+    lineHeight: '3em',
+    color: '#e2effe',
+    fontWeight: 600,
+    textAlign: 'center',
+    display: 'inline-block',
+    borderRadius: '8px 0px 8px 0px',
+    backgroundColor: '#4a90e2',
+    position: 'absolute',
+    left: '0px',
+    top: '0px'
+  },
+  taskTypeBug: Object.assign(type, {
+    backgroundColor: '#fc625d'
+  }),
+  taskTypeFeature: Object.assign(type, {
+    backgroundColor: '#91d66e'
+  }),
+  container:{
+    marginLeft: '3.5em',
+    position: 'relative',
+    backgroundColor: '#323a45'
+  },
+  status:{
+    textAlign: 'center',
+    backgroundColor: '#91d66e',
+    position: 'absolute',
+    width: '3.5em',
+    height: '3em',
+    lineHeight: '3em',
+    right: '0px',
+    top: '0px',
+    borderRadius: '8px 0px 8px 8px'
+  },
+  stop:{
+    color: '#fc625d'
+  },
+  record: {
+    color: '#91d66e'
   }
 })
 

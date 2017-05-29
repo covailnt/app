@@ -3,6 +3,8 @@ import {TextField, Button, TextArea, Select} from 'components/elements';
 import {taskActions} from 'actions';
 import {connect} from 'react-redux';
 import {Modal} from 'components/groups';
+import _ from 'underscore';
+import style from './style';
 
 class CreateTask extends Component {
   constructor(){
@@ -10,7 +12,7 @@ class CreateTask extends Component {
     this.state = {};
     this.handleChange = this.handleChange.bind(this)
     this.handleSave = this.handleSave.bind(this)
-    this.params = {}
+    this.params = {type: 'Feature', points: 1}
     this.showModal = this.showModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
   }
@@ -37,6 +39,26 @@ class CreateTask extends Component {
             <br />
             <br />
             <TextArea placeholder='description' onChange={this.handleChange.bind(null, 'description')} />
+            <br />
+            <br />
+            <div className={style('row')}>
+              <div className={style('split50')}>
+                Type:
+                <Select onChange={this.handleChange.bind(null, 'type')}>
+                  <option>Feature</option>
+                  <option>Bug</option>
+                </Select>
+              </div>
+              <div className={style('split50')}>
+                Points:
+                <Select onChange={this.handleChange.bind(null, 'points')}>
+                  {_(10).times((n)=>{
+                    n = n + 1
+                    return <option key={n} value={n}>{n}</option>
+                  })}
+                </Select>
+              </div>
+            </div>
             <br />
             <br />
             <Select onChange={this.handleChange.bind(null, 'resourceId')}>

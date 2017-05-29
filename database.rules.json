@@ -11,6 +11,16 @@
       ".indexOn": [
         "projectId"
       ]
+    },
+    "resources": {
+      ".indexOn": [
+        "projectId"
+      ]
+    },
+    "tasks": {
+      ".indexOn": [
+        "goalId"
+      ]
     }
   }
 }
