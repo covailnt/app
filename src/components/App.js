@@ -1,16 +1,32 @@
 import {Component} from 'react';
-import Content from 'components/yields/Content'
-
+import Authenticated from 'components/yields/Authenticated'
+import UnAuthenticated from 'components/yields/Unauthenticated'
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
 
 require('normalize.css/normalize.css');
 require('styles/App.css');
+import {connect} from 'react-redux';
 
 class AppComponent extends Component {
   render() {
     return (
-      <Content />
-    );
+      <Router>
+        <div>
+          {this.props.currentUser ? (
+            <Authenticated />
+          ) : (
+            <UnAuthenticated />
+          )}
+        </div>
+      </Router>
+    )
   }
 }
 
-export default AppComponent;
+function mapStateToProps(state) {
+  return { currentUser: state.currentUser }
+}
+
+export default connect(mapStateToProps)(AppComponent)

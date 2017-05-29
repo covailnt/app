@@ -16,3 +16,14 @@ export const create = (options)=>{
 
   projects().push(values);
 }
+
+export const setCurrent = (value)=>(
+  {
+    type: 'SET_CURRENT_PROJECT',
+    value
+  }
+)
+
+export const getCurrent = ()=>(
+  window.store.getState().currentProject
+)

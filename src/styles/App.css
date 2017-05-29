@@ -1,7 +1,9 @@
 /* Base Application Styles */
 body {
   color: #fff;
-  background: #222;
+  background: #383f4a;
+  font-family: 'Source Sans Pro';
+  padding: .5em;
 }
 
 .index img {
@@ -18,4 +20,17 @@ body {
   border: 1px solid #000;
   border-width: 1px 0;
   background: #666;
+}
+
+.pull-right{
+  float: right;
+  right: 0px;
+}
+
+.account-menu{
+  display: inline-block;
+  position: relative;
+}
+.pointer{
+  cursor: pointer;
 }
