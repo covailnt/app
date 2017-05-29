@@ -1,13 +1,7 @@
 function tasks(state = [], action) {
   switch (action.type) {
-    case 'ADD_TASK':
-      return [
-        ...state,
-        {
-          name: action.name,
-          description: action.description
-        }
-      ]
+    case 'SET_TASKS':
+      return action.value.map((tasks)=> Object.assign({}, tasks))
     default:
       return state
   }

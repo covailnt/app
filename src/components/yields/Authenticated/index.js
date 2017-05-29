@@ -3,6 +3,7 @@ import {userActions, projectActions} from 'actions'
 import {Iris, TopBar, NavItem} from 'components/elements'
 import {AccountMenu} from 'components/templates'
 import Routes from './routes'
+import {connect} from 'react-redux';
 
 class Content extends Component{
   constructor(){
@@ -10,6 +11,7 @@ class Content extends Component{
     this.setHello = this.setHello.bind(this);
     this.handleHello = this.handleHello.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleRoot = this.handleRoot.bind(this);
     this.params = {};
   }
   setHello(){
@@ -21,15 +23,15 @@ class Content extends Component{
   handleLogout(){
     userActions.logout()
   }
+  handleRoot(){
+    this.props.history.push('/')
+  }
   render(){
     return (
       <div>
         <TopBar>
-          <Iris />
+          <Iris onClick={this.handleRoot}/>
           <nav>
-            <NavItem href='/projects'>
-              Projects
-            </NavItem>
             <NavItem href='/goals'>
               Goals
             </NavItem>
@@ -48,4 +50,8 @@ class Content extends Component{
   }
 }
 
-export default Content
+function mapStateToProps(state) {
+  return { currentUser: state.currentUser }
+}
+
+export default connect(mapStateToProps)(Content)

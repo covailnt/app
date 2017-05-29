@@ -50,11 +50,11 @@ class Projects extends Component {
             </div>
           ))}
         </div>
-        <div className={style("projectContainer")}>
-          <div className={style("projectName")}>
+        <div className={style('projectContainer')}>
+          <div className={style('projectName')}>
             {this.currentProject.name}
           </div>
-          <div className={style("projectDescription")}>
+          <div className={style('projectDescription')}>
             {this.currentProject.description}
           </div>
         </div>

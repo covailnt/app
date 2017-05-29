@@ -2,22 +2,24 @@ import {Component} from 'react';
 import Authenticated from 'components/yields/Authenticated'
 import UnAuthenticated from 'components/yields/Unauthenticated'
 import {
-  BrowserRouter as Router
+  BrowserRouter as Router,
+  Route
 } from 'react-router-dom'
 
 require('normalize.css/normalize.css');
 require('styles/App.css');
 import {connect} from 'react-redux';
+import style from './style';
 
 class AppComponent extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className={style('container')}>
           {this.props.currentUser.uid ? (
-            <Authenticated />
+            <Route component={Authenticated} />
           ) : (
-            <UnAuthenticated />
+            <Route component={UnAuthenticated} />
           )}
         </div>
       </Router>

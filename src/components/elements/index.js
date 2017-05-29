@@ -3,6 +3,7 @@ import Input from './Input'
 import TextField from './TextField'
 import DateField from './DateField'
 import TextArea from './TextArea'
+import Select from './Select'
 import Iris from './Iris'
 import MenuItems from './MenuItems'
 import MenuButton from './MenuButton'
@@ -23,5 +24,6 @@ export {
   TopBar,
   Fa,
   TextArea,
-  DateField
+  DateField,
+  Select
 }

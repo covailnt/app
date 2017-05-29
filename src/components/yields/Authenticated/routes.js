@@ -9,14 +9,14 @@ class Routes extends Component {
   }
   render(){
     return (
-      <Switch>
-        <div className={style('container')}>
-          <Route path="/projects" component={Projects}/>
+      <div className={style('container')}>
+        <Switch>
           <Route path="/goals" component={Goals}/>
           <Route path="/tasks" component={Tasks}/>
           <Route path="/resources" component={Resources}/>
-        </div>
-      </Switch>
+          <Route path="/" component={Projects}/>
+        </Switch>
+      </div>
     )
   }
 }

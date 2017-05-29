@@ -1,13 +1,7 @@
 function resources(state = [], action) {
   switch (action.type) {
-    case 'ADD_RESOURCES':
-      return [
-        ...state,
-        {
-          name: action.name,
-          description: action.description
-        }
-      ]
+    case 'SET_RESOURCES':
+      return action.value.map((resource)=>( Object.assign({}, resource)))
     default:
       return state
   }

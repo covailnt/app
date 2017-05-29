@@ -13,9 +13,12 @@ const handler = (store, action)=>{
       _v.forEach((sn)=>{
         value.push({...sn.val(), id: sn.key})
       })
+      
       store.dispatch({
         type: 'SET_GOALS',
-        value: value
+        value: value.sort((a, b)=>(
+          a.date > b.date
+        ))
       })
     })
   }

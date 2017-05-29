@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {TextField, Button, TextArea, DateField} from 'components/elements';
+import {TextField, Button, TextArea} from 'components/elements';
 import {projectActions} from 'actions';
 import {connect} from 'react-redux';
 import {Modal} from 'components/groups';

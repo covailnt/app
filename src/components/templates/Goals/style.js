@@ -5,7 +5,8 @@ const stylesheet = StyleSheet.create({
     position: 'relative',
     display: 'block',
     margin: '1em 1em',
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
+    cursor: 'pointer'
   },
   goals: {
     marginTop: '2em',

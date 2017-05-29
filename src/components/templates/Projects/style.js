@@ -41,10 +41,7 @@ const stylesheet = StyleSheet.create({
   }
 })
 
-export default (handler, handler2)=>{
+export default (handler)=>{
   let cs = stylesheet[handler];
-  if(handler2){
-    cs = cs[handler2]
-  }
   return css(cs)
 }

@@ -6,5 +6,6 @@ const iris = styled.div`
   font-size: 40px;
   color: #91d66e;
   display: inline-block;
+  cursor: pointer;
 `
 export default iris;

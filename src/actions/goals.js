@@ -23,3 +23,13 @@ export const create = (options)=>{
     goals().push(values);
   }
 }
+export const setCurrent = (value)=>(
+  window.store.dispatch({
+    type: 'SET_CURRENT_GOAL',
+    value
+  })
+)
+export const getCurrent = ()=>(
+  window.store.getState().currentGoal
+)
+

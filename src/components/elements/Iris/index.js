@@ -1,5 +1,5 @@
 import Iris from './style';
 
-export default ()=>(
-  <Iris>Iris</Iris>
+export default (props)=>(
+  <Iris onClick={props.onClick}>Iris</Iris>
 )

@@ -5,7 +5,7 @@ const stylesheet = StyleSheet.create({
   }
 })
 
-export default (handler, handler2)=>{
+export default (handler)=>{
   let cs = stylesheet[handler];
 
   return css(cs)
