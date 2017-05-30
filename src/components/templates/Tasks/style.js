@@ -1,6 +1,6 @@
 import {StyleSheet, css} from 'aphrodite'
 
-const type = {
+const type = ()=>({
   position: 'absolute',
   fontFamily: 'Lato',
   width: '2.3em',
@@ -13,7 +13,7 @@ const type = {
   borderRadius: '8px',
   left: '.6em',
   top: '6.5em'
-}
+})
 
 const stylesheet = StyleSheet.create({
   taskContainer: {
@@ -31,11 +31,13 @@ const stylesheet = StyleSheet.create({
   },
   taskTitle: {
     padding: '1em',
+    whiteSpace: 'nowrap',
     fontWeight: 600,
     color: '#e2effe',
     position: 'relative',
+    textOverflow: 'ellipsis',
    // backgroundColor: '#323a45',
-    paddingLeft: '4.5em'
+    paddingLeft: '1em'
   },
   taskPoints: {
     position: 'absolute',
@@ -53,7 +55,11 @@ const stylesheet = StyleSheet.create({
     top: '3.9em'
   },
   taskDescription:{
-    padding: '1em'
+    margin: '1em',
+    height: '2.5em',
+    lineHeight: '1.25em',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   },
   taskDate:{
     padding: '1em'
@@ -73,10 +79,10 @@ const stylesheet = StyleSheet.create({
     left: '0px',
     top: '0px'
   },
-  taskTypeBug: Object.assign(type, {
+  taskTypeBug: Object.assign({}, type(), {
     backgroundColor: '#fc625d'
   }),
-  taskTypeFeature: Object.assign(type, {
+  taskTypeFeature: Object.assign({}, type(), {
     backgroundColor: '#91d66e'
   }),
   container:{
@@ -94,6 +100,10 @@ const stylesheet = StyleSheet.create({
     right: '0px',
     top: '0px',
     borderRadius: '8px 0px 8px 8px'
+  },
+  timer: {
+    marginLeft: '1em',
+    paddingBottom: '1em'
   },
   stop:{
     color: '#fc625d'

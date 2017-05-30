@@ -26,7 +26,8 @@ const stylesheet = StyleSheet.create({
   projectsContainer:{
     width: '20em',
     position: 'absolute',
-    display: 'inline-block'
+    display: 'inline-block',
+    zIndex: 1
   },
   projectContainer:{
     marginTop: '2em',
@@ -38,6 +39,9 @@ const stylesheet = StyleSheet.create({
   },
   description: {
     backgroundColor: '#323a45'
+  },
+  users: {
+    padding: '1em'
   }
 })
 

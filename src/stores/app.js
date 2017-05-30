@@ -6,6 +6,8 @@ import tasks from './tasks';
 import currentUser from './currentUser';
 import currentProject from './currentProject';
 import currentGoal from './currentGoal';
+import users from './users';
+import authorizedUsers from './authorizedUsers';
 
 import refire from '../refire';
 
@@ -18,7 +20,9 @@ const rootReducer = combineReducers({
     projects,
     goals,
     resources,
-    tasks
+    tasks,
+    users,
+    authorizedUsers
 });
 
 window.store = createStore(rootReducer, applyMiddleware(refire));

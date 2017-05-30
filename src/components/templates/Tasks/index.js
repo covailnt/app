@@ -79,17 +79,17 @@ class Tasks extends Component {
                 </div>
                 <div className={style('taskDescription')}>{task.description}</div>
                 <div className={style('taskDate')}>
-                  {this.goal(task.goalId).date.split('-').slice(1,3).join('/')}<span>&nbsp;</span>
+                  {(this.goal(task.goalId).date || '').split('-').slice(1,3).join('/')}<span>&nbsp;</span>
                 </div>
                 <div onClick={this.toggleTimer.bind(null, task)} className={style('timer')}>
-                    {task.timerStart ? (
-                      <Fa icon='square' className={style('stop')} />
-                    ):(
-                      <Fa icon='circle' className={style('record')}  />
-                    )}
-                    &nbsp;
-                    <Timer startTime={task.timerStart} />
-                  </div>
+                  {task.timerStart ? (
+                    <Fa icon='square' className={style('stop')} />
+                  ):(
+                    <Fa icon='circle' className={style('record')}  />
+                  )}
+                  &nbsp;
+                  <Timer startTime={task.timerStart} />
+                </div>
               </div>
             </div>
           </div>

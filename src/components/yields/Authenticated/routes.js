@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { Projects, Goals, Tasks, Resources  } from 'components/templates'
+import { Projects, Goals, Tasks, Resources, Reports } from 'components/templates'
 import style from './style'
 
 class Routes extends Component {
@@ -14,6 +14,7 @@ class Routes extends Component {
           <Route path="/goals" component={Goals}/>
           <Route path="/tasks" component={Tasks}/>
           <Route path="/resources" component={Resources}/>
+          <Route path="/reports" component={Reports}/>
           <Route path="/" component={Projects}/>
         </Switch>
       </div>

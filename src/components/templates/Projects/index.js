@@ -12,6 +12,9 @@ class Projects extends Component {
     this.state = {};
     this.handleProject = this.handleProject.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.authorizeUser = this.authorizeUser.bind(this);
+    this.isAuthorized = this.isAuthorized.bind(this)
+    this.isNotAuthorized = this.isNotAuthorized.bind(this)
   }
   get currentUser(){
     return this.props.currentUser || {}
@@ -26,19 +29,32 @@ class Projects extends Component {
     this.props.history.push('/goals');
   }
   handleSelect(project){
-    this.setState({project})
+    this.props.dispatch(
+      projectActions.setCurrent(project)
+    )
   }
   get currentProject(){
     return this.state.project || this.props.currentProject || this.props.projects[0] || {}
+  }
+  authorizeUser(projectId, user){
+    projectActions.authorizeUser(projectId, user)
+  }
+  isAuthorized(user){
+    return this.props.authorizedUsers.find((au)=>{
+      return au.owner == user.id
+    })
+  }
+  isNotAuthorized(user){
+    return !this.props.authorizedUsers.find((au)=>( au.owner == user.id))
   }
   render(){
     return (
       <div>
         <div className={style('projectsContainer')}>
           <CreateProject />
-          {this.projects.map((project)=>(
+          {this.projects.map((project, i)=>(
             <div
-              key={project.id}
+              key={i}
               className={style('project')}
             >
               <div onClick={this.handleSelect.bind(null, project)}>
@@ -57,6 +73,24 @@ class Projects extends Component {
           <div className={style('projectDescription')}>
             {this.currentProject.description}
           </div>
+          Authorized Users:
+          {this.props.users.filter(this.isAuthorized).map((user)=>(
+            <div key={user.id}
+              className={style('user')}
+            >
+                {user.displayName}
+            </div>
+          ))}
+          <br />
+          Users:
+          {this.props.users.filter(this.isNotAuthorized).map((user)=>(
+            <div key={user.id}
+              onClick={this.authorizeUser.bind(null, this.currentProject.id, user)}
+              className={style('user')}
+            >
+                {user.displayName}
+            </div>
+          ))}
         </div>
       </div>
     )
@@ -66,7 +100,9 @@ function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
     projects: state.projects,
-    currentProject: state.currentProject
+    currentProject: state.currentProject,
+    users: state.users,
+    authorizedUsers: state.authorizedUsers
   }
 }
 

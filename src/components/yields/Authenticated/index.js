@@ -32,15 +32,26 @@ class Content extends Component{
         <TopBar>
           <Iris onClick={this.handleRoot}/>
           <nav>
-            <NavItem href='/goals'>
-              Goals
-            </NavItem>
-            <NavItem href='/tasks'>
-              Tasks
-            </NavItem>
-            <NavItem href='/resources'>
-              Resources
-            </NavItem>
+            {this.props.currentProject &&
+              <NavItem href='/goals'>
+                Goals
+              </NavItem>
+            }
+            {this.props.currentGoal &&
+              <NavItem href='/tasks'>
+                Tasks
+              </NavItem>
+            }
+            {this.props.currentProject &&
+              <NavItem href='/resources'>
+                Resources
+              </NavItem>
+            }
+            {this.props.currentProject &&
+              <NavItem href='/reports'>
+                Reports
+              </NavItem>
+            }
           </nav>
           <AccountMenu />
         </TopBar>
@@ -51,7 +62,11 @@ class Content extends Component{
 }
 
 function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
+  return {
+    currentUser: state.currentUser,
+    currentProject: state.currentProject,
+    currentGoal: state.currentGoal
+  }
 }
 
 export default connect(mapStateToProps)(Content)

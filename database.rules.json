@@ -21,6 +21,16 @@
       ".indexOn": [
         "goalId"
       ]
+    },
+    "authorizedProjects":{
+      ".indexOn":[
+        "owner", "projectId"
+      ]
+    },
+    "timers":{
+      ".indexOn":[
+        "projectId"
+      ]
     }
   }
 }

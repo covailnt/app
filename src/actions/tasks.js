@@ -43,10 +43,11 @@ export const toggleTimer = (id, value)=>{
   if(value){
     const end = new Date().getTime()
     firebase.database().ref('timers').push({
-      starts: value,
-      ends: end,
-      elapsed: end - value,
+      start: value,
+      end: end,
+      duration: end - value,
       owner: currentUser().uid,
+      projectId: window.store.getState().currentProject.id,
       taskId: id
     })
     tasks().child(id).child('timerStart').remove();

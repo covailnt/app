@@ -3,6 +3,7 @@ import Projects from './Projects'
 import Goals from './Goals'
 import Tasks from './Tasks'
 import Resources from './Resources'
+import Reports from './Reports'
 
 
 export {
@@ -10,5 +11,6 @@ export {
   Projects,
   Goals,
   Tasks,
-  Resources
+  Resources,
+  Reports
 }

@@ -13,6 +13,10 @@ firebase.auth().onAuthStateChanged(function(user) {
       type: 'SET_CURRENT_USER',
       value: user
     })
+    
+    firebase.database().ref('users/' + user.uid).set({
+      displayName: user.displayName
+    })
   }
   start()
 });
