@@ -1,9 +1,14 @@
 import firebase from './firebase'
 
+let initialized = false
 const handler = (store, action)=>{
-  if(action.type == 'SET_CURRENT_PROJECT'){
+  const state = store.getState()
+  if(action.type == 'SET_CURRENT_PROJECT' || (!initialized && state.currentProject)){
+    initialized = true
     const ref = firebase.database().ref('authorizedProjects')
-    ref.orderByChild('projectId').equalTo(action.value.id).on('value', (_v)=>{
+    let id = (action.value || {}).id || state.currentProject.id
+
+    ref.orderByChild('projectId').equalTo(id).on('value', (_v)=>{
       let value = [];
 
       _v.forEach((sn)=>{

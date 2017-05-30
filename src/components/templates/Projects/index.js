@@ -34,7 +34,7 @@ class Projects extends Component {
     )
   }
   get currentProject(){
-    return this.state.project || this.props.currentProject || this.props.projects[0] || {}
+    return this.props.currentProject
   }
   authorizeUser(projectId, user){
     projectActions.authorizeUser(projectId, user)
@@ -67,30 +67,38 @@ class Projects extends Component {
           ))}
         </div>
         <div className={style('projectContainer')}>
-          <div className={style('projectName')}>
-            {this.currentProject.name}
-          </div>
-          <div className={style('projectDescription')}>
-            {this.currentProject.description}
-          </div>
-          Authorized Users:
-          {this.props.users.filter(this.isAuthorized).map((user)=>(
-            <div key={user.id}
-              className={style('user')}
-            >
-                {user.displayName}
+          {this.currentProject ? (
+            <div>
+              <div className={style('projectName')}>
+                {this.currentProject.name}
+              </div>
+              <div className={style('projectDescription')}>
+                {this.currentProject.description}
+              </div>
+              Authorized Users:
+              {this.props.users.filter(this.isAuthorized).map((user)=>(
+                <div key={user.id}
+                  className={style('user')}
+                >
+                    {user.displayName}
+                </div>
+              ))}
+              <br />
+              Users:
+              {this.props.users.filter(this.isNotAuthorized).map((user)=>(
+                <div key={user.id}
+                  onClick={this.authorizeUser.bind(null, this.currentProject.id, user)}
+                  className={style('user')}
+                >
+                    {user.displayName}
+                </div>
+              ))}
             </div>
-          ))}
-          <br />
-          Users:
-          {this.props.users.filter(this.isNotAuthorized).map((user)=>(
-            <div key={user.id}
-              onClick={this.authorizeUser.bind(null, this.currentProject.id, user)}
-              className={style('user')}
-            >
-                {user.displayName}
+          ):(
+            <div>
+              You have not selected a project choose one to the left or create one to get started!
             </div>
-          ))}
+          )}
         </div>
       </div>
     )
