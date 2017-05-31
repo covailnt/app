@@ -4,7 +4,6 @@ import CreateTask from '../CreateTask';
 import style from './style';
 import {Fa} from 'components/elements';
 import AssignTask from '../AssignTask';
-import Timer from '../Timer';
 import {taskActions} from 'actions';
 
 class Tasks extends Component {
@@ -31,18 +30,15 @@ class Tasks extends Component {
   updateStatus(task){
     taskActions.updateStatus(task.id, task.status)
   }
-  toggleTimer(task){
-    taskActions.toggleTimer(task.id, task.timerStart)
-  }
   showTaskAssignment(task){
     this.setState({
       currentTaskId: task.id,
-      showTaskAssignment: true
+      showTaskAssignment: true,
     })
   }
   closeTaskAssignment(){
     this.setState({
-      showTaskAssignment: false
+      showTaskAssignment: false,
     })
   }
   goal(id){
@@ -81,15 +77,6 @@ class Tasks extends Component {
                 <div className={style('taskDate')}>
                   {(this.goal(task.goalId).date || '').split('-').slice(1,3).join('/')}<span>&nbsp;</span>
                 </div>
-                <div onClick={this.toggleTimer.bind(null, task)} className={style('timer')}>
-                  {task.timerStart ? (
-                    <Fa icon='square' className={style('stop')} />
-                  ):(
-                    <Fa icon='circle' className={style('record')}  />
-                  )}
-                  &nbsp;
-                  <Timer startTime={task.timerStart} />
-                </div>
               </div>
             </div>
           </div>
@@ -103,7 +90,7 @@ function mapStateToProps(state) {
     currentUser: state.currentUser,
     tasks: state.tasks,
     goals: state.goals,
-    resources: state.resources
+    resources: state.resources,
   }
 }
 

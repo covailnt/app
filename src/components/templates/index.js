@@ -1,16 +1,12 @@
 import AccountMenu from './AccountMenu'
 import Projects from './Projects'
-import Goals from './Goals'
+import ProfileDonut from './ProfileDonut'
 import Tasks from './Tasks'
-import Resources from './Resources'
-import Reports from './Reports'
 
 
 export {
   AccountMenu,
   Projects,
-  Goals,
+  ProfileDonut,
   Tasks,
-  Resources,
-  Reports
 }

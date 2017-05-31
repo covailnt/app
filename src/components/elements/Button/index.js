@@ -1,5 +1,4 @@
-import Button from './style'
+import Button from './Button'
+import './Button.scss'
 
-export default (props)=>(
-  <Button onClick={props.onClick}>{props.children}</Button>
-)
+export default Button
