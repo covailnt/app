@@ -1,5 +1,7 @@
 import ProfileDonut from './ProfileDonut'
+import DropDown from './DropDown'
 
 export {
-  ProfileDonut
+  DropDown,
+  ProfileDonut,
 }

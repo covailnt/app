@@ -1,3 +1,3 @@
-export default ({icon, className})=>(
-  <i className={`fa fa-${icon} ${className}`}></i>
+export default ({icon, size})=>(
+  <i className={`fa fa-${icon} ${size}`}></i>
 )
