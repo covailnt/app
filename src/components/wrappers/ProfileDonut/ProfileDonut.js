@@ -12,7 +12,7 @@ export default class ProfileDonut extends Component {
   }
   render() {
     return (
-      <DonutChart size={170} strokeWidth={13} value={this.state.donutval} />
+      <DonutChart size={170} strokeWidth={50} value={this.state.donutval} />
     )
   }
 }

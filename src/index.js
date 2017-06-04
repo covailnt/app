@@ -5,6 +5,8 @@ import App from './components/App';
 import { Provider } from 'react-redux';
 import appStore from 'stores/app';
 import firebase from './refire/firebase';
+import './styles/theme.scss'
+
 window.React = React;
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -13,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       type: 'SET_CURRENT_USER',
       value: user
     })
-    
+
     firebase.database().ref('users/' + user.uid).set({
       displayName: user.displayName
     })

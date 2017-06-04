@@ -13,10 +13,13 @@ const DonutChart = ({ value, size, strokewidth }) => {
   const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
   return (
-    <svg className='donutchart' width={size} height={size}>
-      <circle className='donutchart-track' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
-      <circle className='donutchart-filling' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
-    </svg>
+    <div className="donut-ctn">
+      <svg className='donutchart' width={size} height={size}>
+        <circle className='donutchart-track' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
+        <circle className='donutchart-filling' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
+      </svg>
+      <img src="http://placekitten.com/g/200/200" />
+    </div>
   )
 }
 

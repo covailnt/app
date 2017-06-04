@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { ProfileDonut, Projects, Tasks } from 'components/templates'
+import { ProfileDonut } from 'components/wrappers'
 import style from './style'
 
 class Routes extends Component {
@@ -12,8 +12,6 @@ class Routes extends Component {
       <div className={style('container')}>
         <Switch>
           <Route path="/profile" component={ProfileDonut} />
-          <Route path="/tasks" component={Tasks}/>
-          <Route path="/" component={Projects}/>
         </Switch>
       </div>
     )

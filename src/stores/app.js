@@ -25,6 +25,8 @@ const rootReducer = combineReducers({
     authorizedUsers
 })
 
-window.store = createStore(rootReducer, applyMiddleware(refire))
+window.store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(refire)
+))
 
 export default window.store

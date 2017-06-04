@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 require('normalize.css/normalize.css');
-require('styles/App.css');
+require('theme/App.css');
 import {connect} from 'react-redux';
 import style from './style';
 
