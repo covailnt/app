@@ -1,10 +1,10 @@
-import 'core-js/fn/object/assign';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import { Provider } from 'react-redux';
-import appStore from 'stores/app';
-import firebase from './refire/firebase';
+import 'core-js/fn/object/assign'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './components/App'
+import { Provider } from 'react-redux'
+import appStore from 'stores/app'
+import firebase from './refire/firebase'
 import './styles/theme.scss'
 
 window.React = React;
