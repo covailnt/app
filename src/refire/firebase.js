@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import config from '../config';
+import firebase from 'firebase'
+import config from '../config'
 
 firebase.initializeApp({
   apiKey: config.firebase.apiKey,
@@ -10,4 +10,4 @@ firebase.initializeApp({
   messagingSenderId: config.firebase.messagingSenderId
 })
 
-export default firebase;
+export default firebase
