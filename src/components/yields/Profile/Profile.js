@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { ProfileDonut, DropDown } from 'components/wrappers'
+import { DonutChart } from 'components/groups'
+import { DropDown } from 'components/wrappers'
 
 export default class Profile extends Component {
   render() {
@@ -8,7 +9,7 @@ export default class Profile extends Component {
         <DropDown
           name="Ryan's Dropdown"
           items={['I\'m not busy', 'I\'m kinda busy', 'I\'m crazy busy']} />
-        <ProfileDonut />
+        <DonutChart size={170} strokeWidth={50} value={55} />
       </div>
     )
   }

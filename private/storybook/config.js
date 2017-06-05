@@ -1,8 +1,10 @@
 import React from 'react'
 import { configure, addDecorator } from '@kadira/storybook'
+import { BackgroundColor } from 'react-storybook-decorator-background';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import store from '../src/stores/app'
+import store from 'stores/app'
+import theme from 'theme'
 
 const req = require.context('components', true, /.stories.js$/)
 
@@ -13,7 +15,19 @@ function loadStories() {
 addDecorator(story => (
   <Provider store={store}>
     <BrowserRouter>
-      {story()}
+      <BackgroundColor
+        colors={[
+          theme.color.black,
+          theme.color.primary,
+          theme.color.active,
+          theme.color.secondary,
+          theme.color.accent1,
+          theme.color.accent2,
+          theme.color.accent3,
+          theme.color.white
+        ]}
+        story={story}
+      />
     </BrowserRouter>
   </Provider>
 ))

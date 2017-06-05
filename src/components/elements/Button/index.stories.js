@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import Button from '.'
 
-storiesOf('Atom', module)
+storiesOf('Button', module)
   .add('default', () => (
     <Button>Hello</Button>
   ))
