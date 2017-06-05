@@ -1,0 +1,69 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _redux = require('redux');
+
+var _reduxDevtoolsExtension = require('redux-devtools-extension');
+
+var _projects = require('./projects');
+
+var _projects2 = _interopRequireDefault(_projects);
+
+var _goals = require('./goals');
+
+var _goals2 = _interopRequireDefault(_goals);
+
+var _resources = require('./resources');
+
+var _resources2 = _interopRequireDefault(_resources);
+
+var _tasks = require('./tasks');
+
+var _tasks2 = _interopRequireDefault(_tasks);
+
+var _currentUser = require('./currentUser');
+
+var _currentUser2 = _interopRequireDefault(_currentUser);
+
+var _currentProject = require('./currentProject');
+
+var _currentProject2 = _interopRequireDefault(_currentProject);
+
+var _currentGoal = require('./currentGoal');
+
+var _currentGoal2 = _interopRequireDefault(_currentGoal);
+
+var _users = require('./users');
+
+var _users2 = _interopRequireDefault(_users);
+
+var _authorizedUsers = require('./authorizedUsers');
+
+var _authorizedUsers2 = _interopRequireDefault(_authorizedUsers);
+
+var _refire = require('../refire');
+
+var _refire2 = _interopRequireDefault(_refire);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//import firebase from 'firebase';
+
+var rootReducer = (0, _redux.combineReducers)({
+    currentProject: _currentProject2.default,
+    currentUser: _currentUser2.default,
+    currentGoal: _currentGoal2.default,
+    projects: _projects2.default,
+    goals: _goals2.default,
+    resources: _resources2.default,
+    tasks: _tasks2.default,
+    users: _users2.default,
+    authorizedUsers: _authorizedUsers2.default
+});
+
+window.store = (0, _redux.createStore)(rootReducer, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_refire2.default)));
+
+exports.default = window.store;

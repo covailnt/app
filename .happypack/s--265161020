@@ -1,0 +1,26 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+var _config = require('../config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_firebase2.default.initializeApp({
+  apiKey: _config2.default.firebase.apiKey,
+  authDomain: _config2.default.firebase.authDomain,
+  databaseURL: _config2.default.firebase.databaseURL,
+  projectId: _config2.default.firebase.projectId,
+  storageBucket: _config2.default.firebase.storageBucket,
+  messagingSenderId: _config2.default.firebase.messagingSenderId
+});
+
+exports.default = _firebase2.default;

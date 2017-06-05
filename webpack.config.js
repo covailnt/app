@@ -1,37 +1,108 @@
-'use strict';
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const devServer = require('@webpack-blocks/dev-server2')
+const splitVendor = require('webpack-blocks-split-vendor')
+const happypack = require('webpack-blocks-happypack')
 
-const path = require('path');
-const args = require('minimist')(process.argv.slice(2));
+const {
+  addPlugins, createConfig, entryPoint, env, setOutput,
+  sourceMaps, defineConstants, webpack,
+} = require('@webpack-blocks/webpack2')
 
-// List of allowed environments
-const allowedEnvs = ['dev', 'dist', 'test'];
+const host = process.env.HOST || 'localhost'
+const port = process.env.PORT || 3000
+const sourceDir = process.env.SOURCE || 'src'
+const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
+const sourcePath = path.join(process.cwd(), sourceDir)
+const outputPath = path.join(process.cwd(), 'dist')
 
-// Set the correct environment
-let env;
-if (args._.length > 0 && args._.indexOf('start') !== -1) {
-  env = 'test';
-} else if (args.env) {
-  env = args.env;
-} else {
-  env = 'dev';
-}
-process.env.REACT_WEBPACK_ENV = env;
+const babel = () => () => ({
+  module: {
+    rules: [
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+    ],
+  },
+})
 
-/**
- * Build the webpack configuration
- * @param  {String} wantedEnv The wanted environment
- * @return {Object} Webpack config
- */
-function buildConfig(wantedEnv) {
-  let isValid = wantedEnv && wantedEnv.length > 0 && allowedEnvs.indexOf(wantedEnv) !== -1;
-  let validEnv = isValid ? wantedEnv : 'dev';
-  let config = require(path.join(__dirname, 'cfg/' + validEnv));
-  config.resolve = {
-    extensions: ['', '.js', '.jsx', '.json'],
-    root: path.resolve(__dirname, './src')
-  };
+const sass = () => () => ({
+  module: {
+    rules: [
+      { test: /\.scss/, exclude: /node_modules/, loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded' },
+    ],
+  },
+})
 
-  return config;
-}
+const css = () => () => ({
+  module: {
+    rules: [
+      { test: /\.css$/, exclude: /node_modules\/normalize.css/, loader: 'style-loader!css-loader' },
+    ],
+  },
+})
 
-module.exports = buildConfig(env);
+const assets = () => () => ({
+  module: {
+    rules: [
+      { test: /\.(png|jpe?g|svg|woff2?|ttf|eot)$/, loader: 'url-loader?limit=8000' },
+    ],
+  },
+})
+
+const resolveModules = modules => () => ({
+  resolve: {
+    modules: [].concat(modules, ['node_modules']),
+  },
+})
+
+const config = createConfig([
+  entryPoint({
+    app: sourcePath,
+  }),
+  setOutput({
+    filename: '[name].js',
+    path: outputPath,
+    publicPath,
+  }),
+  defineConstants({
+    'process.env.NODE_ENV': process.env.NODE_ENV,
+    'process.env.PUBLIC_PATH': publicPath.replace(/\/$/, ''),
+  }),
+  addPlugins([
+    new webpack.ProgressPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.join(process.cwd(), 'public/index.html'),
+    }),
+  ]),
+  happypack([
+    babel(),
+  ]),
+  assets(),
+  sass(),
+  css(),
+  resolveModules(sourceDir),
+
+  env('development', [
+    devServer({
+      contentBase: 'public',
+      stats: 'errors-only',
+      historyApiFallback: { index: publicPath },
+      headers: { 'Access-Control-Allow-Origin': '*' },
+      host,
+      port,
+    }),
+    sourceMaps(),
+    addPlugins([
+      new webpack.NamedModulesPlugin(),
+    ]),
+  ]),
+
+  env('production', [
+    splitVendor(),
+    addPlugins([
+      new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    ]),
+  ]),
+])
+
+module.exports = config

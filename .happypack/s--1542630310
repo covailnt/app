@@ -1,0 +1,15 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _DonutChart = require('./DonutChart');
+
+var _DonutChart2 = _interopRequireDefault(_DonutChart);
+
+require('./DonutChart.scss');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _DonutChart2.default;

@@ -1,0 +1,26 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _aphrodite = require('aphrodite');
+
+var stylesheet = _aphrodite.StyleSheet.create({
+  ul: {
+    display: 'table',
+    width: '100%',
+    'box-sizing': 'border-box',
+    '-webkit-padding-start': '0px',
+    '-webkit-padding-end': '0px',
+    margin: '0px'
+  },
+  li: {
+    'vertical-align': 'middle',
+    display: 'table-cell'
+  }
+});
+
+exports.default = function (handler) {
+  return (0, _aphrodite.css)(stylesheet[handler]);
+};

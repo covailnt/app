@@ -1,0 +1,1 @@
+{"version":3,"sources":["src\\components\\yields\\Profile\\index.js"],"names":[],"mappings":";;;;;;AAAA","file":"index.js","sourceRoot":"C:/Users/Ryan/Documents/dev/embark/covailnt","sourcesContent":["import Profile from './Profile'\n\nexport default Profile\n"]}

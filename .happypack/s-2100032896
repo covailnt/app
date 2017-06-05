@@ -1,0 +1,37 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _style = require('./style');
+
+var _style2 = _interopRequireDefault(_style);
+
+var _elements = require('components/elements');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Modal = function Modal(props) {
+  return props.visible ? React.createElement(
+    'div',
+    { className: (0, _style2.default)('modal') },
+    React.createElement(
+      'div',
+      { className: (0, _style2.default)('modalContent') },
+      React.createElement(
+        'div',
+        { className: (0, _style2.default)('modalTitle') },
+        props.title
+      ),
+      React.createElement(
+        'span',
+        { className: (0, _style2.default)('modalClose'), onClick: props.onClose },
+        React.createElement(_elements.Fa, { icon: 'close' })
+      ),
+      props.children
+    )
+  ) : React.createElement('span', null);
+};
+
+exports.default = Modal;

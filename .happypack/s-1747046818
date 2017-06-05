@@ -1,0 +1,52 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _projects = require('./projects');
+
+var _projects2 = _interopRequireDefault(_projects);
+
+var _goals = require('./goals');
+
+var _goals2 = _interopRequireDefault(_goals);
+
+var _tasks = require('./tasks');
+
+var _tasks2 = _interopRequireDefault(_tasks);
+
+var _resources = require('./resources');
+
+var _resources2 = _interopRequireDefault(_resources);
+
+var _authorizedUsers = require('./authorizedUsers');
+
+var _authorizedUsers2 = _interopRequireDefault(_authorizedUsers);
+
+var _users = require('./users');
+
+var _users2 = _interopRequireDefault(_users);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ReFire = function ReFire(store) {
+  return function (next) {
+    return function (action) {
+      try {
+        var value = next(action);
+        (0, _projects2.default)(store, action);
+        (0, _goals2.default)(store, action);
+        (0, _resources2.default)(store, action);
+        (0, _tasks2.default)(store, action);
+        (0, _users2.default)(store, action);
+        (0, _authorizedUsers2.default)(store, action);
+        return value;
+      } catch (err) {
+        throw err;
+      }
+    };
+  };
+};
+
+exports.default = ReFire;

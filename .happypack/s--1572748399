@@ -1,0 +1,35 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _firebase = require('./firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var handler = function handler(store, action) {
+  if (action.type == 'SET_CURRENT_USER') {
+    var uid = store.getState().currentUser.uid;
+    var ref = _firebase2.default.database().ref('authorizedProjects');
+    ref.orderByChild('owner').equalTo(uid).on('value', function (_v) {
+      var value = [];
+
+      _v.forEach(function (sn) {
+        _firebase2.default.database().ref('projects/' + sn.val().projectId).once('value').then(function (snpr) {
+          value.push(_extends({}, snpr.val(), { id: snpr.key }));
+          store.dispatch({
+            type: 'SET_PROJECTS',
+            value: value
+          });
+        });
+      });
+    });
+  }
+};
+
+exports.default = handler;

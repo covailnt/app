@@ -1,0 +1,21 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _style = require('./style');
+
+var _style2 = _interopRequireDefault(_style);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (props) {
+  return React.createElement(_style2.default, {
+    type: props.type,
+    onChange: props.onChange,
+    value: props.value,
+    className: 'input-' + props.type + ' ' + props.className,
+    placeholder: props.placeholder
+  });
+};
