@@ -10,9 +10,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _groups = require('components/groups');
+var _elements = require('components/elements');
 
-var _wrappers = require('components/wrappers');
+require('./DropDown.scss');
+
+var _theme = require('theme');
+
+var _theme2 = _interopRequireDefault(_theme);
+
+var _aphrodite = require('aphrodite');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,31 +28,63 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Profile = function (_Component) {
-  _inherits(Profile, _Component);
+var styles = _aphrodite.StyleSheet.create({
+  icon: {
+    color: _theme2.default.color.black
+  }
+});
 
-  function Profile() {
-    _classCallCheck(this, Profile);
+var DropDown = function (_Component) {
+  _inherits(DropDown, _Component);
 
-    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+  function DropDown(props) {
+    _classCallCheck(this, DropDown);
+
+    var _this = _possibleConstructorReturn(this, (DropDown.__proto__ || Object.getPrototypeOf(DropDown)).call(this, props));
+
+    _this.state = {
+      value: props.items[0],
+      open: false,
+      size: 0
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
   }
 
-  _createClass(Profile, [{
+  _createClass(DropDown, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      this.setState({ value: e.target.value });
+    }
+  }, {
+    key: 'updateVal',
+    value: function updateVal(e) {
+      this.setState({ donutval: e.target.value });
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          name = _props.name,
+          items = _props.items,
+          placeholder = _props.placeholder;
+
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(_wrappers.DropDown, {
-          name: 'Ryan\'s Dropdown',
-          items: ['I\'m not busy', 'I\'m kinda busy', 'I\'m crazy busy'],
-          placeholder: 'How busy are you?' }),
-        _react2.default.createElement(_groups.DonutChart, { size: 170, strokeWidth: 50, value: 55 })
+        { className: 'select-ctn' },
+        _react2.default.createElement(_elements.Select, {
+          handleChange: this.handleChange,
+          items: items,
+          name: name,
+          value: this.state.value,
+          placeholder: placeholder
+        }),
+        _react2.default.createElement(_elements.Fa, { className: (0, _aphrodite.css)(styles.icon), icon: 'angle-down' })
       );
     }
   }]);
 
-  return Profile;
+  return DropDown;
 }(_react.Component);
 
-exports.default = Profile;
+exports.default = DropDown;

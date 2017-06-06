@@ -7,5 +7,6 @@ storiesOf('DropDown', module)
     <DropDown
       name="Ryan's Dropdown"
       items={['I\'m not busy', 'I\'m kinda busy', 'I\'m crazy busy']}
+      placeholder='How busy are you?'
     />
   ))

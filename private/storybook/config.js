@@ -19,7 +19,6 @@ addDecorator(story => (
         colors={[
           theme.color.black,
           theme.color.primary,
-          theme.color.active,
           theme.color.secondary,
           theme.color.accent1,
           theme.color.accent2,

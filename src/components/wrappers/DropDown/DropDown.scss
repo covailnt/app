@@ -1,0 +1,12 @@
+.select-ctn {
+  position: relative;
+  display: inline-block;
+}
+
+i {
+  position: absolute;
+  right: 5%;
+  top: 48%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

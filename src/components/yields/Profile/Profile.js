@@ -8,7 +8,8 @@ export default class Profile extends Component {
       <div>
         <DropDown
           name="Ryan's Dropdown"
-          items={['I\'m not busy', 'I\'m kinda busy', 'I\'m crazy busy']} />
+          items={['I\'m not busy', 'I\'m kinda busy', 'I\'m crazy busy']}
+          placeholder='How busy are you?' />
         <DonutChart size={170} strokeWidth={50} value={55} />
       </div>
     )
