@@ -1,1 +1,0 @@
-{"version":3,"sources":["src\\components\\elements\\Button\\index.js"],"names":[],"mappings":";;;;;;AAAA;;;;AACA","file":"index.js","sourceRoot":"C:/Users/Ryan/Documents/dev/embark/covailnt","sourcesContent":["import Button from './Button'\nimport './Button.scss'\n\nexport default Button\n"]}

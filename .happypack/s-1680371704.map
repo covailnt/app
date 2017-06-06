@@ -1,1 +1,0 @@
-{"version":3,"sources":["src\\components\\elements\\Select\\index.js"],"names":[],"mappings":";;;;;;AAAA;;;;AACA","file":"index.js","sourceRoot":"C:/Users/Ryan/Documents/dev/embark/covailnt","sourcesContent":["import Select from './Select'\nimport './Select.scss'\n\nexport default Select\n"]}

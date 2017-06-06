@@ -1,1 +1,0 @@
-{"version":3,"sources":["src\\config\\base.js"],"names":[],"mappings":"AAAA;;AAEA;;;;;kBACe,E","file":"base.js","sourceRoot":"C:/Users/Ryan/Documents/dev/embark/covailnt","sourcesContent":["'use strict';\n \n// Settings configured here will be merged into the final config object.\nexport default {\n}\n"]}
