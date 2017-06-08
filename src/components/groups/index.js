@@ -1,7 +1,6 @@
-import Modal from './Modal'
-import DonutChart from './DonutChart'
+const req = require.context('.', true, /\.\/[^/]+\/index\.js$/)
 
-export {
-  DonutChart,
-  Modal
-}
+req.keys().forEach((key) => {
+  const componentName = key.replace(/^.+\/([^/]+)\/index\.js/, '$1')
+  module.exports[componentName] = req(key).default
+})

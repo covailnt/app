@@ -1,7 +1,14 @@
-import MenuItem from './style'
+import React from 'react'
+import styled from 'styled-components'
+
+const Item = styled.li`
+  padding: 1em;
+  list-style: none;
+  color: white;
+`
 
 export default (props)=>(
-  <MenuItem onClick={props.onClick} className={props.className}>
+  <Item onClick={props.onClick} className={props.className}>
     {props.children}
-  </MenuItem>
+  </Item>
 )

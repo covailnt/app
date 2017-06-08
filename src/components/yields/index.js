@@ -1,9 +1,6 @@
-import Authenticated from './Authenticated'
-import UnAuthenticated from './UnAuthenticated'
-import Profile from './Profile'
+const req = require.context('.', true, /\.\/[^/]+\/index\.js$/)
 
-export {
-  Authenticated,
-  UnAuthenticated,
-  Profile,
-}
+req.keys().forEach((key) => {
+  const componentName = key.replace(/^.+\/([^/]+)\/index\.js/, '$1')
+  module.exports[componentName] = req(key).default
+})

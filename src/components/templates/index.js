@@ -1,10 +1,6 @@
-import AccountMenu from './AccountMenu'
-import Projects from './Projects'
-import Tasks from './Tasks'
+const req = require.context('.', true, /\.\/[^/]+\/index\.js$/)
 
-
-export {
-  AccountMenu,
-  Projects,
-  Tasks,
-}
+req.keys().forEach((key) => {
+  const componentName = key.replace(/^.+\/([^/]+)\/index\.js/, '$1')
+  module.exports[componentName] = req(key).default
+})

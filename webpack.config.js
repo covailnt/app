@@ -81,7 +81,6 @@ const config = createConfig([
   sass(),
   css(),
   resolveModules(sourceDir),
-
   env('development', [
     devServer({
       contentBase: 'public',

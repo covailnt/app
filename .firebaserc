@@ -1,8 +1,8 @@
 {
   "projects": {
-    "master": "iris-ef501",
-    "stage": "iris-ef501",
-    "prod": "iris-ef501",
-    "default": "iris-ef501"
+    "master": "covailnt-a08da",
+    "stage": "covailnt-a08da",
+    "prod": "covailnt-a08da",
+    "default": "covailnt-a08da"
   }
 }

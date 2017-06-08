@@ -27,7 +27,7 @@ export default class DropDown extends Component {
     this.setState({ donutval: e.target.value })
   }
   render() {
-    const { name, items, placeholder } = this.props
+    const { name, items } = this.props
     return (
       <div className='select-ctn'>
         <Select
@@ -35,7 +35,6 @@ export default class DropDown extends Component {
           items={items}
           name={name}
           value={this.state.value}
-          placeholder={placeholder}
         />
         <Fa className={css(styles.icon)} icon='angle-down' />
       </div>
