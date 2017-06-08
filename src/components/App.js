@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Home, Profile } from 'components/yields'
-import { Navbar } from 'components/groups'
+import { NavbarCtn } from 'components/wrappers'
 
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  withRouter
 } from 'react-router-dom'
 
 import 'normalize.css/normalize.css'
@@ -18,10 +19,10 @@ class AppComponent extends Component {
     return (
       <Router>
         <div>
-          <Navbar />
+          <NavbarCtn />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/profile' component={Profile} />
+            <Route path='/profile' component={withRouter(Profile)} />
           </Switch>
         </div>
       </Router>
@@ -30,7 +31,7 @@ class AppComponent extends Component {
 }
 
 function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
+  return { authenticated: state.authenticated }
 }
 
 export default connect(mapStateToProps)(AppComponent)

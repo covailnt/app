@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import { Provider } from 'react-redux'
-import appStore from 'stores/app'
+import appStore from 'reducers'
 import firebase from './refire/firebase'
 import './theme/theme.scss'
 
@@ -24,7 +24,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-const start = ()=>{
+const start = () =>{
   // Render the main component into the dom
-  ReactDOM.render( <Provider store={appStore}><App /></Provider>, document.getElementById('app'));
+  ReactDOM.render(
+    <Provider store={appStore}>
+      <App />
+    </Provider>,
+    document.getElementById('app')
+  )
 }
