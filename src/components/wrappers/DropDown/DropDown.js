@@ -14,17 +14,13 @@ export default class DropDown extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: props.items[0],
-      open: false,
-      size: 0,
+      value: 'Kinda Busy',
     }
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(e) {
     this.setState({ value: e.target.value })
-  }
-  updateVal(e) {
-    this.setState({ donutval: e.target.value })
+    this.props.updateStatus(e.target.value)
   }
   render() {
     const { name, items } = this.props

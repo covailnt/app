@@ -9,16 +9,17 @@ const styles = StyleSheet.create({
   }
 })
 
-const Select = ({handleChange, name, items}) => {
+const Select = ({handleChange, name, items, value}) => {
   return (
     <select
       className={`${css(styles.select)} dropDown`}
       name={name}
       onChange={handleChange}
+      defaultValue={value}
     >
       {items.map(item => (
-          <option key={item} value={item}>{item}</option>
-        )
+        <option key={item} value={item}>{item}</option>
+      )
       )}
     </select>
   )
