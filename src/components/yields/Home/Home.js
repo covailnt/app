@@ -6,7 +6,10 @@ export default class Home extends Component {
   }
   render() {
     return (
-      <h1>You are Home</h1>
+      <div>
+        <h1>You are Home</h1>
+        <div id="firebaseui-auth-container"></div>
+      </div>
     )
   }
 }

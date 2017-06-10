@@ -11,6 +11,7 @@ window.React = React;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    console.log('USER', user)
     appStore.dispatch({
       type: 'SET_CURRENT_USER',
       value: user
