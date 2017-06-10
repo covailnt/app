@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { DonutChart } from 'components/groups'
 import { DropDown } from 'components/wrappers'
 
-class Profile extends Component {
-  componentWillMount() {
-    if (!this.props.authenticated) {
-      this.props.history.push('/')
-    }
-  }
+export default class Profile extends Component {
   render() {
     return (
       <div>
@@ -22,8 +16,3 @@ class Profile extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { authenticated: state.authenticated }
-}
-
-export default connect(mapStateToProps)(Profile)

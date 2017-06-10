@@ -37,7 +37,7 @@ class NavbarCtn extends Component {
   }
   authButton() {
     if (this.props.authenticated) {
-      return <button onClick={() => this.props.authenticate(false)}>Sign Out</button>
+      return <button onClick={() => this.signOut()}>Sign Out</button>
     }
     return <button onClick={() => this.authenticate()}>Sign In</button>
   }
@@ -46,7 +46,6 @@ class NavbarCtn extends Component {
       <div id='navbar-ctn'>
         <Navbar />
         {this.authButton()}
-        <button onClick={() => this.signOut()}>Sign Out</button>
       </div>
     )
   }

@@ -1,5 +1,7 @@
-const CHANGE_AUTH = 'change_auth'
+const CHANGE_AUTH = 'CHANGE_AUTH'
+const SET_CURRENT_USER = 'SET_CURRENT_USER'
 
 export {
   CHANGE_AUTH,
+  SET_CURRENT_USER
 }

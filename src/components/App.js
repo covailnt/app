@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Home, Profile } from 'components/yields'
-import { NavbarCtn } from 'components/wrappers'
+import { NavbarCtn, requireAuth } from 'components/wrappers'
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  withRouter
 } from 'react-router-dom'
 
 import 'normalize.css/normalize.css'
@@ -22,7 +21,7 @@ class AppComponent extends Component {
           <NavbarCtn />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/profile' component={withRouter(Profile)} />
+            <Route path='/profile' component={requireAuth(Profile)} />
           </Switch>
         </div>
       </Router>
