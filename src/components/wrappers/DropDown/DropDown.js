@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Select, Fa } from 'components/elements'
+import { Select, Icon } from 'components/elements'
 import './DropDown.scss'
 import theme from 'theme'
 import { StyleSheet, css } from 'aphrodite'
@@ -32,7 +32,7 @@ export default class DropDown extends Component {
           name={name}
           value={this.state.value}
         />
-        <Fa className={css(styles.icon)} icon='angle-down' />
+        <Icon id='angle-down' className={css(styles.icon)} name='angle-down' />
       </div>
     )
   }

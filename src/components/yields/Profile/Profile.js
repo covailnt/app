@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { DonutChart } from 'components/groups'
 import { DropDown } from 'components/wrappers'
 import { connect } from 'react-redux'
+import avatar from 'images/avatar.png'
 
 class Profile extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => {
-  return { image: state.user.photoURL }
+  return { image: avatar || state.user.photoURL }
 }
 
 export default connect(mapStateToProps)(Profile)

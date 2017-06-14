@@ -11,8 +11,8 @@ const Navbar = () => {
         <li><Link to='/signup/create-profile'>SignUp</Link></li>
       </ul>
       <button>
-        <a href="https://console.firebase.google.com/u/0/project/covailnt-a08da/database/data">
-          Covailnt Console
+        <a href="https://console.firebase.google.com" target='_blank'>
+          Firebase Console
         </a>
       </button>
     </div>

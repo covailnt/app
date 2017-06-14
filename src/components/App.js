@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom'
 
 import 'normalize.css/normalize.css'
-import 'theme/Global.css'
+import 'theme/theme.scss'
+import 'theme/Global.scss'
 
 import {connect} from 'react-redux'
 

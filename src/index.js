@@ -5,10 +5,9 @@ import App from './components/App'
 import { Provider } from 'react-redux'
 import appStore from 'reducers'
 import firebase from './refire/firebase'
-import { SET_CURRENT_USER, CHANGE_AUTH } from 'actions/types'
-import './theme/theme.scss';
+import { SET_CURRENT_USER } from 'actions/types'
 
-window.React = React;
+window.React = React
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {

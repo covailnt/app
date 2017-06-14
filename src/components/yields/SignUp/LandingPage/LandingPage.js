@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Icon, Heading, Logo, Button } from 'components/elements'
 import connections from 'images/signup/avatarConnections.png'
 import lady from 'images/signup/ladyAvatar.png'
@@ -19,21 +20,21 @@ export default class Home extends Component {
         </div>
 
         <main>
-          <div className='top-ctn'>
-            <div className='left-ctn'>
+          <div className='top-ctn two-column-layout'>
+            <div className='left-ctn flex-column'>
               <Heading level={2} >What if you could spend less time resourcing, and more time collaborating?</Heading>
               <Heading level={3} >Covailnt let’s you see your fellow freelancers bandwidth in real time, so you always know who’s free.</Heading>
               <Button>I'm in! Let's setup my free profile.</Button>
             </div>
             <div className='right-ctn'>
-              <img src={connections} alt='users with donut charts' />
+              <img src={connections} alt='users with donut charts' style={{maxWidth: '100%'}}/>
             </div>
           </div>
 
           <div className='middle-ctn'>
             <Heading level={1}>What is Covailnt about?</Heading>
 
-            <div className='availability-ctn'>
+            <div className='availability-ctn two-column-layout'>
               <div className='text-ctn'>
                 <Icon name='clock-o' color='primary' />
                 <Heading level={4}>Real-time availability</Heading>
@@ -44,7 +45,7 @@ export default class Home extends Component {
               </div>
             </div>
 
-            <div className='ratings-ctn'>
+            <div className='ratings-ctn two-column-layout'>
               <div className='text-ctn'>
                 <Icon name='star' color='primary' />
                 <Heading level={4}>Real-time availability</Heading>
@@ -55,7 +56,7 @@ export default class Home extends Component {
               </div>
             </div>
 
-            <div className='potential-ctn'>
+            <div className='potential-ctn two-column-layout'>
               <div className='text-ctn'>
                 <Icon name='bolt' color='primary' />
                 <Heading level={4}>Showcased Potential</Heading>
@@ -75,7 +76,7 @@ export default class Home extends Component {
           <Heading level={4}>
             Covailnt <strong>connects you to the freelancers you already know, </strong>in an environment that rewards your relationships, collaboration and transparency
           </Heading>
-          <Button>I'm in! Let's setup my profile</Button>
+          <Button><Link to='/signup/create-profile'>I'm in! Let's setup my profile</Link></Button>
         </aside>
       </div>
     )
