@@ -1,10 +1,11 @@
-import { CHANGE_AUTH } from 'actions/types'
+import { SET_CURRENT_USER } from 'actions/types'
 
-export default function(state = false, action) {
+export default function(state = {}, action) {
   switch(action.type) {
-    case CHANGE_AUTH:
+
+    case SET_CURRENT_USER:
       return action.payload
-  }
+    }
 
   return state
 }

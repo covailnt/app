@@ -3,7 +3,7 @@ import { configure, addDecorator } from '@kadira/storybook'
 import { BackgroundColor } from 'react-storybook-decorator-background';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import store from 'stores/app'
+import store from 'reducers'
 import theme from 'theme'
 
 const req = require.context('components', true, /.stories.js$/)

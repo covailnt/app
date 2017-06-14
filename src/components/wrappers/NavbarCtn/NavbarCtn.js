@@ -5,27 +5,6 @@ import * as actions from 'actions'
 import firebase from 'refire/firebase'
 
 class NavbarCtn extends Component {
-  constructor(props) {
-    super(props)
-  }
-  authenticate() {
-    // this.props.authenticate(true)
-    const provider = new firebase.auth.GoogleAuthProvider()
-
-    firebase.auth().signInWithPopup(provider)
-      .then(function(result) {
-        const user = {
-          token: result.credential.accessToken,
-          name: result.user.displayName,
-          email: result.user.email,
-          uid: result.user.uid,
-        }
-        // console.log(user)
-      })
-      .catch(function(err) {
-        console.log('error', err)
-      })
-  }
   signOut() {
     firebase.auth().signOut().then(function() {
     // Sign-out successful.
@@ -36,10 +15,9 @@ class NavbarCtn extends Component {
     });
   }
   authButton() {
-    if (this.props.authenticated) {
+    if (this.props.user) {
       return <button onClick={() => this.signOut()}>Sign Out</button>
     }
-    return <button onClick={() => this.authenticate()}>Sign In</button>
   }
   render() {
     return (
@@ -52,7 +30,7 @@ class NavbarCtn extends Component {
 }
 
 function mapStateToProps(state) {
-  return { authenticated: state.authenticated }
+  return { user: state.user }
 }
 
 export default connect(mapStateToProps, actions)(NavbarCtn)

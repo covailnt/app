@@ -13,30 +13,25 @@ window.React = React;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log('USER', user)
+
     appStore.dispatch({
       type: SET_CURRENT_USER,
       payload: user
     })
-    appStore.dispatch({
-      type: CHANGE_AUTH,
-      payload: true
-    })
 
     firebase.database().ref('users/' + user.uid).set({
-      displayName: user.displayName
+      displayName: user.displayName,
+      email: user.email,
     })
+
   } else {
     appStore.dispatch({
       type: SET_CURRENT_USER,
       payload: null
     })
-    appStore.dispatch({
-      type: CHANGE_AUTH,
-      payload: false
-    })
   }
   start()
-});
+})
 
 
 const start = () =>{

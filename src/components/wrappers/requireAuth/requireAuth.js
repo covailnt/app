@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 export default function(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
-      if (!this.props.authenticated) {
+      if (!this.props.user) {
         this.props.history.push('/')
       }
     }
@@ -16,7 +16,7 @@ export default function(ComposedComponent) {
   }
 
   function mapStateToProps(state) {
-    return { authenticated: state.authenticated }
+    return { user: state.user }
   }
 
   return withRouter(connect(mapStateToProps)(Authentication))

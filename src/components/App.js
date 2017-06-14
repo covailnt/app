@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Home, Profile } from 'components/yields'
+import { Home, Profile, SignUp } from 'components/yields'
 import { NavbarCtn, requireAuth } from 'components/wrappers'
 
 import {
@@ -22,6 +22,7 @@ class AppComponent extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/profile' component={requireAuth(Profile)} />
+            <Route path='/signup' component={SignUp} />
           </Switch>
         </div>
       </Router>

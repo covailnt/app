@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createUserWithEmail } from 'actions/auth'
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
   }
@@ -10,3 +13,13 @@ export default class Home extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return { reduxProp: state.reduxProp }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ createUserWithEmail }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
