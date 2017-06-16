@@ -8,7 +8,7 @@ import rankPotential from 'images/signup/rankPotential.png'
 import profile from 'images/signup/profile.png'
 import theme from 'theme'
 
-export default class Home extends Component {
+export default class LandingPage extends Component {
   constructor(props) {
     super(props)
   }
@@ -24,7 +24,7 @@ export default class Home extends Component {
             <div className='left-ctn flex-column'>
               <Heading level={2} >What if you could spend less time resourcing, and more time collaborating?</Heading>
               <Heading level={3} >Covailnt let’s you see your fellow freelancers bandwidth in real time, so you always know who’s free.</Heading>
-              <Button>I'm in! Let's setup my free profile.</Button>
+              <Link to='/signup/create-account'><Button>I'm in! Let's setup my free profile.</Button></Link>
             </div>
             <div className='right-ctn'>
               <img src={connections} alt='users with donut charts' style={{maxWidth: '100%'}}/>
@@ -76,7 +76,7 @@ export default class Home extends Component {
           <Heading level={4}>
             Covailnt <strong>connects you to the freelancers you already know, </strong>in an environment that rewards your relationships, collaboration and transparency
           </Heading>
-          <Button><Link to='/signup/create-profile'>I'm in! Let's setup my profile</Link></Button>
+          <Link to='/signup/create-account'><Button>I'm in! Let's setup my profile</Button></Link>
         </aside>
       </div>
     )

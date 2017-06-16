@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import firebase from 'refire/firebase'
 import generator from 'generate-password'
 import { Button, Heading } from 'components/elements'
@@ -21,26 +22,33 @@ class CreateAccount extends Component {
     })
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(() => console.log('it worked'))
+      .then(() => {
+        console.log('it worked')
+        this.props.history.push('/signup/create-account/step-1')
+      })
       .catch(err => console.log('Firebase createUserWithEmail error', err))
   }
-  createUserWithGoogle() {
-    // this.props.authenticate(true)
-    const provider = new firebase.auth.GoogleAuthProvider()
+  createUser(socialProvider) {
+    let provider
+
+    switch(socialProvider) {
+      case 'facebook':
+        provider = new firebase.auth.FacebookAuthProvider()
+        break
+      case 'github':
+        provider = new firebase.auth.GithubAuthProvider()
+        break
+      case 'google':
+        provider = new firebase.auth.GoogleAuthProvider()
+        break
+    }
 
     firebase.auth().signInWithPopup(provider)
-      .then(function(result) {
-        const user = {
-          token: result.credential.accessToken,
-          name: result.user.displayName,
-          email: result.user.email,
-          uid: result.user.uid,
-        }
-        // console.log(user)
+      .then(() => {
+        console.log(`${socialProvider} signin successful`)
+        this.props.history.push('/signup/create-account/step-1')
       })
-      .catch(function(err) {
-        console.log('error', err)
-      })
+      .catch(err => console.log(`${socialProvider} auth error`, err))
   }
   signOut() {
     firebase.auth().signOut()
@@ -55,7 +63,9 @@ class CreateAccount extends Component {
         <input type="text" onChange={(e) => this.updateEmail(e)} value={this.state.email} />
         <Heading level={5}>We'll send you an email to set your password later.</Heading>
         <button onClick={() => this.createUserWithEmail(this.state.email)}>Get me in</button><br />
-        <button onClick={() => this.createUserWithGoogle()}>Create Account With Google</button>
+        <button onClick={() => this.createUser('facebook')}>Create Account With Facebook</button>
+        <button onClick={() => this.createUser('github')}>Create Account With Github</button>
+        <button onClick={() => this.createUser('google')}>Create Account With Google</button>
       </div>
     )
   }
@@ -65,4 +75,4 @@ const mapStateToProps = (state) => {
   return { user: state.user }
 }
 
-export default connect(mapStateToProps)(CreateAccount)
+export default withRouter(connect(mapStateToProps)(CreateAccount))

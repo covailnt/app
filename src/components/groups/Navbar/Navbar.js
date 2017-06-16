@@ -8,7 +8,7 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/profile'>Secret Profile</Link></li>
         <li><Link to='/signup'>SignUp-Landing</Link></li>
-        <li><Link to='/signup/create-profile'>SignUp</Link></li>
+        <li><Link to='/signup/create-account/step-1'>SignUp-Step-1</Link></li>
       </ul>
       <button>
         <a href="https://console.firebase.google.com" target='_blank'>
