@@ -62,10 +62,10 @@ class CreateAccount extends Component {
         <Heading level={2}>We just need your email address</Heading>
         <input type="text" onChange={(e) => this.updateEmail(e)} value={this.state.email} />
         <Heading level={5}>We'll send you an email to set your password later.</Heading>
-        <button onClick={() => this.createUserWithEmail(this.state.email)}>Get me in</button><br />
-        <button onClick={() => this.createUser('facebook')}>Create Account With Facebook</button>
-        <button onClick={() => this.createUser('github')}>Create Account With Github</button>
-        <button onClick={() => this.createUser('google')}>Create Account With Google</button>
+        <Button onClick={() => this.createUserWithEmail(this.state.email)}>Get me in</Button><br />
+        <Button background='facebook' onClick={() => this.createUser('facebook')}>Create Account With Facebook</Button>
+        <Button background='github' onClick={() => this.createUser('github')}>Create Account With Github</Button>
+        <Button background='google' onClick={() => this.createUser('google')}>Create Account With Google</Button>
       </div>
     )
   }

@@ -10,11 +10,6 @@ const Navbar = () => {
         <li><Link to='/signup'>SignUp-Landing</Link></li>
         <li><Link to='/signup/create-account/step-1'>SignUp-Step-1</Link></li>
       </ul>
-      <button>
-        <a href="https://console.firebase.google.com" target='_blank'>
-          Firebase Console
-        </a>
-      </button>
     </div>
   )
 }

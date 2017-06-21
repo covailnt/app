@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const devServer = require('@webpack-blocks/dev-server2')
 const splitVendor = require('webpack-blocks-split-vendor')
 const happypack = require('webpack-blocks-happypack')
-
+const extractText = require('@webpack-blocks/extract-text2')
+// const sass = require('@webpack-blocks/sass')
 const {
   addPlugins, createConfig, entryPoint, env, setOutput,
   sourceMaps, defineConstants, webpack,
@@ -27,7 +28,14 @@ const babel = () => () => ({
 const sass = () => () => ({
   module: {
     rules: [
-      { test: /\.scss/, exclude: /node_modules/, loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded' },
+      {
+        test: /\.scss/,
+        loaders: [
+          'style-loader',
+          'css-loader?importLoaders=1&localIdentName=[name]--[local]--[hash:base64:5]&modules',
+          'sass-loader',
+        ]
+      }
     ],
   },
 })
@@ -78,8 +86,9 @@ const config = createConfig([
     babel(),
   ]),
   assets(),
-  sass(),
+  sass({relative_assets: true}),
   css(),
+  // extractText('css/[name].css', 'text/x-sass'),
   resolveModules(sourceDir),
   env('development', [
     devServer({

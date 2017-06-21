@@ -1,13 +1,11 @@
-button {
-  background-color: #383f4a;
-  color: #979ca4;
+.button {
   padding: 10px 20px;
+  margin: 10px;
   border-radius: 6px;
-  font-size: 18px;
-  border: 1px solid #979ca4;
-  &:hover{
-    color: #fff;
-    border: 1px solid #fff;
-    cursor: pointer;
+  border: none;
+  transition: background .5s;
+  cursor: pointer;
+  &hover {
+    transition: background .5s;
   }
 }
