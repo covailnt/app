@@ -4,7 +4,7 @@ import classes from './Button.scss'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
 
-const Button = ({background, children, color, click, hover}) => {
+const Button = ({background, children, color, onClick, hover}) => {
   const styles = StyleSheet.create({
     button: {
       background: theme.color[background],
@@ -16,8 +16,8 @@ const Button = ({background, children, color, click, hover}) => {
   })
   return (
     <button
-      className={`${classes.button} ${css(styles.button)}`}
-      onClick={click}
+      className={`button ${css(styles.button)}`}
+      onClick={onClick}
     >
       {children}
     </button>
@@ -33,7 +33,7 @@ Button.propTypes = {
   background: PropTypes.string,
   children: PropTypes.string.isRequired,
   color: PropTypes.string,
-  click: PropTypes.func,
+  onClick: PropTypes.func,
   hover: PropTypes.string,
 }
 

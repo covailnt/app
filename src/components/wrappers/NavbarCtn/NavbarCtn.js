@@ -13,18 +13,48 @@ class NavbarCtn extends Component {
 
     this.state = { logInModalIsOpen: false }
   }
-  logIn() {
-    console.log('signing in')
-    this.openLogInModal()
+  authButton() {
+    return this.props.user
+      ? <Button onClick={() => this.logOut()}>Log Out</Button>
+      : <Button onClick={() => this.openLogInModal()}>Log In</Button>
+  }
+  logIn(socialProvider) {
+    let provider
+
+    switch(socialProvider) {
+      case 'facebook':
+        provider = new firebase.auth.FacebookAuthProvider()
+        break
+      case 'github':
+        provider = new firebase.auth.GithubAuthProvider()
+        break
+      case 'google':
+        provider = new firebase.auth.GoogleAuthProvider()
+        break
+    }
+
+    firebase.auth().signInWithPopup(provider)
+      .then(() => {
+        console.log(`${socialProvider} signin successful`)
+        this.props.history.push('/signup/create-account/step-1')
+      })
+      .catch(err => {
+        console.log(`${socialProvider} auth error`, err)
+        this.closeLogInModal()
+      })
+  }
+  logInWithEmail() {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => console.log('Logged in with email successfully'))
+      .catch(err => {
+        console.log('Log in with email error: ', err)
+        this.closeLogInModal()
+      })
   }
   logOut() {
-    firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-      console.log('signed-out successfully')
-    }).catch(function(err) {
-    // An error happened.
-      console.log('sign-out error', err)
-    });
+    firebase.auth().signOut()
+      .then(() => console.log('signed-out successfully'))
+      .catch(err => console.log('sign-out error', err))
   }
   openLogInModal() {
     this.setState({ logInModalIsOpen: true })
@@ -32,33 +62,24 @@ class NavbarCtn extends Component {
   closeLogInModal() {
     this.setState({ logInModalIsOpen: false })
   }
-  authButton() {
-    return this.props.user
-      ? <Button onClick={() => this.logOut()}>log Out</Button>
-      : <Button onClick={() => this.logIn()}>Log In</Button>
-  }
   render() {
     return (
       <div id='navbar-ctn'>
         <Navbar />
         {this.authButton()}
-        <Link to='/signup'><Button>Sign Up</Button></Link>
         <Modal
+          className='modal'
           isOpen={this.state.logInModalIsOpen}
           onRequestClose={this.closeLogInModal}
           contentLabel="Example Modal"
+          style={styles}
         >
-
           <h2>Hello</h2>
           <Button onClick={() => this.closeLogInModal()}>close</Button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <Button>tab navigation</Button>
-            <Button>stays</Button>
-            <Button>inside</Button>
-            <Button>the modal</Button>
-          </form>
+          <Button background='facebook' onClick={() => this.logIn('facebook')}>Log In With Facebook</Button>
+          <Button background='github' onClick={() => this.logIn('github')}>Log In With Github</Button>
+          <Button background='google' onClick={() => this.logIn('google')}>Log In With Google</Button>
+          <Link to='/signup/create-account' onClick={() => this.closeLogInModal()}>Need to create an account?</Link>
         </Modal>
       </div>
     )
@@ -67,6 +88,32 @@ class NavbarCtn extends Component {
 
 function mapStateToProps(state) {
   return { user: state.user }
+}
+
+const styles = {
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+  },
+  content : {
+    position                   : 'absolute',
+    top                        : '40px',
+    left                       : '40px',
+    right                      : '40px',
+    bottom                     : '40px',
+    border                     : '1px solid #ccc',
+    background                 : '#fff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    borderRadius               : '4px',
+    outline                    : 'none',
+    padding                    : '20px'
+
+  }
 }
 
 export default connect(mapStateToProps, actions)(NavbarCtn)
