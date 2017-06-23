@@ -1,5 +1,5 @@
-import { authenticate } from './auth'
+import { logInWithProvider } from './auth'
 
 export {
-  authenticate,
+  logInWithProvider,
 }

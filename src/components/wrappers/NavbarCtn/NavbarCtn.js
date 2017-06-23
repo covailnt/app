@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Button } from 'components/elements'
 import { Navbar } from 'components/groups'
 import { connect } from 'react-redux'
-import * as actions from 'actions'
+import { logInWithProvider } from 'actions'
 import firebase from 'refire/firebase'
 import Modal from 'react-modal'
 
@@ -17,31 +17,6 @@ class NavbarCtn extends Component {
     return this.props.user
       ? <Button onClick={() => this.logOut()}>Log Out</Button>
       : <Button onClick={() => this.openLogInModal()}>Log In</Button>
-  }
-  logIn(socialProvider) {
-    let provider
-
-    switch(socialProvider) {
-      case 'facebook':
-        provider = new firebase.auth.FacebookAuthProvider()
-        break
-      case 'github':
-        provider = new firebase.auth.GithubAuthProvider()
-        break
-      case 'google':
-        provider = new firebase.auth.GoogleAuthProvider()
-        break
-    }
-
-    firebase.auth().signInWithPopup(provider)
-      .then(() => {
-        console.log(`${socialProvider} signin successful`)
-        this.props.history.push('/signup/create-account/step-1')
-      })
-      .catch(err => {
-        console.log(`${socialProvider} auth error`, err)
-        this.closeLogInModal()
-      })
   }
   logInWithEmail() {
     firebase.auth().signInWithEmailAndPassword(email, password)
@@ -72,21 +47,36 @@ class NavbarCtn extends Component {
           isOpen={this.state.logInModalIsOpen}
           onRequestClose={this.closeLogInModal}
           contentLabel="Example Modal"
-          style={styles}
-        >
-          <h2>Hello</h2>
-          <Button onClick={() => this.closeLogInModal()}>close</Button>
-          <Button background='facebook' onClick={() => this.logIn('facebook')}>Log In With Facebook</Button>
-          <Button background='github' onClick={() => this.logIn('github')}>Log In With Github</Button>
-          <Button background='google' onClick={() => this.logIn('google')}>Log In With Google</Button>
-          <Link to='/signup/create-account' onClick={() => this.closeLogInModal()}>Need to create an account?</Link>
+          style={styles}>
+            <h2>Hello</h2>
+            <Button onClick={() => this.closeLogInModal()}>close</Button>
+            <Button
+              background='facebook'
+              onClick={() => this.props.logInWithProvider('facebook')}>
+                Log In With Facebook
+            </Button>
+            <Button
+              background='github'
+              onClick={() => this.props.logInWithProvider('github')}>
+                Log In With Github
+            </Button>
+            <Button
+              background='google'
+              onClick={() => this.props.logInWithProvider('google')}>
+                Log In With Google
+            </Button>
+            <Link
+              to='/signup/create-account'
+              onClick={() => this.closeLogInModal()}>
+                Need to create an account?
+            </Link>
         </Modal>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return { user: state.user }
 }
 
@@ -116,4 +106,4 @@ const styles = {
   }
 }
 
-export default connect(mapStateToProps, actions)(NavbarCtn)
+export default withRouter(connect(mapStateToProps, { logInWithProvider })(NavbarCtn))

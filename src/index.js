@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     appStore.dispatch({
       type: SET_CURRENT_USER,
-      payload: user
+      payload: user,
     })
 
     firebase.database().ref('users/' + user.uid).set({

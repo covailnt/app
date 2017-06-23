@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 import config from '../config'
+import ReduxSagaFirebase from 'redux-saga-firebase'
 
 firebase.initializeApp({
   apiKey: config.firebase.apiKey,
@@ -9,5 +10,7 @@ firebase.initializeApp({
   storageBucket: config.firebase.storageBucket,
   messagingSenderId: config.firebase.messagingSenderId
 })
+
+// export const sagaFirebase = new ReduxSagaFirebase(firebaseApp)
 
 export default firebase

@@ -1,8 +1,9 @@
-import { CHANGE_AUTH, CREATE_USER_WITH_EMAIL } from './types'
+import { LOG_IN_WITH_PROVIDER } from './types'
 
-export function authenticate(isLoggedIn) {
+export function logInWithProvider(provider) {
+  console.log('launching login ', provider)
   return {
-    type: CHANGE_AUTH,
-    payload: isLoggedIn
+    type: LOG_IN_WITH_PROVIDER,
+    payload: provider,
   }
 }
