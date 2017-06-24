@@ -13,6 +13,9 @@ class NavbarCtn extends Component {
 
     this.state = { logInModalIsOpen: false }
   }
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+  }
   authButton() {
     return this.props.user
       ? <Button onClick={() => this.logOut()}>Log Out</Button>

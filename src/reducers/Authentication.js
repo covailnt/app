@@ -1,11 +1,10 @@
-import { SET_CURRENT_USER } from 'actions/types'
+import { LOG_IN_WITH_PROVIDER } from 'actions/types'
 
-export default function(state = {}, action) {
-  switch(action.type) {
-
-    case SET_CURRENT_USER:
+export default function (state = {}, action) {
+  switch (action.type) {
+    case LOG_IN_WITH_PROVIDER:
       return action.payload
-    }
-
-  return state
+    default:
+      return state
+  }
 }

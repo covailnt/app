@@ -1,4 +1,4 @@
-import configData from './config';
+import configData from './config'
 
 const config = {
   apiKey: configData.firebase.apiKey,
