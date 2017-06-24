@@ -3,8 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import { Button } from 'components/elements'
 import { Navbar } from 'components/groups'
 import { connect } from 'react-redux'
-import { logInWithProvider } from 'actions'
 import firebase from 'refire/firebase'
+import { logInWithProvider } from 'refire/auth'
 import Modal from 'react-modal'
 
 class NavbarCtn extends Component {
@@ -13,8 +13,11 @@ class NavbarCtn extends Component {
 
     this.state = { logInModalIsOpen: false }
   }
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.user && !prevProps.user) {
+      this.closeLogInModal()
+      this.props.history.push('/profile')
+    }
   }
   authButton() {
     return this.props.user
@@ -55,17 +58,17 @@ class NavbarCtn extends Component {
             <Button onClick={() => this.closeLogInModal()}>close</Button>
             <Button
               background='facebook'
-              onClick={() => this.props.logInWithProvider('facebook')}>
+              onClick={() => logInWithProvider('facebook')}>
                 Log In With Facebook
             </Button>
             <Button
               background='github'
-              onClick={() => this.props.logInWithProvider('github')}>
+              onClick={() => logInWithProvider('github')}>
                 Log In With Github
             </Button>
             <Button
               background='google'
-              onClick={() => this.props.logInWithProvider('google')}>
+              onClick={() => logInWithProvider('google')}>
                 Log In With Google
             </Button>
             <Link
@@ -109,4 +112,4 @@ const styles = {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { logInWithProvider })(NavbarCtn))
+export default withRouter(connect(mapStateToProps)(NavbarCtn))

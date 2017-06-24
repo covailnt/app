@@ -1,5 +1,4 @@
-import firebase from 'refire/firebase'
-import { LOG_IN_WITH_PROVIDER } from './types'
+import firebase from './firebase'
 
 export function logInWithProvider(provider) {
   console.log('launching login ', provider)
@@ -18,12 +17,8 @@ export function logInWithProvider(provider) {
       break
   }
 
-  firebase.auth.signInWithPopup(authProvider)
-    .then((user) => {
-      return {
-        type: LOG_IN_WITH_PROVIDER,
-        payload: user,
-      }
-    })
+  firebase.auth().signInWithPopup(authProvider)
+    .then(data => console.log(data))
     .catch(e => console.log('auth error: ', e))
+
 }

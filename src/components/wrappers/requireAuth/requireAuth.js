@@ -10,6 +10,11 @@ export default function(ComposedComponent) {
         this.props.history.push('/')
       }
     }
+    componentWillReceiveProps(nextProps) {
+      if (!nextProps.user) {
+        this.props.history.push('/')
+      }
+    }
     render() {
       return <ComposedComponent {...this.props} />
     }
