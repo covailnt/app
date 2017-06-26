@@ -4,44 +4,46 @@ import { Button } from 'components/elements'
 import { Navbar } from 'components/groups'
 import { connect } from 'react-redux'
 import firebase from 'refire/firebase'
-import { logInWithProvider } from 'refire/auth'
+import { logInWithEmail, logInWithProvider, logOut } from 'refire/auth'
 import Modal from 'react-modal'
 
 class NavbarCtn extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { logInModalIsOpen: false }
+    this.state = {
+      email: '',
+      logInModalIsOpen: false,
+      password: '',
+    }
   }
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.user && !prevProps.user) {
+    const { user, history } = this.props
+    if (user && !prevProps.user && history.location.pathname === '/') {
       this.closeLogInModal()
       this.props.history.push('/profile')
     }
   }
   authButton() {
     return this.props.user
-      ? <Button onClick={() => this.logOut()}>Log Out</Button>
+      ? <Button onClick={() => logOut()}>Log Out</Button>
       : <Button onClick={() => this.openLogInModal()}>Log In</Button>
   }
   logInWithEmail() {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => console.log('Logged in with email successfully'))
-      .catch(err => {
-        console.log('Log in with email error: ', err)
-        this.closeLogInModal()
-      })
-  }
-  logOut() {
-    firebase.auth().signOut()
-      .then(() => console.log('signed-out successfully'))
-      .catch(err => console.log('sign-out error', err))
+    logInWithEmail(this.state.email, this.state.password)
+    this.closeLogInModal()
   }
   openLogInModal() {
     this.setState({ logInModalIsOpen: true })
   }
   closeLogInModal() {
     this.setState({ logInModalIsOpen: false })
+  }
+  updateEmail(e) {
+    this.setState({ email: e.target.value })
+  }
+  updatePassword(e) {
+    this.setState({ password: e.target.value })
   }
   render() {
     return (
@@ -56,6 +58,9 @@ class NavbarCtn extends Component {
           style={styles}>
             <h2>Hello</h2>
             <Button onClick={() => this.closeLogInModal()}>close</Button>
+            <input type="text" onChange={(e) => this.updateEmail(e)} value={this.state.email} />
+            <input type="text" onChange={(e) => this.updatePassword(e)} value={this.state.password} />
+            <Button onClick={() => this.logInWithEmail(this.state.email, this.state.password)}>Log In With Email</Button>
             <Button
               background='facebook'
               onClick={() => logInWithProvider('facebook')}>
