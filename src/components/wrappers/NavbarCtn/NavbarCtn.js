@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import firebase from 'refire/firebase'
 import { logInWithEmail, logInWithProvider, logOut } from 'refire/auth'
 import Modal from 'react-modal'
+import theme from 'theme'
 
 class NavbarCtn extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class NavbarCtn extends Component {
   }
   render() {
     return (
-      <div id='navbar-ctn'>
+      <div id='navbar-ctn' style={{background: theme.color.black}}>
         <Navbar />
         {this.authButton()}
         <Modal

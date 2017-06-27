@@ -9,8 +9,14 @@ export default class Availability extends Component {
   }
   render() {
     return (
-      <div>
-        <img src={setup} alt="Setup Profile"/>
+      <div id='profile' className='flex-row'>
+        <div className='panel-left'>
+
+        </div>
+        <main className='content'>
+
+
+        </main>
       </div>
     )
   }
