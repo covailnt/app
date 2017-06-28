@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Button } from 'components/elements'
+import { Avatar, Button } from 'components/elements'
 import { Navbar } from 'components/groups'
 import { connect } from 'react-redux'
 import firebase from 'refire/firebase'
-import { logInWithEmail, logInWithProvider, logOut } from 'refire/auth'
+import { logInWithEmail, logInWithProvider } from 'refire/auth'
 import Modal from 'react-modal'
 import theme from 'theme'
 
@@ -15,6 +15,7 @@ class NavbarCtn extends Component {
     this.state = {
       email: '',
       logInModalIsOpen: false,
+      menuOpen: false,
       password: '',
     }
   }
@@ -25,10 +26,15 @@ class NavbarCtn extends Component {
       this.props.history.push('/profile')
     }
   }
-  authButton() {
-    return this.props.user
-      ? <Button onClick={() => logOut()}>Log Out</Button>
+  menuButton() {
+    const { user } = this.props
+
+    return user
+      ? <Avatar onClick={() => this.toggleMenu()} src={user.providerData[0].photoURL} size='50px' />
       : <Button onClick={() => this.openLogInModal()}>Log In</Button>
+  }
+  toggleMenu() {
+    this.setState({ menuOpen: !this.state.menuOpen })
   }
   logInWithEmail() {
     logInWithEmail(this.state.email, this.state.password)
@@ -49,8 +55,8 @@ class NavbarCtn extends Component {
   render() {
     return (
       <div id='navbar-ctn' style={{background: theme.color.black}}>
-        <Navbar />
-        {this.authButton()}
+        <Navbar menuOpen={this.state.menuOpen} />
+        {this.menuButton()}
         <Modal
           className='modal'
           isOpen={this.state.logInModalIsOpen}

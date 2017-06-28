@@ -2,4 +2,20 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+  width: 100%;
+
+  .menu-dropdown {
+    position: absolute;
+    top: 100px;
+    right: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: white;
+  }
 }
