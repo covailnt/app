@@ -2,20 +2,27 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: relative;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  min-width: 350px;
 
   .menu-dropdown {
     position: absolute;
-    top: 100px;
+    top: 60px;
     right: 0;
   }
 
   li {
     list-style: none;
+    margin-right: 25px;
+    padding: 10px;
   }
 
   a {
     color: white;
+  }
+
+  .rank {
+    margin: 0 25px;
   }
 }

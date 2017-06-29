@@ -2,6 +2,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 15px;
+  padding: 15px;
+  position: relative;
+
+  .avatar {
+    z-index: 2;
+  }
 }
 

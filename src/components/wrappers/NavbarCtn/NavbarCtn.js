@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Avatar, Button } from 'components/elements'
+import { Avatar, Button, Rank } from 'components/elements'
 import { Navbar } from 'components/groups'
 import { connect } from 'react-redux'
 import firebase from 'refire/firebase'
