@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Avatar, Button } from 'components/elements'
-import theme from 'theme'
+import { logOut } from 'refire/auth'
 import { StyleSheet, css } from 'aphrodite'
+import theme from 'theme'
 
 const styles = StyleSheet.create({
   menu: {
@@ -38,7 +39,7 @@ class UserMenu extends Component {
     const { user } = this.props
 
     return (
-      <div>
+      <div className='menu-ctn'>
         <Avatar onClick={() => this.toggleMenu()} src={user.providerData[0].photoURL} size='50px' />
         {this.renderMenu()}
       </div>

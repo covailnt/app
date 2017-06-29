@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Avatar, Button, Rank } from 'components/elements'
-import { Navbar } from 'components/groups'
 import { connect } from 'react-redux'
 import firebase from 'refire/firebase'
 import { logInWithEmail, logInWithProvider } from 'refire/auth'
 import Modal from 'react-modal'
 import theme from 'theme'
 
-class NavbarCtn extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props)
 
@@ -18,20 +17,6 @@ class NavbarCtn extends Component {
       menuOpen: false,
       password: '',
     }
-  }
-  componentDidUpdate(prevProps, prevState) {
-    const { user, history } = this.props
-    if (user && !prevProps.user && history.location.pathname === '/') {
-      this.closeLogInModal()
-      this.props.history.push('/profile')
-    }
-  }
-  menuButton() {
-    const { user } = this.props
-
-    return user
-      ? <Avatar onClick={() => this.toggleMenu()} src={user.providerData[0].photoURL} size='50px' />
-      : <Button onClick={() => this.openLogInModal()}>Log In</Button>
   }
   toggleMenu() {
     this.setState({ menuOpen: !this.state.menuOpen })
@@ -54,9 +39,8 @@ class NavbarCtn extends Component {
   }
   render() {
     return (
-      <div id='navbar-ctn' style={{background: theme.color.black}}>
-        <Navbar menuOpen={this.state.menuOpen} />
-        {this.menuButton()}
+      <div id='sign-in'>
+        <Button onClick={() => this.openLogInModal()}>Log In</Button>
         <Modal
           className='modal'
           isOpen={this.state.logInModalIsOpen}
@@ -120,8 +104,7 @@ const styles = {
     borderRadius               : '4px',
     outline                    : 'none',
     padding                    : '20px'
-
   }
 }
 
-export default withRouter(connect(mapStateToProps)(NavbarCtn))
+export default connect(mapStateToProps)(SignIn)

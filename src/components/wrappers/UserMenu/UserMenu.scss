@@ -1,0 +1,25 @@
+.menu-ctn {
+  position: relative;
+
+  .menu-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: block;
+    min-width: 250px;
+  }
+
+  li {
+    list-style: none;
+    margin-right: 25px;
+    padding: 10px;
+  }
+
+  a {
+    color: white;
+  }
+
+  .avatar {
+    margin: 0 20px;
+  }
+}
