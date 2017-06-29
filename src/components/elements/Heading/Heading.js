@@ -6,7 +6,7 @@ const Heading = ({ level, color, children }) => {
   const Header = `h${level}`
 
   return (
-    <Header style={{ color: theme.color[color] }}>{children}</Header>
+    <Header className='heading' style={{ color: theme.color[color] }}>{children}</Header>
   )
 }
 

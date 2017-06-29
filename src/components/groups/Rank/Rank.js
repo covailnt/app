@@ -7,7 +7,7 @@ const Rank = ({ type, value }) => {
   return (
     <div className='rank flex-row'>
       <Heading level={5} color='white'>Rank <br/>{type}</Heading>
-      <Heading level={3} color='white'>{value}</Heading>
+      <Heading level={1} color='white'>{value}</Heading>
     </div>
   )
 }

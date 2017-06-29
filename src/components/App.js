@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Home, Profile, SignUp } from 'components/yields'
-import { NavbarCtn, requireAuth } from 'components/wrappers'
+import { requireAuth } from 'components/wrappers'
 
 import {
   BrowserRouter as Router,
@@ -19,7 +19,6 @@ class AppComponent extends Component {
     return (
       <Router>
         <div>
-          <NavbarCtn />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/profile' component={requireAuth(Profile)} />

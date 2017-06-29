@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { DonutChart } from 'components/groups'
+import { AuthenticatedTemplate } from 'components/templates'
 import { DropDown } from 'components/wrappers'
 import { connect } from 'react-redux'
 import avatar from 'images/avatar.png'
@@ -43,10 +44,15 @@ class Profile extends Component {
     console.log('status')
     this.setState({ value: this.setDonutValue(status) })
   }
+  handleClick() {
+    this.setState({
+        open: !this.state.open
+    });
+}
   render() {
     return (
-      <div id='profile-ctn'>
-        <DonutChart size={170} strokeWidth={50} value={this.state.value} image={this.props.image} />
+      <AuthenticatedTemplate>
+        <DonutChart size={170} strokeWidth={50} value={this.state.value} image={this.props.image} /><br/>
         <DropDown
           name="Ryan's Dropdown"
           items={[
@@ -59,9 +65,8 @@ class Profile extends Component {
             'Slammed'
           ]}
           placeholder='How busy are you?'
-          updateStatus={this.updateStatus}
-          />
-      </div>
+          updateStatus={this.updateStatus} />
+      </AuthenticatedTemplate>
     )
   }
 }
