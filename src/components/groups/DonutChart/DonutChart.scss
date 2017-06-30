@@ -1,29 +1,36 @@
-.donut-ctn {
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
+.donut-wrapper {
+  height: 200px;
 
-  .donutchart {
+  .donut-ctn {
+    position: relative;
+    display: inline-block;
     border-radius: 50%;
-    display: block;
+    width: 100%;
 
-    .donutchart-track{
-      fill: transparent;
-    }
-    .donutchart-filling {
-      fill: transparent;
-      transition: stroke-dasharray .3s ease;
-    }
-  }
+    .donutchart {
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
 
-  > img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    width: 88%;
-    height: 88%;
+      .donutchart-track{
+        fill: transparent;
+      }
+      .donutchart-filling {
+        fill: transparent;
+        transition: stroke-dasharray .3s ease;
+      }
+    }
+
+    > img {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      width: 145px;
+    }
   }
 }
 

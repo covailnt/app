@@ -9,10 +9,6 @@ const DonutChart = ({ value, size, strokewidth, image }) => {
   const strokeval = ((value * circumference) / 100)
   const dashval = (strokeval + ' ' + circumference)
 
-  const containerStyle = {
-    border: `2px solid ${theme.color.white}`,
-    backgroundColor: theme.color.white,
-  }
   const trackstyle = {
     strokeWidth: strokewidth,
     stroke: theme.color.white,
@@ -25,12 +21,14 @@ const DonutChart = ({ value, size, strokewidth, image }) => {
   const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
   return (
-    <div className='donut-ctn' style={containerStyle}>
-      <svg className='donutchart' width={size} height={size}>
-        <circle className='donutchart-track' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
-        <circle className='donutchart-filling' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
-      </svg>
-      <img src={image || 'http://placekitten.com/g/200/200'} />
+    <div className='donut-wrapper'>
+      <div className='donut-ctn'>
+        <svg className='donutchart' width={size} height={size}>
+          <circle className='donutchart-track' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
+          <circle className='donutchart-filling' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
+        </svg>
+        <img src={image || 'http://placekitten.com/g/200/200'} />
+      </div>
     </div>
   )
 }

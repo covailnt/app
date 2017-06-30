@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom'
 import theme from 'theme'
 
 const styles = StyleSheet.create({
-  button: {
-    background: theme.color.white,
+  item: {
+    background: theme.color.black,
+    color: theme.color.white,
+    ':hover': {
+      background: theme.color.accent1,
+      color: theme.color.primary,
+    }
   }
 })
 
 const MenuItem = ({ children, link }) => (
-  <Link to={link} >
-    <li className={`${css(styles.button)} menu-item`}>
+  <Link to={link} className={`${css(styles.item)} menu-item`}>
+    <li>
       {children}
     </li>
   </Link>
