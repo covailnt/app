@@ -1,8 +1,5 @@
-var functions = require('firebase-functions');
-
-// // Start writing Firebase Functions
-// // https://firebase.google.com/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// })
+// Script to delete firebase auth users in Chrome client
+$('[aria-label="Delete account"]').click()
+setTimeout(function () {
+   $("button.md-raised.md-warn").click()
+}, 1000);

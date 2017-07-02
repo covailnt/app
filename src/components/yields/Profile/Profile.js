@@ -1,71 +1,32 @@
 import React, { Component } from 'react'
-import { DonutChart } from 'components/groups'
 import { AuthenticatedTemplate } from 'components/templates'
-import { DropDown } from 'components/wrappers'
+import { DonutChart } from 'components/wrappers'
 import { connect } from 'react-redux'
 import avatar from 'images/avatar.png'
 
 class Profile extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = { value: this.setDonutValue('Kinda Busy') }
-
-    this.updateStatus = this.updateStatus.bind(this)
-  }
-  setDonutValue(status) {
-    switch(status) {
-      case 'Not Working':
-        return 0
-
-      case 'Really Light':
-        return 12.5
-
-      case 'Kinda Light':
-        return 25
-
-      case 'Not That Busy':
-        return 37.5
-
-      case 'Kinda Busy':
-        return 62.5
-
-      case 'Really Busy':
-        return 75
-
-      case 'Slammed':
-        return 100
-
-      default:
-        return 75
-    }
-  }
-  updateStatus(status) {
-    console.log('status')
-    this.setState({ value: this.setDonutValue(status) })
-  }
-  handleClick() {
-    this.setState({
-        open: !this.state.open
-    });
-}
   render() {
+    const donutChartProps = {
+      image: this.props.image,
+      items: [
+        'Not Working',
+        'Really Light',
+        'Kinda Light',
+        'Not That Busy',
+        'Kinda Busy',
+        'Really Busy',
+        'Slammed'
+      ],
+      name: 'Profile Dropdown',
+      placeholder: 'How busy are you?',
+      size: 170,
+      strokeWidth: 50,
+    }
     return (
-      <AuthenticatedTemplate>
-        <DonutChart size={170} strokeWidth={50} value={this.state.value} image={this.props.image} /><br/>
-        <DropDown
-          name="Ryan's Dropdown"
-          items={[
-            'Not Working',
-            'Really Light',
-            'Kinda Light',
-            'Not That Busy',
-            'Kinda Busy',
-            'Really Busy',
-            'Slammed'
-          ]}
-          placeholder='How busy are you?'
-          updateStatus={this.updateStatus} />
+      <AuthenticatedTemplate
+        donutchart={<DonutChart {...donutChartProps} />}
+      >
+        <h1>hello</h1>
       </AuthenticatedTemplate>
     )
   }

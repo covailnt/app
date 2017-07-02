@@ -12,23 +12,29 @@ window.React = React
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log('USER', user)
+    const { displayName, email, photoURL } = user
 
     appStore.dispatch({
       type: SET_CURRENT_USER,
-      payload: user,
+      payload: { displayName, email, photoURL },
     })
 
+    // TODO: Users shouldn't be written everytime auth state changes and the user exist
+    // It should only be written if it is the users first time signing in
     firebase.database().ref('users/' + user.uid).set({
-      displayName: user.displayName,
-      email: user.email,
+      displayName,
+      email,
+      photoURL
     })
 
-  } else {
+  }
+  else {
     appStore.dispatch({
       type: SET_CURRENT_USER,
       payload: null
     })
   }
+
   start()
 })
 

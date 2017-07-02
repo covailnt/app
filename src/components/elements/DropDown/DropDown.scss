@@ -1,0 +1,31 @@
+.select-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  align-self: center;
+
+  .select-ctn {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    .dropDown {
+      border-radius: 3px;
+      margin: 0 auto;
+      padding: 10px;
+      cursor: pointer;
+      -webkit-appearance: none;
+      background-position-x: 95%;
+      width: 100%;
+    }
+
+    #angle-down {
+      position: absolute;
+      right: 5%;
+      top: 48%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+}
+

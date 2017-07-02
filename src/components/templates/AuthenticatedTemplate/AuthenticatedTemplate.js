@@ -5,18 +5,22 @@ import { Navbar, UserMenu } from 'components/wrappers'
 
 export default class AuthenticatedTemplate extends Component {
   render() {
-    const { children } = this.props
+    const { children, donutchart } = this.props
     return (
       <div className='flex-row'>
-        <Sidebar>{children}</Sidebar>
+
+        <Sidebar>{donutchart}</Sidebar>
+
         <div className='right-ctn flex-column'>
+
           <Navbar color='black'>
             <Rank type='Earned' value='005' />
             <Rank type='Potential' value='99' />
             <UserMenu/>
           </Navbar>
+
           <div className='content'>
-            content
+            {children}
           </div>
         </div>
       </div>

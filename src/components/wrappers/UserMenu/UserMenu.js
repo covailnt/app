@@ -40,7 +40,7 @@ class UserMenu extends Component {
 
     return (
       <div className='menu-ctn'>
-        <Avatar onClick={() => this.toggleMenu()} src={user.providerData[0].photoURL} size='50px' />
+        <Avatar onClick={() => this.toggleMenu()} src={user.photoURL} size='50px' />
         {this.renderMenu()}
       </div>
     )
