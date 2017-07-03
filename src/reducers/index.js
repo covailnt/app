@@ -1,20 +1,16 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import authenticationReducer from './Authentication'
+import profileReducer from './Profile'
 import refire from '../refire'
-// import createSagaMiddleware from 'redux-saga'
-// import logInSaga from 'sagas'
 
 const rootReducer = combineReducers({
   user: authenticationReducer,
+  profile: profileReducer,
 })
-
-// const sagaMiddleware = createSagaMiddleware()
 
 window.store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(refire)
 ))
-
-// sagaMiddleware.run(logInSaga)
 
 export default window.store

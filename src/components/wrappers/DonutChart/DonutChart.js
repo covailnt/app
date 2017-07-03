@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { DropDown } from 'components/elements'
+import avatar from 'images/avatar.png'
 import theme from 'theme'
 
 export default class DonutChart extends Component {
@@ -52,12 +53,11 @@ export default class DonutChart extends Component {
     });
   }
   handleChange(e) {
-    console.log(e)
     this.setState({ value: e.target.value })
     this.updateStatus(e.target.value)
   }
   render() {
-    const { size, strokewidth, image, items } = this.props
+    const { size, strokewidth, avatarImage, items } = this.props
 
     const halfsize = (size * 0.5)
     const radius = halfsize - (strokewidth * 0.5)
@@ -85,7 +85,7 @@ export default class DonutChart extends Component {
             <circle className='donutchart-track' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
             <circle className='donutchart-filling' r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
           </svg>
-          <img src={image || 'http://placekitten.com/g/200/200'} />
+          <img src={avatarImage || avatar} />
         </div>
 
         <DropDown
@@ -106,7 +106,7 @@ DonutChart.defaultProps = {
 }
 
 DonutChart.propTypes = {
-  image: PropTypes.string,        // source of image
+  avatarImage: PropTypes.string,        // source of image
   size: PropTypes.number,         // diameter of chart
   strokewidth: PropTypes.number,  // width of chart line
 }

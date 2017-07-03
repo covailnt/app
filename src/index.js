@@ -12,11 +12,11 @@ window.React = React
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log('USER', user)
-    const { displayName, email, photoURL } = user
+    const { displayName, email, photoURL, uid } = user
 
     appStore.dispatch({
       type: SET_CURRENT_USER,
-      payload: { displayName, email, photoURL },
+      payload: { displayName, email, photoURL, uid },
     })
 
     // TODO: Users shouldn't be written everytime auth state changes and the user exist
@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     firebase.database().ref('users/' + user.uid).set({
       displayName,
       email,
-      photoURL
+      photoURL,
     })
 
   }
@@ -37,7 +37,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   start()
 })
-
 
 const start = () =>{
   // Render the main component into the dom

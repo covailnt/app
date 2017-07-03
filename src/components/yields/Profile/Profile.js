@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import { AuthenticatedTemplate } from 'components/templates'
-import { DonutChart } from 'components/wrappers'
 import { connect } from 'react-redux'
-import avatar from 'images/avatar.png'
+import { bindActionCreators } from 'redux'
+import { setProfileBanner } from 'actions/setProfileBanner'
+import { AuthenticatedTemplate } from 'components/templates'
+import { ProfileBanner } from 'components/groups'
+import { DonutChart } from 'components/wrappers'
 
 class Profile extends Component {
   render() {
     const donutChartProps = {
-      image: this.props.image,
+      avatarImage: this.props.image,
       items: [
         'Not Working',
         'Really Light',
@@ -26,15 +28,26 @@ class Profile extends Component {
       <AuthenticatedTemplate
         donutchart={<DonutChart {...donutChartProps} />}
       >
-        <h1>hello</h1>
+        <ProfileBanner
+          bannerImage={this.props.bannerImage}
+          setProfileBanner={this.props.setProfileBanner}
+          uid={this.props.uid}
+        />
       </AuthenticatedTemplate>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return { image: avatar || state.user.photoURL }
+  return {
+    avatarImage: state.user.photoURL,
+    bannerImage: state.user.bannerURL,
+    uid: state.user.uid,
+  }
 }
 
-export default connect(mapStateToProps)(Profile)
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ setProfileBanner }, dispatch)
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

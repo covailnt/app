@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Home, Profile, SignUp } from 'components/yields'
 import { requireAuth } from 'components/wrappers'
+import firebase from 'refire/firebase'
 
 import {
   BrowserRouter as Router,
@@ -15,6 +16,13 @@ import 'theme/Global.scss'
 import {connect} from 'react-redux'
 
 class AppComponent extends Component {
+  componentDidMount() {
+    const uid = firebase.auth().currentUser.uid
+
+    firebase.database().ref(`users/${uid}`).on('value', snapshot => {
+      console.log('got data', snapshot.val().bannerURL)
+    })
+  }
   render() {
     return (
       <Router>
