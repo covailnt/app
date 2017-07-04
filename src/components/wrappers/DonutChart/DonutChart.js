@@ -9,7 +9,8 @@ export default class DonutChart extends Component {
     super(props)
 
     this.state = {
-      value: this.setDonutValue('Kinda Busy')
+      value: this.setDonutValue('Kinda Busy'),
+      status: 'Kinda Busy',
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -18,7 +19,7 @@ export default class DonutChart extends Component {
   setDonutValue(status) {
     const { items } = this.props
 
-    switch(status) {
+    switch (status) {
       case items[0]:
         return 0
 
@@ -49,8 +50,8 @@ export default class DonutChart extends Component {
   }
   handleClick() {
     this.setState({
-        open: !this.state.open
-    });
+      open: !this.state.open,
+    })
   }
   handleChange(e) {
     this.setState({ value: e.target.value })
@@ -92,7 +93,7 @@ export default class DonutChart extends Component {
           handleChange={this.handleChange}
           items={items}
           name='profile-dropdown'
-          value={this.state.value}
+          defaultValue={this.state.status}
         />
 
       </div>

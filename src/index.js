@@ -1,49 +1,112 @@
+import 'react-hot-loader/patch'
 import 'core-js/fn/object/assign'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App'
 import { Provider } from 'react-redux'
 import appStore from 'reducers'
-import firebase from './refire/firebase'
-import { SET_CURRENT_USER } from 'actions/types'
+import {
+  SET_CURRENT_USER,
+  SET_PROFILE_BANNER,
+  SET_PROFILE_SPECIALTY,
+} from 'actions/types'
+import App from 'components/App'
+import firebase from 'refire/firebase'
 
 window.React = React
 
-firebase.auth().onAuthStateChanged(function(user) {
+const renderApp = () => (
+  <Provider store={appStore}>
+    <App />
+  </Provider>
+)
+
+const root = document.getElementById('app')
+
+firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log('USER', user)
-    const { displayName, email, photoURL, uid } = user
 
-    appStore.dispatch({
-      type: SET_CURRENT_USER,
-      payload: { displayName, email, photoURL, uid },
-    })
-
-    // TODO: Users shouldn't be written everytime auth state changes and the user exist
-    // It should only be written if it is the users first time signing in
-    firebase.database().ref('users/' + user.uid).set({
+    const {
       displayName,
       email,
       photoURL,
+      uid,
+    } = user
+
+    let bannerURL = null
+    let specialty = null
+    const path = `users/${uid}`
+
+    firebase.database().ref(path).on('value', (snapshot) => {
+
+      if (snapshot.child('bannerURL').exists()) {
+        bannerURL = snapshot.val().bannerURL
+
+        appStore.dispatch({
+          type: SET_PROFILE_BANNER,
+          bannerURL,
+        })
+      }
+
+      if (snapshot.child('specialty').exists()) {
+        specialty = snapshot.val().specialty
+
+        appStore.dispatch({
+          type: SET_PROFILE_SPECIALTY,
+          specialty,
+        })
+      }
     })
 
-  }
-  else {
+    firebase.database().ref(path).once('value').then((snapshot) => {
+      const bannerURLExists = snapshot.child('bannerURL').exists()
+      const specialtyExists = snapshot.child('specialty').exists()
+
+      bannerURL = bannerURLExists ? snapshot.val().bannerURL : null
+      specialty = specialtyExists ? snapshot.val().specialty : null
+
+      // TODO: Users shouldn't be written everytime auth state changes and the user exist
+      // It should only be written if it is the users first time signing in
+      // if (bannerURL) {
+        appStore.dispatch({
+          type: SET_CURRENT_USER,
+          payload: {
+            bannerURL,
+            displayName,
+            email,
+            photoURL,
+            specialty,
+            uid,
+          },
+        })
+
+        firebase.database().ref(path).update({
+          bannerURL,
+          displayName,
+          email,
+          photoURL,
+        })
+      // } else {
+      //   firebase.database().ref(path).update({
+      //     displayName,
+      //     email,
+      //     photoURL,
+      //   })
+      // }
+    })
+  } else {
     appStore.dispatch({
       type: SET_CURRENT_USER,
-      payload: null
+      payload: null,
     })
   }
 
-  start()
-})
+  ReactDOM.render(renderApp(), root)
 
-const start = () =>{
-  // Render the main component into the dom
-  ReactDOM.render(
-    <Provider store={appStore}>
-      <App />
-    </Provider>,
-    document.getElementById('app')
-  )
-}
+  if (module.hot) {
+    module.hot.accept('components/App', () => {
+      require('components/App')
+      ReactDOM.render(renderApp(), root)
+    })
+  }
+})

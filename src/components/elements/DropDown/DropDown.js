@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
   }
 })
 
-const DropDown = ({ handleChange, items, name, value }) => (
+const DropDown = ({ defaultValue, handleChange, items, name }) => (
   <div className='select-wrapper'>
     <div className='select-ctn'>
       <select
         className={`${css(styles.select)} dropDown`}
         name={name}
         onChange={handleChange}
-        defaultValue={value}
+        defaultValue={defaultValue}
       >
         {items.map(item => <option key={item} value={item}>{item}</option>)}
       </select>
@@ -35,7 +35,7 @@ DropDown.propTypes = {
   handleChange: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
   name: PropTypes.string,
-  value: PropTypes.number.isRequired,
+  defaultValue: PropTypes.string,
 }
 
 export default DropDown

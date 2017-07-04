@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { setProfileBanner } from 'actions/setProfileBanner'
-import { AuthenticatedTemplate } from 'components/templates'
+import { setProfileSpecialty } from 'actions/setProfileSpecialty'
+import { Spinner } from 'components/elements'
 import { ProfileBanner } from 'components/groups'
 import { DonutChart } from 'components/wrappers'
+import { AuthenticatedTemplate } from 'components/templates'
 
 class Profile extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      specialty: '' || props.specialty,
+    }
+  }
+  specialtyOnChange(e) {
+    this.setState({ specialty: e.target.value })
+  }
   render() {
     const donutChartProps = {
       avatarImage: this.props.image,
@@ -17,37 +28,42 @@ class Profile extends Component {
         'Not That Busy',
         'Kinda Busy',
         'Really Busy',
-        'Slammed'
+        'Slammed',
       ],
       name: 'Profile Dropdown',
       placeholder: 'How busy are you?',
       size: 170,
       strokeWidth: 50,
     }
-    return (
-      <AuthenticatedTemplate
-        donutchart={<DonutChart {...donutChartProps} />}
-      >
-        <ProfileBanner
-          bannerImage={this.props.bannerImage}
-          setProfileBanner={this.props.setProfileBanner}
-          uid={this.props.uid}
-        />
-      </AuthenticatedTemplate>
-    )
+    return this.props.user
+      ? (
+        <AuthenticatedTemplate
+          donutchart={<DonutChart {...donutChartProps} />}
+        >
+          <ProfileBanner
+            bannerURL={this.props.bannerURL}
+            displayName={this.props.displayName}
+            onChange={e => this.specialtyOnChange(e)}
+            setProfileBanner={this.props.setProfileBanner}
+            specialty={this.state.specialty}
+            uid={this.props.uid}
+          />
+        </AuthenticatedTemplate>
+      )
+      : <Spinner />
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    avatarImage: state.user.photoURL,
-    bannerImage: state.user.bannerURL,
-    uid: state.user.uid,
-  }
+const mapStateToProps = (state) => {
+  return state.user
+    ? {
+      avatarImage: state.user.photoURL,
+      bannerURL: state.user.bannerURL,
+      displayName: state.user.displayName,
+      specialty: state.user.specialty,
+      uid: state.user.uid,
+    }
+    : {}
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ setProfileBanner }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, { setProfileBanner, setProfileSpecialty })(Profile)

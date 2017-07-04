@@ -1,12 +1,10 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import authenticationReducer from './Authentication'
-import profileReducer from './Profile'
+import userReducer from './User'
 import refire from '../refire'
 
 const rootReducer = combineReducers({
-  user: authenticationReducer,
-  profile: profileReducer,
+  user: userReducer,
 })
 
 window.store = createStore(rootReducer, composeWithDevTools(

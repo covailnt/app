@@ -8,9 +8,9 @@ class Navbar extends Component {
   render() {
     return (
       <div
-        id='navbar'
-        className='flex-row flex-row'
-        style={{background: theme.color[this.props.color]}}
+        id="navbar"
+        className="flex-row flex-row"
+        style={{ background: theme.color[this.props.color] }}
       >
         {this.props.children}
       </div>
