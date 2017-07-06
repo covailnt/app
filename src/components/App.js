@@ -9,9 +9,9 @@ import {
   Switch,
 } from 'react-router-dom'
 
-import 'normalize.css/normalize.css'
 import 'theme/theme.scss'
 import 'theme/Global.scss'
+import 'theme/normalize.css'
 
 import { connect } from 'react-redux'
 
