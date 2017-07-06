@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Rank } from 'components/groups'
-import { SignIn, UserMenu } from 'components/wrappers'
 import theme from 'theme'
 
 class Navbar extends Component {
@@ -18,7 +16,7 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { user: state.user }
 }
 

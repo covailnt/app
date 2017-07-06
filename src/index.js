@@ -102,11 +102,4 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 
   ReactDOM.render(renderApp(), root)
-
-  if (module.hot) {
-    module.hot.accept('components/App', () => {
-      require('components/App')
-      ReactDOM.render(renderApp(), root)
-    })
-  }
 })

@@ -4,29 +4,31 @@ import theme from 'theme'
 import './Icon.scss'
 
 
-const Icon = ({name, size, className, color, ...props}) => {
+const Icon = ({ className, color, name, size, ...props }) => {
   return size
     ? (
       <i
-        aria-hidden='true'
+        aria-hidden="true"
         className={`fa fa-${name} fa-${size} ${className}`}
         style={{ color: theme.color[color] }}
-        {...props} />
+        {...props}
+      />
     )
     : (
       <i
-        aria-hidden='true'
+        aria-hidden="true"
         className={`fa fa-${name} ${className}`}
         style={{ color: theme.color[color] }}
-        {...props} />
+        {...props}
+      />
     )
 }
 
 Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  size: PropTypes.string,
   className: PropTypes.string,
   color: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  size: PropTypes.string,
 }
 
 export default Icon
