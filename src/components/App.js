@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Home, Profile, SignUp } from 'components/yields'
+import { Home, Profile, SignUp, V2 } from 'components/yields'
 import { requireAuth } from 'components/wrappers'
 import firebase from 'refire/firebase'
 
@@ -21,6 +21,7 @@ class AppComponent extends Component {
         <Router>
           <div>
             <Switch>
+              <Route exact path='/v2' component={V2} />
               <Route exact path='/' component={Home} />
               <Route path='/profile' component={requireAuth(Profile)} />
               <Route path='/signup' component={SignUp} />

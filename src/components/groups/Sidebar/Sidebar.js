@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import theme from 'theme'
 import { MenuItem } from 'components/elements'
-
+import style from './style.scss'
 const Sidebar = ({ children }) => {
   return (
-    <div className='sidebar flex-column' style={{background: theme.color.black}}>
+    <div className={`${style.sidebar} flex-column`} style={{background: theme.color.black}}>
       {children}
       <MenuItem link='/profile'>Profile</MenuItem>
       <MenuItem link='/contacts'>Contacts</MenuItem>
