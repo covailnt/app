@@ -1,0 +1,50 @@
+@import 'styles/main';
+
+.header {
+  background: $header;
+  color: $white;
+  @include cols(9);
+  width: calc(100% - 300px);
+  @include rems(15);
+  a {
+    color: $primary;
+  }
+}
+.headerList {
+  list-style: none;
+  margin: 20px 0 10px;
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: 0 35px 0 0;
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+  img {
+    margin-top: -12px;
+    border-radius: 50%;
+  }
+}
+.headerEdit {
+  @include cols(6);
+}
+.headerStats {
+  text-align: right;
+  color: $msg;
+  span:first-of-type {
+    float: left;
+    margin-right: 8px;
+    line-height: 1;
+  }
+  span:nth-of-type(2) {
+    color: $white;
+    float: right;
+    margin-top: -6px;
+    @include rems(28);
+  }
+  @include cols(6);
+}
+.headerLogout {
+  float: right;
+}
