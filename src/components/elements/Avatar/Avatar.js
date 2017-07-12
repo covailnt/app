@@ -1,12 +1,12 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import theme from 'theme'
 import avatar from 'images/avatar.png'
+import classes from './Avatar.scss'
 
 const Avatar = ({ onClick, size, src }) => {
   return (
     <img
-      className='avatar'
+      alt="avatar"
+      className={classes.avatar}
       width={size}
       onClick={onClick}
       src={src}

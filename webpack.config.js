@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000
 const sourceDir = process.env.SOURCE || 'src'
 const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 const sourcePath = path.join(process.cwd(), sourceDir)
+const nodeModulesPath = path.join(process.cwd(), 'node_modules')
 const outputPath = path.join(process.cwd(), 'dist')
 
 const babel = () => () => ({
@@ -23,10 +24,27 @@ const babel = () => () => ({
     ],
   },
 })
+
 const sass = () => () => ({
   module: {
     rules: [
-      { test: /\.scss/, exclude: /node_modules/, loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded' },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[local]-[hash:base64:5]',
+          },
+        }, {
+          loader: 'sass-loader',
+          options: {
+            includePaths: [sourcePath, nodeModulesPath],
+          },
+        }],
+      },
     ],
   },
 })

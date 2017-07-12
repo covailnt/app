@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from 'components/elements'
-import './DropDown.scss'
 import theme from 'theme'
 import { StyleSheet, css } from 'aphrodite'
+import classes from './DropDown.scss'
 
 const styles = StyleSheet.create({
   icon: {
@@ -11,14 +11,14 @@ const styles = StyleSheet.create({
   },
   select: {
     backgroundColor: theme.color.white,
-  }
+  },
 })
 
 const DropDown = ({ defaultValue, handleChange, items, name }) => (
-  <div className='select-wrapper'>
-    <div className='select-ctn'>
+  <div className={classes.selectWrapper}>
+    <div className={classes.selectCtn}>
       <select
-        className={`${css(styles.select)} dropDown`}
+        className={`${css(styles.select)} ${classes.dropDown}`}
         name={name}
         onChange={handleChange}
         defaultValue={defaultValue}
@@ -26,7 +26,7 @@ const DropDown = ({ defaultValue, handleChange, items, name }) => (
         {items.map(item => <option key={item} value={item}>{item}</option>)}
       </select>
 
-      <Icon id='angle-down' className={css(styles.icon)} name='angle-down' />
+      <Icon id="angle-dow" className={css(styles.icon)} name="angle-down" />
     </div>
   </div>
 )

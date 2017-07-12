@@ -1,4 +1,4 @@
-.donut-wrapper {
+.donutWrapper {
   height: 250px;
   position: relative;
   width: 100%;
@@ -6,7 +6,7 @@
   justify-content: center;
   margin: 30px 0;
 
-  .donut-ctn {
+  .donutCtn {
     position: relative;
     display: inline-block;
     border-radius: 50%;
@@ -19,10 +19,10 @@
       left: 50%;
       transform: translateX(-50%);
 
-      .donutchart-track{
+      .donutchartTrack{
         fill: transparent;
       }
-      .donutchart-filling {
+      .donutchartFilling {
         fill: transparent;
         transition: stroke-dasharray .3s ease;
       }

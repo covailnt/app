@@ -4,19 +4,19 @@ import classes from './Button.scss'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
 
-const Button = ({background, children, color, onClick, hover}) => {
+const Button = ({ background, children, color, onClick, hover }) => {
   const styles = StyleSheet.create({
     button: {
       background: theme.color[background],
       color: theme.color[color],
       ':hover': {
-        background: theme.color[hover]
-      }
-    }
+        background: theme.color[hover],
+      },
+    },
   })
   return (
     <button
-      className={`button ${css(styles.button)}`}
+      className={`${css(styles.button)} ${classes.button}`}
       onClick={onClick}
     >
       {children}
