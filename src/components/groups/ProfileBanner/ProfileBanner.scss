@@ -1,7 +1,7 @@
-.profile-banner-ctn {
+.profileBannerCtn {
   position: relative;
 
-  .banner-img {
+  .bannerImg {
     align-items: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,7 +12,7 @@
     opacity: 1;
     transition: opacity 1s;
 
-    .banner-caption {
+    .bannerCaption {
       align-items: center;
     }
 
@@ -34,7 +34,7 @@
     transform: translateX(-50%);
     width: 100%;
 
-    .specialty-input {
+    .specialtyInput {
       align-items: center;
     }
 
@@ -49,22 +49,22 @@
   }
 }
 
-.rank-social-ctn {
+.rankSocialCtn {
 
-  .rank-ctn {
+  .rankCtn {
     justify-content: center;
   }
 
-  .add-social-ctn {
+  .addSocialCtn {
     justify-content: center;
   }
 }
 
-.status-ctn {
+.statusCtn {
   justify-content: center;
 }
 
-.skills-links-ctn {
+.skillsLinksCtn {
   padding: 20px;
   justify-content: space-around;
 }

@@ -26,7 +26,7 @@ const DropDown = ({ defaultValue, handleChange, items, name }) => (
         {items.map(item => <option key={item} value={item}>{item}</option>)}
       </select>
 
-      <Icon id="angle-dow" className={css(styles.icon)} name="angle-down" />
+      <Icon className={`${css(styles.icon)} ${classes.angleDown}`} name="angle-down" />
     </div>
   </div>
 )

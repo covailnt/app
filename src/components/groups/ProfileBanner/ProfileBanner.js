@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import firebase from 'refire/firebase'
 import Dropzone from 'react-dropzone'
-import { Button, Heading, Icon, Input } from 'components/elements'
+import { Button, Flexbox, Heading, Icon, Input } from 'components/elements'
 import { Rank } from 'components/groups'
 import defaultBanner from 'images/profile/defaultBanner.jpg'
 import theme from 'theme'
+import classes from './ProfileBanner.scss'
 
 const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, specialty, uid }) => {
   const onDrop = (acceptedFiles, rejectedFiles) => {
@@ -32,24 +33,27 @@ const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, spe
   }
 
   return (
-    <div className="flex-column profile-wrapper">
-      <div className="profile-banner-ctn">
-        <Dropzone
-          className="flex-column banner-img"
-          multiple={false}
-          onDrop={onDrop.bind(this)}
-          style={{ backgroundImage: `url(${bannerURL || defaultBanner})` }}
-        >
-          <div className="banner-caption flex-column">
-            <Heading level={3}>Drop cover photo here</Heading>
-            <Icon color="black" name="picture-o" />
-          </div>
-        </Dropzone>
+    <Flexbox direction="column">
+      <div className={classes.profileBannerCtn}>
 
-        <div className="flex-column specialty" style={{ backgroundColor: theme.color.black }}>
+        <Flexbox direction="column">
+          <Dropzone
+            className={classes.bannerImg}
+            multiple={false}
+            onDrop={onDrop.bind(this)}
+            style={{ backgroundImage: `url(${bannerURL || defaultBanner})` }}
+          >
+            <div className="banner-caption flex-column">
+              <Heading level={3}>Drop cover photo here</Heading>
+              <Icon color="black" name="picture-o" />
+            </div>
+          </Dropzone>
+        </Flexbox>
+
+        <Flexbox className={classes.specialty} background="black" direction="column">
           <Heading color="white" level={1}>{displayName}</Heading>
 
-          <div className="flex-row specialty-input">
+          <Flexbox className={classes.specialtyInput}>
             <Heading color="white" level={4}>Specialty in </Heading>
             <Input
               color="primary"
@@ -59,20 +63,20 @@ const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, spe
               type="text"
               value={specialty}
             />
-          </div>
+          </Flexbox>
 
-        </div>
+        </Flexbox>
 
       </div>
 
-      <div className="flex-column rank-social-ctn">
+      <Flexbox direction="column" className={classes.rankSocialCtn}>
 
-        <div className="flex-row rank-ctn">
+        <Flexbox className={classes.rankCtn}>
           <Rank color="black" type="Earned" value="005" />
           <Rank color="black" type="Potential" value="99" />
-        </div>
+        </Flexbox>
 
-        <div className="flex-row add-social-ctn">
+        <Flexbox className={classes.addSocialCtn}>
           <span className="fa-stack fa-lg">
             <Icon className="fa-stack-2x" color="primary" name="circle" />
             <Icon className="fa-stack-1x" color="white" name="facebook" />
@@ -91,16 +95,17 @@ const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, spe
             placeholder="Add a Social Network"
             type="text"
           />
-        </div>
-      </div>
+        </Flexbox>
 
-      <div className="flex-row status-ctn" style={{ background: theme.color.white }}>
+      </Flexbox>
+
+      <Flexbox className={classes.statusCtn} background="white">
         <Heading color="primary" level={3}>Your availability status appears here</Heading>
         <Button background="white" color="accent1" >Send Collab Request</Button>
-      </div>
+      </Flexbox>
 
-      <div className="flex-row skills-links-ctn">
-        <div className="flex-column skills">
+      <Flexbox className={classes.skillsLinksCtn}>
+        <Flexbox direction="column" className={classes.skills}>
           <Heading color="accent1" level={5}>Skills</Heading>
           <Heading color="accent1" level={3}>Specialty</Heading>
           <Input
@@ -108,9 +113,9 @@ const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, spe
             placeholder="Add another skill"
             type="text"
           />
-        </div>
+        </Flexbox>
 
-        <div className="flex-column portfolio">
+        <Flexbox direction="column" className={classes.portfolio}>
           <Heading color="accent1" level={5}>Portfolio</Heading>
 
           <Heading color="accent1" level={3}>Portfolio Link</Heading>
@@ -133,10 +138,11 @@ const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, spe
             placeholder="Link up your Dribbble"
             type="text"
           />
-        </div>
-      </div>
+        </Flexbox>
 
-    </div>
+      </Flexbox>
+
+    </Flexbox>
   )
 }
 

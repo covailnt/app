@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StyleSheet, css } from 'aphrodite'
 import { Link } from 'react-router-dom'
 import theme from 'theme'
+import classes from './MenuItem.scss'
 
 const styles = StyleSheet.create({
   item: {
@@ -11,12 +12,12 @@ const styles = StyleSheet.create({
     ':hover': {
       background: theme.color.accent1,
       color: theme.color.primary,
-    }
-  }
+    },
+  },
 })
 
 const MenuItem = ({ children, link }) => (
-  <Link to={link} className={`${css(styles.item)} menu-item`}>
+  <Link to={link} className={`${css(styles.item)} ${classes.menuItem}`}>
     <li>
       {children}
     </li>
