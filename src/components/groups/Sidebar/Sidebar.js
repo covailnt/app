@@ -1,18 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import theme from 'theme'
-import { MenuItem } from 'components/elements'
+import { Flexbox, MenuItem } from 'components/elements'
+import classes from './Sidebar.scss'
 
 const Sidebar = ({ children }) => {
   return (
-    <div className='sidebar flex-column' style={{background: theme.color.black}}>
+    <Flexbox className={classes.sidebar} direction="column" background="black">
       {children}
-      <MenuItem link='/profile'>Profile</MenuItem>
-      <MenuItem link='/contacts'>Contacts</MenuItem>
-      <MenuItem link='/chat'>Chat</MenuItem>
-      <MenuItem link='/collab'>Collab Sessions</MenuItem>
-    </div>
+      <MenuItem link="/profile">Profile</MenuItem>
+      <MenuItem link="/contacts">Contacts</MenuItem>
+      <MenuItem link="/chat">Chat</MenuItem>
+      <MenuItem link="/collab">Collab Sessions</MenuItem>
+    </Flexbox>
   )
+}
+
+Sidebar.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Sidebar

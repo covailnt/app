@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import theme from 'theme'
-import './Icon.scss'
+import classes from './Icon.scss'
 
 
 const Icon = ({ className, color, name, size, ...props }) => {
@@ -9,7 +9,7 @@ const Icon = ({ className, color, name, size, ...props }) => {
     ? (
       <i
         aria-hidden="true"
-        className={`fa fa-${name} fa-${size} ${className}`}
+        className={`fa fa-${name} fa-${size} ${className} ${classes.icon}`}
         style={{ color: theme.color[color] }}
         {...props}
       />
@@ -17,7 +17,7 @@ const Icon = ({ className, color, name, size, ...props }) => {
     : (
       <i
         aria-hidden="true"
-        className={`fa fa-${name} ${className}`}
+        className={`fa fa-${name} ${className} ${classes.icon}`}
         style={{ color: theme.color[color] }}
         {...props}
       />

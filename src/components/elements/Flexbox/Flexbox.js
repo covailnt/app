@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import classes from './Flexbox.scss'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
 
@@ -20,10 +19,8 @@ const Flexbox = ({ align, background, className, direction, justify, children })
 }
 
 Flexbox.defaultProps = {
-  align: 'stretch',
   background: 'transparent',
   direction: 'row',
-  justify: 'flex-start',
 }
 
 Flexbox.propTypes = {

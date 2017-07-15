@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Flexbox } from 'components/elements'
 import { Rank, Sidebar } from 'components/groups'
 import { Navbar, UserMenu } from 'components/wrappers'
+import classes from './AuthenticatedTemplate.scss'
 
 export default class AuthenticatedTemplate extends Component {
   render() {
     const { children, donutchart } = this.props
     return (
-      <div className="flex-row">
+      <Flexbox>
 
         <Sidebar>{donutchart}</Sidebar>
 
-        <div className="right-ctn flex-column">
+        <Flexbox className={classes.rightColumn}>
 
           <Navbar color="black">
             <Rank color="white" type="Earned" value="005" />
@@ -18,11 +21,16 @@ export default class AuthenticatedTemplate extends Component {
             <UserMenu />
           </Navbar>
 
-          <div className="content">
+          <main>
             {children}
-          </div>
-        </div>
-      </div>
+          </main>
+        </Flexbox>
+      </Flexbox>
     )
   }
+}
+
+AuthenticatedTemplate.propTypes = {
+  children: PropTypes.node.isRequired,
+  donutchart: PropTypes.node,
 }

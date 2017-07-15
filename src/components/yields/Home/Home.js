@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { Heading } from 'components/elements'
 import { SignIn, UserMenu } from 'components/wrappers'
 import { connect } from 'react-redux'
 
 class Home extends Component {
-  constructor(props) {
-    super(props)
-  }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const { user, history } = this.props
 
     if (user && !prevProps.user && history.location.pathname === '/') {
@@ -18,18 +16,23 @@ class Home extends Component {
   render() {
     const { user } = this.props
     return (
-      <div id='home-ctn'>
-        <div className='menu-ctn'>
+      <div id="home-ctn">
+        <div className="menu-ctn">
           {user ? <UserMenu /> : <SignIn />}
         </div>
         <Heading level={1}>You are Home</Heading>
-        <div id="firebaseui-auth-container"></div>
+        <div id="firebaseui-auth-container" />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
+Home.propTypes = {
+  history: PropTypes.object,
+  user: PropTypes.object,
+}
+
+const mapStateToProps = (state) => {
   return { user: state.user }
 }
 

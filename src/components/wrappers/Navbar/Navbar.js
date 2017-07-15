@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import theme from 'theme'
+import { Flexbox } from 'components/elements'
+import classes from './Navbar.scss'
 
 class Navbar extends Component {
   render() {
     return (
-      <div
-        id="navbar"
-        className="flex-row flex-row"
-        style={{ background: theme.color[this.props.color] }}
+      <Flexbox
+        className={classes.navbar}
+        background={this.props.color}
       >
         {this.props.children}
-      </div>
+      </Flexbox>
     )
   }
+}
+
+Navbar.propTypes = {
+  children: PropTypes.node.isRequired,
+  color: PropTypes.string,
 }
 
 const mapStateToProps = (state) => {

@@ -43,10 +43,10 @@ const ProfileBanner = ({ bannerURL, displayName, onChange, setProfileBanner, spe
             onDrop={onDrop.bind(this)}
             style={{ backgroundImage: `url(${bannerURL || defaultBanner})` }}
           >
-            <div className="banner-caption flex-column">
+            <Flexbox className={classes.bannerCaption} direction="column">
               <Heading level={3}>Drop cover photo here</Heading>
               <Icon color="black" name="picture-o" />
-            </div>
+            </Flexbox>
           </Dropzone>
         </Flexbox>
 

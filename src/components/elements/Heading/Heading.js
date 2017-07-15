@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import theme from 'theme'
 
-const Heading = ({ level, color, children }) => {
+const Heading = ({ level, className, color, children }) => {
   const Header = `h${level}`
 
   return (
-    <Header className="heading" style={{ color: theme.color[color] }}>{children}</Header>
+    <Header className={className} style={{ color: theme.color[color] }}>{children}</Header>
   )
 }
 

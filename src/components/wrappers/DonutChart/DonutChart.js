@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { DropDown } from 'components/elements'
 import avatar from 'images/avatar.png'
 import theme from 'theme'
-import styles from './DonutChart.scss'
+import classes from './DonutChart.scss'
 
 export default class DonutChart extends Component {
   constructor(props) {
@@ -81,13 +81,13 @@ export default class DonutChart extends Component {
     const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
     return (
-      <div className={styles.donutWrapper}>
-        <div className={styles.donutCtn}>
-          <svg className={styles.donutchart} width={size} height={size}>
-            <circle className={styles.donutchartTrack} r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
-            <circle className={styles.donutchartFilling} r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
+      <div className={classes.donutWrapper}>
+        <div className={classes.donutCtn}>
+          <svg className={classes.donutchart} width={size} height={size}>
+            <circle className={classes.donutchartTrack} r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
+            <circle className={classes.donutchartFilling} r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} />
           </svg>
-          <img src={avatarImage || avatar} />
+          <img alt="avatar" src={avatarImage || avatar} />
         </div>
 
         <DropDown
@@ -109,6 +109,7 @@ DonutChart.defaultProps = {
 
 DonutChart.propTypes = {
   avatarImage: PropTypes.string,   // source of image
+  items: PropTypes.array,
   size: PropTypes.number,         // diameter of chart
   strokewidth: PropTypes.number,  // width of chart line
 }

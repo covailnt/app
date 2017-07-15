@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setProfileBanner } from 'actions/setProfileBanner'
 import { setProfileSpecialty } from 'actions/setProfileSpecialty'
@@ -52,6 +53,16 @@ class Profile extends Component {
       )
       : <Spinner />
   }
+}
+
+Profile.propTypes = {
+  bannerURL: PropTypes.string,
+  displayName: PropTypes.string,
+  image: PropTypes.string,
+  setProfileBanner: PropTypes.func.isRequired,
+  specialty: PropTypes.string,
+  uid: PropTypes.string,
+  user: PropTypes.object,
 }
 
 const mapStateToProps = (state) => {
