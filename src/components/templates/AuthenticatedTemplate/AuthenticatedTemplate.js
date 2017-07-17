@@ -13,7 +13,7 @@ export default class AuthenticatedTemplate extends Component {
 
         <Sidebar>{donutchart}</Sidebar>
 
-        <Flexbox className={classes.rightColumn}>
+        <Flexbox className={classes.rightColumn} direction="column">
 
           <Navbar color="black">
             <Rank color="white" type="Earned" value="005" />

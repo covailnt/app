@@ -44,9 +44,8 @@ export function logInWithProvider(provider) {
   }
 
   firebase.auth().signInWithPopup(authProvider)
-    .then(data => console.log(data))
+    .then(data => console.log('data', data))
     .catch(e => console.log('auth error: ', e))
-
 }
 
 export function logOut() {

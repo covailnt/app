@@ -14,7 +14,7 @@ const Flexbox = ({ align, background, className, direction, justify, children })
     },
   })
   return (
-    <div className={`${css(styles.flex)} ${className}`}>{children}</div>
+    <div className={`${css(styles.flex)} ${className || ''}`}>{children}</div>
   )
 }
 

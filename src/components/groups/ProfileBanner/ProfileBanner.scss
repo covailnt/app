@@ -1,70 +1,16 @@
-.profileBannerCtn {
-  position: relative;
+.bannerImg {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 70vh;
+  max-width: 100%;
+  opacity: 1;
+  transition: opacity 1s;
+  width: 100%;
 
-  .bannerImg {
-    align-items: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    height: 70vh;
-    justify-content: center;
-    max-width: 100%;
-    opacity: 1;
+  &:hover {
+    cursor: pointer;
+    opacity: .2;
     transition: opacity 1s;
-
-    .bannerCaption {
-      align-items: center;
-    }
-
-    &:hover {
-      cursor: pointer;
-      opacity: .2;
-      transition: opacity 1s;
-    }
   }
-
-  .specialty {
-    align-items: center;
-    bottom: 0;
-    justify-content: center;
-    left: 50%;
-    opacity: .9;
-    padding-bottom: 20px;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 100%;
-
-    .specialtyInput {
-      align-items: center;
-    }
-
-    h4 {
-      margin: 0;
-    }
-
-    input {
-      margin-left: 20px;
-      width: 300px;
-    }
-  }
-}
-
-.rankSocialCtn {
-
-  .rankCtn {
-    justify-content: center;
-  }
-
-  .addSocialCtn {
-    justify-content: center;
-  }
-}
-
-.statusCtn {
-  justify-content: center;
-}
-
-.skillsLinksCtn {
-  padding: 20px;
-  justify-content: space-around;
 }

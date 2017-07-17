@@ -1,0 +1,26 @@
+.profileBannerCtn {
+  position: relative;
+
+  .specialty {
+    bottom: 0;
+    left: 50%;
+    opacity: .9;
+    padding-bottom: 20px;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+
+    h4 {
+      margin: 0;
+    }
+
+    input {
+      margin-left: 20px;
+      width: 300px;
+    }
+  }
+}
+
+.skillsLinksCtn {
+  padding: 20px;
+}

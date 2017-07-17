@@ -7,10 +7,7 @@ import classes from './Navbar.scss'
 class Navbar extends Component {
   render() {
     return (
-      <Flexbox
-        className={classes.navbar}
-        background={this.props.color}
-      >
+      <Flexbox align="center" className={classes.navbar} background={this.props.color} justify="flex-end" >
         {this.props.children}
       </Flexbox>
     )

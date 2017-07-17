@@ -10,6 +10,4 @@ firebase.initializeApp({
   messagingSenderId: config.firebase.messagingSenderId,
 })
 
-// export const sagaFirebase = new ReduxSagaFirebase(firebaseApp)
-
 export default firebase

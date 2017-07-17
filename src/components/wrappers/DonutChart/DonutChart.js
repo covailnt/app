@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { DropDown } from 'components/elements'
+import { DropDown, Flexbox } from 'components/elements'
 import avatar from 'images/avatar.png'
 import theme from 'theme'
 import classes from './DonutChart.scss'
@@ -81,7 +81,7 @@ export default class DonutChart extends Component {
     const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
     return (
-      <div className={classes.donutWrapper}>
+      <Flexbox className={classes.donutWrapper} justify="center">
         <div className={classes.donutCtn}>
           <svg className={classes.donutchart} width={size} height={size}>
             <circle className={classes.donutchartTrack} r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
@@ -97,7 +97,7 @@ export default class DonutChart extends Component {
           defaultValue={this.state.status}
         />
 
-      </div>
+      </Flexbox>
     )
   }
 }

@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Home, Profile, SignUp } from 'components/yields'
 import { requireAuth } from 'components/wrappers'
-import firebase from 'refire/firebase'
 
 import {
   BrowserRouter as Router,
@@ -13,26 +12,16 @@ import 'theme/theme.scss'
 import 'theme/Global.scss'
 import 'theme/normalize.css'
 
-import { connect } from 'react-redux'
+const App = () => (
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/profile" component={requireAuth(Profile)} />
+        <Route path="/signup" component={SignUp} />
+      </Switch>
+    </div>
+  </Router>
+)
 
-class AppComponent extends Component {
-  render() {
-    return (
-        <Router>
-          <div>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/profile' component={requireAuth(Profile)} />
-              <Route path='/signup' component={SignUp} />
-            </Switch>
-          </div>
-        </Router>
-      )
-  }
-}
-
-function mapStateToProps(state) {
-  return { user: state.user }
-}
-
-export default connect(mapStateToProps)(AppComponent)
+export default App
