@@ -5,6 +5,7 @@ import {
   SET_CURRENT_USER,
   SET_PROFILE_BANNER,
   SET_PROFILE_SPECIALTY,
+  USER_FETCH_SUCCEEDED,
 } from 'actions/types'
 
 const userReducer = (state = null, action) => {
@@ -23,14 +24,16 @@ const userReducer = (state = null, action) => {
       return Object.assign({}, state, { bannerURL: action.bannerURL })
 
     case SET_PROFILE_SPECIALTY:
-      path = `users/${state.user.uid}`
+      path = `users/${state.uid}`
       ref = firebase.database().ref(path)
 
       throttle(ref.update({ specialty: action.specialty }), 300)
 
-      user = Object.assign({}, state.user, { specialty: action.specialty })
+      return Object.assign({}, state, { specialty: action.specialty })
 
-      return Object.assign({}, state, user)
+    case USER_FETCH_SUCCEEDED:
+      console.log('success bro', action.userData)
+      return Object.assign({}, state, action.userData)
 
     default:
       return state

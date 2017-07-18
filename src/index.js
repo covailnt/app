@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import watch from 'redux-watch'
 import appStore from 'reducers'
 import {
   SET_CURRENT_USER,
-  SET_PROFILE_BANNER,
-  SET_PROFILE_SPECIALTY,
+  USER_FETCH_REQUESTED,
 } from 'actions/types'
 import App from 'components/App'
 import firebase from 'refire/firebase'
@@ -20,6 +20,15 @@ const renderApp = () => (
 
 const root = document.getElementById('app')
 
+const w = watch(appStore.getState, 'fetching.fetchingUser')
+
+appStore.subscribe(w((newVal) => {
+  if (!newVal) {
+    console.log('done fetching time to render!')
+    ReactDOM.render(renderApp(), root)
+  }
+}))
+
 firebase.auth().onAuthStateChanged((user) => {
   console.log('auth state change')
 
@@ -33,56 +42,19 @@ firebase.auth().onAuthStateChanged((user) => {
       uid,
     } = user
 
-    // let bannerURL = null
-    const path = `users/${uid}`
+    appStore.dispatch({
+      type: USER_FETCH_REQUESTED,
+      payload: { uid },
+    })
 
-    //     firebase.database().ref(path).on('value', (snapshot) => {
-
-    //       if (snapshot.child('bannerURL').exists()) {
-    //         bannerURL = snapshot.val().bannerURL
-    // console.log('about to dispatch banner')
-    //         appStore.dispatch({
-    //           type: SET_PROFILE_BANNER,
-    //           bannerURL,
-    //         })
-    //       }
-    //     })
-
-    console.log('starting snapshot')
-
-    firebase.database().ref(path).once('value').then((snapshot) => {
-      // const bannerURLExists = snapshot.child('bannerURL').exists()
-      console.log('have snapshot')
-      // bannerURL = bannerURLExists ? snapshot.val().bannerURL : null
-
-      // TODO: Users shouldn't be written everytime auth state changes and the user exist
-      // It should only be written if it is the users first time signing in
-      // if (bannerURL) {
-
-        appStore.dispatch({
-          type: SET_CURRENT_USER,
-          user: {
-            // bannerURL,
-            displayName,
-            email,
-            photoURL,
-            uid,
-          },
-        })
-
-        // firebase.database().ref(path).update({
-        // bannerURL,
-        //   displayName,
-        //   email,
-        //   photoURL,
-        // })
-      // } else {
-      //   firebase.database().ref(path).update({
-      //     displayName,
-      //     email,
-      //     photoURL,
-      //   })
-      // }
+    appStore.dispatch({
+      type: SET_CURRENT_USER,
+      user: {
+        displayName,
+        email,
+        photoURL,
+        uid,
+      },
     })
   } else {
     appStore.dispatch({
@@ -90,7 +62,4 @@ firebase.auth().onAuthStateChanged((user) => {
       user: null,
     })
   }
-
-    console.log('rendering!')
-  ReactDOM.render(renderApp(), root)
 })

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-
 import appStore from 'reducers'
 import { setProfileSpecialty } from 'actions/setProfileSpecialty'
 import { Input } from 'components/elements'
 import classes from './FirebaseInput.scss'
 
-export default class FirebaseInput extends Component {
+class FirebaseInput extends Component {
   constructor() {
     super()
 
@@ -19,7 +19,6 @@ export default class FirebaseInput extends Component {
   }
   updateVal(e) {
     const value = e.target.value
-    console.log('change')
     this.setState({ value })
     appStore.dispatch(setProfileSpecialty(value))
   }
@@ -30,7 +29,7 @@ export default class FirebaseInput extends Component {
         onChange={e => this.updateVal(e)}
         placeholder={this.props.placeholder}
         type="text"
-        value={this.state.value}
+        value={this.props[this.props.name]}
       />
     )
   }
@@ -42,3 +41,9 @@ FirebaseInput.propTypes = {
   placeholder: PropTypes.string,
   uid: PropTypes.string,
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return { [ownProps.name]: state.user[ownProps.name] }
+}
+
+export default connect(mapStateToProps)(FirebaseInput)
