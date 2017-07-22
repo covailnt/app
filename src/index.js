@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import watch from 'redux-watch'
 import appStore from 'reducers'
 import {
+  IS_FETCHING_USER,
   SET_CURRENT_USER,
   USER_FETCH_REQUESTED,
 } from 'actions/types'
@@ -60,6 +61,10 @@ firebase.auth().onAuthStateChanged((user) => {
     appStore.dispatch({
       type: SET_CURRENT_USER,
       user: null,
+    })
+    appStore.dispatch({
+      type: IS_FETCHING_USER,
+      user: false,
     })
   }
 })
