@@ -18,8 +18,15 @@ export default class DonutChart extends Component {
     this.updateStatus = this.updateStatus.bind(this)
   }
   setDonutValue(status) {
-    const { items } = this.props
-
+    const { items } = [
+      'Not Working',
+      'Really Light',
+      'Kinda Light',
+      'Not That Busy',
+      'Kinda Busy',
+      'Really Busy',
+      'Slammed',
+    ]
     switch (status) {
       case items[0]:
         return 0
