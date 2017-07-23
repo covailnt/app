@@ -27,7 +27,7 @@ class Profile extends Component {
         <AuthenticatedTemplate
           donutchart={<DonutChart {...donutChartProps} />}
         >
-          {/*<Flexbox direction="column">
+          {/* <Flexbox direction="column">
             <div className={classes.profileBannerCtn}>
 
               <ProfileBanner
@@ -46,7 +46,7 @@ class Profile extends Component {
                 </Flexbox>
               </Flexbox>
 
-            {/*</div>
+          {/* </div>
 
             <Flexbox direction="column">
 

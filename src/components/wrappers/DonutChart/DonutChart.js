@@ -5,6 +5,16 @@ import avatar from 'images/avatar.png'
 import theme from 'theme'
 import classes from './DonutChart.scss'
 
+const statuses = [
+  'Not Working',
+  'Really Light',
+  'Kinda Light',
+  'Not That Busy',
+  'Kinda Busy',
+  'Really Busy',
+  'Slammed',
+]
+
 export default class DonutChart extends Component {
   constructor(props) {
     super(props)
@@ -18,35 +28,26 @@ export default class DonutChart extends Component {
     this.updateStatus = this.updateStatus.bind(this)
   }
   setDonutValue(status) {
-    const { items } = [
-      'Not Working',
-      'Really Light',
-      'Kinda Light',
-      'Not That Busy',
-      'Kinda Busy',
-      'Really Busy',
-      'Slammed',
-    ]
     switch (status) {
-      case items[0]:
+      case statuses[0]:
         return 0
 
-      case items[1]:
+      case statuses[1]:
         return 12.5
 
-      case items[2]:
+      case statuses[2]:
         return 25
 
-      case items[3]:
+      case statuses[3]:
         return 37.5
 
-      case items[4]:
+      case statuses[4]:
         return 62.5
 
-      case items[5]:
+      case statuses[5]:
         return 75
 
-      case items[6]:
+      case statuses[6]:
         return 100
 
       default:
@@ -66,7 +67,7 @@ export default class DonutChart extends Component {
     this.updateStatus(e.target.value)
   }
   render() {
-    const { size, strokewidth, avatarImage, items } = this.props
+    const { size, strokewidth, avatarImage } = this.props
 
     const halfsize = (size * 0.5)
     const radius = halfsize - (strokewidth * 0.5)
@@ -97,13 +98,27 @@ export default class DonutChart extends Component {
           <img alt="avatar" src={avatarImage || avatar} />
         </div>
 
-        <DropDown
-          handleChange={this.handleChange}
-          items={items}
-          name="profile-dropdown"
-          defaultValue={this.state.status}
-        />
+			  <div className={classes.statusCtn}>
+  				<p>This week I am:</p> {/*TODO make this a label */}
+          <DropDown
+            handleChange={this.handleChange}
+            items={statuses}
+            name="profile-dropdown"
+            defaultValue={this.state.status}
+          />
+          {/*TODO add this in, perhaps via some options using the drop-down component
+          <button type="submit" className={style.btnPrimary}>Update Availability</button>
+          */}
 
+          {/*TODO implement this feature */}
+  				<p className={classes.statusMsg}>
+  					<span>You are up to date.</span>
+  					<br />
+  					Last Updated: Today
+  					<br />
+  					Expires in: 7 days
+  				</p>
+        </div>
       </Flexbox>
     )
   }
@@ -116,7 +131,6 @@ DonutChart.defaultProps = {
 
 DonutChart.propTypes = {
   avatarImage: PropTypes.string,   // source of image
-  items: PropTypes.array,
   size: PropTypes.number,         // diameter of chart
   strokewidth: PropTypes.number,  // width of chart line
 }
