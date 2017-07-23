@@ -1,3 +1,5 @@
+@import 'src/styles/main';
+
 .donutWrapper {
   height: 250px;
   position: relative;
@@ -13,9 +15,6 @@
   .donutchart {
     border-radius: 50%;
     display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     .donutchartTrack{
       fill: transparent;
     }
@@ -48,7 +47,7 @@
   .statusMsg {
     color: $msg;
     text-align: center;
-    @include rems(15);
+    @include rems(14);
     span {
       color: $primary;
     }
