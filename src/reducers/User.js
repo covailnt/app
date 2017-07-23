@@ -5,6 +5,7 @@ import {
   SET_CURRENT_USER,
   SET_PROFILE_BANNER,
   SET_PROFILE_SPECIALTY,
+  SIGN_OUT,
   USER_FETCH_SUCCEEDED,
 } from 'actions/types'
 
@@ -29,6 +30,9 @@ const userReducer = (state = null, action) => {
       throttle(ref.update({ specialty: action.specialty }), 300)
 
       return Object.assign({}, state, { specialty: action.specialty })
+
+    case SIGN_OUT:
+      return action.isSignedOut ? state : null
 
     case USER_FETCH_SUCCEEDED:
       console.log('Merged user auth and user data into store ===>', action.user)

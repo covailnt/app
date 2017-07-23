@@ -2,7 +2,7 @@ import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import refire from 'refire'
 import createSagaMiddleware from 'redux-saga'
-import fetchUserSaga from 'sagas/FetchUserSaga'
+import rootSaga from 'sagas'
 import preloadingReducer from './Preloading'
 import userReducer from './User'
 
@@ -20,6 +20,6 @@ window.store = createStore(
   )
 )
 
-sagaMiddleware.run(fetchUserSaga)
+sagaMiddleware.run(rootSaga)
 
 export default window.store

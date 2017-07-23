@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import appStore from 'reducers'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Avatar, Button } from 'components/elements'
-import { logOut } from 'refire/auth'
+import { SIGN_OUT_REQUESTED } from 'actions/types'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
 import classes from './UserMenu.scss'
@@ -32,7 +33,15 @@ class UserMenu extends Component {
           <li><Link to="/profile">Secret Profile</Link></li>
           <li><Link to="/signup">Sign Up Landing Page</Link></li>
           <li><Link to="/signup/create-account/step-1">SignUp-Step-1</Link></li>
-          <li><Link to="/"><Button onClick={() => logOut()}>Log Out</Button></Link></li>
+          <li>
+            <Link to="/">
+              <Button
+                onClick={() => appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
+              >
+                Sign Out
+              </Button>
+            </Link>
+          </li>
         </ul>
       )
       : ''

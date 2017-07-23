@@ -3,23 +3,30 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import firebase from 'refire/firebase'
 import { USER_FETCH_REQUESTED } from 'actions/types'
 import { isPreloadingStore, userFetchFailed, userFetchSucceeded } from 'actions'
+import { omit } from 'underscore'
 
-function* getVals(uid) {
+function* getVals(userAuthInfo) {
   const properties = ['yo', 'bannerURL', 'specialty']
+  const ref = firebase.database().ref(`users/${userAuthInfo.uid}`)
 
-  const userValues = yield firebase.database().ref(`users/${uid}`).once('value').then((snapshot) => {
-    const vals = {}
+  const userData = yield ref.once('value').then((snapshot) => {
+    if (snapshot.val()) {
+      const vals = {}
 
-    properties.forEach((property) => {
-      if (snapshot.val()[property]) {
-        vals[property] = snapshot.val()[property]
-      }
-    })
+      properties.forEach((property) => {
+        if (snapshot.val()[property]) {
+          vals[property] = snapshot.val()[property]
+        }
+      })
 
-    return vals
+      return vals
+    }
+
+    ref.set(omit(userAuthInfo, 'uid'))
+    return {}
   })
 
-  return userValues
+  return userData
 }
 
 function* fetchUserData(action) {
@@ -30,7 +37,7 @@ function* fetchUserData(action) {
       photoURL: action.user.photoURL,
       uid: action.user.uid,
     }
-    const userData = yield call(getVals, action.user.uid)
+    const userData = yield call(getVals, userAuthInfo)
     const user = Object.assign({}, userAuthInfo, userData)
 
     yield put(userFetchSucceeded(user))
@@ -41,8 +48,6 @@ function* fetchUserData(action) {
   }
 }
 
-function* mySaga() {
+export default function* fetchUserSaga() {
   yield takeLatest(USER_FETCH_REQUESTED, fetchUserData)
 }
-
-export default mySaga
