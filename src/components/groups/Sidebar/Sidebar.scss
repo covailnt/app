@@ -1,5 +1,60 @@
+@import 'src/styles/main';
+
 .sidebar {
   padding-top: 50px;
   min-height: 100vh;
   width: 300px;
+  background: $sidebar;
+  color: $white;
+  @include cols(3);
+}
+.sidebar {
+  // from what was v2
+  padding: 40px 20px;
+}
+
+
+.nav {
+  margin-top: 50px;
+}
+.sidebarNav {
+  list-style: none;
+  margin: 0 -20px;
+  padding: 0;
+  background: $nav-bg;
+  li {
+  }
+  a, a:visited {
+    display: block;
+    padding: 10px 20px;
+    background: $nav-bg;
+    color: $white;
+    border: 1px solid $nav-border;
+    &:hover {
+      color: $primary;
+      background: $nav-hover;
+    }
+  }
+  a.navActive {
+    &:hover {
+      color: $white;
+    }
+  }
+  .profileEdit {
+    display: block;
+    color: $primary;
+    float: right;
+    margin-top: -3px;
+  }
+  .badge {
+    display: block;
+    background: $primary;
+    color: $white;
+    float: right;
+    min-width: 10px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-top: -3px;
+    font-weight: bold;
+  }
 }

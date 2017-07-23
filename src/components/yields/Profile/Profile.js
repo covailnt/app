@@ -13,17 +13,9 @@ class Profile extends Component {
     console.log('profile updating')
   }
   render() {
+    // TODO: move more of these options into the donut component if no need to customize?
     const donutChartProps = {
       avatarImage: this.props.image,
-      items: [
-        'Not Working',
-        'Really Light',
-        'Kinda Light',
-        'Not That Busy',
-        'Kinda Busy',
-        'Really Busy',
-        'Slammed',
-      ],
       name: 'Profile Dropdown',
       placeholder: 'How busy are you?',
       size: 170,
@@ -35,7 +27,7 @@ class Profile extends Component {
         <AuthenticatedTemplate
           donutchart={<DonutChart {...donutChartProps} />}
         >
-          {/*<Flexbox direction="column">
+          {/* <Flexbox direction="column">
             <div className={classes.profileBannerCtn}>
 
               <ProfileBanner
@@ -54,7 +46,7 @@ class Profile extends Component {
                 </Flexbox>
               </Flexbox>
 
-            {/*</div>
+          {/* </div>
 
             <Flexbox direction="column">
 
