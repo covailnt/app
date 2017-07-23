@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { logInWithProvider, createUserWithEmail } from 'refire/auth'
 import { Button, Heading } from 'components/elements'
 import classes from './CreateAccount.scss'
 
@@ -21,9 +20,32 @@ class CreateAccount extends Component {
         <input type="text" onChange={e => this.updateEmail(e)} value={this.state.email} />
         <Heading level={5}>We&apos;ll send you an email to set your password later.</Heading>
         <Button onClick={() => createUserWithEmail(this.state.email, this)}>Get me in</Button><br />
-        <Button background="facebook" onClick={() => logInWithProvider('facebook')}>Create Account With Facebook</Button>
-        <Button background="github" onClick={() => logInWithProvider('github')}>Create Account With Github</Button>
-        <Button background="google" onClick={() => logInWithProvider('google')}>Create Account With Google</Button>
+        <Button
+          onClick={() => this.signIn(EMAIL, { email: this.state.email, password: this.state.password })}
+        >
+          Log In With Email
+        </Button>
+
+        <Button
+          background="facebook"
+          onClick={() => this.signIn(PROVIDER, FACEBOOK)}
+        >
+          Log In With Facebook
+        </Button>
+
+        <Button
+          background="github"
+          onClick={() => this.signIn(PROVIDER, GITHUB)}
+        >
+          Log In With Github
+        </Button>
+
+        <Button
+          background="google"
+          onClick={() => this.signIn(PROVIDER, GOOGLE)}
+        >
+          Log In With Google
+        </Button>
       </div>
     )
   }

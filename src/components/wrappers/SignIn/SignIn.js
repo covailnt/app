@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'components/elements'
 import { connect } from 'react-redux'
-import { logInWithEmail, logInWithProvider } from 'refire/auth'
 import Modal from 'react-modal'
+import { signInRequested } from 'actions'
+import {
+  EMAIL,
+  FACEBOOK,
+  GITHUB,
+  GOOGLE,
+  PROVIDER,
+} from 'utils/constants'
 
 class SignIn extends Component {
   constructor(props) {
@@ -19,10 +26,6 @@ class SignIn extends Component {
   toggleMenu() {
     this.setState({ menuOpen: !this.state.menuOpen })
   }
-  logInWithEmail() {
-    logInWithEmail(this.state.email, this.state.password)
-    this.closeLogInModal()
-  }
   openLogInModal() {
     this.setState({ logInModalIsOpen: true })
   }
@@ -34,6 +37,9 @@ class SignIn extends Component {
   }
   updatePassword(e) {
     this.setState({ password: e.target.value })
+  }
+  signIn(type, data) {
+    this.props.signInRequested({ type, data })
   }
   render() {
     return (
@@ -50,30 +56,38 @@ class SignIn extends Component {
           <Button onClick={() => this.closeLogInModal()}>close</Button>
           <input type="text" onChange={e => this.updateEmail(e)} value={this.state.email} />
           <input type="text" onChange={e => this.updatePassword(e)} value={this.state.password} />
-          <Button onClick={() => this.logInWithEmail(this.state.email, this.state.password)}>Log In With Email</Button>
+          <Button
+            onClick={() => this.signIn(EMAIL, { email: this.state.email, password: this.state.password })}
+          >
+            Log In With Email
+          </Button>
+
           <Button
             background="facebook"
-            onClick={() => logInWithProvider('facebook')}
+            onClick={() => this.signIn(PROVIDER, FACEBOOK)}
           >
-              Log In With Facebook
+            Log In With Facebook
           </Button>
+
           <Button
             background="github"
-            onClick={() => logInWithProvider('github')}
+            onClick={() => this.signIn(PROVIDER, GITHUB)}
           >
-              Log In With Github
+            Log In With Github
           </Button>
+
           <Button
             background="google"
-            onClick={() => logInWithProvider('google')}
+            onClick={() => this.signIn(PROVIDER, GOOGLE)}
           >
-              Log In With Google
+            Log In With Google
           </Button>
+
           <Link
             to="/signup/create-account"
             onClick={() => this.closeLogInModal()}
           >
-              Need to create an account?
+            Need to create an account?
           </Link>
         </Modal>
       </div>
@@ -110,4 +124,5 @@ const styles = {
   },
 }
 
-export default connect(mapStateToProps)(SignIn)
+
+export default connect(mapStateToProps, { signInRequested })(SignIn)

@@ -1,0 +1,8 @@
+export const CREATE_USER = 'CREATE_USER'
+export const EMAIL = 'EMAIL'
+export const ERROR = 'ERROR'
+export const FACEBOOK = 'FACEBOOK'
+export const GITHUB = 'GITHUB'
+export const GOOGLE = 'GOOGLE'
+export const PROVIDER = 'PROVIDER'
+export const SUCCESS = 'SUCCESS'

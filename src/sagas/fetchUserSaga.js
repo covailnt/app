@@ -10,6 +10,7 @@ function* getVals(userAuthInfo) {
   const ref = firebase.database().ref(`users/${userAuthInfo.uid}`)
 
   const userData = yield ref.once('value').then((snapshot) => {
+    // If snapshot.val() is not undefined, user has signed in before
     if (snapshot.val()) {
       const vals = {}
 
@@ -43,8 +44,8 @@ function* fetchUserData(action) {
     yield put(userFetchSucceeded(user))
     yield put(isPreloadingStore(false))
 
-  } catch (e) {
-    yield put(userFetchFailed(e.message))
+  } catch (err) {
+    yield put(userFetchFailed(err.message))
   }
 }
 

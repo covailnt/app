@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const devServer = require('@webpack-blocks/dev-server2')
 const splitVendor = require('webpack-blocks-split-vendor')
 const happypack = require('webpack-blocks-happypack')
-const extractText = require('@webpack-blocks/extract-text2')
 const {
   addPlugins, createConfig, entryPoint, env, setOutput,
   sourceMaps, defineConstants, webpack,
