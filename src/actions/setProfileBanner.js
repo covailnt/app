@@ -1,8 +1,7 @@
-import { SET_PROFILE_BANNER } from './types'
+import { SET_PROFILE_BANNER } from 'actions/types'
 
-export const setProfileBanner = (bannerURL) => {
-  return {
-    type: SET_PROFILE_BANNER,
-    bannerURL,
-  }
-}
+const setProfileBanner = (bannerURL) => (
+  { type: SET_PROFILE_BANNER, bannerURL }
+)
+
+export default setProfileBanner

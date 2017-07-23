@@ -1,12 +1,8 @@
 import 'babel-polyfill'
 import { call, put, takeLatest } from 'redux-saga/effects'
 import firebase from 'refire/firebase'
-import {
-  IS_FETCHING_USER,
-  USER_FETCH_FAILED,
-  USER_FETCH_REQUESTED,
-  USER_FETCH_SUCCEEDED,
-} from 'actions/types'
+import { USER_FETCH_REQUESTED } from 'actions/types'
+import { isPreloadingStore, userFetchFailed, userFetchSucceeded } from 'actions'
 
 function* getVals(uid) {
   const properties = ['yo', 'bannerURL', 'specialty']
@@ -28,13 +24,20 @@ function* getVals(uid) {
 
 function* fetchUserData(action) {
   try {
-    const userData = yield call(getVals, action.payload.uid)
+    const userAuthInfo = {
+      displayName: action.user.displayName,
+      email: action.user.email,
+      photoURL: action.user.photoURL,
+      uid: action.user.uid,
+    }
+    const userData = yield call(getVals, action.user.uid)
+    const user = Object.assign({}, userAuthInfo, userData)
 
-    yield put({ type: USER_FETCH_SUCCEEDED, userData })
-    yield put({ type: IS_FETCHING_USER, payload: false })
+    yield put(userFetchSucceeded(user))
+    yield put(isPreloadingStore(false))
 
   } catch (e) {
-    yield put({ type: USER_FETCH_FAILED, message: e.message })
+    yield put(userFetchFailed(e.message))
   }
 }
 

@@ -1,8 +1,7 @@
-import { SET_PROFILE_SPECIALTY } from './types'
+import { SET_PROFILE_SPECIALTY } from 'actions/types'
 
-export const setProfileSpecialty = (specialty) => {
-  return {
-    type: SET_PROFILE_SPECIALTY,
-    specialty,
-  }
-}
+const setProfileSpecialty = (specialty) => (
+  { type: SET_PROFILE_SPECIALTY, specialty }
+)
+
+export default setProfileSpecialty

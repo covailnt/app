@@ -11,7 +11,6 @@ import {
 const userReducer = (state = null, action) => {
   let path
   let ref
-  let user
 
   switch (action.type) {
     case LOG_IN_WITH_PROVIDER:
@@ -32,8 +31,8 @@ const userReducer = (state = null, action) => {
       return Object.assign({}, state, { specialty: action.specialty })
 
     case USER_FETCH_SUCCEEDED:
-      console.log('success bro', action.userData)
-      return Object.assign({}, state, action.userData)
+      console.log('Merged user auth and user data into store ===>', action.user)
+      return Object.assign({}, state, action.user)
 
     default:
       return state

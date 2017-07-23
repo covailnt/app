@@ -36,6 +36,7 @@
     "no-console": 0,
     "no-unused-vars": 0,
     "no-constant-condition": 0,
+    "padded-blocks": 0,
     "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,

@@ -3,11 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import refire from 'refire'
 import createSagaMiddleware from 'redux-saga'
 import fetchUserSaga from 'sagas/FetchUserSaga'
-import fetchingReducer from './Fetching'
+import preloadingReducer from './Preloading'
 import userReducer from './User'
 
 const rootReducer = combineReducers({
-  fetching: fetchingReducer,
+  preloadingStore: preloadingReducer,
   user: userReducer,
 })
 

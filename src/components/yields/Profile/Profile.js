@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { setProfileBanner } from 'actions/setProfileBanner'
+import { setProfileBanner } from 'actions'
 import { Button, Flexbox, Heading, Icon, Input, Spinner } from 'components/elements'
 import { ProfileBanner, Rank } from 'components/groups'
 import { DonutChart, FirebaseInput } from 'components/wrappers'

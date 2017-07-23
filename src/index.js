@@ -1,15 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import watch from 'redux-watch'
-import appStore from 'reducers'
-import {
-  IS_FETCHING_USER,
-  SET_CURRENT_USER,
-  USER_FETCH_REQUESTED,
-} from 'actions/types'
-import App from 'components/App'
 import firebase from 'refire/firebase'
+import appStore from 'reducers'
+import watch from 'redux-watch'
+import { isPreloadingStore, userFetchRequested } from 'actions'
+import App from 'components/App'
 
 window.React = React
 
@@ -21,11 +17,11 @@ const renderApp = () => (
 
 const root = document.getElementById('app')
 
-const w = watch(appStore.getState, 'fetching.fetchingUser')
+const w = watch(appStore.getState, 'preloadingStore')
 
-appStore.subscribe(w((newVal) => {
+export const unsubscribe = appStore.subscribe(w((newVal) => {
   if (!newVal) {
-    console.log('done fetching time to render!')
+    console.log('done preloading time to render!')
     ReactDOM.render(renderApp(), root)
   }
 }))
@@ -36,35 +32,16 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log('USER', user)
 
-    const {
-      displayName,
-      email,
-      photoURL,
-      uid,
-    } = user
+    const userAuthData = {
+      displayName: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      uid: user.uid,
+    }
 
-    appStore.dispatch({
-      type: USER_FETCH_REQUESTED,
-      payload: { uid },
-    })
+    appStore.dispatch(userFetchRequested(userAuthData))
 
-    appStore.dispatch({
-      type: SET_CURRENT_USER,
-      user: {
-        displayName,
-        email,
-        photoURL,
-        uid,
-      },
-    })
   } else {
-    appStore.dispatch({
-      type: SET_CURRENT_USER,
-      user: null,
-    })
-    appStore.dispatch({
-      type: IS_FETCHING_USER,
-      user: false,
-    })
+    appStore.dispatch(isPreloadingStore(false))
   }
 })

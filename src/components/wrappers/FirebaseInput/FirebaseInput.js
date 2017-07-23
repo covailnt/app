@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import appStore from 'reducers'
-import { setProfileSpecialty } from 'actions/setProfileSpecialty'
+import { setProfileSpecialty } from 'actions'
 import { Input } from 'components/elements'
 import classes from './FirebaseInput.scss'
 
