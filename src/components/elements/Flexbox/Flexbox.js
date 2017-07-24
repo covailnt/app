@@ -11,7 +11,7 @@ const Flexbox = ({ align, background, className, direction, justify, flexWrap, c
       flexDirection: direction,
       justifyContent: justify,
       alignItems: align,
-      flexWrap: flexWrap || 'wrap',
+      flexWrap: flexWrap,
     },
   })
   return (
@@ -22,6 +22,7 @@ const Flexbox = ({ align, background, className, direction, justify, flexWrap, c
 Flexbox.defaultProps = {
   background: 'transparent',
   direction: 'row',
+  flexWrap: 'nowrap',
 }
 
 Flexbox.propTypes = {

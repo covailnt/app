@@ -33,6 +33,10 @@ const DropDown = ({ defaultValue, handleChange, handleSubmit, items, name, submi
   </div>
 )
 
+DropDown.defaultProps = {
+  submitButton: {},
+}
+
 DropDown.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func,

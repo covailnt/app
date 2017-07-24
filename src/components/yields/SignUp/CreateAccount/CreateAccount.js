@@ -15,7 +15,7 @@ class CreateAccount extends Component {
   }
   render() {
     return (
-      <Flexbox className={classes.content} justify="center" wrap="wrap">
+      <Flexbox className={classes.content} justify="center" flexWrap="wrap">
         <Flexbox className={classes.fields} direction="column" justify="flex-start" align="center">
           <Heading level={1} color="primary">Let&apos;s Do This Thing</Heading>
           <Heading level={3}>We just need your email address</Heading>

@@ -94,7 +94,7 @@ export default class DonutChart extends Component {
     const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
     return (
-      <Flexbox className={classes.donutWrapper} justify="center" direction="column">
+      <Flexbox className={classes.donutWrapper} justify="center" direction="column" flexWrap="nowrap">
         <div className={classes.donutCtn}>
           <svg className={classes.donutchart} width={size} height={size}>
             <circle className={classes.donutchartTrack} r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} />
@@ -114,7 +114,7 @@ export default class DonutChart extends Component {
             submitButton={this.state.dirty ? {
               classes: classes.btnPrimary,
               text: 'Update Availability',
-            } : false
+            } : {}
             }
           />
 
