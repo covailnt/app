@@ -22,6 +22,7 @@ export default class DonutChart extends Component {
     this.state = {
       value: this.setDonutValue('Kinda Busy'),
       status: 'Kinda Busy',
+      dirty: false,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -118,13 +119,15 @@ export default class DonutChart extends Component {
             }
           />
 
-          <p className={classes.statusMsg}>
-            <span>You are up to date.</span>
-            <br />
-            Last Updated: Today
-            <br />
-            Expires in: 7 days
-          </p>
+          {this.state.dirty ? false :  (
+            <p className={classes.statusMsg}>
+              <span>You are up to date.</span>
+              <br />
+              Last Updated: Today
+              <br />
+              Expires in: 7 days
+            </p>
+          )}
         </div>
       </Flexbox>
     )

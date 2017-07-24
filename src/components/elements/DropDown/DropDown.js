@@ -29,7 +29,7 @@ const DropDown = ({ defaultValue, handleChange, handleSubmit, items, name, submi
 
       <Icon className={`${css(styles.icon)} ${classes.angleDown}`} name="angle-down" />
     </div>
-    {submitButton && (<button type="submit" className={submitButton.classes} onClick={handleSubmit}>{submitButton.text}</button>)}
+    {(submitButton.text) ? (<button type="submit" className={submitButton.classes} onClick={handleSubmit}>{submitButton.text}</button>) : null}
   </div>
 )
 
