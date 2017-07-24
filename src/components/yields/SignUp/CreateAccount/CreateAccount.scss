@@ -1,0 +1,27 @@
+@import 'src/styles/main';
+
+.content {
+
+}
+.fields {
+  @include cols(6);
+  padding-top: 50px;
+
+  .emailInput {
+    width: 90%;
+    max-width: 300px;
+  }
+  button {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+.deskLampWrapper {
+  @include cols(6);
+  min-width: 500px;
+  .deskLamp {
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+  }
+}
