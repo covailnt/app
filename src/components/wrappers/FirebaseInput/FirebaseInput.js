@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import appStore from 'reducers'
-import { setProfileSpecialty } from 'actions'
+import { setInputVal } from 'actions'
 import { Input } from 'components/elements'
 import classes from './FirebaseInput.scss'
 
@@ -11,25 +10,24 @@ class FirebaseInput extends Component {
     super()
 
     this.state = {
-      value: '',
+      value: null,
     }
-  }
-  componentWillMount() {
-    console.log('mounting')
   }
   updateVal(e) {
     const value = e.target.value
     this.setState({ value })
-    appStore.dispatch(setProfileSpecialty(value))
+    this.props.setInputVal({ name: this.props.name, value })
   }
   render() {
+    const value = this.state.value ? this.state.value : this.props[this.props.name]
+
     return (
       <Input
         color={this.props.color}
         onChange={e => this.updateVal(e)}
         placeholder={this.props.placeholder}
         type="text"
-        value={this.props[this.props.name]}
+        value={value}
       />
     )
   }
@@ -46,4 +44,4 @@ const mapStateToProps = (state, ownProps) => {
   return { [ownProps.name]: state.user[ownProps.name] }
 }
 
-export default connect(mapStateToProps)(FirebaseInput)
+export default connect(mapStateToProps, { setInputVal })(FirebaseInput)

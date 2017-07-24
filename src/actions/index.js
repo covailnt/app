@@ -1,6 +1,6 @@
 export isPreloadingStore from './isPreloadingStore'
 export setProfileBanner from './setProfileBanner'
-export setProfileSpecialty from './setProfileSpecialty'
+export setInputVal from './setInputVal'
 export setUserAuthData from './setUserAuthData'
 export signInRequested from './signInRequested'
 export signOut from './signOut'

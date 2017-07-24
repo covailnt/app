@@ -1,17 +1,13 @@
-import firebase from 'refire/firebase'
-import { throttle } from 'underscore'
 import {
+  INPUT_UPDATE_SUCCESSFUL,
   LOG_IN_WITH_PROVIDER,
   SET_CURRENT_USER,
   SET_PROFILE_BANNER,
-  SET_PROFILE_SPECIALTY,
   SIGN_OUT,
   USER_FETCH_SUCCEEDED,
 } from 'actions/types'
 
 const userReducer = (state = null, action) => {
-  let path
-  let ref
 
   switch (action.type) {
     case LOG_IN_WITH_PROVIDER:
@@ -23,13 +19,8 @@ const userReducer = (state = null, action) => {
     case SET_PROFILE_BANNER:
       return Object.assign({}, state, { bannerURL: action.bannerURL })
 
-    case SET_PROFILE_SPECIALTY:
-      path = `users/${state.uid}`
-      ref = firebase.database().ref(path)
-
-      throttle(ref.update({ specialty: action.specialty }), 300)
-
-      return Object.assign({}, state, { specialty: action.specialty })
+    case INPUT_UPDATE_SUCCESSFUL:
+      return Object.assign({}, state, { [action.inputData.name]: action.inputData.value })
 
     case SIGN_OUT:
       return action.isSignedOut ? state : null
