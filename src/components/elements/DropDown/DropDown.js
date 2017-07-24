@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
   },
 })
 
-const DropDown = ({ defaultValue, handleChange, items, name }) => (
+const DropDown = ({ defaultValue, handleChange, handleSubmit, items, name, submitButton }) => (
   <div className={classes.selectWrapper}>
     <div className={classes.selectCtn}>
       <select
         className={`${css(styles.select)} ${classes.dropDown}`}
         name={name}
+        id={name}
         onChange={handleChange}
         defaultValue={defaultValue}
       >
@@ -28,14 +29,17 @@ const DropDown = ({ defaultValue, handleChange, items, name }) => (
 
       <Icon className={`${css(styles.icon)} ${classes.angleDown}`} name="angle-down" />
     </div>
+    {submitButton && (<button type="submit" className={submitButton.classes} onClick={handleSubmit}>{submitButton.text}</button>)}
   </div>
 )
 
 DropDown.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func,
   items: PropTypes.array.isRequired,
   name: PropTypes.string,
   defaultValue: PropTypes.string,
+  submitButton: PropTypes.object,
 }
 
 export default DropDown

@@ -1,18 +1,12 @@
 @import 'src/styles/main';
 
 .sidebar {
-  padding-top: 50px;
   min-height: 100vh;
   width: 300px;
   background: $sidebar;
   color: $white;
-  @include cols(3);
-}
-.sidebar {
-  // from what was v2
   padding: 40px 20px;
 }
-
 
 .nav {
   margin-top: 50px;
