@@ -1,3 +1,4 @@
+// Generic constants
 export const CREATE_USER = 'CREATE_USER'
 export const EMAIL = 'EMAIL'
 export const ERROR = 'ERROR'
@@ -6,3 +7,14 @@ export const GITHUB = 'GITHUB'
 export const GOOGLE = 'GOOGLE'
 export const PROVIDER = 'PROVIDER'
 export const SUCCESS = 'SUCCESS'
+
+// Input fields
+export const BANNER_URL = 'bannerURL'
+export const BEHANCE = 'behance'
+export const DRIBBBLE = 'dribbble'
+export const FACEBOOK_URL = 'facebookURL'
+export const LINKEDIN_URL = 'linkedinURL'
+export const PORTFOLIO = 'portfolio'
+export const SKILLS = 'skills'
+export const SPECIALTY = 'specialty'
+export const TWITTER_URL = 'twitterURL'

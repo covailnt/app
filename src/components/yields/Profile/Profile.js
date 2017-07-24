@@ -2,16 +2,25 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setProfileBanner } from 'actions'
-import { Button, Flexbox, Heading, Icon, Input, Spinner } from 'components/elements'
+import { Button, Flexbox, Heading, Icon, Spinner } from 'components/elements'
 import { ProfileBanner, Rank } from 'components/groups'
 import { DonutChart, FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
+import {
+  BANNER_URL,
+  BEHANCE,
+  DRIBBBLE,
+  FACEBOOK_URL,
+  LINKEDIN_URL,
+  PORTFOLIO,
+  SKILLS,
+  SPECIALTY,
+  TWITTER_URL,
+} from 'utils/constants'
+
 import classes from './Profile.scss'
 
 class Profile extends Component {
-  componentDidUpdate() {
-    console.log('profile updating')
-  }
   render() {
     // TODO: move more of these options into the donut component if no need to customize?
     const donutChartProps = {
@@ -27,7 +36,7 @@ class Profile extends Component {
         <AuthenticatedTemplate
           donutchart={<DonutChart {...donutChartProps} />}
         >
-          {/* <Flexbox direction="column">
+          <Flexbox direction="column">
             <div className={classes.profileBannerCtn}>
 
               <ProfileBanner
@@ -35,18 +44,23 @@ class Profile extends Component {
                 displayName={this.props.displayName}
                 setProfileBanner={this.props.setProfileBanner}
                 uid={this.props.uid}
-              />*/}
+              />
 
               <Flexbox align="center" className={classes.specialty} background="black" direction="column" justify="center">
                 <Heading color="white" level={1}>{this.props.displayName}</Heading>
 
                 <Flexbox align="center">
                   <Heading color="white" level={4}>Specialty in </Heading>
-                  <FirebaseInput color="primary" name="specialty" placeholder="specialty" />
+                  <FirebaseInput
+                    color="primary"
+                    name={SPECIALTY}
+                    placeholder="specialty"
+                    type="text"
+                  />
                 </Flexbox>
               </Flexbox>
 
-          {/* </div>
+            </div>
 
             <Flexbox direction="column">
 
@@ -69,8 +83,9 @@ class Profile extends Component {
                   <Icon className="fa-stack-1x" color="white" name="twitter" />
                 </span>
 
-                <Input
+                <FirebaseInput
                   color="primary"
+                  name={TWITTER_URL}
                   placeholder="Add a Social Network"
                   type="text"
                 />
@@ -86,10 +101,12 @@ class Profile extends Component {
             <Flexbox className={classes.skillsLinksCtn} justify="space-around">
               <Flexbox direction="column" className={classes.skills}>
                 <Heading color="accent1" level={5}>Skills</Heading>
+
                 <Heading color="accent1" level={3}>Specialty</Heading>
-                <Input
+                <FirebaseInput
                   color="primary"
-                  placeholder="Add another skill"
+                  name={SKILLS}
+                  placeholder="Add a another skill"
                   type="text"
                 />
               </Flexbox>
@@ -98,22 +115,25 @@ class Profile extends Component {
                 <Heading color="accent1" level={5}>Portfolio</Heading>
 
                 <Heading color="accent1" level={3}>Portfolio Link</Heading>
-                <Input
+                <FirebaseInput
                   color="primary"
+                  name={PORTFOLIO}
                   placeholder="Add a link to your portfolio"
                   type="text"
                 />
 
                 <Heading color="accent1" level={3}>Behance Stream</Heading>
-                <Input
+                <FirebaseInput
                   color="primary"
+                  name={BEHANCE}
                   placeholder="Link up your Behance"
                   type="text"
                 />
 
                 <Heading color="accent1" level={3}>Dribbble Stream</Heading>
-                <Input
+                <FirebaseInput
                   color="primary"
+                  name={DRIBBBLE}
                   placeholder="Link up your Dribbble"
                   type="text"
                 />
@@ -121,7 +141,7 @@ class Profile extends Component {
 
             </Flexbox>
 
-          </Flexbox>*/}
+          </Flexbox>
         </AuthenticatedTemplate>
       )
   }
