@@ -6,10 +6,10 @@ import classes from './Rank.scss'
 
 const Rank = ({ color, type, value }) => {
   return (
-    <Flexbox align="flex-start" className={classes.rank}>
-      <Heading className={classes.heading} level={5} color={color}>Rank <br />{type}</Heading>
-      <Heading className={classes.heading} level={2} color={color}>{value}</Heading>
-    </Flexbox>
+    <li>
+      <span className={classes.rank} color={color}>Rank<br />{type}</span>
+      <span className={classes.heading} color={color}>{value}</span>
+    </li>
   )
 }
 

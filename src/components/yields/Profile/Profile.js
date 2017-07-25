@@ -44,11 +44,11 @@ class Profile extends Component {
                 <Heading color="white" level={1}>{this.props.displayName}</Heading>
 
                 <Flexbox align="center">
-                  <Heading color="white" level={4}>Specialty in </Heading>
+                  <Heading color="white" level={4}>{SPECIALTY} in </Heading>
                   <FirebaseInput
                     color="primary"
-                    name={SPECIALTY}
-                    placeholder="specialty"
+                    name="location"
+                    placeholder="Enter city or specify Nomad"
                     type="text"
                   />
                 </Flexbox>

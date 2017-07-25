@@ -1,3 +1,38 @@
+@import 'src/styles/main';
+
 .rightColumn {
   width: 100%;
 }
+
+.headerStats {
+  height: 100%;
+  text-align: right;
+  color: $msg;
+  span:first-of-type {
+    float: left;
+    margin-right: 8px;
+    line-height: 1;
+  }
+  span:nth-of-type(2) {
+    color: $white;
+    float: right;
+    margin-top: -6px;
+    @include rems(28);
+  }
+  @include cols(6);
+}
+.headerList {
+  list-style: none;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  li {
+    @include vertical-align;
+    display: inline-block;
+    padding: 0 25px 0 0;
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+}
+

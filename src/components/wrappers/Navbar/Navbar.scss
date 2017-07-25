@@ -1,21 +1,19 @@
+@import 'src/styles/main';
+
 .navbar {
   width: 100%;
+  height: 50px;
   z-index: 2;
-}
-
-/* imported from the aborted v2
-@import 'styles/main';
-
-.header {
   background: $header;
   color: $white;
-  @include cols(9);
-  width: calc(100% - 300px);
-  @include rems(15);
+  @include rems(14);
   a {
     color: $primary;
   }
 }
+
+/* imported from the aborted v2
+
 .headerList {
   list-style: none;
   margin: 20px 0 10px;
