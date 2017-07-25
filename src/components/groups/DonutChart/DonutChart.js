@@ -7,7 +7,6 @@ import theme from 'theme'
 import classes from './DonutChart.scss'
 
 const DonutChart = ({ size, strokewidth, value }) => {
-  console.log('strokewidth', strokewidth)
   const halfsize = size * 0.5
   const radius = halfsize - (strokewidth * 0.5)
   const circumference = 2 * Math.PI * radius

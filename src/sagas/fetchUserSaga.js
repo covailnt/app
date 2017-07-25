@@ -13,6 +13,7 @@ import {
   PORTFOLIO,
   SKILLS,
   SPECIALTY,
+  STATUS,
   TWITTER_URL,
 } from 'utils/constants'
 
@@ -26,6 +27,7 @@ function* getVals(userAuthInfo) {
     PORTFOLIO,
     SKILLS,
     SPECIALTY,
+    STATUS,
     TWITTER_URL,
   ]
 

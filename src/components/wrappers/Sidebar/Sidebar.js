@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { setInputVal } from 'actions'
 import { DropDown, Flexbox, MenuItem } from 'components/elements'
 import { DonutChart } from 'components/groups'
 import {
@@ -13,7 +16,7 @@ import {
 
 import classes from './Sidebar.scss'
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
   constructor(props) {
     super(props)
 
@@ -28,8 +31,8 @@ export default class Sidebar extends Component {
         REALLY_BUSY,
         SLAMMED,
       ],
-      status: KINDA_BUSY,
-      value: this.setDonutValue(KINDA_BUSY),
+      status: props.status || KINDA_BUSY,
+      value: this.setDonutValue(props.status || KINDA_BUSY),
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -45,8 +48,9 @@ export default class Sidebar extends Component {
     })
   }
   handleSubmit() {
-    console.log('submitting')
+    console.log('submitting', this.state.status)
     this.setState({ dirty: false })
+    this.props.setInputVal({ name: 'status', value: this.state.status })
   }
   setDonutValue(status) {
     switch (status) {
@@ -128,3 +132,12 @@ export default class Sidebar extends Component {
   }
 }
 
+Sidebar.propTypes = {
+  status: PropTypes.string,
+}
+
+const mapStateToProps = (state) => {
+  return { status: state.user.status }
+}
+
+export default connect(mapStateToProps, { setInputVal })(Sidebar)

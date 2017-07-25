@@ -17,6 +17,7 @@ export const LINKEDIN_URL = 'linkedinURL'
 export const PORTFOLIO = 'portfolio'
 export const SKILLS = 'skills'
 export const SPECIALTY = 'specialty'
+export const STATUS = 'status'
 export const TWITTER_URL = 'twitterURL'
 
 // Statuses
