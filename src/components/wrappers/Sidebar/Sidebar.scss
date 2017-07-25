@@ -9,7 +9,7 @@
 }
 
 .nav {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .sidebarNav {
   list-style: none;
@@ -53,8 +53,9 @@
   }
 }
 
-
 .statusCtn {
+  height: 175px;
+  min-height: 175px;
   label {
     margin-top: 2rem;
     display: block;
