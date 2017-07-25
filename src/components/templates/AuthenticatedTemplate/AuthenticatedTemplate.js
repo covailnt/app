@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Flexbox } from 'components/elements'
-import { Rank, Sidebar } from 'components/groups'
-import { Navbar, UserMenu } from 'components/wrappers'
+import { Rank } from 'components/groups'
+import { Navbar, Sidebar, UserMenu } from 'components/wrappers'
 import classes from './AuthenticatedTemplate.scss'
 
 export default class AuthenticatedTemplate extends Component {
   render() {
-    const { children, donutchart } = this.props
+    const { children } = this.props
     return (
       <Flexbox>
 
-        <Sidebar>{donutchart}</Sidebar>
+        <Sidebar />
 
         <Flexbox className={classes.rightColumn} direction="column">
 

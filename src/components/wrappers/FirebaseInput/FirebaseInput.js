@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { setInputVal } from 'actions'
 import { Input } from 'components/elements'
-import classes from './FirebaseInput.scss'
 
 class FirebaseInput extends Component {
   constructor() {

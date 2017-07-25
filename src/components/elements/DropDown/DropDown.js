@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const DropDown = ({ defaultValue, handleChange, handleSubmit, items, name, submitButton }) => (
+const DropDown = ({ value, handleChange, handleSubmit, items, name, submitButton }) => (
   <div className={classes.selectWrapper}>
     <div className={classes.selectCtn}>
       <select
@@ -22,14 +22,22 @@ const DropDown = ({ defaultValue, handleChange, handleSubmit, items, name, submi
         name={name}
         id={name}
         onChange={handleChange}
-        defaultValue={defaultValue}
+        value={value}
       >
         {items.map(item => <option key={item} value={item}>{item}</option>)}
       </select>
 
       <Icon className={`${css(styles.icon)} ${classes.angleDown}`} name="angle-down" />
     </div>
-    {(submitButton.text) ? (<button type="submit" className={submitButton.classes} onClick={handleSubmit}>{submitButton.text}</button>) : null}
+
+    {submitButton.text
+      ? (
+        <button type="submit" className={submitButton.classes} onClick={handleSubmit}>
+          {submitButton.text}
+        </button>
+      )
+      : null
+    }
   </div>
 )
 
@@ -42,7 +50,7 @@ DropDown.propTypes = {
   handleSubmit: PropTypes.func,
   items: PropTypes.array.isRequired,
   name: PropTypes.string,
-  defaultValue: PropTypes.string,
+  value: PropTypes.string,
   submitButton: PropTypes.object,
 }
 

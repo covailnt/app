@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { setProfileBanner } from 'actions'
 import { Button, Flexbox, Heading, Icon, Spinner } from 'components/elements'
 import { ProfileBanner, Rank } from 'components/groups'
-import { DonutChart, FirebaseInput } from 'components/wrappers'
+import { FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
 import {
   BANNER_URL,
@@ -22,20 +22,10 @@ import classes from './Profile.scss'
 
 class Profile extends Component {
   render() {
-    // TODO: move more of these options into the donut component if no need to customize?
-    const donutChartProps = {
-      avatarImage: this.props.image,
-      name: 'Profile Dropdown',
-      placeholder: 'How busy are you?',
-      size: 170,
-      strokeWidth: 50,
-    }
     return !this.props.user
       ? <Spinner />
       : (
-        <AuthenticatedTemplate
-          donutchart={<DonutChart {...donutChartProps} />}
-        >
+        <AuthenticatedTemplate>
           <Flexbox direction="column">
             <div className={classes.profileBannerCtn}>
 

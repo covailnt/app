@@ -29,7 +29,7 @@
     "comma-dangle": [2, "always-multiline"],
     "default-case": 0,
     "global-require": 0,
-    "max-len": 0,
+    "max-len": [2, {"code": 120}],
     "no-confusing-arrow": 0,
     "no-console": 0,
     "no-constant-condition": 0,

@@ -18,3 +18,12 @@ export const PORTFOLIO = 'portfolio'
 export const SKILLS = 'skills'
 export const SPECIALTY = 'specialty'
 export const TWITTER_URL = 'twitterURL'
+
+// Statuses
+export const NOT_WORKING = 'Not Working'
+export const REALLY_LIGHT = 'Really Light'
+export const KINDA_LIGHT = 'Kinda Light'
+export const NOT_THAT_BUSY = 'Not That Busy'
+export const KINDA_BUSY = 'Kinda Busy'
+export const REALLY_BUSY = 'Really Busy'
+export const SLAMMED = 'Slammed'

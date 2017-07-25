@@ -76,18 +76,16 @@ function* signIn(action) {
     const type = action.signIn.type
     const data = action.signIn.data
     let signInResult
-    console.log('signInResult', type)
 
     switch (type) {
       case CREATE_USER:
-        signInResult = yield call(createUserWithEmail, data)
+        signInResult = yield createUserWithEmail(data)
         break
       case EMAIL:
-        signInResult = yield call(signInWithEmail, data)
+        signInResult = yield signInWithEmail(data)
         break
       case PROVIDER:
-        console.log('calling provider', data)
-        signInResult = yield call(signInWithProvider, data)
+        signInResult = yield signInWithProvider(data)
         break
     }
 
@@ -100,7 +98,6 @@ function* signIn(action) {
         photoURL: user.photoURL,
         uid: user.uid,
       }
-      console.log('userauthdata', userAuthData)
       yield put(userFetchRequested(userAuthData))
     } else {
       yield put(userFetchRequested(null))
