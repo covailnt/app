@@ -15,7 +15,7 @@ export default class AuthenticatedTemplate extends Component {
 
         <Flexbox className={classes.rightColumn} direction="column">
 
-          <Navbar color="black">
+          <Navbar>
             <div className={classes.headerStats}>
               <ul className={classes.headerList}>
                 <Rank color="white" type="Earned" value="005" />

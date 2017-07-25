@@ -4,53 +4,11 @@
   width: 100%;
   height: 50px;
   z-index: 2;
-  background: $header;
   color: $white;
+  background-color: $header; //unless it's overridden in the component
   @include rems(14);
   a {
     color: $primary;
   }
 }
 
-/* imported from the aborted v2
-
-.headerList {
-  list-style: none;
-  margin: 20px 0 10px;
-  padding: 0;
-  li {
-    display: inline-block;
-    padding: 0 35px 0 0;
-    &:last-of-type {
-      padding-right: 0;
-    }
-  }
-  img {
-    margin-top: -12px;
-    border-radius: 50%;
-  }
-}
-.headerEdit {
-  @include cols(6);
-}
-.headerStats {
-  text-align: right;
-  color: $msg;
-  span:first-of-type {
-    float: left;
-    margin-right: 8px;
-    line-height: 1;
-  }
-  span:nth-of-type(2) {
-    color: $white;
-    float: right;
-    margin-top: -6px;
-    @include rems(28);
-  }
-  @include cols(6);
-}
-.headerLogout {
-  float: right;
-}
-
-*/
