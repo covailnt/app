@@ -1,12 +1,9 @@
-.bannerImg {
+.backgroundImg {
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
-  height: 70vh;
   max-width: 100%;
   opacity: 1;
   transition: opacity 1s;
-  width: 100%;
 
   &:hover {
     cursor: pointer;

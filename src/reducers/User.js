@@ -2,7 +2,7 @@ import {
   INPUT_UPDATE_SUCCESSFUL,
   LOG_IN_WITH_PROVIDER,
   SET_CURRENT_USER,
-  SET_PROFILE_BANNER,
+  SET_IMAGE,
   SIGN_OUT,
   USER_FETCH_SUCCEEDED,
 } from 'actions/types'
@@ -16,8 +16,8 @@ const userReducer = (state = null, action) => {
     case SET_CURRENT_USER:
       return action.user
 
-    case SET_PROFILE_BANNER:
-      return Object.assign({}, state, { bannerURL: action.bannerURL })
+    case SET_IMAGE:
+      return Object.assign({}, state, { [action.image.name]: action.image.url })
 
     case INPUT_UPDATE_SUCCESSFUL:
       return Object.assign({}, state, { [action.inputData.name]: action.inputData.value })

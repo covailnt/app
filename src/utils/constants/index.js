@@ -9,6 +9,7 @@ export const PROVIDER = 'PROVIDER'
 export const SUCCESS = 'SUCCESS'
 
 // Input fields
+export const AVATAR_URL = 'photoURL'
 export const BANNER_URL = 'bannerURL'
 export const BEHANCE = 'behance'
 export const DRIBBBLE = 'dribbble'

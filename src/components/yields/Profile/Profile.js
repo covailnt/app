@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { setProfileBanner } from 'actions'
+import { setImage } from 'actions'
 import { Button, Flexbox, Heading, Icon, Spinner } from 'components/elements'
-import { ProfileBanner, Rank } from 'components/groups'
+import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
 import {
+  AVATAR_URL,
   BANNER_URL,
   BEHANCE,
   DRIBBBLE,
@@ -29,11 +30,14 @@ class Profile extends Component {
           <Flexbox direction="column">
             <div className={classes.profileBannerCtn}>
 
-              <ProfileBanner
-                bannerURL={this.props.bannerURL}
-                displayName={this.props.displayName}
-                setProfileBanner={this.props.setProfileBanner}
+              <DropImage
+                height="70vh"
+                imageURL={this.props[BANNER_URL]}
+                label="Drop Cover Photo Here"
+                name={BANNER_URL}
+                setImage={this.props.setImage}
                 uid={this.props.uid}
+                width="100%"
               />
 
               <Flexbox align="center" className={classes.specialty} background="black" direction="column" justify="center">
@@ -53,6 +57,17 @@ class Profile extends Component {
             </div>
 
             <Flexbox direction="column">
+
+              <DropImage
+                height="250px"
+                imageURL={this.props[AVATAR_URL]}
+                label="Drop Profile Photo Here"
+                name={AVATAR_URL}
+                setImage={this.props.setImage}
+                style={{ borderRadius: '50%' }}
+                uid={this.props.uid}
+                width="250px"
+              />
 
               <Flexbox justify="center">
                 <Rank color="black" type="Earned" value="005" />
@@ -141,20 +156,20 @@ Profile.propTypes = {
   bannerURL: PropTypes.string,
   displayName: PropTypes.string,
   image: PropTypes.string,
-  setProfileBanner: PropTypes.func.isRequired,
   uid: PropTypes.string,
   user: PropTypes.object,
 }
 
 const mapStateToProps = (state) => {
-  return state.user
-    ? {
-      avatarImage: state.user.photoURL,
-      bannerURL: state.user.bannerURL,
+  // return state.user
+  //   ?
+    return {
+      [AVATAR_URL]: state.user[AVATAR_URL],
+      [BANNER_URL]: state.user[BANNER_URL],
       displayName: state.user.displayName,
       uid: state.user.uid,
     }
-    : {}
+    // : {}
 }
 
-export default connect(mapStateToProps, { setProfileBanner })(Profile)
+export default connect(mapStateToProps, { setImage })(Profile)

@@ -5,6 +5,7 @@ import firebase from 'refire/firebase'
 import { isPreloadingStore, userFetchFailed, userFetchSucceeded } from 'actions'
 import { USER_FETCH_REQUESTED } from 'actions/types'
 import {
+  AVATAR_URL,
   BANNER_URL,
   BEHANCE,
   DRIBBBLE,
@@ -19,6 +20,7 @@ import {
 
 function* getVals(userAuthInfo) {
   const properties = [
+    AVATAR_URL,
     BANNER_URL,
     BEHANCE,
     DRIBBBLE,
