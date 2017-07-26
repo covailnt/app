@@ -11,7 +11,6 @@ import classes from './UserMenu.scss'
 
 const styles = StyleSheet.create({
   menu: {
-    background: theme.color.black,
     color: theme.color.white,
   },
 })

@@ -4,8 +4,9 @@
   position: relative;
 
   .menuDropdown {
+    background-color: $nav-bg;
     position: absolute;
-    top: 49px;
+    top: 47px;
     margin: 0px;
     right: 0;
     display: block;
