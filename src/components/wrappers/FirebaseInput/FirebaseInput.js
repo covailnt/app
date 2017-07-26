@@ -5,11 +5,16 @@ import { setInputVal } from 'actions'
 import { Input } from 'components/elements'
 
 class FirebaseInput extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      value: null,
+      value: props[props.name],
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.name !== nextProps.name) {
+      this.setState({ value: nextProps[nextProps.name] })
     }
   }
   updateVal(e) {
@@ -18,15 +23,13 @@ class FirebaseInput extends Component {
     this.props.setInputVal({ name: this.props.name, value })
   }
   render() {
-    const value = this.state.value ? this.state.value : this.props[this.props.name]
-
     return (
       <Input
         color={this.props.color}
         onChange={e => this.updateVal(e)}
         placeholder={this.props.placeholder}
         type="text"
-        value={value}
+        value={this.state.value}
       />
     )
   }
@@ -37,6 +40,7 @@ FirebaseInput.propTypes = {
   color: PropTypes.string,
   placeholder: PropTypes.string,
   uid: PropTypes.string,
+  setInputVal: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => {

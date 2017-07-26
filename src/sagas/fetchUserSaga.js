@@ -1,37 +1,13 @@
 import 'babel-polyfill'
-import { omit } from 'underscore'
+import { omit, values } from 'underscore'
 import { call, put, takeLatest } from 'redux-saga/effects'
 import firebase from 'refire/firebase'
 import { isPreloadingStore, userFetchFailed, userFetchSucceeded } from 'actions'
 import { USER_FETCH_REQUESTED } from 'actions/types'
-import {
-  AVATAR_URL,
-  BANNER_URL,
-  BEHANCE,
-  DRIBBBLE,
-  FACEBOOK_URL,
-  LINKEDIN_URL,
-  PORTFOLIO,
-  SKILLS,
-  SPECIALTY,
-  STATUS,
-  TWITTER_URL,
-} from 'utils/constants'
+import { FIELDS } from 'utils/constants'
 
 function* getVals(userAuthInfo) {
-  const properties = [
-    AVATAR_URL,
-    BANNER_URL,
-    BEHANCE,
-    DRIBBBLE,
-    FACEBOOK_URL,
-    LINKEDIN_URL,
-    PORTFOLIO,
-    SKILLS,
-    SPECIALTY,
-    STATUS,
-    TWITTER_URL,
-  ]
+  const properties = values(FIELDS)
 
   const ref = firebase.database().ref(`users/${userAuthInfo.uid}`)
 

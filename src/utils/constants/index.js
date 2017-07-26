@@ -1,4 +1,4 @@
-// Generic constants
+// Actions constants
 export const CREATE_USER = 'CREATE_USER'
 export const EMAIL = 'EMAIL'
 export const ERROR = 'ERROR'
@@ -7,19 +7,34 @@ export const GITHUB = 'GITHUB'
 export const GOOGLE = 'GOOGLE'
 export const PROVIDER = 'PROVIDER'
 export const SUCCESS = 'SUCCESS'
+export const URL = 'URL'
+
+// Social contants
+export const SOCIAL = {
+  BEHANCE: 'Behance',
+  DRIBBBLE: 'Dribbble',
+  FACEBOOK: 'Facebook',
+  GITHUB: 'Github',
+  GOOGLE: 'Google',
+  LINKEDIN: 'Linkedin',
+  TWITTER: 'Twitter',
+}
 
 // Input fields
-export const AVATAR_URL = 'photoURL'
-export const BANNER_URL = 'bannerURL'
-export const BEHANCE = 'behance'
-export const DRIBBBLE = 'dribbble'
-export const FACEBOOK_URL = 'facebookURL'
-export const LINKEDIN_URL = 'linkedinURL'
-export const PORTFOLIO = 'portfolio'
-export const SKILLS = 'skills'
-export const SPECIALTY = 'specialty'
-export const STATUS = 'status'
-export const TWITTER_URL = 'twitterURL'
+export const FIELDS = {
+  AVATAR_URL: 'photoURL',
+  BANNER_URL: 'bannerURL',
+  BEHANCE_URL: 'behanceURL',
+  DRIBBBLE_URL: 'dribbbleURL',
+  FACEBOOK_URL: 'facebookURL',
+  LOCATION: 'location',
+  LINKEDIN_URL: 'linkedinURL',
+  PORTFOLIO: 'portfolio',
+  SKILLS: 'skills',
+  SPECIALTY: 'specialty',
+  STATUS: 'status',
+  TWITTER_URL: 'twitterURL',
+}
 
 // Statuses
 export const NOT_WORKING = 'Not Working'
