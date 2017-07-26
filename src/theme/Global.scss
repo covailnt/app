@@ -3,6 +3,10 @@ body {
   //color: #fff;
   background: #383f4a;
   font-family: 'Raleway';
+
+  div#app {
+    min-height: 100vh;
+  }
 }
 
 .index img {

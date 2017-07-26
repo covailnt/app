@@ -1,11 +1,9 @@
 @import 'theme/index';
 
-.content {
-
-}
 .fields {
   @include cols(6);
-  padding-top: 50px;
+  padding: 0;
+  margin: 50px 0;
 
   .emailInput {
     width: 90%;
@@ -19,7 +17,12 @@
 }
 .deskLampWrapper {
   @include cols(6);
-  min-width: 500px;
+  min-width: 400px;
+  height: 100%;
+  padding: 0;
+  margin: 50px 0;
+  //need to find a better way to create this gray thing that is reported
+  //border-left: $gray 2px solid;
   .deskLamp {
     height: 100%;
     width: 100%;

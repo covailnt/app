@@ -1,0 +1,15 @@
+@import 'theme/index';
+
+.mainContainer {
+  min-width: 100%;
+  min-height: 100vh;
+  background: $light-gray-bg;
+
+  main {
+    width: 960px;
+  }
+
+  .content {
+    background: $white;
+  }
+}
