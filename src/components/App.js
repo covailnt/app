@@ -8,7 +8,6 @@ import {
   Switch,
 } from 'react-router-dom'
 
-import 'theme/theme.scss'
 import 'theme/Global.scss'
 import 'theme/normalize.css'
 import { unsubscribeAuth, unsubscribePreload } from '../'
