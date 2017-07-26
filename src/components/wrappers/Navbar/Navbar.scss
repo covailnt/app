@@ -5,7 +5,7 @@
   height: 50px;
   z-index: 2;
   color: $white;
-  background-color: $header; //unless it's overridden in the component
+  background-color: $nav-bg; //unless it's overridden in the component
   @include rems(14);
   a {
     color: $primary;

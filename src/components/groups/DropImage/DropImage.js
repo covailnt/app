@@ -7,9 +7,9 @@ import defaultBanner from 'images/profile/defaultBanner.jpg'
 import { StyleSheet, css } from 'aphrodite'
 import classes from './DropImage.scss'
 
-const DropImage = ({ imageURL, height, label, name, setImage, style, uid, width }) => {
+const DropImage = ({ imageURL, height, label, name, imageName, setImage, style, uid, width }) => {
   const styles = StyleSheet.create({
-    background: {
+    dropzone: {
       backgroundImage: `url(${imageURL || defaultBanner})`,
       height,
       width,
@@ -21,29 +21,29 @@ const DropImage = ({ imageURL, height, label, name, setImage, style, uid, width 
 
     const storageRef = firebase.storage().ref()
     const file = acceptedFiles[0]
-    const path = storageRef.child(`images/${uid}/${name}`)
+    const path = storageRef.child(`images/${uid}/${imageName}`)
 
     path.put(file)
       .then((snapshot) => {
         const url = snapshot.metadata.downloadURLs[0]
 
-        setImage({ name, url })
+        setImage({ imageName, url })
 
-        firebase.database().ref(`users/${uid}`).update({ [name]: url })
+        firebase.database().ref(`users/${uid}`).update({ [imageName]: url })
       })
       .catch(err => console.log('error: ', err))
   }
 
   return (
-    <Flexbox align="center" direction="column" justify="center">
+    <Flexbox align="center" direction="column" justify="center" >
       <Dropzone
-        className={`${css(styles.background)} ${classes.backgroundImg}`}
+        className={`${css(styles.dropzone)} ${classes.dropzone}`}
         multiple={false}
         onDrop={onDrop.bind(this)}
         style={style}
       >
         <Flexbox align="center" direction="column">
-          <Heading level={3}>{label}</Heading>
+          <div>{label}</div>
           <Icon color="black" name="picture-o" />
         </Flexbox>
       </Dropzone>
@@ -55,7 +55,8 @@ DropImage.propTypes = {
   height: PropTypes.string,
   imageURL: PropTypes.string,
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  imageName: PropTypes.string.isRequired,
+  name: PropTypes.string,
   setImage: PropTypes.func.isRequired,
   uid: PropTypes.string.isRequired,
   width: PropTypes.string,

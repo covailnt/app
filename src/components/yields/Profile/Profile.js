@@ -29,81 +29,96 @@ class Profile extends Component {
         <AuthenticatedTemplate>
           <Flexbox direction="column">
             <div className={classes.profileBannerCtn}>
+              <div className={classes.editProfileBannerCtn}>
+                <DropImage
+                  imageURL={this.props[BANNER_URL]}
+                  setImage={this.props.setImage}
+                  imageName={BANNER_URL}
+                  label="Drop cover photo here"
+                  className={classes.editBannerPicture}
+                  uid={this.props.uid}
+                  height="70vh"
+                  width="100%"
+                />
+              </div>
 
-              <DropImage
-                height="70vh"
-                imageURL={this.props[BANNER_URL]}
-                label="Drop Cover Photo Here"
-                name={BANNER_URL}
-                setImage={this.props.setImage}
-                uid={this.props.uid}
-                width="100%"
-              />
+              <Flexbox align="left" className={classes.profileTitle} direction="column" justify="center">
+                <div className={classes.profileTitleCtn}>
+                  <Heading color="white" level={1}>{this.props.displayName}</Heading>
 
-              <Flexbox align="center" className={classes.specialty} background="black" direction="column" justify="center">
-                <Heading color="white" level={1}>{this.props.displayName}</Heading>
-
-                <Flexbox align="center">
-                  <Heading color="white" level={4}>{SPECIALTY} in </Heading>
-                  <FirebaseInput
-                    color="primary"
-                    name="location"
-                    placeholder="Enter city or specify Nomad"
-                    type="text"
-                  />
-                </Flexbox>
+                  <Flexbox align="center">
+                    <p>{SPECIALTY} in </p>
+                    <FirebaseInput
+                      color="primary"
+                      name="location"
+                      placeholder="Enter city or specify Nomad"
+                      type="text"
+                    />
+                  </Flexbox>
+                </div>
               </Flexbox>
 
             </div>
 
-            <Flexbox direction="column">
+            <div className={classes.profileSummaryCtn}>
 
-              <DropImage
-                height="250px"
-                imageURL={this.props[AVATAR_URL]}
-                label="Drop Profile Photo Here"
-                name={AVATAR_URL}
-                setImage={this.props.setImage}
-                style={{ borderRadius: '50%' }}
-                uid={this.props.uid}
-                width="250px"
-              />
-
-              <Flexbox justify="center">
-                <Rank color="black" type="Earned" value="005" />
-                <Rank color="black" type="Potential" value="99" />
-              </Flexbox>
-
-              <Flexbox justify="center">
-                <span className="fa-stack fa-lg">
-                  <Icon className="fa-stack-2x" color="primary" name="circle" />
-                  <Icon className="fa-stack-1x" color="white" name="facebook" />
-                </span>
-                <span className="fa-stack fa-lg">
-                  <Icon className="fa-stack-2x" color="primary" name="circle" />
-                  <Icon className="fa-stack-1x" color="white" name="linkedin" />
-                </span>
-                <span className="fa-stack fa-lg">
-                  <Icon className="fa-stack-2x" color="primary" name="circle" />
-                  <Icon className="fa-stack-1x" color="white" name="twitter" />
-                </span>
-
-                <FirebaseInput
-                  color="primary"
-                  name={TWITTER_URL}
-                  placeholder="Add a Social Network"
-                  type="text"
+              <div className={classes.editProfilePictureCtn}>
+                <DropImage
+                  imageURL={this.props[AVATAR_URL]}
+                  uid={this.props.uid}
+                  imageName={AVATAR_URL}
+                  setImage={this.props.setImage}
+                  label="Drop profile photo here"
+                  style={{
+                    borderRadius: '50%',
+                    color: 'white',
+                  }}
+                  height="250px"
+                  width="250px"
                 />
-              </Flexbox>
+              </div>
 
-            </Flexbox>
+              <div className={classes.summaryText}>
+                <Flexbox justify="flex-start" flexWrap="wrap">
 
-            <Flexbox className={classes.statusCtn} background="white">
+                  <div className={classes.summaryStats}>
+                    <Rank color="black" type="Earned" value="005" />
+                    <Rank color="black" type="Potential" value="99" />
+                  </div>
+
+                  <Button className="chatButton" disabled="disabled">Open Chat</Button>
+
+                  <Flexbox justify="flex-start" className={classes.socialLinks} >
+                    <span className="fa-stack fa-lg">
+                      <Icon className="fa-stack-2x" color="primary" name="circle" />
+                      <Icon className="fa-stack-1x" color="white" name="facebook" />
+                    </span>
+                    <span className="fa-stack fa-lg">
+                      <Icon className="fa-stack-2x" color="primary" name="circle" />
+                      <Icon className="fa-stack-1x" color="white" name="linkedin" />
+                    </span>
+                    <span className="fa-stack fa-lg">
+                      <Icon className="fa-stack-2x" color="primary" name="circle" />
+                      <Icon className="fa-stack-1x" color="white" name="twitter" />
+                    </span>
+
+                    <FirebaseInput
+                      color="primary"
+                      name={TWITTER_URL}
+                      placeholder="Add a Social Network"
+                      type="text"
+                    />
+                  </Flexbox>
+                </Flexbox>
+              </div>
+            </div>
+
+            <Flexbox className={classes.statusCtn} justify="space-around" background="white">
               <Heading color="primary" level={3}>Your availability status appears here</Heading>
-              <Button background="white" color="accent1" >Send Collab Request</Button>
+              <Button disabled="disabled">Send Collab Request</Button>
             </Flexbox>
 
-            <Flexbox className={classes.skillsLinksCtn} justify="space-around">
+            <Flexbox className={classes.portfolioCtn} justify="space-around">
               <Flexbox direction="column" className={classes.skills}>
                 <Heading color="accent1" level={5}>Skills</Heading>
 
