@@ -1,3 +1,5 @@
+@import 'theme/_variables';
+
 /*     Mixins and helpers     */
 @mixin mq($breakpoint) {
   @if $breakpoint == xxxl-3 {
@@ -78,10 +80,10 @@
   filter: alpha(opacity=$opacity*100);
 }
 
-@mixin rems($px-size) { 
-  $rem-size: $px-size / $font-size; 
-  font-size: $px-size + px; 
-  font-size: $rem-size + rem; 
+@mixin rems($px-size) {
+  $rem-size: $px-size / $font-size;
+  font-size: $px-size + px;
+  font-size: $rem-size + rem;
 }
 
 /*     Grid components     */
@@ -109,7 +111,7 @@
   transition: $what $length $easing;
 }
 
-@mixin mar($mt: 0, $mr: 0, $mb: 0, $ml: 0) { 
+@mixin mar($mt: 0, $mr: 0, $mb: 0, $ml: 0) {
   $mtv: $mt / $font-size;
   $mrv: $mr / $font-size;
   $mbv: $mb / $font-size;
@@ -117,8 +119,8 @@
   margin: $mt + px $mr + px $mb + px $ml + px;
   margin: $mtv + rem $mrv + rem $mbv + rem $mlv + rem;
 }
- 
-@mixin pad($pt: 0, $pr: 0, $pb: 0, $pl: 0) { 
+
+@mixin pad($pt: 0, $pr: 0, $pb: 0, $pl: 0) {
   $ptv: $pt / $font-size;
   $prv: $pr / $font-size;
   $pbv: $pb / $font-size;

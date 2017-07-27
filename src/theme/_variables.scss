@@ -1,3 +1,7 @@
+/*     Default spacing   */
+$columns: 12;
+$gutter: 40px;
+
 /*     Font defaults     */
 $font-size: 16; // Your base font-size in pixels
 $line: 24;
@@ -59,8 +63,8 @@ $primary: #17C3A9;
 $active: rgb(23, 195, 169);
 $secondary: rgb(0, 125, 125);
 $accent1: rgb(155, 155, 155);
-$accent2: rgb(0, 125, 125);
-$accent3: rgb(250, 175, 0);
+$accent2: rgb(250, 175, 0);
+$accent3: rgb(176, 69, 69);
 
 $nav-hover: #626262;
 $nav-border: #474747;

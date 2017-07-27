@@ -1,18 +1,13 @@
-@import 'theme/index';
+@import 'theme/_helpers';
 
 .fields {
   @include cols(6);
   padding: 0;
   margin: 50px 0;
 
-  .emailInput {
-    width: 90%;
-    max-width: 300px;
-    color: $text;
-  }
-  button {
-    width: 90%;
-    max-width: 300px;
+  .form {
+    margin: 0 5%;
+
   }
 }
 .deskLampWrapper {

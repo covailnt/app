@@ -1,4 +1,4 @@
-@import 'theme/index';
+@import 'theme/_helpers';
 
 // Profile Banner
 .profileBannerCtn {
@@ -68,7 +68,7 @@
   width: 100%;
 }
 .summaryStats {
-  @include cols(6)
+  @include cols(6);
   text-align: center;
   color: $text;
   list-style: none;
@@ -92,10 +92,10 @@
   }
 }
 .chatButton {
-  @include cols(6)
+  @include cols(6);
 }
 .socialLinks {
-  @include cols(12)
+  @include cols(12);
   margin: 20px 0;
   input {
     margin-left: 6px;

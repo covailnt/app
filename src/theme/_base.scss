@@ -1,7 +1,6 @@
-/*     Base styles     */
-$columns: 12;
-$gutter: 40px;
+@import 'theme/_helpers';
 
+/*     Base styles     */
 html {
   box-sizing: border-box;
   height: 100%;
