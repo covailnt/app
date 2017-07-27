@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import firebase from 'refire/firebase'
 import generator from 'generate-password'
 import { userFetchRequested } from 'actions'
@@ -10,6 +10,7 @@ import {
   FACEBOOK,
   GITHUB,
   GOOGLE,
+  NEW_EMAIL,
   PROVIDER,
   SUCCESS,
 } from 'utils/constants'
@@ -83,6 +84,9 @@ function* signIn(action) {
         break
       case EMAIL:
         signInResult = yield signInWithEmail(data)
+        break
+      case NEW_EMAIL:
+        signInResult = yield createUserWithEmail(data)
         break
       case PROVIDER:
         signInResult = yield signInWithProvider(data)

@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { signInRequested } from 'actions'
 import { withRouter } from 'react-router-dom'
-import { Flexbox, Button, Heading } from 'components/elements'
+import { Button, Flexbox, Heading, Input } from 'components/elements'
 import { SignUpTemplate } from 'components/templates'
+import { FIELDS, NEW_EMAIL } from 'utils/constants'
 import DeskLamp from 'images/signup/deskLamp.png'
 import classes from './CreateAccount.scss'
 
@@ -14,6 +16,9 @@ class CreateAccount extends Component {
   updateEmail(e) {
     this.setState({ email: e.target.value })
   }
+  submitEmail() {
+    this.props.signInRequested({ type: NEW_EMAIL, data: })
+  }
   render() {
     return (
       <SignUpTemplate>
@@ -21,7 +26,14 @@ class CreateAccount extends Component {
           <Heading level={1} color="primary">Let&apos;s do this thing</Heading>
           <div className={classes.form}>
             <Heading level={3}>We just need your email address</Heading>
-            <input type="text" onChange={e => this.updateEmail(e)} value={this.state.email} placeholder="user@example.com" />
+            <Input
+              color="primary"
+              name={FIELDS.EMAIL}
+              onChange={e => this.updateEmail(e)}
+              placeholder="your-email@gmail.com"
+              type="text"
+              value={this.state.email}
+            />
             <Heading level={5}>We&apos;ll send you an email to set your password later.</Heading>
             <Button onClick={() => createUserWithEmail(this.state.email, this)}>Get me in</Button><br />
             <Heading level={3}>Or social sign-in</Heading>
@@ -58,4 +70,4 @@ const mapStateToProps = (state) => {
   return { user: state.user }
 }
 
-export default withRouter(connect(mapStateToProps)(CreateAccount))
+export default withRouter(connect(mapStateToProps, { signInRequested })(CreateAccount))
