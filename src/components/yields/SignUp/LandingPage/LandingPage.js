@@ -5,7 +5,7 @@ import connections from 'images/signup/avatarConnections.png'
 import lady from 'images/signup/ladyAvatar.png'
 import rankEarned from 'images/signup/rankEarned.png'
 import rankPotential from 'images/signup/rankPotential.png'
-import profile from 'images/signup/profile.jpg'
+import profile from 'images/signup/profile.png'
 import theme from 'theme'
 import classes from './LandingPage.scss'
 
