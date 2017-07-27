@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Flexbox, Input, Heading, Button } from 'components/elements'
-import { CreateAccountTemplate } from 'components/templates'
+import { SignUpTemplate } from 'components/templates'
 import OnLamp from 'images/signup/onLamp.png'
 import classes from './SetDisplayName.scss'
 
 export default class SetDisplayName extends Component {
   render() {
     return (
-      <CreateAccountTemplate>
+      <SignUpTemplate>
         <Flexbox className={classes.fields} direction="column" justify="flex-start" align="center">
           <Heading level={1} color="primary">Boom... You&apos;re in!</Heading>
           <div className={classes.form}>
@@ -25,7 +25,7 @@ export default class SetDisplayName extends Component {
         <div className={classes.onLampWrapper}>
           <img className={classes.onLamp} alt="DeskLamp" src={OnLamp} />
         </div>
-      </CreateAccountTemplate>
+      </SignUpTemplate>
     )
   }
 }

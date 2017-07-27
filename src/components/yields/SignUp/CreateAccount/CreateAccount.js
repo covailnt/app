@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Flexbox, Button, Heading } from 'components/elements'
-import { CreateAccountTemplate } from 'components/templates'
+import { SignUpTemplate } from 'components/templates'
 import DeskLamp from 'images/signup/deskLamp.png'
 import classes from './CreateAccount.scss'
 
@@ -16,7 +16,7 @@ class CreateAccount extends Component {
   }
   render() {
     return (
-      <CreateAccountTemplate>
+      <SignUpTemplate>
         <Flexbox className={classes.fields} direction="column" justify="center" align="center">
           <Heading level={1} color="primary">Let&apos;s do this thing</Heading>
           <div className={classes.form}>
@@ -49,7 +49,7 @@ class CreateAccount extends Component {
         <div className={classes.deskLampWrapper}>
           <img className={classes.deskLamp} alt="DeskLamp" src={DeskLamp} />
         </div>
-      </CreateAccountTemplate>
+      </SignUpTemplate>
     )
   }
 }

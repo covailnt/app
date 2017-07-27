@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Flexbox } from 'components/elements'
-import classes from './CreateAccountTemplate.scss'
+import classes from './SignUpTemplate.scss'
 
-export default class CreateAccountTemplate extends Component {
+export default class SignUpTemplate extends Component {
   render() {
     const { children } = this.props
     return (
@@ -18,6 +18,6 @@ export default class CreateAccountTemplate extends Component {
   }
 }
 
-CreateAccountTemplate.propTypes = {
+SignUpTemplate.propTypes = {
   children: PropTypes.node.isRequired,
 }
