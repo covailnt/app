@@ -7,6 +7,8 @@ import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
 import { FIELDS, SOCIAL, URL } from 'utils/constants'
+import avatar from 'images/avatar.png'
+import banner from 'images/profile/defaultBanner.jpg'
 
 import classes from './Profile.scss'
 
@@ -28,6 +30,7 @@ class Profile extends Component {
           <div className={classes.profileBannerCtn}>
             <div className={classes.editProfileBannerCtn}>
               <DropImage
+                defaultImage={banner}
                 imageURL={this.props[FIELDS.BANNER_URL]}
                 setImage={this.props.setImage}
                 imageName={FIELDS.BANNER_URL}
@@ -61,6 +64,7 @@ class Profile extends Component {
 
             <div className={classes.editProfilePictureCtn}>
               <DropImage
+                defaultImage={avatar}
                 imageURL={this.props[FIELDS.AVATAR_URL]}
                 uid={this.props.uid}
                 imageName={FIELDS.AVATAR_URL}
@@ -155,7 +159,7 @@ class Profile extends Component {
               <Heading color="accent1" level={3}>Specialty</Heading>
               <FirebaseInput
                 color="primary"
-                name={FIELDS.SKILLS}
+                name={FIELDS.SPECIALTY}
                 placeholder="Add a another skill"
                 type="text"
               />

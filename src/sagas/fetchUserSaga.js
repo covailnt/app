@@ -46,7 +46,13 @@ function* fetchUserData(action) {
     yield put(userFetchSucceeded(user))
     yield put(isPreloadingStore(false))
 
+    if (action.user.redirect) {
+      console.log('redirecting')
+      action.user.history.push('/signup/create-account/step-1')
+    }
+
   } catch (err) {
+    console.log('user fetch failed', err)
     yield put(userFetchFailed(err.message))
   }
 }

@@ -1,7 +1,7 @@
 import { SET_IMAGE } from 'actions/types'
 
-const setImage = image => (
-  { type: SET_IMAGE, image }
+const setImage = data => (
+  { type: SET_IMAGE, data }
 )
 
 export default setImage

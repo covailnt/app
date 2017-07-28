@@ -17,7 +17,7 @@ const userReducer = (state = null, action) => {
       return action.user
 
     case SET_IMAGE:
-      return Object.assign({}, state, { [action.image.name]: action.image.url })
+      return Object.assign({}, state, { [action.data.name]: action.data.url })
 
     case INPUT_UPDATE_SUCCESSFUL:
       return Object.assign({}, state, { [action.inputData.name]: action.inputData.value })

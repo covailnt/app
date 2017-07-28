@@ -39,7 +39,12 @@ class SignIn extends Component {
     this.setState({ password: e.target.value })
   }
   signIn(type, data) {
-    this.props.signInRequested({ type, data })
+    this.props.signInRequested({
+      type,
+      data: {
+        provider: data,
+      },
+    })
   }
   render() {
     return (

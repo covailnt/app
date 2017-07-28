@@ -15,15 +15,7 @@ import {
   SUCCESS,
 } from 'utils/constants'
 
-const success = (data) => {
-  console.log('Successful sign in', data.user)
-  return { result: SUCCESS, user: data.user }
-}
-
-// const error = (err) => {
-//   console.log('Failure signing in ===> Check signInSaga', err)
-//   return { result: ERROR, err }
-// }
+const success = data => ({ result: SUCCESS, user: data.user })
 
 function* createUserWithEmail(data) {
   const password = generator.generate({
@@ -32,11 +24,17 @@ function* createUserWithEmail(data) {
     symbols: false,
     uppercase: true,
   })
-      // _this.props.history.push('/signup/create-account/step-1')
 
+  // The user data returned by firebase is one level flatter
+  // than the user data for an existing user so we have to pass obj
   const createUserResult = yield firebase.auth()
     .createUserWithEmailAndPassword(data.email, password)
-    .then(user => success(user))
+    .then((user) => {
+      const userData = user
+      userData.redirect = true
+      userData.history = data.history
+      return success({ user: userData })
+    })
 
   return createUserResult
 }
@@ -52,7 +50,7 @@ function* signInWithEmail(data) {
 function* signInWithProvider(data) {
   let authProvider
 
-  switch (data) {
+  switch (data.provider) {
     case FACEBOOK:
       authProvider = new firebase.auth.FacebookAuthProvider()
       break
@@ -60,14 +58,22 @@ function* signInWithProvider(data) {
       authProvider = new firebase.auth.GithubAuthProvider()
       break
     case GOOGLE:
-      console.log('setting up google auth')
       authProvider = new firebase.auth.GoogleAuthProvider()
       break
   }
 
   const signInResult = yield firebase.auth()
     .signInWithPopup(authProvider)
-    .then(user => success(user))
+    .then((user) => {
+      const userData = user.user
+      userData.redirect = true
+
+      if (data.history) {
+        userData.history = data.history
+      }
+
+      return success({ user: userData })
+    })
 
   return signInResult
 }
@@ -93,15 +99,18 @@ function* signIn(action) {
         break
     }
 
-
     if (signInResult) {
       const user = signInResult.user
+
       const userAuthData = {
-        displayName: user.displayName,
+        displayName: user.displayName ? user.displayName : null,
         email: user.email,
-        photoURL: user.photoURL,
+        history: user.history || false,
+        photoURL: user.photoURL ? user.photoURL : null,
+        redirect: user.redirect || false,
         uid: user.uid,
       }
+console.log('user auth data', userAuthData)
       yield put(userFetchRequested(userAuthData))
     } else {
       yield put(userFetchRequested(null))

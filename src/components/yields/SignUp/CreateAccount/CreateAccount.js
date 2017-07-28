@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { signInRequested } from 'actions'
 import { withRouter } from 'react-router-dom'
 import { Button, Flexbox, Heading, Input } from 'components/elements'
 import { SignUpTemplate } from 'components/templates'
-import { FIELDS, NEW_EMAIL } from 'utils/constants'
 import DeskLamp from 'images/signup/deskLamp.png'
+import {
+  FIELDS,
+  NEW_EMAIL,
+  FACEBOOK,
+  GITHUB,
+  GOOGLE,
+  PROVIDER,
+} from 'utils/constants'
 import classes from './CreateAccount.scss'
 
 class CreateAccount extends Component {
@@ -16,8 +24,23 @@ class CreateAccount extends Component {
   updateEmail(e) {
     this.setState({ email: e.target.value })
   }
-  submitEmail() {
-    this.props.signInRequested({ type: NEW_EMAIL, data: })
+  createUserWithEmail() {
+    this.props.signInRequested({
+      type: NEW_EMAIL,
+      data: {
+        email: this.state.email,
+        history: this.props.history,
+      },
+    })
+  }
+  signIn(type, data) {
+    this.props.signInRequested({
+      type,
+      data: {
+        provider: data,
+        history: this.props.history,
+      },
+    })
   }
   render() {
     return (
@@ -35,7 +58,13 @@ class CreateAccount extends Component {
               value={this.state.email}
             />
             <Heading level={5}>We&apos;ll send you an email to set your password later.</Heading>
-            <Button onClick={() => createUserWithEmail(this.state.email, this)}>Get me in</Button><br />
+            <Button
+              onClick={() => this.createUserWithEmail()}
+            >
+              Get me in
+            </Button>
+            <br />
+
             <Heading level={3}>Or social sign-in</Heading>
             <Button
               background="facebook"
@@ -64,6 +93,11 @@ class CreateAccount extends Component {
       </SignUpTemplate>
     )
   }
+}
+
+CreateAccount.propTypes = {
+  history: PropTypes.object,
+  signInRequested: PropTypes.func,
 }
 
 const mapStateToProps = (state) => {

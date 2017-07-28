@@ -2,22 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import firebase from 'refire/firebase'
 import Dropzone from 'react-dropzone'
-import { Flexbox, Heading, Icon } from 'components/elements'
-import defaultBanner from 'images/profile/defaultBanner.jpg'
+import { Flexbox, Icon } from 'components/elements'
 import { StyleSheet, css } from 'aphrodite'
 import classes from './DropImage.scss'
 
-const DropImage = ({ imageURL, height, label, name, imageName, setImage, style, uid, width }) => {
+const DropImage = ({ defaultImage, imageURL, height, label, imageName, setImage, style, uid, width }) => {
   const styles = StyleSheet.create({
     dropzone: {
-      backgroundImage: `url(${imageURL || defaultBanner})`,
+      backgroundImage: `url(${imageURL || defaultImage})`,
       height,
       width,
     },
   })
 
   const onDrop = (acceptedFiles, rejectedFiles) => {
-    console.log('file dropped successfully', acceptedFiles)
+    console.log('acceptedFiles', acceptedFiles)
+    console.log('rejectedFiles', rejectedFiles)
 
     const storageRef = firebase.storage().ref()
     const file = acceptedFiles[0]
@@ -27,7 +27,7 @@ const DropImage = ({ imageURL, height, label, name, imageName, setImage, style, 
       .then((snapshot) => {
         const url = snapshot.metadata.downloadURLs[0]
 
-        setImage({ imageName, url })
+        setImage({ name: imageName, url })
 
         firebase.database().ref(`users/${uid}`).update({ [imageName]: url })
       })
@@ -52,12 +52,13 @@ const DropImage = ({ imageURL, height, label, name, imageName, setImage, style, 
 }
 
 DropImage.propTypes = {
+  defaultImage: PropTypes.string.isRequired,
   height: PropTypes.string,
   imageURL: PropTypes.string,
   label: PropTypes.string.isRequired,
   imageName: PropTypes.string.isRequired,
-  name: PropTypes.string,
   setImage: PropTypes.func.isRequired,
+  style: PropTypes.object,
   uid: PropTypes.string.isRequired,
   width: PropTypes.string,
 }
