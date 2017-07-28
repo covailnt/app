@@ -2,18 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import theme from 'theme'
 
-const Heading = ({ level, className, color, children }) => {
+const Heading = ({ align, className, color, children, display, level }) => {
   const Header = `h${level}`
 
   return (
-    <Header className={className} style={{ color: theme.color[color] }}>{children}</Header>
+    <Header
+      className={className}
+      style={{ color: theme.color[color], display, textAlign: align }}
+    >
+      {children}
+    </Header>
   )
 }
 
 Heading.propTypes = {
-  level: PropTypes.number.isRequired,
+  align: PropTypes.string,
+  className: PropTypes.string,
   color: PropTypes.string,
   children: PropTypes.node,
+  display: PropTypes.string,
+  level: PropTypes.number.isRequired,
 }
 
 Heading.defaultProps = {

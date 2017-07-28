@@ -42,20 +42,18 @@ class Profile extends Component {
               />
             </div>
 
-            <Flexbox align="left" className={classes.profileTitle} direction="column" justify="center">
-              <div className={classes.profileTitleCtn}>
-                <Heading color="white" level={1}>{this.props.displayName}</Heading>
+            <Flexbox className={classes.profileTitle} direction="column" justify="center">
+              <Heading align="center" color="white" level={1}>{this.props.displayName}</Heading>
 
-                <Flexbox align="center">
-                  <p>{FIELDS.SPECIALTY} in </p>
-                  <FirebaseInput
-                    color="primary"
-                    name={FIELDS.LOCATION}
-                    placeholder="Enter city or specify Nomad"
-                    type="text"
-                  />
-                </Flexbox>
-              </div>
+              <Flexbox className={classes.profileTitleCtn}>
+                <p>{FIELDS.SPECIALTY} in </p>
+                <FirebaseInput
+                  color="primary"
+                  name={FIELDS.LOCATION}
+                  placeholder="Enter city or specify Nomad"
+                  type="text"
+                />
+              </Flexbox>
             </Flexbox>
 
           </div>
