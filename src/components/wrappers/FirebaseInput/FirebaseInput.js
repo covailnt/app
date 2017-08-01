@@ -17,30 +17,49 @@ class FirebaseInput extends Component {
       this.setState({ value: nextProps[nextProps.name] })
     }
   }
-  updateVal(e) {
+  updateVal(e, errors) {
     const value = e.target.value
     this.setState({ value })
-    this.props.setInputVal({ name: this.props.name, value })
+    if (errors.length === 0) {
+      this.props.setInputVal({ name: this.props.name, value })
+    }
   }
   render() {
     return (
       <Input
-        color={this.props.color}
-        onChange={e => this.updateVal(e)}
+        id={this.props.id}
+        className={this.props.className}
+        name={this.props.name}
+        validations={this.props.validations}
+        type={this.props.type || 'text'}
         placeholder={this.props.placeholder}
-        type="text"
         value={this.state.value}
+        checked={this.props.checked}
+        onBlur={this.props.onBlur}
+        onChange={e => this.updateVal(e)}
+        labelText={this.props.labelText}
+        style={this.props.style}
+        color={this.props.color}
       />
     )
   }
 }
 
 FirebaseInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  placeholder: PropTypes.string,
   uid: PropTypes.string,
   setInputVal: PropTypes.func.isRequired,
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  type: PropTypes.string,
+  onBlur: PropTypes.func,
+  value: PropTypes.string,
+  validations: PropTypes.array,
+  checked: PropTypes.bool,
+  placeholder: PropTypes.string,
+  labelText: PropTypes.string,
+  color: PropTypes.string,
+  style: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from 'components/elements'
+import { Button, Input } from 'components/elements'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
 import { signInRequested } from 'actions'
@@ -21,6 +21,8 @@ class SignIn extends Component {
       logInModalIsOpen: false,
       menuOpen: false,
       password: '',
+      validEmail: false,
+      validPassword: false,
     }
   }
   toggleMenu() {
@@ -32,11 +34,17 @@ class SignIn extends Component {
   closeLogInModal() {
     this.setState({ logInModalIsOpen: false })
   }
-  updateEmail(e) {
-    this.setState({ email: e.target.value })
+  updateEmail(e, errors) {
+    this.setState({
+      email: e.target.value,
+      validEmail: (errors.length === 0),
+    })
   }
-  updatePassword(e) {
-    this.setState({ password: e.target.value })
+  updatePassword(e, errors) {
+    this.setState({
+      password: e.target.value,
+      validPassword: (errors.length === 0),
+    })
   }
   signIn(type, data) {
     this.props.signInRequested({ type, data })
@@ -54,10 +62,21 @@ class SignIn extends Component {
         >
           <h2>Hello</h2>
           <Button onClick={() => this.closeLogInModal()}>close</Button>
-          <input type="text" onChange={e => this.updateEmail(e)} value={this.state.email} />
-          <input type="text" onChange={e => this.updatePassword(e)} value={this.state.password} />
+          <Input
+            type="email"
+            onChange={(e, errors) => this.updateEmail(e, errors)}
+            value={this.state.email}
+            validations={['required', 'email']}
+          />
+          <Input
+            type="password"
+            onChange={(e, errors) => this.updatePassword(e, errors)}
+            value={this.state.password}
+            validations={['required']}
+          />
           <Button
             onClick={() => this.signIn(EMAIL, { email: this.state.email, password: this.state.password })}
+            disabled={!(this.state.validEmail && this.state.validPassword)}
           >
             Log In With Email
           </Button>

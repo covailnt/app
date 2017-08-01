@@ -49,6 +49,7 @@ class Profile extends Component {
                     color="primary"
                     name={FIELDS.LOCATION}
                     placeholder="Enter city or specify Nomad"
+                    validations={['required', 'email']}
                     type="text"
                   />
                 </Flexbox>

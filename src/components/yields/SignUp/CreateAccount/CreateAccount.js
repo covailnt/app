@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Flexbox, Button, Heading } from 'components/elements'
+import { Flexbox, Button, Heading, Input } from 'components/elements'
 import { SignUpTemplate } from 'components/templates'
 import DeskLamp from 'images/signup/deskLamp.png'
 import classes from './CreateAccount.scss'
@@ -9,10 +9,16 @@ import classes from './CreateAccount.scss'
 class CreateAccount extends Component {
   constructor(props) {
     super(props)
-    this.state = { email: '' }
+    this.state = {
+      email: '',
+      validEmail: false,
+    }
   }
-  updateEmail(e) {
-    this.setState({ email: e.target.value })
+  updateEmail(e, errors) {
+    this.setState({
+      email: e.target.value,
+      validEmail: (errors.length === 0),
+    })
   }
   render() {
     return (
@@ -21,9 +27,20 @@ class CreateAccount extends Component {
           <Heading level={1} color="primary">Let&apos;s do this thing</Heading>
           <div className={classes.form}>
             <Heading level={3}>We just need your email address</Heading>
-            <input type="text" onChange={e => this.updateEmail(e)} value={this.state.email} placeholder="user@example.com" />
+            <Input
+              type="text"
+              name="email"
+              color="lightGray"
+              onChange={(e, errors) => this.updateEmail(e, errors)}
+              value={this.state.email}
+              placeholder="user@example.com"
+              validations={['required', 'email']}
+            />
             <Heading level={5}>We&apos;ll send you an email to set your password later.</Heading>
-            <Button onClick={() => createUserWithEmail(this.state.email, this)}>Get me in</Button><br />
+            <Button
+              disabled={(!this.state.validEmail)}
+              onClick={() => createUserWithEmail(this.state.email, this)}
+            >Get me in</Button><br />
             <Heading level={3}>Or social sign-in</Heading>
             <Button
               background="facebook"
