@@ -36,7 +36,7 @@ class FirebaseInput extends Component {
         value={this.state.value}
         checked={this.props.checked}
         onBlur={this.props.onBlur}
-        onChange={e => this.updateVal(e)}
+        onChange={(e, errors) => this.updateVal(e, errors)}
         labelText={this.props.labelText}
         style={this.props.style}
         color={this.props.color}
