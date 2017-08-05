@@ -85,7 +85,6 @@ class Sidebar extends Component {
         />
 
         <div className={classes.statusCtn}>
-          <label htmlFor="profile-dropdown">This week I am:</label>
           <DropDown
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
@@ -93,6 +92,7 @@ class Sidebar extends Component {
             name="profile-dropdown"
             placeholder="How busy are you?"
             value={this.state.status}
+            label="This week I am:"
             submitButton={this.state.dirty ? {
               classes: classes.btnPrimary,
               text: 'Update Availability',

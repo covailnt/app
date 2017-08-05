@@ -1,5 +1,13 @@
 @import 'theme/_helpers';
 .landingPageCtn {
+  h1 {
+
+    @include cols(12);
+  }
+  h2 {
+    display: inline-block;
+    padding: 0 5px;
+  }
 }
 .headerCtn {
   width: 100%;
@@ -13,16 +21,6 @@
     img {
       float: left;
     }
-  }
-}
-main {
-  h1 {
-
-    @include cols(12);
-  }
-  h2 {
-    display: inline-block;
-    padding: 0 5px;
   }
 }
 .layerCtn {

@@ -14,8 +14,9 @@ const styles = StyleSheet.create({
   },
 })
 
-const DropDown = ({ value, handleChange, handleSubmit, items, name, submitButton }) => (
+const DropDown = ({ value, handleChange, handleSubmit, items, name, submitButton, label, labelAfter }) => (
   <div className={classes.selectWrapper}>
+    {!labelAfter && (label ? (<label htmlFor={name}>{label}</label>) : null)}
     <div className={classes.selectCtn}>
       <select
         className={`${css(styles.select)} ${classes.dropDown}`}
@@ -38,6 +39,7 @@ const DropDown = ({ value, handleChange, handleSubmit, items, name, submitButton
       )
       : null
     }
+    {labelAfter && (label ? (<label htmlFor={name}>{label}</label>) : null)}
   </div>
 )
 
@@ -52,6 +54,8 @@ DropDown.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   submitButton: PropTypes.object,
+  label: PropTypes.string,
+  labelAfter: PropTypes.bool,
 }
 
 export default DropDown

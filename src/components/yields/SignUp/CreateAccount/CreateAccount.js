@@ -19,10 +19,16 @@ import classes from './CreateAccount.scss'
 class CreateAccount extends Component {
   constructor(props) {
     super(props)
-    this.state = { email: '' }
+    this.state = {
+      email: '',
+      validEmail: false,
+    }
   }
-  updateEmail(e) {
-    this.setState({ email: e.target.value })
+  updateEmail(e, errors) {
+    this.setState({
+      email: e.target.value,
+      validEmail: (errors.length === 0),
+    })
   }
   createUserWithEmail() {
     this.props.signInRequested({
@@ -52,14 +58,16 @@ class CreateAccount extends Component {
             <Input
               color="primary"
               name={FIELDS.EMAIL}
-              onChange={e => this.updateEmail(e)}
+              onChange={e => this.updateEmail(e, errors)}
               placeholder="your-email@gmail.com"
               type="text"
               value={this.state.email}
+              validations={['required', 'email']}
             />
             <Heading level={5}>We&apos;ll send you an email to set your password later.</Heading>
             <Button
               onClick={() => this.createUserWithEmail()}
+              disabled={(!this.state.validEmail)}
             >
               Get me in
             </Button>

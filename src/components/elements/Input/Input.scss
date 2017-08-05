@@ -6,3 +6,12 @@
   border: 0px;
   box-sizing: border-box;
 }
+.formError {
+  border: red 2px solid;
+  &:focus {
+    border: 0px;
+  }
+}
+.errorMessages {
+  color: red;
+}
