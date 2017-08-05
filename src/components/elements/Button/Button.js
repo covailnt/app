@@ -23,7 +23,7 @@ const Button = ({ background, children, color, border, onClick, hover, disabled 
     <button
       className={`${css(styles.button)} ${classes.button}`}
       onClick={onClick}
-      disabled={disabled}
+      disabled={(disabled || disabled == 'disabled') ? 'disabled' : false}
     >
       {children}
     </button>
@@ -41,7 +41,7 @@ Button.propTypes = {
   color: PropTypes.string,
   onClick: PropTypes.func,
   hover: PropTypes.string,
-  disabled: PropTypes.string,
+  disabled: PropTypes.bool,
   border: PropTypes.string,
 }
 

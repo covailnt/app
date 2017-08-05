@@ -16,7 +16,7 @@ const rules = {
   email: {
     test: (value) => {
       const base = value.toString().trim()
-      const re = /\S+@\S+\.\S+/
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
 
       return re.test(base)
     },
