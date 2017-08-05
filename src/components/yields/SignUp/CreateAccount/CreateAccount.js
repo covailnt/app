@@ -58,7 +58,7 @@ class CreateAccount extends Component {
             <Input
               color="primary"
               name={FIELDS.EMAIL}
-              onChange={e => this.updateEmail(e, errors)}
+              onChange={(e, errors) => this.updateEmail(e, errors)}
               placeholder="your-email@gmail.com"
               type="text"
               value={this.state.email}

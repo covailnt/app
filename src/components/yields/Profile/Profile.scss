@@ -33,7 +33,7 @@
       font-weight: none;
       @include rems(36);
     }
-    p {
+    label {
       margin: 0;
       @include rems(16);
     }
@@ -115,6 +115,7 @@
   label {
     display: block;
     font-size: 20px;
+    font-weight: bold;
     margin: 1rem 0 0 0;
     color: $accent1;
   }
