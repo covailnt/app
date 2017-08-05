@@ -7,6 +7,7 @@ import { Avatar, Button } from 'components/elements'
 import { SIGN_OUT_REQUESTED } from 'actions/types'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
+import avatar from 'images/avatar.png'
 import classes from './UserMenu.scss'
 
 const styles = StyleSheet.create({
@@ -50,7 +51,13 @@ class UserMenu extends Component {
 
     return (
       <div className={classes.menuCtn}>
-        <Avatar onClick={() => this.toggleMenu()} src={user.photoURL} size="50px" padding="5px" margin="0 20px" />
+        <Avatar
+          onClick={() => this.toggleMenu()}
+          margin="0 20px"
+          padding="5px"
+          size="50px"
+          src={user.photoURL || avatar}
+        />
         {this.renderMenu()}
       </div>
     )
