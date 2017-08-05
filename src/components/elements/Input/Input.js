@@ -66,9 +66,11 @@ class Input extends Component {
   }
 
   render() {
+    const label = this.props.label ? (<label htmlFor={this.props.name}>{this.props.label}</label>) : null
+
     return (
-      <div>
-        {this.props.labelText && <label htmlFor={this.props.name}>{this.props.labelText}</label>}
+      <div className={this.props.className}>
+        {!this.props.labelAfter && label}
         <input
           className={
             `input-${this.props.type}
@@ -86,6 +88,7 @@ class Input extends Component {
           type={this.props.type}
           value={this.props.value}
         />
+        {this.props.labelAfter && label}
         <div className={classes.errorMessages}>
           {this.state.errors.map((err) => { return rules[err].hint(this.props.name) }).join('; ')}
         </div>
@@ -106,7 +109,8 @@ Input.propTypes = {
   value: PropTypes.string,
   checked: PropTypes.bool,
   placeholder: PropTypes.string,
-  labelText: PropTypes.string,
+  label: PropTypes.string,
+  labelAfter: PropTypes.bool,
   color: PropTypes.string,
   hint: PropTypes.string,
 }

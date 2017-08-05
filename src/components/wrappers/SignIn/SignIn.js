@@ -11,6 +11,7 @@ import {
   GOOGLE,
   PROVIDER,
 } from 'utils/constants'
+import classes from './SignIn.scss'
 
 class SignIn extends Component {
   constructor(props) {
@@ -54,25 +55,28 @@ class SignIn extends Component {
       <div>
         <Button onClick={() => this.openLogInModal()}>Log In</Button>
         <Modal
-          className="modal"
+          className={`modal ${classes.loginModal}`}
           isOpen={this.state.logInModalIsOpen}
           onRequestClose={this.closeLogInModal}
           contentLabel="Example Modal"
           style={styles}
         >
-          <h2>Hello</h2>
-          <Button onClick={() => this.closeLogInModal()}>close</Button>
+          <h2>Login</h2>
           <Input
             type="email"
             onChange={(e, errors) => this.updateEmail(e, errors)}
             value={this.state.email}
             validations={['required', 'email']}
+            label='Email'
+            className={classes.loginInput}
           />
           <Input
             type="password"
             onChange={(e, errors) => this.updatePassword(e, errors)}
             value={this.state.password}
             validations={['required']}
+            label='Password'
+            className={classes.loginInput}
           />
           <Button
             onClick={() => this.signIn(EMAIL, { email: this.state.email, password: this.state.password })}
@@ -108,6 +112,7 @@ class SignIn extends Component {
           >
             Need to create an account?
           </Link>
+          <Button onClick={() => this.closeLogInModal()}>close</Button>
         </Modal>
       </div>
     )

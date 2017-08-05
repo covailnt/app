@@ -112,9 +112,11 @@
   padding: 20px;
   margin-bottom: 3rem;
 
-  h3 {
+  label {
+    display: block;
     font-size: 20px;
     margin: 1rem 0 0 0;
+    color: $accent1;
   }
   h5 {
     margin-bottom: 0;

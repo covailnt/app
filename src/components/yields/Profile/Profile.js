@@ -44,12 +44,13 @@ class Profile extends Component {
                 <Heading color="white" level={1}>{this.props.displayName}</Heading>
 
                 <Flexbox align="center">
-                  <p>{FIELDS.SPECIALTY} in </p>
+
                   <FirebaseInput
                     color="primary"
                     name={FIELDS.LOCATION}
                     placeholder="Enter city or specify Nomad"
                     type="text"
+                    label={`${FIELDS.SPECIALTY} in`}
                   />
                 </Flexbox>
               </div>
@@ -152,40 +153,40 @@ class Profile extends Component {
             <Flexbox direction="column" className={classes.skills}>
               <Heading color="accent1" level={5}>Skills</Heading>
 
-              <Heading color="accent1" level={3}>Specialty</Heading>
               <FirebaseInput
                 color="primary"
                 name={FIELDS.SKILLS}
                 placeholder="Add a another skill"
                 type="text"
+                label='Specialty'
               />
             </Flexbox>
 
             <Flexbox direction="column" className={classes.portfolio}>
               <Heading color="accent1" level={5}>Portfolio</Heading>
 
-              <Heading color="accent1" level={3}>Portfolio Link</Heading>
               <FirebaseInput
                 color="primary"
                 name={FIELDS.PORTFOLIO}
                 placeholder="Add a link to your portfolio"
                 type="text"
+                label="Portfolio Link"
               />
 
-              <Heading color="accent1" level={3}>Behance Stream</Heading>
               <FirebaseInput
                 color="primary"
                 name={FIELDS.BEHANCE_URL}
                 placeholder="Link up your Behance"
                 type="text"
+                label="Behance Stream"
               />
 
-              <Heading color="accent1" level={3}>Dribbble Stream</Heading>
               <FirebaseInput
                 color="primary"
                 name={FIELDS.DRIBBBLE_URL}
                 placeholder="Link up your Dribbble"
                 type="text"
+                label="Dribbble Stream"
               />
             </Flexbox>
 
