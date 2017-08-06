@@ -24,6 +24,15 @@ class Profile extends Component {
     this.setState({ activeSocial: e.target.id })
   }
   render() {
+    const addFieldButton = (
+      <Icon
+        className="fa fa-plus"
+        size="2x"
+        color="primary"
+        id="addSkillButton"
+        name="addSkillButton"
+      />
+    )
     return (
       <AuthenticatedTemplate>
         <Flexbox direction="column">
@@ -85,7 +94,7 @@ class Profile extends Component {
                   <Rank color="black" type="Potential" value="99" />
                 </div>
 
-                <Button className="chatButton" disabled="disabled">Open Chat</Button>
+                <Button className="chatButton" disabled={true}>Open Chat</Button>
 
                 <Flexbox justify="flex-start" className={classes.socialLinks} >
                   <span className="fa-stack fa-lg">
@@ -147,7 +156,7 @@ class Profile extends Component {
 
           <Flexbox className={classes.statusCtn} justify="space-around" background="white">
             <Heading color="primary" level={3}>Your availability status appears here</Heading>
-            <Button disabled="disabled">Send Collab Request</Button>
+            <Button disabled={true}>Send Collab Request</Button>
           </Flexbox>
 
           <Flexbox className={classes.portfolioCtn} justify="space-around">
@@ -159,8 +168,10 @@ class Profile extends Component {
                 name={FIELDS.SPECIALTY}
                 placeholder="Add a another skill"
                 type="text"
-                label='Specialty'
+                label="Specialty"
+                addFieldButton={addFieldButton}
               />
+
             </Flexbox>
 
             <Flexbox direction="column" className={classes.portfolio}>
