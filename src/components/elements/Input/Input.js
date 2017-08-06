@@ -48,7 +48,7 @@ class Input extends Component {
 
   handleChange(e) {
     const errors = this.validate(e)
-    this.props.onChange(e, errors)
+    this.props.onChange(e, errors, this.props.index)
   }
 
   validate(e) {
@@ -106,13 +106,14 @@ Input.propTypes = {
   type: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   checked: PropTypes.bool,
   placeholder: PropTypes.string,
   label: PropTypes.string,
   labelAfter: PropTypes.bool,
   color: PropTypes.string,
   hint: PropTypes.string,
+  index: PropTypes.number,
 }
 
 export default Input
