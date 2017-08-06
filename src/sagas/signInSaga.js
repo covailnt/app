@@ -31,8 +31,13 @@ function* createUserWithEmail(data) {
     .createUserWithEmailAndPassword(data.email, password)
     .then((user) => {
       const userData = user
+
+      user.sendEmailVerification()
+        .catch(e => console.log(e))
+
       userData.redirect = true
       userData.history = data.history
+
       return success({ user: userData })
     })
 
@@ -110,7 +115,7 @@ function* signIn(action) {
         redirect: user.redirect || false,
         uid: user.uid,
       }
-console.log('user auth data', userAuthData)
+
       yield put(userFetchRequested(userAuthData))
     } else {
       yield put(userFetchRequested(null))
