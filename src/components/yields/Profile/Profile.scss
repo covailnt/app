@@ -7,7 +7,6 @@
   .editBannerPictureCtn {
     > div {
     }
-
   }
 }
 
@@ -15,7 +14,7 @@
 .profileTitle {
   bottom: 0;
   left: 50%;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   transform: translateX(-50%);
   width: 100%;
@@ -46,7 +45,6 @@
 
 // Profile Summary
 .profileSummaryCtn {
-
 }
 
 .editProfilePictureCtn {
@@ -104,7 +102,6 @@
 
 //Status Container
 .statusCtn {
-
 }
 
 //
@@ -131,8 +128,6 @@
   border-radius: 5px;
   @include rems(16);
 }
-
-
 
 /* below is imported from the aborted v2
 .profile {

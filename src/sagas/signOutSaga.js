@@ -1,4 +1,4 @@
-import 'babel-polyfill'
+import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { put, takeLatest } from 'redux-saga/effects'
 import firebase from 'refire/firebase'
 import { SIGN_OUT_REQUESTED } from 'actions/types'

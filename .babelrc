@@ -1,29 +1,21 @@
 {
   "presets": [
-    ["env", {
-      "modules": false
-    }],
-    "react",
-    "stage-1"
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": ["last 3 versions"]
+        },
+        "debug": true
+      }
+    ],
+    "react"
   ],
-  "plugins": [
-    ["transform-regenerator"]
-  ],
+  "plugins": [["transform-regenerator"]],
   "env": {
-    "development": {
-      "plugins": [
-        "transform-es2015-modules-commonjs"
-      ]
-    },
-    "test": {
-      "plugins": [
-        "transform-es2015-modules-commonjs"
-      ]
-    },
     "production": {
-      "plugins": [
-        "transform-react-remove-prop-types"
-      ]
+      "presets": ["react-optimize"]
     }
   }
 }

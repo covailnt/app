@@ -17,11 +17,11 @@
     "jest": true
   },
   "globals": {
-    "__DEV__": true,
-    "__PROD__": true,
-    "__DEBUG__": true,
-    "__COVERAGE__": true,
-    "__BASENAME__": true
+    "__dirname": true,
+    "document": true,
+    "module": true,
+    "process": true,
+    "window": true
   },
   "settings": {
     "import/resolver": {

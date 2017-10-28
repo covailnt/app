@@ -1,4 +1,4 @@
-import 'babel-polyfill'
+import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { put, select, takeLatest } from 'redux-saga/effects'
 import firebase from 'refire/firebase'
 import { INPUT_UPDATE_SUCCESSFUL, SET_INPUT_VAL } from 'actions/types'

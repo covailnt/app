@@ -1,88 +1,73 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const devServer = require('@webpack-blocks/dev-server2')
-const splitVendor = require('webpack-blocks-split-vendor')
-const happypack = require('webpack-blocks-happypack')
+const { css } = require('@webpack-blocks/assets')
+
+const webpack = require('webpack')
+
 const {
-  addPlugins, createConfig, entryPoint, env, setOutput,
-  sourceMaps, defineConstants, webpack,
-} = require('@webpack-blocks/webpack2')
+  createConfig,
+  match,
+
+  // Feature Blocks
+  babel,
+  devServer,
+  file,
+
+  // Shorthand setters
+  addPlugins,
+  defineConstants,
+  entryPoint,
+  env,
+  resolve,
+  setOutput,
+  sourceMaps,
+} = require('webpack-blocks')
 
 const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || 3000
-const sourceDir = process.env.SOURCE || 'src'
 const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
+
+const sourceDir = process.env.SOURCE || 'src'
 const sourcePath = path.join(process.cwd(), sourceDir)
-const nodeModulesPath = path.join(process.cwd(), 'node_modules')
 const outputPath = path.join(process.cwd(), 'dist')
 
-const babel = () => () => ({
-  module: {
-    rules: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-    ],
-  },
-})
-
-const sass = () => () => ({
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            localIdentName: '[local]-[hash:base64:5]',
-          },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            includePaths: [sourcePath, nodeModulesPath],
-          },
-        }],
+function sassLoader() {
+  return (context, { merge }) =>
+    merge({
+      module: {
+        rules: [
+          Object.assign(
+            {
+              test: /\.scss$/,
+              use: [
+                {
+                  loader: 'style-loader',
+                },
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: true,
+                    localIdentName: '[local]-[hash:base64:5]',
+                  },
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    includePaths: [sourcePath],
+                  },
+                },
+              ],
+            },
+            context.match,
+          ),
+        ],
       },
-    ],
-  },
-})
-
-const css = () => () => ({
-  module: {
-    rules: [
-      { test: /\.css$/, exclude: /node_modules\/normalize.css/, loader: 'style-loader!css-loader' },
-    ],
-  },
-})
-
-const assets = () => () => ({
-  module: {
-    rules: [
-      { test: /\.(png|jpe?g|svg|woff2?|ttf|eot)$/, loader: 'url-loader?limit=8000' },
-    ],
-  },
-})
-
-const resolveModules = modules => () => ({
-  resolve: {
-    modules: [].concat(modules, ['node_modules']),
-  },
-})
+    })
+}
 
 const config = createConfig([
-  entryPoint({
-    app: sourcePath,
-  }),
-  setOutput({
-    filename: '[name].js',
-    path: outputPath,
-    publicPath,
-  }),
-  defineConstants({
-    'process.env.NODE_ENV': process.env.NODE_ENV,
-    'process.env.PUBLIC_PATH': publicPath.replace(/\/$/, ''),
-  }),
+  entryPoint(sourcePath),
+  setOutput(`${outputPath}/app.js`),
   addPlugins([
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
@@ -90,13 +75,31 @@ const config = createConfig([
       template: path.join(process.cwd(), 'public/index.html'),
     }),
   ]),
-  happypack([
-    babel(),
-  ]),
-  assets(),
-  sass(),
+  defineConstants({
+    'process.env.NODE_ENV': process.env.NODE_ENV,
+    'process.env.PUBLIC_PATH': publicPath.replace(/\/$/, ''),
+  }),
+  babel(),
+  sassLoader(),
   css(),
-  resolveModules(sourceDir),
+  match(
+    [
+      '*.gif',
+      '*.jpg',
+      '*.jpeg',
+      '*.png',
+      '*.webp',
+      '*svg',
+      '*woff2',
+      '*woff',
+      '*ttf',
+      '*eot',
+    ],
+    [file()],
+  ),
+  resolve({
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  }),
   env('development', [
     devServer({
       contentBase: 'public',
@@ -107,14 +110,12 @@ const config = createConfig([
       port,
     }),
     sourceMaps(),
-    addPlugins([
-      new webpack.NamedModulesPlugin(),
-    ]),
+    addPlugins([new webpack.NamedModulesPlugin()]),
   ]),
 
   env('production', [
-    splitVendor(),
     addPlugins([
+      new webpack.LoaderOptionsPlugin({ minimize: true }),
       new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     ]),
   ]),

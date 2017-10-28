@@ -1,4 +1,4 @@
-import 'babel-polyfill'
+import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { all, call } from 'redux-saga/effects'
 import fetchUserSaga from './fetchUserSaga'
 import setInputSaga from './setInputSaga'
