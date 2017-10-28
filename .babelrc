@@ -12,7 +12,11 @@
     ],
     "react"
   ],
-  "plugins": ["transform-export-extensions", "transform-regenerator"],
+  "plugins": [
+    "babel-plugin-styled-components",
+    "transform-export-extensions",
+    "transform-regenerator"
+  ],
   "env": {
     "production": {
       "presets": ["react-optimize"]
