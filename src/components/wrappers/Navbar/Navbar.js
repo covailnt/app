@@ -7,7 +7,12 @@ import classes from './Navbar.scss'
 class Navbar extends Component {
   render() {
     return (
-      <Flexbox align="center" className={classes.navbar} background={this.props.color} justify="flex-end" >
+      <Flexbox
+        align="center"
+        className={classes.navbar}
+        background={this.props.color}
+        justify="flex-end"
+      >
         {this.props.children}
       </Flexbox>
     )
@@ -19,7 +24,7 @@ Navbar.propTypes = {
   color: PropTypes.string,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { user: state.user }
 }
 
