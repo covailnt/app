@@ -4,10 +4,19 @@ import classes from './Button.scss'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
 
-const Button = ({ background, children, color, border, onClick, hover, disabled }) => {
-  const bg = (disabled && background == 'primary') ? 'white' : background
-  const clr = (disabled && color == 'white') ? 'accent1' : color
-  const bdr = (disabled && !border) ? `${theme.color.accent1} 1px solid` : border || 'none'
+const Button = ({
+  background,
+  children,
+  color,
+  border,
+  onClick,
+  hover,
+  disabled,
+}) => {
+  const bg = disabled && background == 'primary' ? 'white' : background
+  const clr = disabled && color == 'white' ? 'accent1' : color
+  const bdr =
+    disabled && !border ? `${theme.color.accent1} 1px solid` : border || 'none'
 
   const styles = StyleSheet.create({
     button: {
@@ -23,7 +32,7 @@ const Button = ({ background, children, color, border, onClick, hover, disabled 
     <button
       className={`${css(styles.button)} ${classes.button}`}
       onClick={onClick}
-      disabled={(disabled || disabled == 'disabled') ? 'disabled' : false}
+      disabled={disabled || disabled == 'disabled' ? 'disabled' : false}
     >
       {children}
     </button>
@@ -46,4 +55,3 @@ Button.propTypes = {
 }
 
 export default Button
-

@@ -10,24 +10,22 @@ export default class AuthenticatedTemplate extends Component {
     const { children } = this.props
     return (
       <Flexbox>
-
         <Sidebar />
 
         <Flexbox className={classes.rightColumn} direction="column">
-
           <Navbar>
             <div className={classes.headerStats}>
               <ul className={classes.headerList}>
                 <Rank color="white" type="Earned" value="005" />
                 <Rank color="white" type="Potential" value="99" />
-                <li><UserMenu /></li>
+                <li>
+                  <UserMenu />
+                </li>
               </ul>
             </div>
           </Navbar>
 
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
         </Flexbox>
       </Flexbox>
     )

@@ -42,8 +42,14 @@ class Profile extends Component {
               />
             </div>
 
-            <Flexbox className={classes.profileTitle} direction="column" justify="center">
-              <Heading align="center" color="white" level={1}>{this.props.displayName}</Heading>
+            <Flexbox
+              className={classes.profileTitle}
+              direction="column"
+              justify="center"
+            >
+              <Heading align="center" color="white" level={1}>
+                {this.props.displayName}
+              </Heading>
 
               <Flexbox className={classes.profileTitleCtn}>
                 <FirebaseInput
@@ -55,11 +61,9 @@ class Profile extends Component {
                 />
               </Flexbox>
             </Flexbox>
-
           </div>
 
           <div className={classes.profileSummaryCtn}>
-
             <div className={classes.editProfilePictureCtn}>
               <DropImage
                 defaultImage={avatar}
@@ -79,15 +83,16 @@ class Profile extends Component {
 
             <div className={classes.summaryText}>
               <Flexbox justify="flex-start" flexWrap="wrap">
-
                 <div className={classes.summaryStats}>
                   <Rank color="black" type="Earned" value="005" />
                   <Rank color="black" type="Potential" value="99" />
                 </div>
 
-                <Button className="chatButton" disabled="disabled">Open Chat</Button>
+                <Button className="chatButton" disabled="disabled">
+                  Open Chat
+                </Button>
 
-                <Flexbox justify="flex-start" className={classes.socialLinks} >
+                <Flexbox justify="flex-start" className={classes.socialLinks}>
                   <span className="fa-stack fa-lg">
                     <Icon
                       border={this.state.activeSocial === SOCIAL.FACEBOOK}
@@ -145,26 +150,36 @@ class Profile extends Component {
             </div>
           </div>
 
-          <Flexbox className={classes.statusCtn} justify="space-around" background="white">
-            <Heading color="primary" level={3}>Your availability status appears here</Heading>
+          <Flexbox
+            className={classes.statusCtn}
+            justify="space-around"
+            background="white"
+          >
+            <Heading color="primary" level={3}>
+              Your availability status appears here
+            </Heading>
             <Button disabled="disabled">Send Collab Request</Button>
           </Flexbox>
 
           <Flexbox className={classes.portfolioCtn} justify="space-around">
             <Flexbox direction="column" className={classes.skills}>
-              <Heading color="accent1" level={5}>Skills</Heading>
+              <Heading color="accent1" level={5}>
+                Skills
+              </Heading>
 
               <FirebaseInput
                 color="primary"
                 name={FIELDS.SPECIALTY}
                 placeholder="Add a another skill"
                 type="text"
-                label='Specialty'
+                label="Specialty"
               />
             </Flexbox>
 
             <Flexbox direction="column" className={classes.portfolio}>
-              <Heading color="accent1" level={5}>Portfolio</Heading>
+              <Heading color="accent1" level={5}>
+                Portfolio
+              </Heading>
 
               <FirebaseInput
                 color="primary"
@@ -190,9 +205,7 @@ class Profile extends Component {
                 label="Dribbble Stream"
               />
             </Flexbox>
-
           </Flexbox>
-
         </Flexbox>
       </AuthenticatedTemplate>
     )
@@ -208,7 +221,7 @@ Profile.propTypes = {
   setImage: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     [FIELDS.AVATAR_URL]: state.user[FIELDS.AVATAR_URL],
     [FIELDS.BANNER_URL]: state.user[FIELDS.BANNER_URL],

@@ -7,7 +7,12 @@ export default class SignUpTemplate extends Component {
   render() {
     const { children } = this.props
     return (
-      <Flexbox className={classes.mainContainer} justify="center" align="center" flexWrap="wrap">
+      <Flexbox
+        className={classes.mainContainer}
+        justify="center"
+        align="center"
+        flexWrap="wrap"
+      >
         <main>
           <Flexbox className={classes.content} justify="center" flexWrap="wrap">
             {children}

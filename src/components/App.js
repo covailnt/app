@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { Home, Profile, SignUp } from 'components/yields'
 import { requireAuth } from 'components/wrappers'
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import 'theme/normalize.css'
 import 'theme/Global.scss'
@@ -14,7 +10,9 @@ import { unsubscribeAuth, unsubscribePreload } from '../'
 
 export default class App extends Component {
   componentDidMount() {
-    console.log('Unsubscribing from Firebase_Auth_Change and Preload_Store Observers')
+    console.log(
+      'Unsubscribing from Firebase_Auth_Change and Preload_Store Observers',
+    )
     unsubscribeAuth()
     unsubscribePreload()
   }
@@ -32,4 +30,3 @@ export default class App extends Component {
     )
   }
 }
-

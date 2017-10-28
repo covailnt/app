@@ -27,7 +27,7 @@ class CreateAccount extends Component {
   updateEmail(e, errors) {
     this.setState({
       email: e.target.value,
-      validEmail: (errors.length === 0),
+      validEmail: errors.length === 0,
     })
   }
   createUserWithEmail() {
@@ -51,8 +51,15 @@ class CreateAccount extends Component {
   render() {
     return (
       <SignUpTemplate>
-        <Flexbox className={classes.fields} direction="column" justify="center" align="center">
-          <Heading level={1} color="primary">Let&apos;s do this thing</Heading>
+        <Flexbox
+          className={classes.fields}
+          direction="column"
+          justify="center"
+          align="center"
+        >
+          <Heading level={1} color="primary">
+            Let&apos;s do this thing
+          </Heading>
           <div className={classes.form}>
             <Heading level={3}>We just need your email address</Heading>
             <Input
@@ -64,10 +71,12 @@ class CreateAccount extends Component {
               value={this.state.email}
               validations={['required', 'email']}
             />
-            <Heading level={5}>We&apos;ll send you an email to set your password later.</Heading>
+            <Heading level={5}>
+              We&apos;ll send you an email to set your password later.
+            </Heading>
             <Button
               onClick={() => this.createUserWithEmail()}
-              disabled={(!this.state.validEmail)}
+              disabled={!this.state.validEmail}
             >
               Get me in
             </Button>
@@ -84,7 +93,7 @@ class CreateAccount extends Component {
               background="github"
               onClick={() => this.signIn(PROVIDER, GITHUB)}
             >
-            Create account with Github
+              Create account with Github
             </Button>
             <Button
               background="google"
@@ -108,8 +117,10 @@ CreateAccount.propTypes = {
   signInRequested: PropTypes.func,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { user: state.user }
 }
 
-export default withRouter(connect(mapStateToProps, { signInRequested })(CreateAccount))
+export default withRouter(
+  connect(mapStateToProps, { signInRequested })(CreateAccount),
+)

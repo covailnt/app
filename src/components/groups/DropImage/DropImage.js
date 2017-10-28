@@ -6,7 +6,17 @@ import { Flexbox, Icon } from 'components/elements'
 import { StyleSheet, css } from 'aphrodite'
 import classes from './DropImage.scss'
 
-const DropImage = ({ defaultImage, imageURL, height, label, imageName, setImage, style, uid, width }) => {
+const DropImage = ({
+  defaultImage,
+  imageURL,
+  height,
+  label,
+  imageName,
+  setImage,
+  style,
+  uid,
+  width,
+}) => {
   const styles = StyleSheet.create({
     dropzone: {
       backgroundImage: `url(${imageURL || defaultImage})`,
@@ -23,19 +33,23 @@ const DropImage = ({ defaultImage, imageURL, height, label, imageName, setImage,
     const file = acceptedFiles[0]
     const path = storageRef.child(`images/${uid}/${imageName}`)
 
-    path.put(file)
-      .then((snapshot) => {
+    path
+      .put(file)
+      .then(snapshot => {
         const url = snapshot.metadata.downloadURLs[0]
 
         setImage({ name: imageName, url })
 
-        firebase.database().ref(`users/${uid}`).update({ [imageName]: url })
+        firebase
+          .database()
+          .ref(`users/${uid}`)
+          .update({ [imageName]: url })
       })
       .catch(err => console.log('error: ', err))
   }
 
   return (
-    <Flexbox align="center" direction="column" justify="center" >
+    <Flexbox align="center" direction="column" justify="center">
       <Dropzone
         className={`${css(styles.dropzone)} ${classes.dropzone}`}
         multiple={false}

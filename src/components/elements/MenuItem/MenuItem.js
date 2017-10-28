@@ -5,9 +5,7 @@ import classes from './MenuItem.scss'
 
 const MenuItem = ({ children, link }) => (
   <Link to={link} className={classes.menuItem}>
-    <li>
-      {children}
-    </li>
+    <li>{children}</li>
   </Link>
 )
 

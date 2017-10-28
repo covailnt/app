@@ -26,25 +26,34 @@ class UserMenu extends Component {
     this.setState({ open: !this.state.open })
   }
   renderMenu() {
-    return this.state.open
-      ? (
-        <ul className={`${classes.menuDropdown} ${css(styles.menu)}`}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/profile">Secret Profile</Link></li>
-          <li><Link to="/signup">Sign Up Landing Page</Link></li>
-          <li><Link to="/signup/create-account/step-1">SignUp-Step-1</Link></li>
-          <li>
-            <Link to="/">
-              <Button
-                onClick={() => appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
-              >
-                Sign Out
-              </Button>
-            </Link>
-          </li>
-        </ul>
-      )
-      : ''
+    return this.state.open ? (
+      <ul className={`${classes.menuDropdown} ${css(styles.menu)}`}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/profile">Secret Profile</Link>
+        </li>
+        <li>
+          <Link to="/signup">Sign Up Landing Page</Link>
+        </li>
+        <li>
+          <Link to="/signup/create-account/step-1">SignUp-Step-1</Link>
+        </li>
+        <li>
+          <Link to="/">
+            <Button
+              onClick={() =>
+                appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
+            >
+              Sign Out
+            </Button>
+          </Link>
+        </li>
+      </ul>
+    ) : (
+      ''
+    )
   }
   render() {
     const { user } = this.props
@@ -68,7 +77,7 @@ UserMenu.propTypes = {
   user: PropTypes.object,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { user: state.user }
 }
 

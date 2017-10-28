@@ -11,8 +11,15 @@ export default class SetDisplayName extends Component {
   render() {
     return (
       <SignUpTemplate>
-        <Flexbox className={classes.fields} direction="column" justify="flex-start" align="center">
-          <Heading level={1} color="primary">Boom... You&apos;re in!</Heading>
+        <Flexbox
+          className={classes.fields}
+          direction="column"
+          justify="flex-start"
+          align="center"
+        >
+          <Heading level={1} color="primary">
+            Boom... You&apos;re in!
+          </Heading>
           <div className={classes.form}>
             <Heading level={4}>What do you want to be called on here?</Heading>
             <FirebaseInput
@@ -31,10 +38,13 @@ export default class SetDisplayName extends Component {
             />
 
             <Heading level={5} color="accent1">
-              You&apos;ll be able to add where you work and a few more skills to your profile later.
+              You&apos;ll be able to add where you work and a few more skills to
+              your profile later.
             </Heading>
 
-            <Link to="/signup/create-account/availability"><Button>On to step 2 of 2</Button></Link>
+            <Link to="/signup/create-account/availability">
+              <Button>On to step 2 of 2</Button>
+            </Link>
           </div>
         </Flexbox>
         <div className={classes.onLampWrapper}>

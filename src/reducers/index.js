@@ -15,9 +15,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 window.store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(refire, sagaMiddleware)
-  )
+  composeWithDevTools(applyMiddleware(refire, sagaMiddleware)),
 )
 
 sagaMiddleware.run(rootSaga)

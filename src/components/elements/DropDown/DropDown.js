@@ -14,9 +14,18 @@ const styles = StyleSheet.create({
   },
 })
 
-const DropDown = ({ value, handleChange, handleSubmit, items, name, submitButton, label, labelAfter }) => (
+const DropDown = ({
+  value,
+  handleChange,
+  handleSubmit,
+  items,
+  name,
+  submitButton,
+  label,
+  labelAfter,
+}) => (
   <div className={classes.selectWrapper}>
-    {!labelAfter && (label ? (<label htmlFor={name}>{label}</label>) : null)}
+    {!labelAfter && (label ? <label htmlFor={name}>{label}</label> : null)}
     <div className={classes.selectCtn}>
       <select
         className={`${css(styles.select)} ${classes.dropDown}`}
@@ -25,21 +34,29 @@ const DropDown = ({ value, handleChange, handleSubmit, items, name, submitButton
         onChange={handleChange}
         value={value}
       >
-        {items.map(item => <option key={item} value={item}>{item}</option>)}
+        {items.map(item => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
       </select>
 
-      <Icon className={`${css(styles.icon)} ${classes.angleDown}`} name="angle-down" />
+      <Icon
+        className={`${css(styles.icon)} ${classes.angleDown}`}
+        name="angle-down"
+      />
     </div>
 
-    {submitButton.text
-      ? (
-        <button type="submit" className={submitButton.classes} onClick={handleSubmit}>
-          {submitButton.text}
-        </button>
-      )
-      : null
-    }
-    {labelAfter && (label ? (<label htmlFor={name}>{label}</label>) : null)}
+    {submitButton.text ? (
+      <button
+        type="submit"
+        className={submitButton.classes}
+        onClick={handleSubmit}
+      >
+        {submitButton.text}
+      </button>
+    ) : null}
+    {labelAfter && (label ? <label htmlFor={name}>{label}</label> : null)}
   </div>
 )
 

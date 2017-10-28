@@ -11,12 +11,12 @@ function* getVals(userAuthInfo) {
 
   const ref = firebase.database().ref(`users/${userAuthInfo.uid}`)
 
-  const userData = yield ref.once('value').then((snapshot) => {
+  const userData = yield ref.once('value').then(snapshot => {
     // If snapshot.val() is not undefined, user has signed in before
     if (snapshot.val()) {
       const vals = {}
 
-      properties.forEach((property) => {
+      properties.forEach(property => {
         if (snapshot.val()[property]) {
           vals[property] = snapshot.val()[property]
         }
@@ -50,7 +50,6 @@ function* fetchUserData(action) {
       console.log('redirecting')
       action.user.history.push('/signup/create-account/step-1')
     }
-
   } catch (err) {
     console.log('user fetch failed', err)
     yield put(userFetchFailed(err.message))

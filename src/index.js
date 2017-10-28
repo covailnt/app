@@ -19,14 +19,16 @@ const root = document.getElementById('app')
 
 const w = watch(appStore.getState, 'preloadingStore')
 
-export const unsubscribePreload = appStore.subscribe(w((newVal) => {
-  if (!newVal) {
-    console.log('done preloading time to render!')
-    ReactDOM.render(renderApp(), root)
-  }
-}))
+export const unsubscribePreload = appStore.subscribe(
+  w(newVal => {
+    if (!newVal) {
+      console.log('done preloading time to render!')
+      ReactDOM.render(renderApp(), root)
+    }
+  }),
+)
 
-export const unsubscribeAuth = firebase.auth().onAuthStateChanged((user) => {
+export const unsubscribeAuth = firebase.auth().onAuthStateChanged(user => {
   console.log('auth state change')
 
   if (user) {
@@ -40,7 +42,6 @@ export const unsubscribeAuth = firebase.auth().onAuthStateChanged((user) => {
     }
 
     appStore.dispatch(userFetchRequested(userAuthData))
-
   } else {
     appStore.dispatch(isPreloadingStore(false))
   }

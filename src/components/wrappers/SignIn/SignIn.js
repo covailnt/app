@@ -4,13 +4,7 @@ import { Button, Input } from 'components/elements'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
 import { signInRequested } from 'actions'
-import {
-  EMAIL,
-  FACEBOOK,
-  GITHUB,
-  GOOGLE,
-  PROVIDER,
-} from 'utils/constants'
+import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from 'utils/constants'
 import classes from './SignIn.scss'
 
 class SignIn extends Component {
@@ -38,13 +32,13 @@ class SignIn extends Component {
   updateEmail(e, errors) {
     this.setState({
       email: e.target.value,
-      validEmail: (errors.length === 0),
+      validEmail: errors.length === 0,
     })
   }
   updatePassword(e, errors) {
     this.setState({
       password: e.target.value,
-      validPassword: (errors.length === 0),
+      validPassword: errors.length === 0,
     })
   }
   signIn(type, data) {
@@ -72,7 +66,7 @@ class SignIn extends Component {
             onChange={(e, errors) => this.updateEmail(e, errors)}
             value={this.state.email}
             validations={['required', 'email']}
-            label='Email'
+            label="Email"
             className={classes.loginInput}
           />
           <Input
@@ -80,11 +74,15 @@ class SignIn extends Component {
             onChange={(e, errors) => this.updatePassword(e, errors)}
             value={this.state.password}
             validations={['required']}
-            label='Password'
+            label="Password"
             className={classes.loginInput}
           />
           <Button
-            onClick={() => this.signIn(EMAIL, { email: this.state.email, password: this.state.password })}
+            onClick={() =>
+              this.signIn(EMAIL, {
+                email: this.state.email,
+                password: this.state.password,
+              })}
             disabled={!(this.state.validEmail && this.state.validPassword)}
           >
             Log In With Email
@@ -124,7 +122,7 @@ class SignIn extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { user: state.user }
 }
 
@@ -152,6 +150,5 @@ const styles = {
     padding: '20px',
   },
 }
-
 
 export default connect(mapStateToProps, { signInRequested })(SignIn)

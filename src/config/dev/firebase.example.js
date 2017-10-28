@@ -4,5 +4,5 @@ export default {
   databaseURL: 'https://your-thing.firebaseio.com',
   projectId: 'your-thing',
   storageBucket: 'your-thing.appspot.com',
-  messagingSenderId: 'your-ms-id'
+  messagingSenderId: 'your-ms-id',
 }

@@ -8,10 +8,10 @@ import classes from './DonutChart.scss'
 
 const DonutChart = ({ size, strokewidth, value }) => {
   const halfsize = size * 0.5
-  const radius = halfsize - (strokewidth * 0.5)
+  const radius = halfsize - strokewidth * 0.5
   const circumference = 2 * Math.PI * radius
-  const strokeval = ((value * circumference) / 100)
-  const dashval = (strokeval + ' ' + circumference)
+  const strokeval = value * circumference / 100
+  const dashval = strokeval + ' ' + circumference
 
   const trackstyle = {
     stroke: theme.color.white,
@@ -27,7 +27,12 @@ const DonutChart = ({ size, strokewidth, value }) => {
   const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
   return (
-    <Flexbox className={classes.donutWrapper} justify="center" direction="column" flexWrap="nowrap">
+    <Flexbox
+      className={classes.donutWrapper}
+      justify="center"
+      direction="column"
+      flexWrap="nowrap"
+    >
       <div className={classes.donutCtn}>
         <svg className={classes.donutchart} width={size} height={size}>
           <circle
@@ -59,9 +64,9 @@ DonutChart.defaultProps = {
 }
 
 DonutChart.propTypes = {
-  avatarImage: PropTypes.string,   // source of image
-  size: PropTypes.number,         // diameter of chart
-  strokewidth: PropTypes.number,  // width of chart line
+  avatarImage: PropTypes.string, // source of image
+  size: PropTypes.number, // diameter of chart
+  strokewidth: PropTypes.number, // width of chart line
   value: PropTypes.number.isRequired,
 }
 

@@ -8,7 +8,6 @@ import {
 } from 'actions/types'
 
 const userReducer = (state = null, action) => {
-
   switch (action.type) {
     case LOG_IN_WITH_PROVIDER:
       return action.payload
@@ -20,7 +19,9 @@ const userReducer = (state = null, action) => {
       return Object.assign({}, state, { [action.data.name]: action.data.url })
 
     case INPUT_UPDATE_SUCCESSFUL:
-      return Object.assign({}, state, { [action.inputData.name]: action.inputData.value })
+      return Object.assign({}, state, {
+        [action.inputData.name]: action.inputData.value,
+      })
 
     case SIGN_OUT:
       return action.isSignedOut ? state : null

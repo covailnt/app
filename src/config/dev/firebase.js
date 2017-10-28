@@ -4,5 +4,5 @@ export default {
   databaseURL: 'https://covailnt-a08da.firebaseio.com/',
   projectId: 'covailnt-a08da',
   storageBucket: 'covailnt-a08da.appspot.com',
-  messagingSenderId: '935586543213'
+  messagingSenderId: '935586543213',
 }

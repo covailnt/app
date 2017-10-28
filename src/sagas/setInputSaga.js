@@ -16,7 +16,6 @@ function* updateFirebaseInput(action) {
     yield throttle(ref.update({ [inputData.name]: value }), 300)
 
     yield put({ type: INPUT_UPDATE_SUCCESSFUL, inputData })
-
   } catch (err) {
     console.log(`Error in Set Input Saga ${err}`)
   }

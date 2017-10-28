@@ -7,8 +7,13 @@ import classes from './Rank.scss'
 const Rank = ({ color, type, value }) => {
   return (
     <li>
-      <span className={classes.rank} color={color}>Rank<br />{type}</span>
-      <span className={classes.heading} color={color}>{value}</span>
+      <span className={classes.rank} color={color}>
+        Rank<br />
+        {type}
+      </span>
+      <span className={classes.heading} color={color}>
+        {value}
+      </span>
     </li>
   )
 }
@@ -24,4 +29,3 @@ Rank.propTypes = {
 }
 
 export default Rank
-

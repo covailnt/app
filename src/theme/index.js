@@ -13,5 +13,5 @@ export default {
     github: 'rgb(0, 0, 0)',
     google: 'rgb(221, 75, 57)',
     twitter: 'rgb(85, 172, 238)',
-  }
+  },
 }

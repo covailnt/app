@@ -78,11 +78,12 @@ class Sidebar extends Component {
   }
   render() {
     return (
-      <Flexbox className={classes.sidebar} direction="column" background="black">
-
-        <DonutChart
-          value={this.state.value}
-        />
+      <Flexbox
+        className={classes.sidebar}
+        direction="column"
+        background="black"
+      >
+        <DonutChart value={this.state.value} />
 
         <div className={classes.statusCtn}>
           <DropDown
@@ -93,14 +94,19 @@ class Sidebar extends Component {
             placeholder="How busy are you?"
             value={this.state.status}
             label="This week I am:"
-            submitButton={this.state.dirty ? {
-              classes: classes.btnPrimary,
-              text: 'Update Availability',
-            } : {}
+            submitButton={
+              this.state.dirty
+                ? {
+                    classes: classes.btnPrimary,
+                    text: 'Update Availability',
+                  }
+                : {}
             }
           />
 
-          {this.state.dirty ? false : (
+          {this.state.dirty ? (
+            false
+          ) : (
             <p className={classes.statusMsg}>
               <span>You are up to date.</span>
               <br />
@@ -136,7 +142,7 @@ Sidebar.propTypes = {
   status: PropTypes.string,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { status: state.user.status }
 }
 

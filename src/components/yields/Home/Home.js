@@ -17,9 +17,7 @@ class Home extends Component {
     const { user } = this.props
     return (
       <div id="home-ctn">
-        <div className="menu-ctn">
-          {user ? <UserMenu /> : <SignIn />}
-        </div>
+        <div className="menu-ctn">{user ? <UserMenu /> : <SignIn />}</div>
         <Heading level={1}>You are Home</Heading>
         <div id="firebaseui-auth-container" />
       </div>
@@ -32,7 +30,7 @@ Home.propTypes = {
   user: PropTypes.object,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { user: state.user }
 }
 

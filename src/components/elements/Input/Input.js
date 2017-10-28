@@ -6,15 +6,15 @@ import classes from './Input.scss'
 // validations for react-validation
 const rules = {
   required: {
-    test: (value) => {
-      return (value.toString().trim().length > 0)
+    test: value => {
+      return value.toString().trim().length > 0
     },
     hint: () => {
       return 'Required'
     },
   },
   email: {
-    test: (value) => {
+    test: value => {
       const base = value.toString().trim()
       const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
 
@@ -25,10 +25,10 @@ const rules = {
     },
   },
   newPassword: {
-    test: (value) => {
+    test: value => {
       const base = value.toString().trim()
 
-      return (base.length > 7)
+      return base.length > 7
     },
     hint: () => {
       return 'Password needs to be 8 characters or longer'
@@ -54,7 +54,7 @@ class Input extends Component {
   validate(e) {
     const errors = []
     if (this.props.validations) {
-      this.props.validations.forEach((v) => {
+      this.props.validations.forEach(v => {
         // if current value doesn't pass validation
         if (!rules[v].test(e.target.value)) {
           errors.push(v)
@@ -66,31 +66,38 @@ class Input extends Component {
   }
 
   render() {
-    const label = this.props.label ? (<label htmlFor={this.props.name}>{this.props.label}</label>) : null
+    const label = this.props.label ? (
+      <label htmlFor={this.props.name}>{this.props.label}</label>
+    ) : null
 
     return (
       <div className={this.props.className}>
         {!this.props.labelAfter && label}
         <input
-          className={
-            `input-${this.props.type}
+          className={`input-${this.props.type}
             ${this.props.className || ''}
             ${classes.input}
-            ${(this.state.errors.length > 0) && classes.formError}`
-          }
+            ${this.state.errors.length > 0 && classes.formError}`}
           name={this.props.name}
           onBlur={this.props.onBlur}
           onChange={this.handleChange}
           placeholder={this.props.placeholder}
-          style={{ border: (
-            (this.props.color && this.state.errors.length === 0) && `2px solid ${theme.color[this.props.color]}`
-          ) }}
+          style={{
+            border:
+              this.props.color &&
+              this.state.errors.length === 0 &&
+              `2px solid ${theme.color[this.props.color]}`,
+          }}
           type={this.props.type}
           value={this.props.value}
         />
         {this.props.labelAfter && label}
         <div className={classes.errorMessages}>
-          {this.state.errors.map((err) => { return rules[err].hint(this.props.name) }).join('; ')}
+          {this.state.errors
+            .map(err => {
+              return rules[err].hint(this.props.name)
+            })
+            .join('; ')}
         </div>
       </div>
     )

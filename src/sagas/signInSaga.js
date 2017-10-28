@@ -27,13 +27,13 @@ function* createUserWithEmail(data) {
 
   // The user data returned by firebase is one level flatter
   // than the user data for an existing user so we have to pass obj
-  const createUserResult = yield firebase.auth()
+  const createUserResult = yield firebase
+    .auth()
     .createUserWithEmailAndPassword(data.email, password)
-    .then((user) => {
+    .then(user => {
       const userData = user
 
-      user.sendEmailVerification()
-        .catch(e => console.log(e))
+      user.sendEmailVerification().catch(e => console.log(e))
 
       userData.redirect = true
       userData.history = data.history
@@ -45,7 +45,8 @@ function* createUserWithEmail(data) {
 }
 
 function* signInWithEmail(data) {
-  const signInResult = yield firebase.auth()
+  const signInResult = yield firebase
+    .auth()
     .signInWithEmailAndPassword(data.email, data.password)
     .then(user => success(user))
 
@@ -67,9 +68,10 @@ function* signInWithProvider(data) {
       break
   }
 
-  const signInResult = yield firebase.auth()
+  const signInResult = yield firebase
+    .auth()
     .signInWithPopup(authProvider)
-    .then((user) => {
+    .then(user => {
       const userData = user.user
       userData.redirect = true
 
