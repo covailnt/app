@@ -12,7 +12,7 @@
     ],
     "react"
   ],
-  "plugins": [["transform-regenerator"]],
+  "plugins": [["transform-export-extensions", "transform-regenerator"]],
   "env": {
     "production": {
       "presets": ["react-optimize"]
