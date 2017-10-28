@@ -6,21 +6,22 @@
   "main": "",
   "scripts": {
     "start": "npm run dev",
-    "env:dev": "cross-env NODE_ENV=development",
-    "dev": "npm run env:dev & npm run watch",
-    "storybook": "start-storybook -p 9001 -c private/storybook",
     "clean": "rimraf dist/*",
-    "clean:happy": "rimraf .happypack/*",
+    "dev": "npm run env:dev && webpack-dev-server",
+    "env:dev": "cross-env NODE_ENV=development",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
-    "deploy": "npm run env:dev && npm run clean && npm run dist && firebase deploy",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "format": "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
+    "deploy":
+      "npm run env:dev && npm run clean && npm run dist && firebase deploy",
+    "eslint-check":
+      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "format":
+      "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
     "lint": "eslint ./src",
     "posttest": "npm run lint",
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
-    "watch": "webpack-dev-server"
+    "storybook": "start-storybook -p 9001 -c private/storybook"
   },
   "repository": "https://github.com/covailnt/app",
   "author": "Ryan Garant",
