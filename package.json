@@ -18,11 +18,15 @@
     "format":
       "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
     "lint": "eslint ./src",
+    "lint:css": "stylelint './src/**/**/*.js'",
+    "lint-staged": "lint-staged",
     "posttest": "npm run lint",
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
-    "storybook": "start-storybook -p 9001 -c private/storybook",
-    "lint:css": "stylelint './src/**/**/*.js'"
+    "storybook": "start-storybook -p 9001 -c private/storybook"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"]
   },
   "repository": "https://github.com/covailnt/app",
   "author": "Ryan Garant",
