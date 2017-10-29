@@ -88,9 +88,7 @@ class Profile extends Component {
                   <Rank color="black" type="Potential" value="99" />
                 </div>
 
-                <Button className="chatButton" disabled="disabled">
-                  Open Chat
-                </Button>
+                <Button className="chatButton">Open Chat</Button>
 
                 <Flexbox justify="flex-start" className={classes.socialLinks}>
                   <span className="fa-stack fa-lg">
@@ -158,7 +156,7 @@ class Profile extends Component {
             <Heading color="primary" level={3}>
               Your availability status appears here
             </Heading>
-            <Button disabled="disabled">Send Collab Request</Button>
+            <Button>Send Collab Request</Button>
           </Flexbox>
 
           <Flexbox className={classes.portfolioCtn} justify="space-around">

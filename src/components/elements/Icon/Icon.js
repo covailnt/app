@@ -23,7 +23,6 @@ const Icon = props => {
       className={`fa fa-${name.toLowerCase()} fa-${size} ${className} ${classes.icon}`}
       onClick={onClick}
       style={style}
-      {...props}
     />
   )
 }
