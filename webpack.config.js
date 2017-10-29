@@ -10,7 +10,6 @@ const {
 
   // Feature Blocks
   babel,
-  devServer,
   file,
 
   // Shorthand setters
@@ -23,8 +22,6 @@ const {
   sourceMaps,
 } = require('webpack-blocks')
 
-const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 3000
 const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 
 const sourceDir = process.env.SOURCE || 'src'
@@ -101,14 +98,6 @@ const config = createConfig([
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   }),
   env('development', [
-    devServer({
-      contentBase: 'public',
-      stats: 'errors-only',
-      historyApiFallback: { index: publicPath },
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      host,
-      port,
-    }),
     sourceMaps(),
     addPlugins([new webpack.NamedModulesPlugin()]),
   ]),

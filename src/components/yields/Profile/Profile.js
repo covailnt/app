@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setImage } from 'actions'
-import { Button, Flexbox, Heading, Icon, Spinner } from 'components/elements'
+import { Button, Flexbox, Heading, Icon } from 'components/elements'
+import { Flex } from 'rebass'
 import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
@@ -26,7 +27,7 @@ class Profile extends Component {
   render() {
     return (
       <AuthenticatedTemplate>
-        <Flexbox direction="column">
+        <Flex direction="column">
           <div className={classes.profileBannerCtn}>
             <div className={classes.editProfileBannerCtn}>
               <DropImage
@@ -204,7 +205,7 @@ class Profile extends Component {
               />
             </Flexbox>
           </Flexbox>
-        </Flexbox>
+        </Flex>
       </AuthenticatedTemplate>
     )
   }

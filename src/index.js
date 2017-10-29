@@ -1,22 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
 import firebase from 'refire/firebase'
-import appStore from 'reducers'
 import watch from 'redux-watch'
 import { isPreloadingStore, userFetchRequested } from 'actions'
 import App from 'components/App'
-import theme from 'theme'
+import { AppContainer } from 'react-hot-loader'
+import 'react-hot-loader/patch'
+import appStore from 'reducers'
 
 window.React = React
 
-const renderApp = () => (
-  <Provider store={appStore} theme={theme}>
-    <App />
-  </Provider>
-)
-
 const root = document.getElementById('app')
+
+const renderApp = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    root,
+  )
+}
 
 const w = watch(appStore.getState, 'preloadingStore')
 
@@ -24,7 +27,14 @@ export const unsubscribePreload = appStore.subscribe(
   w(newVal => {
     if (!newVal) {
       console.log('done preloading time to render!')
-      ReactDOM.render(renderApp(), root)
+
+      renderApp(App)
+
+      if (module.hot) {
+        module.hot.accept('components/App', () => {
+          renderApp(App)
+        })
+      }
     }
   }),
 )
