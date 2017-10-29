@@ -10,6 +10,7 @@ const {
 
   // Feature Blocks
   babel,
+  devServer,
   file,
 
   // Shorthand setters
@@ -98,6 +99,11 @@ const config = createConfig([
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   }),
   env('development', [
+    devServer({
+      historyApiFallback: true, // 404s fallback to index.html
+      hot: true,
+      port: 3000,
+    }),
     sourceMaps(),
     addPlugins([new webpack.NamedModulesPlugin()]),
   ]),

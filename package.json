@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run dev",
     "clean": "rimraf dist/*",
-    "dev": "npm run env:dev && webpack-dev-server --hot --colors",
+    "dev": "npm run env:dev && webpack-dev-server --colors",
     "env:dev": "cross-env NODE_ENV=development",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
