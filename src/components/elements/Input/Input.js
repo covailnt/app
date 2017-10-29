@@ -86,7 +86,7 @@ class Input extends Component {
             border:
               this.props.color &&
               this.state.errors.length === 0 &&
-              `2px solid ${theme.color[this.props.color]}`,
+              `2px solid ${theme.colors[this.props.color]}`,
           }}
           type={this.props.type}
           value={this.props.value}

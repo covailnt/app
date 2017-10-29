@@ -8,7 +8,7 @@ const Heading = ({ align, className, color, children, display, level }) => {
   return (
     <Header
       className={className}
-      style={{ color: theme.color[color], display, textAlign: align }}
+      style={{ color: theme.colors[color], display, textAlign: align }}
     >
       {children}
     </Header>

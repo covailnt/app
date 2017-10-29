@@ -15,7 +15,7 @@ const Flexbox = ({
 }) => {
   const styles = StyleSheet.create({
     flex: {
-      backgroundColor: theme.color[background],
+      backgroundColor: theme.colors[background],
       display: 'flex',
       flexDirection: direction,
       justifyContent: justify,

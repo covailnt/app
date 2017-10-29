@@ -16,15 +16,15 @@ const Button = ({
   const bg = disabled && background == 'primary' ? 'white' : background
   const clr = disabled && color == 'white' ? 'accent1' : color
   const bdr =
-    disabled && !border ? `${theme.color.accent1} 1px solid` : border || 'none'
+    disabled && !border ? `${theme.colors.accent1} 1px solid` : border || 'none'
 
   const styles = StyleSheet.create({
     button: {
-      background: theme.color[bg],
-      color: theme.color[clr],
+      background: theme.colors[bg],
+      color: theme.colors[clr],
       border: bdr,
       ':hover': {
-        background: theme.color[hover],
+        background: theme.colors[hover],
       },
     },
   })

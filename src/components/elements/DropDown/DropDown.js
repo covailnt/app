@@ -7,10 +7,10 @@ import classes from './DropDown.scss'
 
 const styles = StyleSheet.create({
   icon: {
-    color: theme.color.black,
+    color: theme.colors.black,
   },
   select: {
-    backgroundColor: theme.color.white,
+    backgroundColor: theme.colors.white,
   },
 })
 

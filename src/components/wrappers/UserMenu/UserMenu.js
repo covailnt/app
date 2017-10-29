@@ -12,7 +12,7 @@ import classes from './UserMenu.scss'
 
 const styles = StyleSheet.create({
   menu: {
-    color: theme.color.white,
+    color: theme.colors.white,
   },
 })
 

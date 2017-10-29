@@ -19,7 +19,7 @@ const Rank = ({ color, type, value }) => {
 }
 
 Rank.defaultProps = {
-  color: theme.color.black,
+  color: theme.colors.black,
 }
 
 Rank.propTypes = {

@@ -6,11 +6,12 @@ import appStore from 'reducers'
 import watch from 'redux-watch'
 import { isPreloadingStore, userFetchRequested } from 'actions'
 import App from 'components/App'
+import theme from 'theme'
 
 window.React = React
 
 const renderApp = () => (
-  <Provider store={appStore}>
+  <Provider store={appStore} theme={theme}>
     <App />
   </Provider>
 )

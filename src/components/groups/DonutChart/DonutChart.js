@@ -14,14 +14,14 @@ const DonutChart = ({ size, strokewidth, value }) => {
   const dashval = strokeval + ' ' + circumference
 
   const trackstyle = {
-    stroke: theme.color.white,
+    stroke: theme.colors.white,
     strokeWidth: strokewidth,
   }
 
   const indicatorstyle = {
     strokeWidth: strokewidth,
     strokeDasharray: dashval,
-    stroke: theme.color.primary,
+    stroke: theme.colors.primary,
   }
 
   const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
