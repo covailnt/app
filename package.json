@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run clean && npm run dev",
     "clean": "rimraf dist/*",
-    "dev": "npm run env:dev && webpack-dev-server --colors",
+    "dev": "npm run env:dev && webpack-dev-server --colors --progress",
     "env:dev": "cross-env NODE_ENV=development",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
@@ -78,7 +78,8 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-blocks": "^1.0.0-rc.2",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.3",
+    "webpack-simple-progress-plugin": "0.0.3"
   },
   "dependencies": {
     "aphrodite": "^1.2.5",
