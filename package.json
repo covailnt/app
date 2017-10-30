@@ -5,7 +5,7 @@
   "name": "covailnt",
   "main": "",
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run clean && npm run dev",
     "clean": "rimraf dist/*",
     "dev": "npm run env:dev && webpack-dev-server --colors",
     "env:dev": "cross-env NODE_ENV=development",
