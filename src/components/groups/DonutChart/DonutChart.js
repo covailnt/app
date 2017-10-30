@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Flexbox } from 'components/elements'
-import avatar from 'images/avatar.png'
 import theme from 'theme'
 
 import classes from './DonutChart.scss'
@@ -52,7 +51,7 @@ const DonutChart = ({ size, strokewidth, value }) => {
             style={indicatorstyle}
           />
         </svg>
-        <img alt="avatar" src={avatar} width={size * 0.85} />
+        <img alt="avatar" src="/public/images/avatar.png" width={size * 0.85} />
       </div>
     </Flexbox>
   )

@@ -1,6 +1,5 @@
 import React from 'react'
-import logo from 'images/logo.png'
 
-const Logo = () => <img alt="logo" src={logo} />
+const Logo = () => <img alt="logo" src="/public/images/logo.png" />
 
 export default Logo

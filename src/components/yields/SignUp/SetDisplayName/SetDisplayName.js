@@ -4,7 +4,6 @@ import { Flexbox, Input, Heading, Button } from 'components/elements'
 import { FirebaseInput } from 'components/wrappers'
 import { SignUpTemplate } from 'components/templates'
 import { FIELDS } from 'utils/constants'
-import OnLamp from 'images/signup/onLamp.png'
 import classes from './SetDisplayName.scss'
 
 export default class SetDisplayName extends Component {
@@ -48,7 +47,11 @@ export default class SetDisplayName extends Component {
           </div>
         </Flexbox>
         <div className={classes.onLampWrapper}>
-          <img className={classes.onLamp} alt="DeskLamp" src={OnLamp} />
+          <img
+            className={classes.onLamp}
+            alt="DeskLamp"
+            src="/public/images/signup/onLamp.png"
+          />
         </div>
       </SignUpTemplate>
     )

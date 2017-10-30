@@ -8,8 +8,6 @@ import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
 import { FIELDS, SOCIAL, URL } from 'utils/constants'
-import avatar from 'images/avatar.png'
-import banner from 'images/profile/defaultBanner.jpg'
 
 import classes from './Profile.scss'
 
@@ -31,7 +29,7 @@ class Profile extends Component {
           <div className={classes.profileBannerCtn}>
             <div className={classes.editProfileBannerCtn}>
               <DropImage
-                defaultImage={banner}
+                defaultImage="/public/images/profile/defaultBanner.jpg"
                 imageURL={this.props[FIELDS.BANNER_URL]}
                 setImage={this.props.setImage}
                 imageName={FIELDS.BANNER_URL}
@@ -67,7 +65,7 @@ class Profile extends Component {
           <div className={classes.profileSummaryCtn}>
             <div className={classes.editProfilePictureCtn}>
               <DropImage
-                defaultImage={avatar}
+                defaultImage="/public/images/avatar.png"
                 imageURL={this.props[FIELDS.AVATAR_URL]}
                 uid={this.props.uid}
                 imageName={FIELDS.AVATAR_URL}

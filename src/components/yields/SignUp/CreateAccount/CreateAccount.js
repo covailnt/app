@@ -5,7 +5,6 @@ import { signInRequested } from 'actions'
 import { withRouter } from 'react-router-dom'
 import { Button, Flexbox, Heading, Input } from 'components/elements'
 import { SignUpTemplate } from 'components/templates'
-import DeskLamp from 'images/signup/deskLamp.png'
 import {
   FIELDS,
   NEW_EMAIL,
@@ -105,7 +104,11 @@ class CreateAccount extends Component {
         </Flexbox>
 
         <div className={classes.deskLampWrapper}>
-          <img className={classes.deskLamp} alt="DeskLamp" src={DeskLamp} />
+          <img
+            className={classes.deskLamp}
+            alt="DeskLamp"
+            src="/public/images/signup/deskLamp.png"
+          />
         </div>
       </SignUpTemplate>
     )

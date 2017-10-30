@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon, Heading, Logo, Button, Flexbox } from 'components/elements'
-import connections from 'images/signup/avatarConnections.png'
-import lady from 'images/signup/ladyAvatar.png'
-import rankEarned from 'images/signup/rankEarned.png'
-import rankPotential from 'images/signup/rankPotential.png'
-import profile from 'images/signup/profile.png'
-import theme from 'theme'
+
 import classes from './LandingPage.scss'
 
 export default class LandingPage extends Component {
@@ -44,7 +39,7 @@ export default class LandingPage extends Component {
               </div>
               <div className={classes.rightCtn}>
                 <img
-                  src={connections}
+                  src="/public/images/signup/avatarConnections.png"
                   alt="users with donut charts"
                   style={{ maxWidth: '100%' }}
                 />
@@ -73,7 +68,7 @@ export default class LandingPage extends Component {
                 </div>
               </div>
               <div className={classes.rightCtn}>
-                <img src={lady} alt="avatar" />
+                <img src="/public/images/signup/ladyAvatar.png" alt="avatar" />
               </div>
             </Flexbox>
           </div>
@@ -97,7 +92,10 @@ export default class LandingPage extends Component {
                 </div>
               </div>
               <div className={classes.rightCtn}>
-                <img src={rankEarned} alt="rank earned" />
+                <img
+                  src="/public/images/signup/rankEarned.png"
+                  alt="rank earned"
+                />
               </div>
             </Flexbox>
           </div>
@@ -121,13 +119,16 @@ export default class LandingPage extends Component {
                 </div>
               </div>
               <div className={classes.rightCtn}>
-                <img src={rankPotential} alt="rank potential" />
+                <img
+                  src="/public/images/signup/rankPotential.png"
+                  alt="rank potential"
+                />
               </div>
             </Flexbox>
           </div>
 
           <div className={classes.imageCtn}>
-            <img src={profile} alt="profile" />
+            <img src="/public/images/signup/profile.png" alt="profile" />
           </div>
 
           <div className={classes.bottomCtn}>

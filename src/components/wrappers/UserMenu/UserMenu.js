@@ -7,7 +7,6 @@ import { Avatar, Button } from 'components/elements'
 import { SIGN_OUT_REQUESTED } from 'actions/types'
 import { StyleSheet, css } from 'aphrodite'
 import theme from 'theme'
-import avatar from 'images/avatar.png'
 import classes from './UserMenu.scss'
 
 const styles = StyleSheet.create({
@@ -65,7 +64,7 @@ class UserMenu extends Component {
           margin="0 20px"
           padding="5px"
           size="50px"
-          src={user.photoURL || avatar}
+          src={user.photoURL || '/public/images/avatar.png'}
         />
         {this.renderMenu()}
       </div>

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import avatar from 'images/avatar.png'
 import classes from './Avatar.scss'
 
 const Avatar = ({ onClick, size, src }) => {
@@ -15,7 +14,7 @@ const Avatar = ({ onClick, size, src }) => {
 }
 
 Avatar.defaultProps = {
-  src: avatar,
+  src: '/public/images/avatar.png',
   size: '100px',
 }
 

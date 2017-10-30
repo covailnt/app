@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Heading, Button } from 'components/elements'
 import { SignUpTemplate } from 'components/templates'
-import availability from 'images/signup/availability.png'
 import classes from './Availability.scss'
 
 export default class Availability extends Component {
@@ -16,7 +15,10 @@ export default class Availability extends Component {
           <Heading level={4}>
             You simply answer &quot;This week I am&quot;
           </Heading>
-          <img src={availability} alt="Availability" />
+          <img
+            src="/public/images/signup/availability.png"
+            alt="Availability"
+          />
           <div className={classes.bottomCtn}>
             <Heading level={4}>
               Your availablity is visible wherever your profile photo shows
