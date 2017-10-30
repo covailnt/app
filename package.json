@@ -11,9 +11,12 @@
     "env:dev": "cross-env NODE_ENV=development",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
-    "deploy": "npm run env:dev && npm run clean && npm run dist && firebase deploy",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "format": "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
+    "deploy":
+      "npm run env:dev && npm run clean && npm run dist && firebase deploy",
+    "eslint-check":
+      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "format":
+      "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
     "lint": "eslint ./src",
     "lint:css": "stylelint './src/**/**/*.js'",
     "lint-staged": "lint-staged",
@@ -24,7 +27,7 @@
   },
   "lint-staged": {
     "*.{js,json,css}": [
-      "prettier --write",
+      "prettier-eslint --write --config '.prettierrc' --eslint-config-path '.eslintrc' ",
       "git add"
     ]
   },
