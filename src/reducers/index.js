@@ -13,11 +13,11 @@ const rootReducer = combineReducers({
 
 const sagaMiddleware = createSagaMiddleware()
 
-window.store = createStore(
+const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(refire, sagaMiddleware)),
 )
 
 sagaMiddleware.run(rootSaga)
 
-export default window.store
+export default store

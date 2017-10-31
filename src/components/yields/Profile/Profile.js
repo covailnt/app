@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setImage } from 'actions'
-import { Button, Flexbox, Heading, Icon } from 'components/elements'
+import { Button, Container, Heading, Icon } from 'components/elements'
 import { Flex } from 'rebass'
 import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/wrappers'
 import { AuthenticatedTemplate } from 'components/templates'
 import { FIELDS, SOCIAL, URL } from 'utils/constants'
+import styled from 'theme/styled'
 
 import classes from './Profile.scss'
 
@@ -27,21 +28,19 @@ class Profile extends Component {
       <AuthenticatedTemplate>
         <Flex direction="column">
           <div className={classes.profileBannerCtn}>
-            <div className={classes.editProfileBannerCtn}>
-              <DropImage
-                defaultImage="/public/images/profile/defaultBanner.jpg"
-                imageURL={this.props[FIELDS.BANNER_URL]}
-                setImage={this.props.setImage}
-                imageName={FIELDS.BANNER_URL}
-                label="Drop cover photo here"
-                className={classes.editBannerPicture}
-                uid={this.props.uid}
-                height="70vh"
-                width="100%"
-              />
-            </div>
+            <DropImage
+              defaultImage="/public/images/profile/defaultBanner.jpg"
+              imageURL={this.props[FIELDS.BANNER_URL]}
+              setImage={this.props.setImage}
+              imageName={FIELDS.BANNER_URL}
+              label="Drop cover photo here"
+              className={classes.editBannerPicture}
+              uid={this.props.uid}
+              height="70vh"
+              width="100%"
+            />
 
-            <Flexbox
+            <Flex
               className={classes.profileTitle}
               direction="column"
               justify="center"
@@ -50,7 +49,7 @@ class Profile extends Component {
                 {this.props.displayName}
               </Heading>
 
-              <Flexbox className={classes.profileTitleCtn}>
+              <Flex className={classes.profileTitleCtn}>
                 <FirebaseInput
                   label={`${FIELDS.SPECIALTY} in`}
                   color="primary"
@@ -58,8 +57,8 @@ class Profile extends Component {
                   placeholder="Enter city or specify Nomad"
                   type="text"
                 />
-              </Flexbox>
-            </Flexbox>
+              </Flex>
+            </Flex>
           </div>
 
           <div className={classes.profileSummaryCtn}>
@@ -81,7 +80,7 @@ class Profile extends Component {
             </div>
 
             <div className={classes.summaryText}>
-              <Flexbox justify="flex-start" flexWrap="wrap">
+              <Flex justify="flex-start" wrap>
                 <div className={classes.summaryStats}>
                   <Rank color="black" type="Earned" value="005" />
                   <Rank color="black" type="Potential" value="99" />
@@ -89,7 +88,7 @@ class Profile extends Component {
 
                 <Button className="chatButton">Open Chat</Button>
 
-                <Flexbox justify="flex-start" className={classes.socialLinks}>
+                <Flex justify="flex-start" className={classes.socialLinks}>
                   <span className="fa-stack fa-lg">
                     <Icon
                       border={this.state.activeSocial === SOCIAL.FACEBOOK}
@@ -142,24 +141,20 @@ class Profile extends Component {
                     placeholder={`Add a ${this.state.activeSocial} Account`}
                     type="text"
                   />
-                </Flexbox>
-              </Flexbox>
+                </Flex>
+              </Flex>
             </div>
           </div>
 
-          <Flexbox
-            className={classes.statusCtn}
-            justify="space-around"
-            background="white"
-          >
+          <Flex className={classes.statusCtn} justify="space-around">
             <Heading color="primary" level={3}>
               Your availability status appears here
             </Heading>
             <Button>Send Collab Request</Button>
-          </Flexbox>
+          </Flex>
 
-          <Flexbox className={classes.portfolioCtn} justify="space-around">
-            <Flexbox direction="column" className={classes.skills}>
+          <Flex className={classes.portfolioCtn} justify="space-around">
+            <Flex direction="column" className={classes.skills}>
               <Heading color="accent1" level={5}>
                 Skills
               </Heading>
@@ -171,9 +166,9 @@ class Profile extends Component {
                 type="text"
                 label="Specialty"
               />
-            </Flexbox>
+            </Flex>
 
-            <Flexbox direction="column" className={classes.portfolio}>
+            <Flex direction="column" className={classes.portfolio}>
               <Heading color="accent1" level={5}>
                 Portfolio
               </Heading>
@@ -201,8 +196,8 @@ class Profile extends Component {
                 type="text"
                 label="Dribbble Stream"
               />
-            </Flexbox>
-          </Flexbox>
+            </Flex>
+          </Flex>
         </Flex>
       </AuthenticatedTemplate>
     )

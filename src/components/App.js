@@ -8,6 +8,7 @@ import appStore from 'reducers'
 import 'theme/normalize.css'
 import 'theme/Global.scss'
 import theme from 'theme'
+import { ThemeProvider } from 'styled-components'
 
 import { unsubscribeAuth, unsubscribePreload } from '../'
 
@@ -21,15 +22,15 @@ export default class App extends Component {
   }
   render() {
     return (
-      <Provider store={appStore} theme={theme}>
+      <Provider store={appStore}>
         <Router>
-          <div>
+          <ThemeProvider theme={theme}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/profile" component={requireAuth(Profile)} />
               <Route path="/signup" component={SignUp} />
             </Switch>
-          </div>
+          </ThemeProvider>
         </Router>
       </Provider>
     )

@@ -3,11 +3,6 @@
 // Profile Banner
 .profileBannerCtn {
   position: relative;
-
-  .editBannerPictureCtn {
-    > div {
-    }
-  }
 }
 
 // Profile Title
@@ -44,8 +39,6 @@
 }
 
 // Profile Summary
-.profileSummaryCtn {
-}
 
 .editProfilePictureCtn {
   position: absolute;
@@ -100,10 +93,6 @@
   }
 }
 
-//Status Container
-.statusCtn {
-}
-
 //
 .portfolioCtn {
   padding: 20px;
@@ -128,12 +117,3 @@
   border-radius: 5px;
   @include rems(16);
 }
-
-/* below is imported from the aborted v2
-.profile {
-  min-height: 100vh;
-  @include cols(9);
-  padding: 0;
-  width: calc(100% - 300px);
-}
-*/

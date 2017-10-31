@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { setInputVal } from 'actions'
-import { DropDown, Flexbox, MenuItem } from 'components/elements'
+import { DropDown, MenuItem } from 'components/elements'
 import { DonutChart } from 'components/groups'
+import { Button, Flex } from 'rebass'
+import { BoxStyled, FlexStyled } from './styled'
+
 import {
   NOT_WORKING,
   REALLY_LIGHT,
@@ -78,62 +81,58 @@ class Sidebar extends Component {
   }
   render() {
     return (
-      <Flexbox
-        className={classes.sidebar}
-        direction="column"
-        background="black"
-      >
-        <DonutChart value={this.state.value} />
+      <FlexStyled direction="column" bg="twitter">
+        <BoxStyled width={['0px', 1]} py={2} px={['0px', 2]}>
+          <DonutChart value={this.state.value} />
+          <div className={classes.statusCtn} bg="blue">
+            <DropDown
+              handleChange={this.handleChange}
+              items={this.state.items}
+              name="profile-dropdown"
+              placeholder="How busy are you?"
+              value={this.state.status}
+              label="This week I am:"
+              submitButton={
+                this.state.dirty
+                  ? {
+                      classes: classes.btnPrimary,
+                      text: 'Update Availability',
+                    }
+                  : {}
+              }
+            />
 
-        <div className={classes.statusCtn}>
-          <DropDown
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            items={this.state.items}
-            name="profile-dropdown"
-            placeholder="How busy are you?"
-            value={this.state.status}
-            label="This week I am:"
-            submitButton={
-              this.state.dirty
-                ? {
-                    classes: classes.btnPrimary,
-                    text: 'Update Availability',
-                  }
-                : {}
-            }
-          />
+            {this.state.dirty ? (
+              false
+            ) : (
+              <p className={classes.statusMsg}>
+                <span>You are up to date.</span>
+                <br />
+                Last Updated: Today
+                <br />
+                Expires in: 7 days
+              </p>
+            )}
+          </div>
 
-          {this.state.dirty ? (
-            false
-          ) : (
-            <p className={classes.statusMsg}>
-              <span>You are up to date.</span>
-              <br />
-              Last Updated: Today
-              <br />
-              Expires in: 7 days
-            </p>
-          )}
-        </div>
-
-        <div className={classes.nav}>
-          <ul className={classes.sidebarNav}>
-            <MenuItem link="/profile">
-              Profile<span className={classes.profileEdit}>edit</span>
-            </MenuItem>
-            <MenuItem link="/contacts">
-              Contacts <span className={classes.badge}>1</span>
-            </MenuItem>
-            <MenuItem link="/chat">
-              Chat <span className={classes.badge}>1</span>
-            </MenuItem>
-            <MenuItem link="/collab">
-              Collab Sessions <span className={classes.badge}>2</span>
-            </MenuItem>
-          </ul>
-        </div>
-      </Flexbox>
+          <div className={classes.nav}>
+            <ul className={classes.sidebarNav}>
+              <MenuItem link="/profile">
+                Profile<span className={classes.profileEdit}>edit</span>
+              </MenuItem>
+              <MenuItem link="/contacts">
+                Contacts <span className={classes.badge}>1</span>
+              </MenuItem>
+              <MenuItem link="/chat">
+                Chat <span className={classes.badge}>1</span>
+              </MenuItem>
+              <MenuItem link="/collab">
+                Collab Sessions <span className={classes.badge}>2</span>
+              </MenuItem>
+            </ul>
+          </div>
+        </BoxStyled>
+      </FlexStyled>
     )
   }
 }

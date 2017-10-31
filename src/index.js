@@ -8,8 +8,6 @@ import { AppContainer } from 'react-hot-loader'
 import 'react-hot-loader/patch'
 import appStore from 'reducers'
 
-window.React = React
-
 const root = document.getElementById('app')
 
 const renderApp = Component => {
