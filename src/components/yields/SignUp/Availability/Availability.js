@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Heading, Button } from 'components/elements'
-import { SignUpTemplate } from 'components/templates'
+import { SignUpTemplate } from 'components/partials'
 import classes from './Availability.scss'
 
 export default class Availability extends Component {

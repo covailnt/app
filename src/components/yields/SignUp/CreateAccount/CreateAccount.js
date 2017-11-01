@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { signInRequested } from 'actions'
 import { withRouter } from 'react-router-dom'
 import { Button, Flexbox, Heading, Input } from 'components/elements'
-import { SignUpTemplate } from 'components/templates'
+import { SignUpTemplate } from 'components/partials'
 import {
   FIELDS,
   NEW_EMAIL,

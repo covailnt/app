@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { Heading } from 'components/elements'
-import { SignIn, UserMenu } from 'components/wrappers'
+import { SignIn, UserMenu } from 'components/templates'
 import { connect } from 'react-redux'
 
 class Home extends Component {

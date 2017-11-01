@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Flexbox, Input, Heading, Button } from 'components/elements'
-import { FirebaseInput } from 'components/wrappers'
-import { SignUpTemplate } from 'components/templates'
+import { FirebaseInput } from 'components/templates'
+import { SignUpTemplate } from 'components/partials'
 import { FIELDS } from 'utils/constants'
 import classes from './SetDisplayName.scss'
 

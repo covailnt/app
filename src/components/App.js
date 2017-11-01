@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Home, Profile, SignUp } from 'components/yields'
-import { requireAuth } from 'components/wrappers'
+import { requireAuth } from 'components/templates'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import appStore from 'reducers'
