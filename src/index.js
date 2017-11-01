@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import firebase from 'refire/firebase'
+import firebase from '.config'
 import watch from 'redux-watch'
 import { isPreloadingStore, userFetchRequested } from 'actions'
 import App from 'components/App'

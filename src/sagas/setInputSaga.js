@@ -1,6 +1,6 @@
 import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { put, select, takeLatest } from 'redux-saga/effects'
-import firebase from 'refire/firebase'
+import firebase from '.config'
 import { INPUT_UPDATE_SUCCESSFUL, SET_INPUT_VAL } from 'actions/types'
 import { throttle } from 'underscore'
 

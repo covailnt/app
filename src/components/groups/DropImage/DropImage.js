@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import firebase from 'refire/firebase'
+import firebase from '.config'
 import Dropzone from 'react-dropzone'
 import { Flexbox, Icon } from 'components/elements'
 import { StyleSheet, css } from 'aphrodite'

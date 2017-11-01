@@ -1,6 +1,6 @@
 import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { put, takeLatest } from 'redux-saga/effects'
-import firebase from 'refire/firebase'
+import firebase from '.config'
 import { SIGN_OUT_REQUESTED } from 'actions/types'
 import { signOut } from 'actions'
 
