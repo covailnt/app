@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Flexbox } from 'components/elements'
+import { Flex } from 'rebass'
 import { Rank } from 'components/groups'
 import { Navbar, Sidebar, UserMenu } from 'components/wrappers'
 import classes from './AuthenticatedTemplate.scss'
@@ -9,10 +9,10 @@ export default class AuthenticatedTemplate extends Component {
   render() {
     const { children } = this.props
     return (
-      <Flexbox>
+      <Flex>
         <Sidebar />
 
-        <Flexbox className={classes.rightColumn} direction="column">
+        <Flex className={classes.rightColumn} direction="column">
           <Navbar>
             <div className={classes.headerStats}>
               <ul className={classes.headerList}>
@@ -26,8 +26,8 @@ export default class AuthenticatedTemplate extends Component {
           </Navbar>
 
           <main>{children}</main>
-        </Flexbox>
-      </Flexbox>
+        </Flex>
+      </Flex>
     )
   }
 }

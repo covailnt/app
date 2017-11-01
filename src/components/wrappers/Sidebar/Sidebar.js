@@ -81,7 +81,7 @@ class Sidebar extends Component {
   }
   render() {
     return (
-      <FlexStyled direction="column" bg="twitter">
+      <FlexStyled direction="column" bg="black">
         <BoxStyled width={['0px', 1]} py={2} px={['0px', 2]}>
           <DonutChart value={this.state.value} />
           <div className={classes.statusCtn} bg="blue">
