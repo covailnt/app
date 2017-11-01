@@ -49,6 +49,7 @@
     "copyfiles": "^1.0.0",
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
+    "customized-progress-webpack-plugin": "0.0.3",
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.6.0",
     "eslint-import-resolver-webpack": "^0.8.1",
@@ -78,8 +79,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-blocks": "^1.0.0-rc.2",
-    "webpack-dev-server": "^2.9.3",
-    "webpack-simple-progress-plugin": "0.0.3"
+    "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
     "aphrodite": "^1.2.5",

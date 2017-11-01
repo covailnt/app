@@ -1,8 +1,7 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const SimpleProgressPlugin = require('webpack-simple-progress-plugin')
 const { css } = require('@webpack-blocks/assets')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const SimpleProgressWebpackPlugin = require('customized-progress-webpack-plugin')
 
 const webpack = require('webpack')
 
@@ -107,12 +106,15 @@ const config = createConfig([
       port: 3000,
     }),
     sourceMaps(),
-    addPlugins([new SimpleProgressPlugin(), new webpack.NamedModulesPlugin()]),
+    addPlugins([
+      new SimpleProgressWebpackPlugin(),
+      new webpack.NamedModulesPlugin(),
+    ]),
   ]),
 
   env('production', [
     addPlugins([
-      new SimpleProgressPlugin(),
+      new SimpleProgressWebpackPlugin(),
       new webpack.LoaderOptionsPlugin({ minimize: true }),
       new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     ]),
