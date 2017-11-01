@@ -1,6 +1,5 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import refire from 'refire'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from 'sagas'
 import preloadingReducer from './Preloading'
@@ -15,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(refire, sagaMiddleware)),
+  composeWithDevTools(applyMiddleware(sagaMiddleware)),
 )
 
 sagaMiddleware.run(rootSaga)
