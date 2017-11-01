@@ -1,23 +1,22 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import { setInputVal } from 'actions'
 import { DropDown, MenuItem } from 'components/elements'
 import { DonutChart } from 'components/groups'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Button, Flex } from 'rebass'
-import { BoxStyled, FlexStyled } from './styled'
-
 import {
-  NOT_WORKING,
-  REALLY_LIGHT,
+  KINDA_BUSY,
   KINDA_LIGHT,
   NOT_THAT_BUSY,
-  KINDA_BUSY,
+  NOT_WORKING,
   REALLY_BUSY,
+  REALLY_LIGHT,
   SLAMMED,
 } from 'utils/constants'
 
 import classes from './Sidebar.scss'
+import { BoxStyled, FlexStyled } from './styled'
 
 class Sidebar extends Component {
   constructor(props) {

@@ -1,4 +1,5 @@
-import SignUpTemplate from './SignUpTemplate'
 import './SignUpTemplate.scss'
+
+import SignUpTemplate from './SignUpTemplate'
 
 export default SignUpTemplate

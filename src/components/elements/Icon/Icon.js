@@ -1,7 +1,8 @@
-import React from 'react'
-import { extend } from 'underscore'
 import PropTypes from 'prop-types'
+import React from 'react'
 import theme from 'theme'
+import { extend } from 'underscore'
+
 import classes from './Icon.scss'
 
 const Icon = props => {

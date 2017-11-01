@@ -1,5 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+
 import classes from './Avatar.scss'
 
 const Avatar = ({ onClick, size, src }) => {

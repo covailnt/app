@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import { setInputVal } from 'actions'
 import { Input } from 'components/elements'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class FirebaseInput extends Component {
   constructor(props) {

@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import appStore from 'reducers'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { Avatar, Button } from 'components/elements'
 import { SIGN_OUT_REQUESTED } from 'actions/types'
 import { StyleSheet, css } from 'aphrodite'
+import { Avatar, Button } from 'components/elements'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import appStore from 'reducers'
 import theme from 'theme'
+
 import classes from './UserMenu.scss'
 
 const styles = StyleSheet.create({

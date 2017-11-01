@@ -1,7 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { Flexbox, Heading } from 'components/elements'
+import PropTypes from 'prop-types'
+import React from 'react'
 import theme from 'theme'
+
 import classes from './Rank.scss'
 
 const Rank = ({ color, type, value }) => {

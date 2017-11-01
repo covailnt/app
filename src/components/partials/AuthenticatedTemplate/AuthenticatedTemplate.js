@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Flex } from 'rebass'
 import { Rank } from 'components/groups'
 import { Navbar, Sidebar, UserMenu } from 'components/templates'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Flex } from 'rebass'
+
 import classes from './AuthenticatedTemplate.scss'
 
 export default class AuthenticatedTemplate extends Component {

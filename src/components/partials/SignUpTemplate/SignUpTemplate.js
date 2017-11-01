@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Flexbox } from 'components/elements'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+
 import classes from './SignUpTemplate.scss'
 
 export default class SignUpTemplate extends Component {

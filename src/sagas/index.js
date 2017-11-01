@@ -1,5 +1,6 @@
-import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { all, call } from 'redux-saga/effects'
+import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
+
 import fetchUserSaga from './fetchUserSaga'
 import setInputSaga from './setInputSaga'
 import signInSaga from './signInSaga'

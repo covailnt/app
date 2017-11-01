@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Input } from 'components/elements'
-import { connect } from 'react-redux'
-import Modal from 'react-modal'
 import { signInRequested } from 'actions'
+import { Button, Input } from 'components/elements'
+import React, { Component } from 'react'
+import Modal from 'react-modal'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from 'utils/constants'
+
 import classes from './SignIn.scss'
 
 class SignIn extends Component {

@@ -1,4 +1,5 @@
-import AuthenticatedTemplate from './AuthenticatedTemplate'
 import './AuthenticatedTemplate.scss'
+
+import AuthenticatedTemplate from './AuthenticatedTemplate'
 
 export default AuthenticatedTemplate

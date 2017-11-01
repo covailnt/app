@@ -1,7 +1,8 @@
-import React from 'react'
 import { storiesOf } from '@kadira/storybook'
-import Heading from '.'
+import React from 'react'
 import theme from 'theme'
+
+import Heading from '.'
 
 storiesOf('Heading', module)
   .add('default', () => <Heading level={1}>Heading Level 1</Heading>)

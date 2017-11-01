@@ -1,6 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { Flexbox } from 'components/elements'
+import React from 'react'
+import { Flex } from 'rebass'
 import theme from 'theme'
 
 import classes from './DonutChart.scss'
@@ -26,11 +26,11 @@ const DonutChart = ({ size, strokewidth, value }) => {
   const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')'
 
   return (
-    <Flexbox
+    <Flex
       className={classes.donutWrapper}
       justify="center"
       direction="column"
-      flexWrap="nowrap"
+      wrap={false}
     >
       <div className={classes.donutCtn}>
         <svg className={classes.donutchart} width={size} height={size}>
@@ -53,7 +53,7 @@ const DonutChart = ({ size, strokewidth, value }) => {
         </svg>
         <img alt="avatar" src="/public/images/avatar.png" width={size * 0.85} />
       </div>
-    </Flexbox>
+    </Flex>
   )
 }
 

@@ -1,8 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Icon } from 'components/elements'
-import theme from 'theme'
 import { StyleSheet, css } from 'aphrodite'
+import { Icon } from 'components/elements'
+import PropTypes from 'prop-types'
+import React from 'react'
+import theme from 'theme'
+
 import classes from './DropDown.scss'
 
 const styles = StyleSheet.create({

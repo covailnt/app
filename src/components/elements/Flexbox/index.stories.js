@@ -1,5 +1,6 @@
-import React from 'react'
 import { storiesOf } from '@kadira/storybook'
+import React from 'react'
+
 import Flexbox from '.'
 
 storiesOf('Flexbox', module)

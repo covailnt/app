@@ -1,9 +1,10 @@
+import { Button, Flexbox, Heading, Input } from 'components/elements'
+import { SignUpTemplate } from 'components/partials'
+import { FirebaseInput } from 'components/templates'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Flexbox, Input, Heading, Button } from 'components/elements'
-import { FirebaseInput } from 'components/templates'
-import { SignUpTemplate } from 'components/partials'
 import { FIELDS } from 'utils/constants'
+
 import classes from './SetDisplayName.scss'
 
 export default class SetDisplayName extends Component {

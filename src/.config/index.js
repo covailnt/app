@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+
 import dev from './dev.config'
 import prod from './prod.config'
 

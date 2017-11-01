@@ -1,7 +1,8 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from 'sagas'
+
 import preloadingReducer from './Preloading'
 import userReducer from './User'
 

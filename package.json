@@ -24,6 +24,7 @@
     "precommit": "lint-staged",
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
+    "sort": "import-sort --overwrite \"src\"",
     "storybook": "start-storybook -p 9001 -c private/storybook"
   },
   "lint-staged": {
@@ -31,6 +32,12 @@
       "prettier-eslint --write --config .prettierrc --eslint-config-path .eslintrc ",
       "git add"
     ]
+  },
+  "importSort": {
+    ".js": {
+      "parser": "babylon",
+      "style": "module"
+    }
   },
   "repository": "https://github.com/covailnt/app",
   "author": "Ryan Garant",
@@ -60,6 +67,9 @@
     "fs": "^0.0.1-security",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
+    "import-sort-cli": "^3.3.0",
+    "import-sort-parser-babylon": "^3.2.0",
+    "import-sort-style-module": "^3.0.0",
     "lint-staged": "^4.3.0",
     "node-sass": "^4.5.3",
     "prettier": "^1.7.4",

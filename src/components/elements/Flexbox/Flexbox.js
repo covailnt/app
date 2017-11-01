@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { StyleSheet, css } from 'aphrodite'
+import PropTypes from 'prop-types'
+import React from 'react'
 import theme from 'theme'
 
 const Flexbox = ({

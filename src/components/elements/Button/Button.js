@@ -1,8 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classes from './Button.scss'
 import { StyleSheet, css } from 'aphrodite'
+import PropTypes from 'prop-types'
+import React from 'react'
 import theme from 'theme'
+
+import classes from './Button.scss'
 
 const Button = ({
   background,

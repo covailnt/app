@@ -1,4 +1,5 @@
-import Rank from './Rank'
 import './Rank.scss'
+
+import Rank from './Rank'
 
 export default Rank

@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import firebase from '.config'
-import Dropzone from 'react-dropzone'
-import { Flexbox, Icon } from 'components/elements'
 import { StyleSheet, css } from 'aphrodite'
+import { Flexbox, Icon } from 'components/elements'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Dropzone from 'react-dropzone'
+import { Flex } from 'rebass'
+
 import classes from './DropImage.scss'
+import firebase from '.config'
 
 const DropImage = ({
   defaultImage,

@@ -1,6 +1,6 @@
+import { Button, Flexbox, Heading, Icon, Logo } from 'components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Icon, Heading, Logo, Button, Flexbox } from 'components/elements'
 
 import classes from './LandingPage.scss'
 

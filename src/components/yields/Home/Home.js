@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 import { Heading } from 'components/elements'
 import { SignIn, UserMenu } from 'components/templates'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class Home extends Component {
   componentDidUpdate(prevProps) {

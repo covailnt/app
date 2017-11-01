@@ -1,12 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import firebase from '.config'
-import watch from 'redux-watch'
+import 'react-hot-loader/patch'
+
 import { isPreloadingStore, userFetchRequested } from 'actions'
 import App from 'components/App'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import 'react-hot-loader/patch'
 import appStore from 'reducers'
+import watch from 'redux-watch'
+
+import firebase from '.config'
 
 const renderApp = Component => {
   ReactDOM.render(

@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { signInRequested } from 'actions'
-import { withRouter } from 'react-router-dom'
 import { Button, Flexbox, Heading, Input } from 'components/elements'
 import { SignUpTemplate } from 'components/partials'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import {
-  FIELDS,
-  NEW_EMAIL,
   FACEBOOK,
+  FIELDS,
   GITHUB,
   GOOGLE,
+  NEW_EMAIL,
   PROVIDER,
 } from 'utils/constants'
+
 import classes from './CreateAccount.scss'
 
 class CreateAccount extends Component {
