@@ -1,8 +1,9 @@
-import { Button, Flexbox, Heading, Input } from 'components/elements'
+import { Button, Heading } from 'components/elements'
 import { SignUpTemplate } from 'components/partials'
 import { FirebaseInput } from 'components/templates'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Flex } from 'rebass'
 import { FIELDS } from 'utils/constants'
 
 import classes from './SetDisplayName.scss'
@@ -11,7 +12,7 @@ export default class SetDisplayName extends Component {
   render() {
     return (
       <SignUpTemplate>
-        <Flexbox
+        <Flex
           className={classes.fields}
           direction="column"
           justify="flex-start"
@@ -46,7 +47,7 @@ export default class SetDisplayName extends Component {
               <Button>On to step 2 of 2</Button>
             </Link>
           </div>
-        </Flexbox>
+        </Flex>
         <div className={classes.onLampWrapper}>
           <img
             className={classes.onLamp}

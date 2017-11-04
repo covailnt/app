@@ -1,5 +1,5 @@
 import { StyleSheet, css } from 'aphrodite'
-import { Flexbox, Icon } from 'components/elements'
+import { Icon } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Dropzone from 'react-dropzone'
@@ -51,19 +51,19 @@ const DropImage = ({
   }
 
   return (
-    <Flexbox align="center" direction="column" justify="center">
+    <Flex align="center" direction="column" justify="center">
       <Dropzone
         className={`${css(styles.dropzone)} ${classes.dropzone}`}
         multiple={false}
         onDrop={onDrop.bind(this)}
         style={style}
       >
-        <Flexbox align="center" direction="column">
+        <Flex align="center" direction="column">
           <div>{label}</div>
           <Icon color="black" name="picture-o" />
-        </Flexbox>
+        </Flex>
       </Dropzone>
-    </Flexbox>
+    </Flex>
   )
 }
 

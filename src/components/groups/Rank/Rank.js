@@ -1,4 +1,3 @@
-import { Flexbox, Heading } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
 import theme from 'theme'

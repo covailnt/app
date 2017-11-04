@@ -1,6 +1,7 @@
-import { Button, Flexbox, Heading, Icon, Logo } from 'components/elements'
+import { Button, Heading, Icon, Logo } from 'components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Flex } from 'rebass'
 
 import classes from './LandingPage.scss'
 
@@ -16,11 +17,11 @@ export default class LandingPage extends Component {
 
         <main>
           <div>
-            <Flexbox
-              flexWrap="wrap"
-              justify="center"
+            <Flex
               align="center"
               className={`${classes.introCtn} ${classes.layerCtn}`}
+              justify="center"
+              wrap
             >
               <div className={classes.leftCtn}>
                 <Heading level={2}>
@@ -44,15 +45,15 @@ export default class LandingPage extends Component {
                   style={{ maxWidth: '100%' }}
                 />
               </div>
-            </Flexbox>
+            </Flex>
           </div>
 
           <div className={classes.middleCtn}>
-            <Flexbox
-              flexWrap="wrap"
-              justify="center"
+            <Flex
               align="center"
               className={`${classes.aboutCtn} ${classes.layerCtn}`}
+              justify="center"
+              wrap
             >
               <Heading level={1}>What is Covailnt about?</Heading>
 
@@ -70,15 +71,15 @@ export default class LandingPage extends Component {
               <div className={classes.rightCtn}>
                 <img src="/public/images/signup/ladyAvatar.png" alt="avatar" />
               </div>
-            </Flexbox>
+            </Flex>
           </div>
 
           <div className={classes.middleCtn}>
-            <Flexbox
-              flexWrap="wrap"
-              justify="center"
+            <Flex
               align="center"
               className={classes.layerCtn}
+              justify="center"
+              wrap
             >
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
@@ -97,15 +98,15 @@ export default class LandingPage extends Component {
                   alt="rank earned"
                 />
               </div>
-            </Flexbox>
+            </Flex>
           </div>
 
           <div className={classes.middleCtn}>
-            <Flexbox
-              flexWrap="wrap"
-              justify="center"
+            <Flex
               align="center"
               className={classes.layerCtn}
+              justify="center"
+              wrap
             >
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
@@ -124,7 +125,7 @@ export default class LandingPage extends Component {
                   alt="rank potential"
                 />
               </div>
-            </Flexbox>
+            </Flex>
           </div>
 
           <div className={classes.imageCtn}>
@@ -132,11 +133,11 @@ export default class LandingPage extends Component {
           </div>
 
           <div className={classes.bottomCtn}>
-            <Flexbox
-              flexWrap="wrap"
-              justify="flex-start"
+            <Flex
               align="center"
               className={classes.layerCtn}
+              justify="flex-start"
+              wrap
             >
               <p className={classes.bottomText}>
                 Covailnt{' '}
@@ -150,7 +151,7 @@ export default class LandingPage extends Component {
                   I&apos;m in! Let&apos;s setup my profile
                 </Button>
               </Link>
-            </Flexbox>
+            </Flex>
           </div>
         </main>
       </div>

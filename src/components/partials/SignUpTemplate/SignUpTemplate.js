@@ -1,6 +1,6 @@
-import { Flexbox } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { Flex } from 'rebass'
 
 import classes from './SignUpTemplate.scss'
 
@@ -8,18 +8,18 @@ export default class SignUpTemplate extends Component {
   render() {
     const { children } = this.props
     return (
-      <Flexbox
+      <Flex
+        align="center"
         className={classes.mainContainer}
         justify="center"
-        align="center"
-        flexWrap="wrap"
+        wrap
       >
         <main>
-          <Flexbox className={classes.content} justify="center" flexWrap="wrap">
+          <Flex className={classes.content} justify="center" wrap>
             {children}
-          </Flexbox>
+          </Flex>
         </main>
-      </Flexbox>
+      </Flex>
     )
   }
 }

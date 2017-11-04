@@ -1,10 +1,11 @@
 import { signInRequested } from 'actions'
-import { Button, Flexbox, Heading, Input } from 'components/elements'
+import { Button, Heading, Input } from 'components/elements'
 import { SignUpTemplate } from 'components/partials'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Flex } from 'rebass'
 import {
   FACEBOOK,
   FIELDS,
@@ -51,11 +52,11 @@ class CreateAccount extends Component {
   render() {
     return (
       <SignUpTemplate>
-        <Flexbox
+        <Flex
+          align="center"
           className={classes.fields}
           direction="column"
           justify="center"
-          align="center"
         >
           <Heading level={1} color="primary">
             Let&apos;s do this thing
@@ -102,7 +103,7 @@ class CreateAccount extends Component {
               Create account with Google
             </Button>
           </div>
-        </Flexbox>
+        </Flex>
 
         <div className={classes.deskLampWrapper}>
           <img

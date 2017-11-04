@@ -1,21 +1,21 @@
-import { Flexbox } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Flex } from 'rebass'
 
 import classes from './Navbar.scss'
 
 class Navbar extends Component {
   render() {
     return (
-      <Flexbox
+      <Flex
         align="center"
-        className={classes.navbar}
         background={this.props.color}
+        className={classes.navbar}
         justify="flex-end"
       >
         {this.props.children}
-      </Flexbox>
+      </Flex>
     )
   }
 }
