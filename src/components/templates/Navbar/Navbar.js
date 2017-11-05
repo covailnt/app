@@ -2,20 +2,28 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Flex } from 'rebass'
+import styled from 'styled-components'
+import media from 'styled-media-query'
 
 import classes from './Navbar.scss'
+
+const StyledFlex = styled(Flex)`
+  ${media.lessThan('medium')`
+    display: none;
+  `};
+`
 
 class Navbar extends Component {
   render() {
     return (
-      <Flex
+      <StyledFlex
         align="center"
         background={this.props.color}
         className={classes.navbar}
         justify="flex-end"
       >
         {this.props.children}
-      </Flex>
+      </StyledFlex>
     )
   }
 }

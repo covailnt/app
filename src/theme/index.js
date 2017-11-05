@@ -4,19 +4,20 @@
 import palx from 'palx' // Color palette library
 
 // https://github.com/jxnblk/styled-system#breakpoints
-const breakpoints = [32, 48, 64, 80]
+export const breakpoints = ['450px', '768px', '1170px', '1440px']
 
-const space = [0, 4, 8, 16, 32, 64, 128]
+// Units are in ems below
+export const space = [0, 4, 8, 16, 32, 64, 128]
 
-const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
+export const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
 
-const weights = [400, 700]
+export const weights = [400, 700]
 
-const radius = 4
+export const radius = 4
 
-const font = `-apple-system, BlinkMacSystemFont, sans-serif`
+export const font = `-apple-system, BlinkMacSystemFont, sans-serif`
 
-const monospace = '"SF Mono", "Roboto Mono", Menlo, monospace'
+export const monospace = '"SF Mono", "Roboto Mono", Menlo, monospace'
 
 const palette = palx('#07c')
 
@@ -33,7 +34,7 @@ const flattened = Object.keys(palette).reduce((a, key) => {
   return a
 }, {})
 
-const colors = Object.assign({}, flattened, {
+export const colors = Object.assign({}, flattened, {
   primary: 'rgb(23, 195, 169)',
   active: 'rgb(23, 195, 169)',
   secondary: 'rgb(0, 125, 125)',

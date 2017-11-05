@@ -109,8 +109,10 @@
     "redux-watch": "^1.1.1",
     "regenerator-runtime": "^0.11.0",
     "styled-components": "^2.2.3",
+    "styled-media-query": "^2.0.1",
     "styled-shortcut-components": "^1.0.0",
     "styled-shortcuts": "^2.1.2",
+    "styled-tools": "^0.2.2",
     "underscore": "^1.8.3"
   }
 }
