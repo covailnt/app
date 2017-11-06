@@ -49,6 +49,12 @@ export const colors = Object.assign({}, flattened, {
   github: 'rgb(0, 0, 0)',
   google: 'rgb(221, 75, 57)',
   twitter: 'rgb(85, 172, 238)',
+  transparent0: 'rgba(0, 0, 0, 0)',
+  transparent1: 'rgba(0, 0, 0, 0.1)',
+  transparent2: 'rgba(0, 0, 0, 0.2)',
+  transparent4: 'rgba(0, 0, 0, 0.4)',
+  transparent6: 'rgba(0, 0, 0, 0.6)',
+  transparent8: 'rgba(0, 0, 0, 0.8)',
 })
 
 const theme = {

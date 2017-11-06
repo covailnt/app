@@ -1,5 +1,5 @@
 import { setImage } from 'actions'
-import { Button, Heading, Icon } from 'components/elements'
+import { Absolute, Button, Heading, Icon, Relative } from 'components/elements'
 import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/partials'
 import { AuthenticatedTemplate } from 'components/yields'
@@ -26,7 +26,7 @@ class Profile extends Component {
     return (
       <AuthenticatedTemplate>
         <Flex direction="column">
-          <div className={classes.profileBannerCtn}>
+          <Relative>
             <DropImage
               defaultImage="/public/images/profile/defaultBanner.jpg"
               imageURL={this.props[FIELDS.BANNER_URL]}
@@ -39,26 +39,30 @@ class Profile extends Component {
               width="100%"
             />
 
-            <Flex
-              className={classes.profileTitle}
-              direction="column"
-              justify="center"
+            <Absolute
+              bg="transparent4"
+              bottom={0}
+              left="50%"
+              translate="translateX(-50%)"
+              w={1}
             >
-              <Heading align="center" color="white" level={1}>
-                {this.props.displayName}
-              </Heading>
+              <Flex align="center" direction="column" justify="center">
+                <Heading align="center" color="white" level={1}>
+                  {this.props.displayName}
+                </Heading>
 
-              <Flex className={classes.profileTitleCtn}>
-                <FirebaseInput
-                  label={`${FIELDS.SPECIALTY} in`}
-                  color="primary"
-                  name={FIELDS.LOCATION}
-                  placeholder="Enter city or specify Nomad"
-                  type="text"
-                />
+                <Flex className={classes.profileTitleCtn}>
+                  <FirebaseInput
+                    label={`${FIELDS.SPECIALTY} in`}
+                    color="primary"
+                    name={FIELDS.LOCATION}
+                    placeholder="Enter city or specify Nomad"
+                    type="text"
+                  />
+                </Flex>
               </Flex>
-            </Flex>
-          </div>
+            </Absolute>
+          </Relative>
 
           <div className={classes.profileSummaryCtn}>
             <div className={classes.editProfilePictureCtn}>

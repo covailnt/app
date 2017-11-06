@@ -1,40 +1,26 @@
 @import 'theme/_helpers';
 
-// Profile Banner
-.profileBannerCtn {
-  position: relative;
-}
-
 // Profile Title
-.profileTitle {
-  bottom: 0;
-  left: 50%;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  transform: translateX(-50%);
-  width: 100%;
-
-  .profileTitleCtn {
-    left: 325px;
-    position: relative;
-    padding: 1rem 0;
-    input {
-      margin-left: 20px;
-      width: 300px;
-    }
-    h1 {
-      margin: 0;
-      font-weight: none;
-      @include rems(36);
-    }
-    label {
-      margin: 0;
-      @include rems(16);
-    }
-    input {
-      margin-left: 5px;
-      width: 300px;
-    }
+.profileTitleCtn {
+  display: inline-block;
+  margin-left: -60px;
+  padding: 1rem 0;
+  input {
+    margin-left: 20px;
+    width: 300px;
+  }
+  h1 {
+    margin: 0;
+    font-weight: none;
+    @include rems(36);
+  }
+  label {
+    margin: 0;
+    @include rems(16);
+  }
+  input {
+    margin-left: 5px;
+    width: 300px;
   }
 }
 
