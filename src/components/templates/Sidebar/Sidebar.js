@@ -1,5 +1,5 @@
 import { setInputVal } from 'actions'
-import { DropDown, MenuItem } from 'components/elements'
+import { Aux, DropDown, MenuItem } from 'components/elements'
 import { DonutChart } from 'components/groups'
 import { debounce } from 'lodash'
 import PropTypes from 'prop-types'
@@ -95,7 +95,7 @@ class Sidebar extends Component {
   }
   render() {
     return (
-      <div>
+      <Aux>
         <ToggleOpen
           m={2}
           p={3}
@@ -160,7 +160,7 @@ class Sidebar extends Component {
             </div>
           </Box>
         </FlexStyled>
-      </div>
+      </Aux>
     )
   }
 }
