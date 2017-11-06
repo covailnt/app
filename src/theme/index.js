@@ -13,7 +13,8 @@ export const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
 
 export const weights = [400, 700]
 
-export const radius = 4
+export const radii = [0, 2, 5]
+export const radius = '5px'
 
 export const font = `-apple-system, BlinkMacSystemFont, sans-serif`
 
@@ -58,6 +59,7 @@ const theme = {
   font,
   monospace,
   colors,
+  radii,
   radius,
 }
 

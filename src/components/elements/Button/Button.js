@@ -1,58 +1,99 @@
-import { StyleSheet, css } from 'aphrodite'
 import PropTypes from 'prop-types'
-import React from 'react'
-import theme from 'theme'
+import styled from 'styled-components'
+import { color, space } from 'styled-system'
+import { colors, radii, radius } from 'theme'
+import { shade } from 'utils'
 
-import classes from './Button.scss'
-
-const Button = ({
-  background,
-  children,
-  color,
-  border,
-  onClick,
-  hover,
-  disabled,
-}) => {
-  const bg = disabled && background == 'primary' ? 'white' : background
-  const clr = disabled && color == 'white' ? 'accent1' : color
-  const bdr =
-    disabled && !border ? `${theme.colors.accent1} 1px solid` : border || 'none'
-
-  const styles = StyleSheet.create({
-    button: {
-      background: theme.colors[bg],
-      color: theme.colors[clr],
-      border: bdr,
-      ':hover': {
-        background: theme.colors[hover],
-      },
-    },
-  })
-  return (
-    <button
-      className={`${css(styles.button)} ${classes.button}`}
-      onClick={onClick}
-      disabled={disabled || disabled == 'disabled' ? 'disabled' : false}
-    >
-      {children}
-    </button>
-  )
-}
+const Button = styled.button`
+  -webkit-font-smoothing: antialiased;
+  border-style: solid;
+  border-width: 0;
+  border-radius: ${props => (props.radius ? radii[props.radius] : radius)};
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.5s;
+  vertical-align: middle;
+  &:disabled {
+    opacity: 0.25;
+  }
+  &:hover {
+    background-color: ${props =>
+      props.disabled ? null : shade(props.bg, -0.25)};
+  }
+  ${color} ${fullWidth} ${space} ${size};
+`
 
 Button.defaultProps = {
-  background: 'primary',
-  color: 'white',
+  color: colors.white,
+  bg: colors.primary,
+  m: 3,
+  size: 'medium',
 }
 
+const numberStringOrArray = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+  PropTypes.array,
+])
+
 Button.propTypes = {
-  background: PropTypes.string,
-  children: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  onClick: PropTypes.func,
-  hover: PropTypes.string,
-  disabled: PropTypes.bool,
-  border: PropTypes.string,
+  /** Size */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  fullWidth: PropTypes.bool,
+  /** Margin */
+  m: numberStringOrArray,
+  mt: numberStringOrArray,
+  mr: numberStringOrArray,
+  mb: numberStringOrArray,
+  ml: numberStringOrArray,
+  mx: numberStringOrArray,
+  my: numberStringOrArray,
+  /** Padding */
+  p: numberStringOrArray,
+  pt: numberStringOrArray,
+  pr: numberStringOrArray,
+  pb: numberStringOrArray,
+  pl: numberStringOrArray,
+  px: numberStringOrArray,
+  py: numberStringOrArray,
+}
+
+Button.displayName = 'Button'
+
+function fullWidth(props) {
+  return props.fullWidth ? { width: '100%' } : null
+}
+
+function size(props) {
+  switch (props.size) {
+    case 'small':
+      return {
+        height: '32px',
+        fontSize: `${props.theme.fontSizes[0]}px`,
+        padding: '0 12px',
+      }
+    case 'medium':
+      return {
+        height: '40px',
+        fontSize: `${props.theme.fontSizes[1]}px`,
+        padding: '0 18px',
+      }
+    case 'large':
+      return {
+        height: '48px',
+        fontSize: `${props.theme.fontSizes[2]}px`,
+        padding: '0 22px',
+      }
+    default:
+      return {
+        height: '40px',
+        fontSize: `${props.theme.fontSizes[1]}px`,
+        padding: '0 18px',
+      }
+  }
 }
 
 export default Button

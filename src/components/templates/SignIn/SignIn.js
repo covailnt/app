@@ -53,7 +53,9 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        <Button onClick={() => this.openLogInModal()}>Log In</Button>
+        <Button m={3} onClick={() => this.openLogInModal()}>
+          Log In
+        </Button>
         <Modal
           className={`modal ${classes.loginModal}`}
           isOpen={this.state.logInModalIsOpen}
@@ -89,24 +91,15 @@ class SignIn extends Component {
             Log In With Email
           </Button>
 
-          <Button
-            background="facebook"
-            onClick={() => this.signIn(PROVIDER, FACEBOOK)}
-          >
+          <Button bg="facebook" onClick={() => this.signIn(PROVIDER, FACEBOOK)}>
             Log In With Facebook
           </Button>
 
-          <Button
-            background="github"
-            onClick={() => this.signIn(PROVIDER, GITHUB)}
-          >
+          <Button bg="github" onClick={() => this.signIn(PROVIDER, GITHUB)}>
             Log In With Github
           </Button>
 
-          <Button
-            background="google"
-            onClick={() => this.signIn(PROVIDER, GOOGLE)}
-          >
+          <Button bg="google" onClick={() => this.signIn(PROVIDER, GOOGLE)}>
             Log In With Google
           </Button>
 

@@ -112,6 +112,7 @@
     "styled-media-query": "^2.0.1",
     "styled-shortcut-components": "^1.0.0",
     "styled-shortcuts": "^2.1.2",
+    "styled-system": "^1.0.8",
     "styled-tools": "^0.2.2",
     "underscore": "^1.8.3"
   }
