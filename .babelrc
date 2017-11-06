@@ -16,6 +16,7 @@
     "babel-plugin-styled-components",
     "react-hot-loader/babel",
     "transform-export-extensions",
+    "transform-object-rest-spread",
     "transform-regenerator"
   ],
   "env": {
