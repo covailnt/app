@@ -1,6 +1,6 @@
 import { signInRequested } from 'actions'
 import { Button, Heading, Input } from 'components/elements'
-import { SignUpTemplate } from 'components/partials'
+import { SignUpTemplate } from 'components/yields'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -109,7 +109,7 @@ class CreateAccount extends Component {
           <img
             className={classes.deskLamp}
             alt="DeskLamp"
-            src="/public/images/signup/deskLamp.png"
+            src="/public/images/SignUpTemplate/deskLamp.png"
           />
         </div>
       </SignUpTemplate>

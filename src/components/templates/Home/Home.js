@@ -1,5 +1,5 @@
 import { Heading } from 'components/elements'
-import { SignIn, UserMenu } from 'components/templates'
+import { SignIn, UserMenu } from 'components/partials'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'

@@ -1,5 +1,5 @@
 import { Button, Heading } from 'components/elements'
-import { SignUpTemplate } from 'components/partials'
+import { SignUpTemplate } from 'components/yields'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
