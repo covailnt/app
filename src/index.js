@@ -38,11 +38,7 @@ export const unsubscribePreload = appStore.subscribe(
 )
 
 export const unsubscribeAuth = firebase.auth().onAuthStateChanged(user => {
-  console.log('auth state change')
-
   if (user) {
-    console.log('USER', user)
-
     const userAuthData = {
       displayName: user.displayName,
       email: user.email,

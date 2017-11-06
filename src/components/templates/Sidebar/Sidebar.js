@@ -55,11 +55,9 @@ class Sidebar extends Component {
     return window.matchMedia(size).matches
   }
   getWindowSize() {
-    console.log(this.matchMedia())
     this.setState({ isOpen: this.matchMedia() })
   }
   handleChange(e) {
-    console.log('changing')
     const status = e.target.value
     this.setState({
       dirty: true,
@@ -68,7 +66,6 @@ class Sidebar extends Component {
     })
   }
   handleSubmit() {
-    console.log('submitting', this.state.status)
     this.setState({ dirty: false })
     this.props.setInputVal({ name: 'status', value: this.state.status })
   }

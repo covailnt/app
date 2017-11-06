@@ -27,7 +27,6 @@ const userReducer = (state = null, action) => {
       return action.isSignedOut ? state : null
 
     case USER_FETCH_SUCCEEDED:
-      console.log('Merged user auth and user data into store ===>', action.user)
       return Object.assign({}, state, action.user)
 
     default:

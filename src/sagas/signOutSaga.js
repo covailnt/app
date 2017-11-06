@@ -12,7 +12,6 @@ function* signUserOut() {
       .signOut()
       .then(() => null)
 
-    console.log('isSignedOut?', isSignedOut)
     yield put(signOut(isSignedOut))
   } catch (e) {
     console.log(
