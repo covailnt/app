@@ -2,8 +2,8 @@ import { omit } from 'lodash'
 import React from 'react'
 import { Fixed, Flex } from 'rebass'
 import styled from 'styled-components'
-import media from 'styled-media-query'
 import { ifProp } from 'styled-tools'
+import { media } from 'utils'
 
 export const FlexStyled = styled(props => (
   <Flex {...omit(props, ['isOpen'])} />
@@ -16,7 +16,7 @@ export const FlexStyled = styled(props => (
 
 export const ToggleOpen = styled(Fixed)`
   cursor: pointer;
-  ${media.greaterThan('medium')`
+  ${media.greaterThan('sm')`
     display: none;
   `};
 `

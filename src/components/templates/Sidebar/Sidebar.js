@@ -51,7 +51,7 @@ class Sidebar extends Component {
     window.removeEventListener('resize', this.getWindowSize)
   }
   matchMedia() {
-    const size = `(min-width: ${breakpoints[1]})`
+    const size = `(min-width: ${breakpoints[1]}em)`
     return window.matchMedia(size).matches
   }
   getWindowSize() {
