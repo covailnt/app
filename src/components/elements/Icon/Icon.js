@@ -1,44 +1,41 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import theme from 'theme'
-import { extend } from 'underscore'
+import styled from 'styled-components'
+import { color, space } from 'styled-system'
 
-import classes from './Icon.scss'
+const Base = ({ name, size, ...props }) => {
+  // const icon = oldAndNewIcons[name]
 
-const Icon = props => {
-  const { border, className, color, name, onClick, pointerEvents, size } = props
-
-  let borderStyle = {}
-
-  if (border) {
-    borderStyle = {
-      borderRadius: '100%',
-      boxShadow: '0 1px 10px rgba(0, 0, 0, 0.46)',
-    }
-  }
-  const style = extend(borderStyle, { color: theme.colors[color] })
+  // if (!icon) return false
 
   return (
-    <i
-      aria-hidden="true"
-      className={`fa fa-${name.toLowerCase()} fa-${size} ${className} ${classes.icon}`}
-      onClick={onClick}
-      style={style}
-    />
+    <svg
+      {...props}
+      // viewBox={icon.viewBox}
+      width={size}
+      height={size}
+      fill="currentcolor"
+    >
+      {/* <path d={icon.path} /> */}
+    </svg>
   )
 }
 
+const Icon = styled(Base)`
+  flex: none;
+  ${space} ${color};
+`
+
+Icon.displayName = 'Icon'
+
 Icon.defaultProps = {
-  size: '1x',
+  name: 'checkLight',
+  size: 24,
 }
 
 Icon.propTypes = {
-  border: PropTypes.bool,
-  className: PropTypes.string,
-  color: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  size: PropTypes.string,
+  // name: PropTypes.oneOf(Object.keys(oldAndNewIcons)).isRequired,
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default Icon

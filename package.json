@@ -17,6 +17,7 @@
       "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "format":
       "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
+    "icons": "node src/utils/scripts/parseIcons",
     "lint": "eslint ./src",
     "lint:css": "stylelint './src/**/**/*.js'",
     "lint-staged": "lint-staged",
@@ -54,6 +55,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-optimize": "^1.0.1",
+    "camelcase": "^4.1.0",
     "copyfiles": "^1.0.0",
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
@@ -86,6 +88,7 @@
     "stylelint-config-standard": "^17.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.0.0",
+    "svgi": "^1.1.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-blocks": "^1.0.0-rc.2",
