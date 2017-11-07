@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { color, space } from 'styled-system'
 import icons from 'theme/icons.json'
 
-const Base = ({ name, size, ...props }) => {
+const Base = ({ fill, name, size, ...props }) => {
   const icon = icons[name]
 
   if (!icon) return false
@@ -15,7 +15,7 @@ const Base = ({ name, size, ...props }) => {
       viewBox={icon.viewBox}
       width={size}
       height={size}
-      fill="currentcolor"
+      fill={fill}
     >
       <path d={icon.path} />
     </svg>
@@ -30,11 +30,13 @@ const Icon = styled(Base)`
 Icon.displayName = 'Icon'
 
 Icon.defaultProps = {
+  fill: 'primary',
   name: 'checkLight',
   size: 24,
 }
 
 Icon.propTypes = {
+  fill: PropTypes.string,
   name: PropTypes.oneOf(Object.keys(icons)).isRequired,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }

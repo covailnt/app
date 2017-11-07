@@ -29,7 +29,7 @@ const DropDown = ({
       </Select>
 
       <Absolute right="10px" top="50%" translateY="-50%">
-        <Icon name="angle-down" />
+        <Icon name="chevronDown" />
       </Absolute>
     </Relative>
     {dirty &&

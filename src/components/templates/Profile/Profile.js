@@ -103,7 +103,7 @@ class Profile extends Component {
                       className="fa-stack-1x"
                       color="white"
                       id={SOCIAL.FACEBOOK}
-                      name={SOCIAL.FACEBOOK}
+                      name="facebook"
                       onClick={e => this.setActiveIcon(e)}
                     />
                   </span>
@@ -118,7 +118,7 @@ class Profile extends Component {
                       className="fa-stack-1x"
                       color="white"
                       id={SOCIAL.LINKEDIN}
-                      name={SOCIAL.LINKEDIN}
+                      name="linkedin"
                       onClick={e => this.setActiveIcon(e)}
                     />
                   </span>
@@ -133,7 +133,7 @@ class Profile extends Component {
                       className="fa-stack-1x"
                       color="white"
                       id={SOCIAL.TWITTER}
-                      name={SOCIAL.TWITTER}
+                      name="twitter"
                       onClick={e => this.setActiveIcon(e)}
                     />
                   </span>
