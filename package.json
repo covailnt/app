@@ -5,12 +5,12 @@
   "name": "covailnt",
   "main": "",
   "scripts": {
-    "start": "npm run clean && npm run dev",
+    "start": "npm run clean && npm run icons && npm run dev",
     "clean": "rimraf dist/*",
     "dev": "npm run env:dev && webpack-dev-server --colors --progress",
     "env:dev": "cross-env NODE_ENV=development",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
-    "dist": "npm run copy & webpack --env=dist",
+    "dist": "npm run icons && npm run copy & webpack --env=dist",
     "deploy":
       "npm run env:dev && npm run clean && npm run dist && firebase deploy",
     "eslint-check":

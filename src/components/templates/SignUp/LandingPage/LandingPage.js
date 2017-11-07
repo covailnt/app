@@ -59,7 +59,7 @@ export default class LandingPage extends Component {
 
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
-                  <Icon name="clock-o" color="primary" />
+                  <Icon name="clock" color="primary" />
                   <Heading level={2}>Real-time availability</Heading>
                   <Heading level={5}>
                     Work needs to be done. Determine a connection&apos;;s
@@ -110,7 +110,7 @@ export default class LandingPage extends Component {
             >
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
-                  <Icon name="bolt" color="primary" />
+                  <Icon name="lightning" color="primary" />
                   <Heading level={2}>Showcased Potential</Heading>
                   <Heading level={5}>
                     Noobs are people too. It takes a leap of faith to trust
