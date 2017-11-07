@@ -1,50 +1,20 @@
+import { Label } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import theme from 'theme'
+import { rules } from 'utils'
 
 import classes from './Input.scss'
-
-// validations for react-validation
-const rules = {
-  required: {
-    test: value => {
-      return value.toString().trim().length > 0
-    },
-    hint: () => {
-      return 'Required'
-    },
-  },
-  email: {
-    test: value => {
-      const base = value.toString().trim()
-      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-
-      return re.test(base)
-    },
-    hint: () => {
-      return 'Please check email format'
-    },
-  },
-  newPassword: {
-    test: value => {
-      const base = value.toString().trim()
-
-      return base.length > 7
-    },
-    hint: () => {
-      return 'Password needs to be 8 characters or longer'
-    },
-  },
-}
 
 class Input extends Component {
   constructor(props) {
     super(props)
 
-    this.handleChange = this.handleChange.bind(this)
     this.state = {
       errors: [],
     }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
@@ -67,13 +37,11 @@ class Input extends Component {
   }
 
   render() {
-    const label = this.props.label ? (
-      <label htmlFor={this.props.name}>{this.props.label}</label>
-    ) : null
+    const label = this.props.label
 
     return (
       <div className={this.props.className}>
-        {!this.props.labelAfter && label}
+        {label && <Label htmlFor={this.props.name}>{label}</Label>}
         <input
           className={`input-${this.props.type}
             ${this.props.className || ''}
@@ -105,22 +73,26 @@ class Input extends Component {
   }
 }
 
+Input.defaultProps = {
+  type: 'text',
+}
+
 Input.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  name: PropTypes.string,
-  validations: PropTypes.array,
-  overrideValidation: PropTypes.bool,
-  type: PropTypes.string,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  value: PropTypes.string,
   checked: PropTypes.bool,
-  placeholder: PropTypes.string,
-  label: PropTypes.string,
-  labelAfter: PropTypes.bool,
+  className: PropTypes.string,
   color: PropTypes.string,
   hint: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  labelAfter: PropTypes.bool,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  overrideValidation: PropTypes.bool,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  validations: PropTypes.array,
+  value: PropTypes.string,
 }
 
 export default Input

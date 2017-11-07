@@ -1,7 +1,9 @@
 import { StyleSheet, css } from 'aphrodite'
 import { Icon } from 'components/elements'
+import { Button, Label } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Flex } from 'rebass'
 import theme from 'theme'
 
 import classes from './DropDown.scss'
@@ -16,22 +18,22 @@ const styles = StyleSheet.create({
 })
 
 const DropDown = ({
-  value,
+  dirty,
   handleChange,
   handleSubmit,
   items,
+  label,
   name,
   submitButton,
-  label,
-  labelAfter,
+  value,
 }) => (
-  <div className={classes.selectWrapper}>
-    {!labelAfter && (label ? <label htmlFor={name}>{label}</label> : null)}
+  <Flex align="center" direction="column" justify="center">
     <div className={classes.selectCtn}>
+      {label && <Label htmlFor={name}>{label}</Label>}
+
       <select
         className={`${css(styles.select)} ${classes.dropDown}`}
         name={name}
-        id={name}
         onChange={handleChange}
         value={value}
       >
@@ -48,32 +50,24 @@ const DropDown = ({
       />
     </div>
 
-    {submitButton.text ? (
-      <button
-        type="submit"
-        className={submitButton.classes}
-        onClick={handleSubmit}
-      >
-        {submitButton.text}
-      </button>
-    ) : null}
-    {labelAfter && (label ? <label htmlFor={name}>{label}</label> : null)}
-  </div>
+    {dirty &&
+      submitButton && (
+        <Button fullWidth type="submit" onClick={handleSubmit}>
+          {submitButton}
+        </Button>
+      )}
+  </Flex>
 )
 
-DropDown.defaultProps = {
-  submitButton: {},
-}
-
 DropDown.propTypes = {
+  dirty: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func,
   items: PropTypes.array.isRequired,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  submitButton: PropTypes.object,
   label: PropTypes.string,
-  labelAfter: PropTypes.bool,
+  name: PropTypes.string,
+  submitButton: PropTypes.string,
+  value: PropTypes.string,
 }
 
 export default DropDown

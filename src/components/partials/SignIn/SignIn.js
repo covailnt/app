@@ -1,5 +1,6 @@
 import { signInRequested } from 'actions'
-import { Button, Input } from 'components/elements'
+import { Button } from 'components/elements'
+import { Input } from 'components/partials'
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'

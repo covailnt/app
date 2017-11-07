@@ -109,24 +109,18 @@ class Sidebar extends Component {
         </ToggleOpen>
 
         <FlexStyled direction="column" bg="black" isOpen={this.state.isOpen}>
-          <Box py={2} px={['0px', 2]}>
+          <Box py={2} px={[2]}>
             <DonutChart value={this.state.value} />
             <div className={classes.statusCtn} bg="blue">
               <DropDown
+                dirty={this.state.dirty}
                 handleChange={this.handleChange}
                 items={this.state.items}
+                label="This week I am:"
                 name="profile-dropdown"
                 placeholder="How busy are you?"
                 value={this.state.status}
-                label="This week I am:"
-                submitButton={
-                  this.state.dirty
-                    ? {
-                        classes: classes.btnPrimary,
-                        text: 'Update Availability',
-                      }
-                    : {}
-                }
+                submitButton="Update Availability"
               />
 
               {this.state.dirty ? (
