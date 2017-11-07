@@ -12,9 +12,23 @@ const Absolute = styled.div`
   z-index: ${prop('z', null)};
 
   ${ifProp(
+    'translateX',
+    css`
+      transform: translateX(${props => props.translateX});
+    `,
+  )};
+
+  ${ifProp(
+    'translateY',
+    css`
+      transform: translateY(${props => props.translateY});
+    `,
+  )};
+
+  ${ifProp(
     'translate',
     css`
-      transform: ${props => props.translate};
+      transform: translate(${props => props.translate});
     `,
   )};
 

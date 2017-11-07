@@ -6,7 +6,7 @@ import { extend } from 'underscore'
 import classes from './Icon.scss'
 
 const Icon = props => {
-  const { border, className, color, name, onClick, size } = props
+  const { border, className, color, name, onClick, pointerEvents, size } = props
 
   let borderStyle = {}
 

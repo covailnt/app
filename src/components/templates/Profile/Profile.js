@@ -43,7 +43,7 @@ class Profile extends Component {
               bg="transparent4"
               bottom={0}
               left="50%"
-              translate="translateX(-50%)"
+              translateX="-50%"
               w={1}
             >
               <Flex align="center" direction="column" justify="center">

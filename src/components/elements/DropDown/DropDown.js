@@ -1,21 +1,10 @@
-import { StyleSheet, css } from 'aphrodite'
 import { Icon } from 'components/elements'
-import { Button, Label } from 'components/elements'
+import { Absolute, Button, Label, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Flex } from 'rebass'
-import theme from 'theme'
 
-import classes from './DropDown.scss'
-
-const styles = StyleSheet.create({
-  icon: {
-    color: theme.colors.black,
-  },
-  select: {
-    backgroundColor: theme.colors.white,
-  },
-})
+import { Select } from './styled'
 
 const DropDown = ({
   dirty,
@@ -28,28 +17,21 @@ const DropDown = ({
   value,
 }) => (
   <Flex align="center" direction="column" justify="center">
-    <div className={classes.selectCtn}>
-      {label && <Label htmlFor={name}>{label}</Label>}
+    {label && <Label htmlFor={name}>{label}</Label>}
 
-      <select
-        className={`${css(styles.select)} ${classes.dropDown}`}
-        name={name}
-        onChange={handleChange}
-        value={value}
-      >
+    <Relative w={1}>
+      <Select bg="white" name={name} onChange={handleChange} value={value}>
         {items.map(item => (
           <option key={item} value={item}>
             {item}
           </option>
         ))}
-      </select>
+      </Select>
 
-      <Icon
-        className={`${css(styles.icon)} ${classes.angleDown}`}
-        name="angle-down"
-      />
-    </div>
-
+      <Absolute right="10px" top="50%" translateY="-50%">
+        <Icon name="angle-down" />
+      </Absolute>
+    </Relative>
     {dirty &&
       submitButton && (
         <Button fullWidth type="submit" onClick={handleSubmit}>
