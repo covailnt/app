@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { color, space } from 'styled-system'
+import { space } from 'styled-system'
+import { colors } from 'theme'
 import icons from 'theme/icons.json'
+
+const StyledSvg = styled.svg`
+  display: block;
+`
 
 const Base = ({ fill, name, size, ...props }) => {
   const icon = icons[name]
@@ -10,21 +15,21 @@ const Base = ({ fill, name, size, ...props }) => {
   if (!icon) return false
 
   return (
-    <svg
+    <StyledSvg
       {...props}
       viewBox={icon.viewBox}
       width={size}
       height={size}
-      fill={fill}
+      fill={colors[fill]}
     >
       <path d={icon.path} />
-    </svg>
+    </StyledSvg>
   )
 }
 
 const Icon = styled(Base)`
   flex: none;
-  ${space} ${color};
+  ${space};
 `
 
 Icon.displayName = 'Icon'
@@ -35,7 +40,7 @@ Icon.defaultProps = {
   size: 24,
 }
 
-Icon.propTypes = {
+Base.propTypes = {
   fill: PropTypes.string,
   name: PropTypes.oneOf(Object.keys(icons)).isRequired,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

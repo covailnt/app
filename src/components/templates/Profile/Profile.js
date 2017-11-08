@@ -1,5 +1,11 @@
 import { setImage } from 'actions'
-import { Absolute, Button, Heading, Icon, Relative } from 'components/elements'
+import {
+  Absolute,
+  Button,
+  Heading,
+  IconButton,
+  Relative,
+} from 'components/elements'
 import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/partials'
 import { AuthenticatedTemplate } from 'components/yields'
@@ -20,7 +26,7 @@ class Profile extends Component {
     }
   }
   setActiveIcon(e) {
-    this.setState({ activeSocial: e.target.id })
+    this.setState({ activeSocial: e.currentTarget.id })
   }
   render() {
     return (
@@ -91,52 +97,45 @@ class Profile extends Component {
 
                 <Button className="chatButton">Open Chat</Button>
 
-                <Flex justify="flex-start" className={classes.socialLinks}>
-                  <span className="fa-stack fa-lg">
-                    <Icon
-                      border={this.state.activeSocial === SOCIAL.FACEBOOK}
-                      className="fa-stack-2x"
-                      color="primary"
-                      name="circle"
-                    />
-                    <Icon
-                      className="fa-stack-1x"
-                      color="white"
-                      id={SOCIAL.FACEBOOK}
-                      name="facebook"
-                      onClick={e => this.setActiveIcon(e)}
-                    />
-                  </span>
-                  <span className="fa-stack fa-lg">
-                    <Icon
-                      border={this.state.activeSocial === SOCIAL.LINKEDIN}
-                      className="fa-stack-2x"
-                      color="primary"
-                      name="circle"
-                    />
-                    <Icon
-                      className="fa-stack-1x"
-                      color="white"
-                      id={SOCIAL.LINKEDIN}
-                      name="linkedin"
-                      onClick={e => this.setActiveIcon(e)}
-                    />
-                  </span>
-                  <span className="fa-stack fa-lg">
-                    <Icon
-                      border={this.state.activeSocial === SOCIAL.TWITTER}
-                      className="fa-stack-2x"
-                      color="primary"
-                      name="circle"
-                    />
-                    <Icon
-                      className="fa-stack-1x"
-                      color="white"
-                      id={SOCIAL.TWITTER}
-                      name="twitter"
-                      onClick={e => this.setActiveIcon(e)}
-                    />
-                  </span>
+                <Flex
+                  align="center"
+                  justify="flex-start"
+                  className={classes.socialLinks}
+                >
+                  <IconButton
+                    fill={
+                      this.state.activeSocial === SOCIAL.FACEBOOK
+                        ? 'facebook'
+                        : 'primary'
+                    }
+                    id={SOCIAL.FACEBOOK}
+                    name="facebook"
+                    onClick={e => this.setActiveIcon(e)}
+                  />
+
+                  <IconButton
+                    fill={
+                      this.state.activeSocial === SOCIAL.LINKEDIN
+                        ? 'linkedin'
+                        : 'primary'
+                    }
+                    color="white"
+                    id={SOCIAL.LINKEDIN}
+                    name="linkedin"
+                    onClick={e => this.setActiveIcon(e)}
+                  />
+
+                  <IconButton
+                    fill={
+                      this.state.activeSocial === SOCIAL.TWITTER
+                        ? 'twitter'
+                        : 'primary'
+                    }
+                    color="white"
+                    id={SOCIAL.TWITTER}
+                    name="twitter"
+                    onClick={e => this.setActiveIcon(e)}
+                  />
 
                   <FirebaseInput
                     color="primary"

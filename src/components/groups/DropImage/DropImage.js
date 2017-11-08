@@ -60,7 +60,7 @@ const DropImage = ({
       >
         <Flex align="center" direction="column">
           <div>{label}</div>
-          <Icon color="black" name="photo" />
+          <Icon fill="black" name="photo" />
         </Flex>
       </Dropzone>
     </Flex>

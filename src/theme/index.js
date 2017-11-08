@@ -45,6 +45,7 @@ export const colors = Object.assign({}, flattened, {
   black: 'rgb(77, 77, 77)',
   white: 'rgb(255, 255, 255)',
   lightGray: '#FAFAFA',
+  linkedin: 'rgb(0, 119, 181)',
   facebook: 'rgb(59, 89, 152)',
   github: 'rgb(0, 0, 0)',
   google: 'rgb(221, 75, 57)',

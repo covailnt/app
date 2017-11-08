@@ -4,11 +4,12 @@ import { color, space, width } from 'styled-system'
 import { ifProp, prop } from 'styled-tools'
 
 const Absolute = styled.div`
-  position: absolute;
-  top: ${prop('top', null)};
-  right: ${prop('right', null)};
   bottom: ${prop('bottom', null)};
   left: ${prop('left', null)};
+  pointer-events: ${prop('pointerEvents', 'auto')};
+  position: absolute;
+  right: ${prop('right', null)};
+  top: ${prop('top', null)};
   z-index: ${prop('z', null)};
 
   ${ifProp(
@@ -38,10 +39,11 @@ const Absolute = styled.div`
 `
 
 Absolute.propTypes = {
-  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  pointerEvents: PropTypes.string,
+  right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   z: PropTypes.number,
 }
 

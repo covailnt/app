@@ -1,4 +1,4 @@
-import { Icon } from 'components/elements'
+import { IconButton } from 'components/elements'
 import { Absolute, Button, Label, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -28,10 +28,11 @@ const DropDown = ({
         ))}
       </Select>
 
-      <Absolute right="10px" top="50%" translateY="-50%">
-        <Icon name="chevronDown" />
+      <Absolute pointerEvents="none" right="10px" top="50%" translateY="-50%">
+        <IconButton m={0} name="chevronDown" pointerEvents="none" />
       </Absolute>
     </Relative>
+
     {dirty &&
       submitButton && (
         <Button fullWidth type="submit" onClick={handleSubmit}>

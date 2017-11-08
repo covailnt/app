@@ -59,7 +59,7 @@ export default class LandingPage extends Component {
 
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
-                  <Icon name="clock" color="primary" />
+                  <Icon name="clock" />
                   <Heading level={2}>Real-time availability</Heading>
                   <Heading level={5}>
                     Work needs to be done. Determine a connection&apos;;s
@@ -83,7 +83,7 @@ export default class LandingPage extends Component {
             >
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
-                  <Icon name="star" color="primary" />
+                  <Icon name="star" />
                   <Heading level={2}>Real-time availability</Heading>
                   <Heading level={5}>
                     It takes two to tango, right? Review shouldn&apos;t favor
@@ -110,7 +110,7 @@ export default class LandingPage extends Component {
             >
               <div className={classes.leftCtn}>
                 <div className="text-ctn">
-                  <Icon name="lightning" color="primary" />
+                  <Icon name="lightning" />
                   <Heading level={2}>Showcased Potential</Heading>
                   <Heading level={5}>
                     Noobs are people too. It takes a leap of faith to trust
