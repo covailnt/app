@@ -1,7 +1,7 @@
 import { setInputVal } from 'actions'
 import { Aux, DropDown, MenuItem } from 'components/elements'
 import { DonutChart } from 'components/groups'
-import { debounce } from 'lodash'
+import { throttle } from 'lodash'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -45,7 +45,7 @@ class Sidebar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentWillMount() {
-    window.addEventListener('resize', debounce(this.getWindowSize, 150))
+    window.addEventListener('resize', throttle(this.getWindowSize, 150))
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.getWindowSize)
