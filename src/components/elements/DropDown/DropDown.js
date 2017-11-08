@@ -1,8 +1,7 @@
-import { IconButton } from 'components/elements'
+import { Flex, IconButton } from 'components/elements'
 import { Absolute, Button, Label, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Flex } from 'rebass'
 
 import { Select } from './styled'
 
