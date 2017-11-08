@@ -1,12 +1,11 @@
 import { SIGN_OUT_REQUESTED } from 'actions/types'
-import { Avatar, Button, Relative } from 'components/elements'
+import { Avatar, Button, MenuItem, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import appStore from 'reducers'
 import styled from 'styled-components'
-import { color } from 'styled-system'
+import { color, space } from 'styled-system'
 
 const StyledList = styled.ul`
   position: absolute;
@@ -15,7 +14,7 @@ const StyledList = styled.ul`
   right: 0;
   display: block;
   min-width: 250px;
-  ${color};
+  ${color} ${space};
 `
 
 class UserMenu extends Component {
@@ -40,29 +39,25 @@ class UserMenu extends Component {
           src={user.photoURL || '/public/images/avatar.png'}
         />
         {this.state.open && (
-          <StyledList>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/profile">Secret Profile</Link>
-            </li>
-            <li>
-              <Link to="/signup">Sign Up Landing Page</Link>
-            </li>
-            <li>
-              <Link to="/signup/create-account/step-1">SignUp-Step-1</Link>
-            </li>
-            <li>
-              <Link to="/">
-                <Button
-                  onClick={() =>
-                    appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
-                >
-                  Sign Out
-                </Button>
-              </Link>
-            </li>
+          <StyledList bg="black" px={3}>
+            <MenuItem link="/">Home</MenuItem>
+
+            <MenuItem link="/profile">Secret Profile</MenuItem>
+
+            <MenuItem link="/signup">Sign Up Landing Page</MenuItem>
+
+            <MenuItem link="/signup/create-account/step-1">
+              SignUp-Step-1
+            </MenuItem>
+
+            <MenuItem link="/">
+              <Button
+                onClick={() =>
+                  appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
+              >
+                Sign Out
+              </Button>
+            </MenuItem>
           </StyledList>
         )}
       </Relative>
