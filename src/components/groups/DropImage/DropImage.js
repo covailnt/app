@@ -1,4 +1,3 @@
-import { StyleSheet, css } from 'aphrodite'
 import { Icon } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -19,12 +18,10 @@ const DropImage = ({
   uid,
   width,
 }) => {
-  const styles = StyleSheet.create({
-    dropzone: {
-      backgroundImage: `url(${imageURL || defaultImage})`,
-      height,
-      width,
-    },
+  const styles = Object.assign({}, style, {
+    backgroundImage: `url(${imageURL || defaultImage})`,
+    height,
+    width,
   })
 
   const onDrop = (acceptedFiles, rejectedFiles) => {
@@ -53,10 +50,10 @@ const DropImage = ({
   return (
     <Flex align="center" direction="column" justify="center">
       <Dropzone
-        className={`${css(styles.dropzone)} ${classes.dropzone}`}
+        className={classes.dropzone}
         multiple={false}
         onDrop={onDrop.bind(this)}
-        style={style}
+        style={styles}
       >
         <Flex align="center" direction="column">
           <div>{label}</div>

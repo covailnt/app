@@ -1,20 +1,22 @@
 import { SIGN_OUT_REQUESTED } from 'actions/types'
-import { StyleSheet, css } from 'aphrodite'
-import { Avatar, Button } from 'components/elements'
+import { Avatar, Button, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import appStore from 'reducers'
-import theme from 'theme'
+import styled from 'styled-components'
+import { color } from 'styled-system'
 
-import classes from './UserMenu.scss'
-
-const styles = StyleSheet.create({
-  menu: {
-    color: theme.colors.white,
-  },
-})
+const StyledList = styled.ul`
+  position: absolute;
+  top: 47px;
+  margin: 0;
+  right: 0;
+  display: block;
+  min-width: 250px;
+  ${color};
+`
 
 class UserMenu extends Component {
   constructor(props) {
@@ -25,41 +27,11 @@ class UserMenu extends Component {
   toggleMenu() {
     this.setState({ open: !this.state.open })
   }
-  renderMenu() {
-    return this.state.open ? (
-      <ul className={`${classes.menuDropdown} ${css(styles.menu)}`}>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/profile">Secret Profile</Link>
-        </li>
-        <li>
-          <Link to="/signup">Sign Up Landing Page</Link>
-        </li>
-        <li>
-          <Link to="/signup/create-account/step-1">SignUp-Step-1</Link>
-        </li>
-        <li>
-          <Link to="/">
-            <Button
-              onClick={() =>
-                appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
-            >
-              Sign Out
-            </Button>
-          </Link>
-        </li>
-      </ul>
-    ) : (
-      ''
-    )
-  }
   render() {
     const { user } = this.props
 
     return (
-      <div className={classes.menuCtn}>
+      <Relative>
         <Avatar
           onClick={() => this.toggleMenu()}
           margin="0 20px"
@@ -67,8 +39,33 @@ class UserMenu extends Component {
           size="50px"
           src={user.photoURL || '/public/images/avatar.png'}
         />
-        {this.renderMenu()}
-      </div>
+        {this.state.open && (
+          <StyledList>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/profile">Secret Profile</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign Up Landing Page</Link>
+            </li>
+            <li>
+              <Link to="/signup/create-account/step-1">SignUp-Step-1</Link>
+            </li>
+            <li>
+              <Link to="/">
+                <Button
+                  onClick={() =>
+                    appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
+                >
+                  Sign Out
+                </Button>
+              </Link>
+            </li>
+          </StyledList>
+        )}
+      </Relative>
     )
   }
 }
