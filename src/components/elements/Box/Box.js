@@ -1,11 +1,14 @@
+import { omit } from 'lodash'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { color, responsiveStyle, space, width } from 'styled-system'
 
-const align = responsiveStyle('text-align', 'align')
-const Box = styled.div`
+const Box = styled(props => <div {...omit(props, ['align', 'wrap'])} />)`
   ${space} ${width} ${color} ${align};
 `
+
+const align = responsiveStyle('text-align', 'align')
 
 Box.displayName = 'Box'
 

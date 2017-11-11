@@ -1,6 +1,6 @@
+import { Flex } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Flex } from 'rebass'
 
 import classes from './SignUpTemplate.scss'
 

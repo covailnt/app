@@ -1,12 +1,11 @@
 import { signInRequested } from 'actions'
-import { Button, Heading } from 'components/elements'
+import { Button, Flex, Heading } from 'components/elements'
 import { Input } from 'components/partials'
 import { SignUpTemplate } from 'components/yields'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Flex } from 'rebass'
 import {
   FACEBOOK,
   FIELDS,

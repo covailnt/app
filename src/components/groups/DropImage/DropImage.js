@@ -1,8 +1,7 @@
-import { Icon } from 'components/elements'
+import { Flex, Icon } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Dropzone from 'react-dropzone'
-import { Flex } from 'rebass'
 
 import classes from './DropImage.scss'
 import firebase from '.config'

@@ -23,13 +23,7 @@ Flex.propTypes = {
     'stretch',
   ]),
   /** flex-direction */
-  direction: PropTypes.oneOf([
-    'center',
-    'flex-start',
-    'flex-end',
-    'baseline',
-    'stretch',
-  ]),
+  direction: PropTypes.oneOf(['row', 'column']),
   /** justify-content */
   justify: PropTypes.oneOf([
     'center',

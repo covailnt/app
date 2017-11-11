@@ -1,11 +1,10 @@
 import { setInputVal } from 'actions'
-import { Aux, DropDown, MenuItem } from 'components/elements'
+import { Aux, Box, DropDown, MenuItem } from 'components/elements'
 import { DonutChart } from 'components/groups'
 import { throttle } from 'lodash'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Box } from 'rebass'
 import { breakpoints } from 'theme'
 import {
   KINDA_BUSY,

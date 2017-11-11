@@ -1,7 +1,6 @@
-import { Button, Heading, Icon, Logo } from 'components/elements'
+import { Button, Flex, Heading, Icon, Logo } from 'components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Flex } from 'rebass'
 
 import classes from './LandingPage.scss'
 

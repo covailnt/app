@@ -6,13 +6,13 @@ import {
   IconButton,
   Relative,
 } from 'components/elements'
+import { Flex } from 'components/elements'
 import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/partials'
 import { AuthenticatedTemplate } from 'components/yields'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Flex } from 'rebass'
 import { FIELDS, SOCIAL, URL } from 'utils/constants'
 
 import classes from './Profile.scss'

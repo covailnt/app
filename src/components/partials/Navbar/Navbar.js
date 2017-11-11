@@ -1,7 +1,7 @@
+import { Flex } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Flex } from 'rebass'
 import styled from 'styled-components'
 import { media } from 'utils'
 

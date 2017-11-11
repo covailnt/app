@@ -1,9 +1,8 @@
-import { Button, Heading } from 'components/elements'
+import { Button, Flex, Heading } from 'components/elements'
 import { FirebaseInput } from 'components/partials'
 import { SignUpTemplate } from 'components/yields'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Flex } from 'rebass'
 import { FIELDS } from 'utils/constants'
 
 import classes from './SetDisplayName.scss'

@@ -1,6 +1,7 @@
+import { Flex } from 'components/elements'
 import { omit } from 'lodash'
 import React from 'react'
-import { Fixed, Flex } from 'rebass'
+import { Fixed } from 'rebass'
 import styled from 'styled-components'
 import { ifProp } from 'styled-tools'
 import { media } from 'utils'
