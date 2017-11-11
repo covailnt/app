@@ -43,7 +43,9 @@
   "repository": "https://github.com/covailnt/app",
   "author": "Ryan Garant",
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
+    "@storybook/addon-info": "^3.2.15",
+    "@storybook/react": "^3.2.15",
+    "@storybook/storybook-deployer": "^2.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
