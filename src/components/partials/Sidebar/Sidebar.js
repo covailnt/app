@@ -1,6 +1,7 @@
 import { setInputVal } from 'actions'
 import {
   Aux,
+  Badge,
   Box,
   Button,
   DropDown,
@@ -165,7 +166,9 @@ class Sidebar extends Component {
                     py={2}
                   >
                     {item.text}
-                    <span style={{ float: 'right' }}>{item.badge}</span>
+                    <Badge bg="primary" style={{ float: 'right' }}>
+                      {item.badge}
+                    </Badge>
                   </Link>
                 ))}
               </List>

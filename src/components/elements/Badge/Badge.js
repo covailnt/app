@@ -1,0 +1,34 @@
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { color, space } from 'styled-system'
+
+const Badge = styled.div`
+  border-radius: 99999px;
+  display: inline-block;
+  font-size: ${props => props.theme.fontSizes[0]}px;
+  font-weight: 600;
+  ${color} ${space};
+`
+
+Badge.defaultProps = {
+  color: 'white',
+  bg: 'primary',
+  px: 2,
+  py: 1,
+}
+
+const numberStringOrArray = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+  PropTypes.array,
+])
+
+Badge.propTypes = {
+  bg: PropTypes.string,
+  px: numberStringOrArray,
+  py: numberStringOrArray,
+}
+
+Badge.displayName = 'Badge'
+
+export default Badge
