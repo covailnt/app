@@ -17,7 +17,7 @@ import {
 } from 'utils/constants'
 
 import classes from './Sidebar.scss'
-import { FlexStyled, ToggleOpen } from './styled'
+import { FlexStyled, StatusCtn, ToggleOpen } from './styled'
 
 class Sidebar extends Component {
   constructor(props) {
@@ -110,7 +110,7 @@ class Sidebar extends Component {
         <FlexStyled direction="column" bg="black" isOpen={this.state.isOpen}>
           <Box py={2} px={[2]}>
             <DonutChart value={this.state.value} />
-            <div className={classes.statusCtn} bg="blue">
+            <StatusCtn>
               <DropDown
                 dirty={this.state.dirty}
                 handleChange={this.handleChange}
@@ -133,7 +133,7 @@ class Sidebar extends Component {
                   Expires in: 7 days
                 </p>
               )}
-            </div>
+            </StatusCtn>
 
             <div className={classes.nav}>
               <ul className={classes.sidebarNav}>
