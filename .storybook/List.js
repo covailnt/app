@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react'
+import { List } from 'components/elements'
 import React from 'react'
-
-import List from '.'
 
 storiesOf('List', module)
   .add('default', () => (

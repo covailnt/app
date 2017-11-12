@@ -1,7 +1,6 @@
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
+import { Avatar } from 'components/elements'
 import React from 'react'
-
-import Avatar from '.'
 
 storiesOf('Avatar', module)
   .add('default', () => <Avatar />)

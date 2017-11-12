@@ -1,8 +1,7 @@
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
+import { Heading } from 'components/elements'
 import React from 'react'
 import theme from 'theme'
-
-import Heading from '.'
 
 storiesOf('Heading', module)
   .add('default', () => <Heading level={1}>Heading Level 1</Heading>)

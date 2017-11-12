@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/react'
+import { Box, Flex, Icon, Text } from 'components/elements'
 import React from 'react'
-
-import icons from '../icons.json'
-import { Box, Flex, Icon, Text } from '../src'
+import icons from 'theme/icons.json'
 
 const keys = Object.keys(icons).filter(name => name !== 'legacy')
 const legacy = Object.keys(icons.legacy)

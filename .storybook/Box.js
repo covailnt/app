@@ -1,8 +1,7 @@
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
+import { Box } from 'components/elements'
 import React from 'react'
-
-import { Box } from '../src'
 
 const description =
   'A low-level layout component for setting width, margin, padding, and color'

@@ -1,8 +1,7 @@
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
+import { Input, Label } from 'components/elements'
 import React from 'react'
-
-import { Input, Label } from '../src'
 
 storiesOf('Label', module)
   .add(

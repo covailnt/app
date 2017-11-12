@@ -1,6 +1,5 @@
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
+import { Button } from 'components/elements'
 import React from 'react'
-
-import Button from '.'
 
 storiesOf('Button', module).add('default', () => <Button>Hello</Button>)

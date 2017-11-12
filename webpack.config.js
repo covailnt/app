@@ -68,7 +68,6 @@ const config = createConfig([
   entryPoint(sourcePath),
   setOutput(`${outputPath}/app.js`),
   addPlugins([
-    new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(process.cwd(), 'public/index.html'),

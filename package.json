@@ -7,12 +7,12 @@
   "scripts": {
     "start": "npm run clean && npm run icons && npm run dev",
     "clean": "rimraf dist/*",
-    "dev": "npm run env:dev && webpack-dev-server --colors --progress",
-    "env:dev": "cross-env NODE_ENV=development",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
+    "dev": "npm run env:dev && webpack-dev-server --colors --progress",
     "dist": "npm run icons && npm run copy & webpack --env=dist",
     "deploy":
       "npm run env:dev && npm run clean && npm run dist && firebase deploy",
+    "env:dev": "cross-env NODE_ENV=development",
     "eslint-check":
       "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "format":
@@ -26,7 +26,8 @@
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
     "sort": "import-sort --overwrite \"src\"",
-    "storybook": "start-storybook -p 9001 -c private/storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "lint-staged": {
     "*.{js,json,css}": [
@@ -69,7 +70,6 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "^1.1.5",
-    "fs": "^0.0.1-security",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
     "import-sort-cli": "^3.3.0",

@@ -1,6 +1,5 @@
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
+import { Logo } from 'components/elements'
 import React from 'react'
-
-import Logo from '.'
 
 storiesOf('Logo', module).add('default', () => <Logo />)
