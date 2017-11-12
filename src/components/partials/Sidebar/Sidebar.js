@@ -1,5 +1,5 @@
 import { setInputVal } from 'actions'
-import { Aux, Box, DropDown, MenuItem } from 'components/elements'
+import { Aux, Box, DropDown, Link } from 'components/elements'
 import { DonutChart } from 'components/groups'
 import { throttle } from 'lodash'
 import PropTypes from 'prop-types'
@@ -137,18 +137,18 @@ class Sidebar extends Component {
 
             <div className={classes.nav}>
               <ul className={classes.sidebarNav}>
-                <MenuItem link="/profile">
+                <Link to="/profile">
                   Profile<span className={classes.profileEdit}>edit</span>
-                </MenuItem>
-                <MenuItem link="/contacts">
+                </Link>
+                <Link to="/contacts">
                   Contacts <span className={classes.badge}>1</span>
-                </MenuItem>
-                <MenuItem link="/chat">
+                </Link>
+                <Link to="/chat">
                   Chat <span className={classes.badge}>1</span>
-                </MenuItem>
-                <MenuItem link="/collab">
+                </Link>
+                <Link to="/collab">
                   Collab Sessions <span className={classes.badge}>2</span>
-                </MenuItem>
+                </Link>
               </ul>
             </div>
           </Box>

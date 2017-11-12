@@ -1,7 +1,19 @@
-import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
-import classes from './Spinner.scss'
+const rotate360 = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`
 
-const Spinner = () => <div className={classes.spinner} />
+const Spinner = styled.div`
+  position: relative;
+  border: 0.2em solid black;
+  border-bottom-color: black;
+  border-radius: 50%;
+  margin: 0 auto;
+  width: 1em;
+  height: 1em;
+  animation: ${rotate360} 2s linear infinite;
+`
 
 export default Spinner

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { color } from 'styled-system'
+import { color, space } from 'styled-system'
 
 // If you want to have a standard link like one that links to an
 //  outside page, then pass a string to the `href` prop
@@ -12,34 +12,34 @@ import { color } from 'styled-system'
 
 const StandardLink = styled.a`
   text-decoration: none;
-  ${color} &:hover {
-    text-decoration: underline;
-  }
+  ${color};
 `
 
 const RouteLink = styled(RouterLink)`
   text-decoration: none;
-  ${color} &:hover {
-    text-decoration: underline;
-  }
+  ${color};
+`
+
+const ListItem = styled.li`
+  ${space};
 `
 
 const Link = props => {
-  if (props.route) {
+  if (props.to) {
     return props.li ? (
-      <li>
-        <RouteLink {...omit(props, ['href'])} />
-      </li>
+      <ListItem {...props}>
+        <RouteLink {...omit(props, ['href', 'li'])} />
+      </ListItem>
     ) : (
-      <RouteLink {...omit(props, ['href'])} />
+      <RouteLink {...omit(props, ['href', 'li'])} />
     )
   } else {
     return props.li ? (
-      <li>
-        <StandardLink {...omit(props, ['to'])} />
-      </li>
+      <ListItem {...props}>
+        <StandardLink {...omit(props, ['to', 'li'])} />
+      </ListItem>
     ) : (
-      <StandardLink {...omit(props, ['to'])} />
+      <StandardLink {...omit(props, ['to', 'li'])} />
     )
   }
 }
@@ -50,12 +50,15 @@ Link.propTypes = {
   color: PropTypes.string,
   children: PropTypes.node,
   li: PropTypes.bool,
-  route: PropTypes.string,
+  to: PropTypes.string,
   href: PropTypes.string,
 }
 
 Link.defaultProps = {
-  color: 'blue',
+  color: 'white',
+  li: true,
+  m: 0,
+  p: 0,
 }
 
 export default Link

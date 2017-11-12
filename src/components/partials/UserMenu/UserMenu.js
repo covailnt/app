@@ -1,5 +1,5 @@
 import { SIGN_OUT_REQUESTED } from 'actions/types'
-import { Avatar, Button, MenuItem, Relative } from 'components/elements'
+import { Avatar, Button, Link, MenuItem, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -8,12 +8,13 @@ import styled from 'styled-components'
 import { color, space } from 'styled-system'
 
 const StyledList = styled.ul`
-  position: absolute;
-  top: 47px;
-  margin: 0;
-  right: 0;
   display: block;
+  list-style: none;
+  margin: 0;
   min-width: 250px;
+  position: absolute;
+  right: 0;
+  top: 47px;
   ${color} ${space};
 `
 
@@ -40,24 +41,30 @@ class UserMenu extends Component {
         />
         {this.state.open && (
           <StyledList bg="black" px={3}>
-            <MenuItem link="/">Home</MenuItem>
+            <Link to="/" p={3}>
+              Home
+            </Link>
 
-            <MenuItem link="/profile">Secret Profile</MenuItem>
+            <Link to="/profile" p={3}>
+              Secret Profile
+            </Link>
 
-            <MenuItem link="/signup">Sign Up Landing Page</MenuItem>
+            <Link to="/signup" p={3}>
+              Sign Up Landing Page
+            </Link>
 
-            <MenuItem link="/signup/create-account/step-1">
+            <Link to="/signup/create-account/step-1" p={3}>
               SignUp-Step-1
-            </MenuItem>
+            </Link>
 
-            <MenuItem link="/">
+            <Link to="/">
               <Button
                 onClick={() =>
                   appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
               >
                 Sign Out
               </Button>
-            </MenuItem>
+            </Link>
           </StyledList>
         )}
       </Relative>
