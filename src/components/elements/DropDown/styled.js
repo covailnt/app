@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color } from 'styled-system'
+import { color, space } from 'styled-system'
 
 export const Select = styled.select`
   border-radius: 3px;
@@ -9,5 +9,5 @@ export const Select = styled.select`
   -webkit-appearance: none;
   background-position-x: 95%;
   width: 100%;
-  ${color};
+  ${color} ${space};
 `

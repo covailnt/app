@@ -1,4 +1,10 @@
+import { colors } from 'theme'
+
 export default function shade(color, percent) {
+  if (color.slice(0, 3) !== 'rgb') {
+    color = colors[color]
+  }
+
   let f = color.split(','),
     t = percent < 0 ? 0 : 255,
     p = percent < 0 ? percent * -1 : percent,

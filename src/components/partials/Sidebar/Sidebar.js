@@ -1,11 +1,20 @@
 import { setInputVal } from 'actions'
-import { Aux, Box, DropDown, Link } from 'components/elements'
+import {
+  Aux,
+  Box,
+  Button,
+  DropDown,
+  Link,
+  List,
+  Text,
+} from 'components/elements'
 import { DonutChart } from 'components/groups'
 import { throttle } from 'lodash'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { breakpoints } from 'theme'
+import { shade } from 'utils'
 import {
   KINDA_BUSY,
   KINDA_LIGHT,
@@ -93,6 +102,15 @@ class Sidebar extends Component {
     }
   }
   render() {
+    const menu = [
+      { badge: 'edit', text: 'Profile', route: '/profile' },
+      { badge: '1', text: 'Contacts', route: '/contacts' },
+      { badge: '1', text: 'Chat', route: '/chat' },
+      { badge: '2', text: 'Collab Sessions', route: '/collab' },
+    ]
+
+    const menuBg = shade('black', 0.1)
+
     return (
       <Aux>
         <ToggleOpen
@@ -108,7 +126,7 @@ class Sidebar extends Component {
         </ToggleOpen>
 
         <FlexStyled direction="column" bg="black" isOpen={this.state.isOpen}>
-          <Box py={2} px={[2]}>
+          <Box>
             <DonutChart value={this.state.value} />
             <StatusCtn>
               <DropDown
@@ -116,41 +134,42 @@ class Sidebar extends Component {
                 handleChange={this.handleChange}
                 items={this.state.items}
                 label="This week I am:"
+                m={2}
                 name="profile-dropdown"
                 placeholder="How busy are you?"
                 value={this.state.status}
-                submitButton="Update Availability"
               />
 
               {this.state.dirty ? (
-                false
+                <Button>Update Availability</Button>
               ) : (
-                <p className={classes.statusMsg}>
+                <Text.p align="center" color="primary">
                   <span>You are up to date.</span>
                   <br />
                   Last Updated: Today
                   <br />
                   Expires in: 7 days
-                </p>
+                </Text.p>
               )}
             </StatusCtn>
 
-            <div className={classes.nav}>
-              <ul className={classes.sidebarNav}>
-                <Link to="/profile">
-                  Profile<span className={classes.profileEdit}>edit</span>
-                </Link>
-                <Link to="/contacts">
-                  Contacts <span className={classes.badge}>1</span>
-                </Link>
-                <Link to="/chat">
-                  Chat <span className={classes.badge}>1</span>
-                </Link>
-                <Link to="/collab">
-                  Collab Sessions <span className={classes.badge}>2</span>
-                </Link>
-              </ul>
-            </div>
+            <Box mt={1}>
+              <List m={0} p={0} className={classes.sidebarNav}>
+                {menu.map(item => (
+                  <Link
+                    bg={menuBg}
+                    key={item.route}
+                    to={item.route}
+                    mb={1}
+                    px={4}
+                    py={2}
+                  >
+                    {item.text}
+                    <span style={{ float: 'right' }}>{item.badge}</span>
+                  </Link>
+                ))}
+              </List>
+            </Box>
           </Box>
         </FlexStyled>
       </Aux>

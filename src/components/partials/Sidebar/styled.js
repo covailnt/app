@@ -26,33 +26,3 @@ export const StatusCtn = styled.div`
   height: 175px;
   min-height: 175px;
 `
-// .statusCtn {
-
-//   label {
-//     margin-top: 2rem;
-//     display: block;
-//   }
-//   select {
-//     color: $text;
-//     display: block;
-//     width: 100%;
-//     height: 40px;
-//   }
-//   .statusMsg {
-//     color: $msg;
-//     text-align: center;
-//     @include rems(14);
-//     span {
-//       color: $primary;
-//     }
-//   }
-//   .btnPrimary {
-//     display: block;
-//     width: 100%;
-//     background: $primary;
-//     color: $white;
-//     border: 0;
-//     padding: 7px 14px;
-//     border-radius: 5px;
-//   }
-// }

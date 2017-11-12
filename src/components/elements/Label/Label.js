@@ -1,15 +1,41 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { color, fontSize, propTypes, space } from 'styled-system'
+import { color, fontSize, space } from 'styled-system'
 
 const Label = styled.label`
   ${space} ${fontSize} ${color};
 `
 // Accepts all props that you can pass to a standard react <label> element
 
+const numberStringOrArray = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+  PropTypes.array,
+])
+
 Label.propTypes = {
-  ...propTypes.space,
-  ...propTypes.fontSize,
-  ...propTypes.color,
+  fontSize: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.array,
+  ]),
+  color: PropTypes.string,
+  /** Margin */
+  m: numberStringOrArray,
+  mt: numberStringOrArray,
+  mr: numberStringOrArray,
+  mb: numberStringOrArray,
+  ml: numberStringOrArray,
+  mx: numberStringOrArray,
+  my: numberStringOrArray,
+  /** Padding */
+  p: numberStringOrArray,
+  pt: numberStringOrArray,
+  pr: numberStringOrArray,
+  pb: numberStringOrArray,
+  pl: numberStringOrArray,
+  px: numberStringOrArray,
+  py: numberStringOrArray,
 }
 
 Label.defaultProps = {
