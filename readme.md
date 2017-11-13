@@ -6,7 +6,7 @@
 2. Run `npm i`
 3. Then run `npm start`
 
-That's it! Now go party on `localhost:3000`
+That's it! Now go party on `localhost:3000` !
 
 
 ![](https://media.giphy.com/media/fsULJFFGv8X3G/giphy.gif)
