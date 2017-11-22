@@ -1,5 +1,7 @@
 import { breaks, dec, is, media, merge, num, px } from './util'
 
+const wx = n => (!num(n) || n > 1 ? px(n) : n * 100 + '%')
+
 export default function(props) {
   const n = is(props.width) ? props.width : props.width || props.w
 
@@ -19,5 +21,3 @@ export default function(props) {
     .map(media(breakpoints))
     .reduce(merge, {})
 }
-
-const wx = n => (!num(n) || n > 1 ? px(n) : n * 100 + '%')

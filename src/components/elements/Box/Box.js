@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
 const Box = styled(props => <div {...omit(props, ['align', 'wrap'])} />)`
-  ${space} ${width} ${color} ${align};
+  ${align} ${color} ${space} ${width};
 `
 
 const align = responsiveStyle('text-align', 'align')
