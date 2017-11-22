@@ -26,7 +26,6 @@ import {
   SLAMMED,
 } from 'utils/constants'
 
-import classes from './Sidebar.scss'
 import { FlexStyled, StatusCtn, ToggleOpen } from './styled'
 
 class Sidebar extends Component {
@@ -155,7 +154,7 @@ class Sidebar extends Component {
             </StatusCtn>
 
             <Box mt={1}>
-              <List m={0} p={0} className={classes.sidebarNav}>
+              <List m={0} p={0}>
                 {menu.map(item => (
                   <Link
                     bg={menuBg}

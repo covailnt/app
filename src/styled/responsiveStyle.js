@@ -1,6 +1,6 @@
 import { arr, breaks, dec, get, is, media, merge, px } from './util'
 
-module.exports = (...args) => props => {
+const responsiveStyles = (...args) => props => {
   // support for legacy API
   const [arg, _prop, _bool] = args
   let { cssProperty, prop, boolValue, key, numberToPx } =
@@ -33,3 +33,5 @@ module.exports = (...args) => props => {
 }
 
 const bool = val => n => (n === true ? val : n)
+
+export default responsiveStyles
