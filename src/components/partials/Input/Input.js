@@ -42,6 +42,7 @@ class Input extends Component {
     return (
       <div className={this.props.className}>
         {label && <Label htmlFor={this.props.name}>{label}</Label>}
+
         <input
           className={`input-${this.props.type}
             ${this.props.className || ''}
@@ -60,7 +61,9 @@ class Input extends Component {
           type={this.props.type}
           value={this.props.value}
         />
+
         {this.props.labelAfter && label}
+
         <div className={classes.errorMessages}>
           {this.state.errors
             .map(err => {

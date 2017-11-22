@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 import { color, space } from 'styled'
 import styled from 'styled-components'
-import { fontSize } from 'styled-system'
+import { fontSize, fontWeight } from 'styled-system'
 
 const Label = styled.label`
-  ${space} ${fontSize} ${color};
+  display: block;
+  ${space} ${fontSize} ${fontWeight} ${color};
 `
 // Accepts all props that you can pass to a standard react <label> element
 
@@ -20,6 +21,7 @@ Label.propTypes = {
     PropTypes.string,
     PropTypes.array,
   ]),
+  fontWeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,
   /** Margin */
   m: numberStringOrArray,
@@ -40,8 +42,9 @@ Label.propTypes = {
 }
 
 Label.defaultProps = {
-  color: 'white',
-  fontSize: 2,
+  color: 'accent1',
+  fontSize: 3,
+  py: 2,
 }
 
 export default Label

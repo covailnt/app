@@ -1,18 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 
-import classes from './Avatar.scss'
+const Img = styled.img`
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px;
+`
 
 const Avatar = ({ onClick, size, src }) => {
-  return (
-    <img
-      alt="avatar"
-      className={classes.avatar}
-      width={size}
-      onClick={onClick}
-      src={src}
-    />
-  )
+  return <Img alt="avatar" width={size} onClick={onClick} src={src} />
 }
 
 Avatar.defaultProps = {

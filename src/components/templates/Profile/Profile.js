@@ -155,7 +155,7 @@ class Profile extends Component {
             <Button>Send Collab Request</Button>
           </Flex>
 
-          <Flex className={classes.portfolioCtn} justify="space-around">
+          <Flex justify="space-around" mb={2} p={3}>
             <Flex direction="column" className={classes.skills}>
               <Heading color="accent1" level={5}>
                 Skills
