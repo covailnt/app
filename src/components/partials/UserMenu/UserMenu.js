@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import appStore from 'reducers'
+import { color, space } from 'styled'
 import styled from 'styled-components'
-import { color, space } from 'styled-system'
 
 const StyledList = styled.ul`
   display: block;

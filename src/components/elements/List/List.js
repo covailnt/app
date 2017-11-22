@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { color, space } from 'styled'
 import styled from 'styled-components'
-import { color, space } from 'styled-system'
 
 const Ol = styled.ol`
   ${color} ${space};

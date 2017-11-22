@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
+import { color, space, width } from 'styled'
 import styled, { css } from 'styled-components'
-import { color, space, width } from 'styled-system'
 import { ifProp, prop } from 'styled-tools'
 
 const Absolute = styled.div`

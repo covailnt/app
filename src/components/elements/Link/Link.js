@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+import { color, space } from 'styled'
 import styled from 'styled-components'
-import { color, space } from 'styled-system'
 import { ifProp } from 'styled-tools'
 import { omitSpace, shade } from 'utils'
 

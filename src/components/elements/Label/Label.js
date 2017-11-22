@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
+import { color, space } from 'styled'
 import styled from 'styled-components'
-import { color, fontSize, space } from 'styled-system'
+import { fontSize } from 'styled-system'
 
 const Label = styled.label`
   ${space} ${fontSize} ${color};

@@ -1,8 +1,9 @@
 import { omit } from 'lodash'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { color, space, width } from 'styled'
 import styled from 'styled-components'
-import { color, responsiveStyle, space, width } from 'styled-system'
+import { responsiveStyle } from 'styled-system'
 
 const Box = styled(props => <div {...omit(props, ['align', 'wrap'])} />)`
   ${space} ${width} ${color} ${align};

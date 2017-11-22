@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
+import { width } from 'styled'
 import styled from 'styled-components'
-import { width } from 'styled-system'
 
 const Relative = styled.div`
   position: relative;

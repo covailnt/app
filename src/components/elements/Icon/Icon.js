@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { space } from 'styled'
 import styled from 'styled-components'
-import { space } from 'styled-system'
 import { colors } from 'theme'
 import icons from 'theme/icons.json'
 

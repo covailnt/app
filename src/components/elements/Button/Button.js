@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
+import { color, space } from 'styled'
 import styled from 'styled-components'
-import { color, space } from 'styled-system'
 import { colors, radii, radius } from 'theme'
 import { shade } from 'utils'
 

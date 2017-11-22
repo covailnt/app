@@ -1,5 +1,5 @@
+import { color, space } from 'styled'
 import styled from 'styled-components'
-import { color, space } from 'styled-system'
 
 export const Select = styled.select`
   border-radius: 3px;
