@@ -1,25 +1,24 @@
+import { Flex, Text } from 'components/elements'
 import PropTypes from 'prop-types'
 import React from 'react'
-import theme from 'theme'
-
-import classes from './Rank.scss'
+import { colors } from 'theme'
 
 const Rank = ({ color, type, value }) => {
   return (
-    <li>
-      <span className={classes.rank} color={color}>
+    <Flex align="center">
+      <Text color={color} fontSize={1} mx={3}>
         Rank<br />
         {type}
-      </span>
-      <span className={classes.heading} color={color}>
+      </Text>
+      <Text color={color} fontSize={5}>
         {value}
-      </span>
-    </li>
+      </Text>
+    </Flex>
   )
 }
 
 Rank.defaultProps = {
-  color: theme.colors.black,
+  color: colors.black,
 }
 
 Rank.propTypes = {
