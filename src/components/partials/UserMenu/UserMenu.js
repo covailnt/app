@@ -1,5 +1,5 @@
 import { SIGN_OUT_REQUESTED } from 'actions/types'
-import { Avatar, Button, Link, MenuItem, Relative } from 'components/elements'
+import { Avatar, Button, Link, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -60,7 +60,8 @@ class UserMenu extends Component {
             <Link to="/">
               <Button
                 onClick={() =>
-                  appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })}
+                  appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })
+                }
               >
                 Sign Out
               </Button>
