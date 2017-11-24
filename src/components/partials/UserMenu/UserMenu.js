@@ -15,6 +15,7 @@ const StyledList = styled.ul`
   position: absolute;
   right: 0;
   top: 47px;
+  z-index: 999;
   ${color} ${space};
 `
 

@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { media } from 'utils'
 
-import classes from './Navbar.scss'
-
 const StyledFlex = styled(Flex)`
   ${media.lessThan('sm')`
     display: none;
@@ -16,12 +14,7 @@ const StyledFlex = styled(Flex)`
 class Navbar extends Component {
   render() {
     return (
-      <StyledFlex
-        align="center"
-        background={this.props.color}
-        className={classes.navbar}
-        justify="flex-end"
-      >
+      <StyledFlex align="center" bg="black" justify="flex-end">
         {this.props.children}
       </StyledFlex>
     )
