@@ -42,9 +42,10 @@ Label.propTypes = {
 }
 
 Label.defaultProps = {
-  color: 'accent1',
+  color: 'gray7',
   fontSize: 3,
   py: 2,
+  pr: 2,
 }
 
 export default Label

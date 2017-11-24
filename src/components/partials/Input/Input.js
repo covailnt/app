@@ -1,7 +1,7 @@
-import { Box, Label, Text } from 'components/elements'
-import PropTypes from 'prop-types'
+import { Box, Flex, Label, Text } from 'components/elements'
+import { array, bool, func, number, oneOf, string } from 'prop-types'
 import React, { Component } from 'react'
-import { validationRules } from 'utils'
+import { pickSpace, validationRules } from 'utils'
 
 import { StyledInput } from './styles'
 
@@ -38,11 +38,22 @@ class Input extends Component {
   }
 
   render() {
-    const label = this.props.label
+    const { label, labelColor, labelPosition, labelSize } = this.props
 
     return (
-      <div className={this.props.className}>
-        {label && <Label htmlFor={this.props.name}>{label}</Label>}
+      <Flex
+        direction={labelPosition == 'left' ? 'row' : 'column'}
+        {...pickSpace(this.props)}
+      >
+        {label && (
+          <Label
+            color={labelColor}
+            fontSize={labelSize}
+            htmlFor={this.props.name}
+          >
+            {label}
+          </Label>
+        )}
 
         <Box>
           {this.state.errors.map(err => (
@@ -55,7 +66,7 @@ class Input extends Component {
         <StyledInput
           bg="gray1"
           borderColor={this.props.borderColor}
-          color="black"
+          color={this.props.color}
           hasErrors={this.state.errors.length > 0}
           mb={3}
           name={this.props.name}
@@ -65,36 +76,41 @@ class Input extends Component {
           placeholder={this.props.placeholder}
           type={this.props.type}
           value={this.props.value}
+          width={this.props.width}
         />
-
-        {this.props.labelAfter && label}
-      </div>
+      </Flex>
     )
   }
 }
 
 Input.defaultProps = {
   borderColor: 'primary',
+  color: 'black',
+  labelPosition: 'top',
   type: 'text',
+  width: '200px',
 }
 
 Input.propTypes = {
-  borderColor: PropTypes.string,
-  checked: PropTypes.bool,
-  className: PropTypes.string,
-  color: PropTypes.string,
-  hint: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  labelAfter: PropTypes.bool,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  overrideValidation: PropTypes.bool,
-  placeholder: PropTypes.string,
-  type: PropTypes.string,
-  validations: PropTypes.array,
-  value: PropTypes.string,
+  borderColor: string,
+  checked: bool,
+  className: string,
+  color: string,
+  hint: string,
+  id: string,
+  label: string,
+  labelColor: string,
+  labelPosition: oneOf(['top', 'left']),
+  labelSize: number,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  overrideValidation: bool,
+  placeholder: string,
+  type: string,
+  validations: array,
+  value: string,
+  width: string,
 }
 
 export default Input

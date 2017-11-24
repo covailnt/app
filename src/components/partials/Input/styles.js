@@ -13,5 +13,6 @@ const border = props => {
 export const StyledInput = styled.input`
   border-radius: 6px;
   box-sizing: border-box;
+  width: ${props => props.width};
   ${border} ${color} ${space};
 `

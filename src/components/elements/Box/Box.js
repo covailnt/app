@@ -5,7 +5,9 @@ import { color, space, width } from 'styled'
 import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
-const Box = styled(props => <div {...omit(props, ['align', 'wrap'])} />)`
+const Box = styled(props => (
+  <div {...omit(props, ['align', 'borderRadius', 'wrap'])} />
+))`
   ${align} ${color} ${space} ${width};
 `
 

@@ -2,7 +2,7 @@ import { Box } from 'components/elements'
 import PropTypes from 'prop-types'
 import { width } from 'styled'
 import styled from 'styled-components'
-import { responsiveStyle } from 'styled-system'
+import { borderRadius, responsiveStyle } from 'styled-system'
 
 const align = responsiveStyle('align-items', 'align')
 const direction = responsiveStyle('flex-direction', 'direction')
@@ -11,7 +11,7 @@ const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
 
 const Flex = styled(Box)`
   display: flex;
-  ${align} ${direction} ${justify} ${width} ${wrap};
+  ${align} ${borderRadius} ${direction} ${justify} ${width} ${wrap};
 `
 
 Flex.propTypes = {

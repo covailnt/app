@@ -1,5 +1,5 @@
 import { Box, Flex, Icon } from 'components/elements'
-import PropTypes from 'prop-types'
+import { bool, func, object, string } from 'prop-types'
 import React from 'react'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
@@ -28,6 +28,7 @@ const StyledDropzone = styled(Dropzone)`
 `
 
 const DropImage = ({
+  circle,
   defaultImage,
   imageURL,
   height,
@@ -70,6 +71,7 @@ const DropImage = ({
   return (
     <Flex
       align="center"
+      borderRadius={circle ? '50%' : '0'}
       direction="column"
       justify="center"
       style={{ height: '100%' }}
@@ -89,16 +91,21 @@ const DropImage = ({
   )
 }
 
+DropImage.defaultProps = {
+  circle: false, // true for shape like an avatar
+}
+
 DropImage.propTypes = {
-  defaultImage: PropTypes.string.isRequired,
-  height: PropTypes.string,
-  imageURL: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  imageName: PropTypes.string.isRequired,
-  setImage: PropTypes.func.isRequired,
-  style: PropTypes.object,
-  uid: PropTypes.string.isRequired,
-  width: PropTypes.string,
+  circle: bool,
+  defaultImage: string.isRequired,
+  height: string,
+  imageURL: string,
+  label: string.isRequired,
+  imageName: string.isRequired,
+  setImage: func.isRequired,
+  style: object,
+  uid: string.isRequired,
+  width: string,
 }
 
 export default DropImage

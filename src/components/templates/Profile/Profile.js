@@ -6,7 +6,7 @@ import {
   IconButton,
   Relative,
 } from 'components/elements'
-import { Flex } from 'components/elements'
+import { Box, Flex } from 'components/elements'
 import { DropImage, Rank } from 'components/groups'
 import { FirebaseInput } from 'components/partials'
 import { AuthenticatedTemplate } from 'components/yields'
@@ -14,8 +14,6 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { FIELDS, SOCIAL, URL } from 'utils/constants'
-
-import classes from './Profile.scss'
 
 class Profile extends Component {
   constructor() {
@@ -34,12 +32,12 @@ class Profile extends Component {
         <Flex direction="column">
           <Relative>
             <DropImage
+              circle
               defaultImage="/public/images/profile/defaultBanner.jpg"
               imageURL={this.props[FIELDS.BANNER_URL]}
               setImage={this.props.setImage}
               imageName={FIELDS.BANNER_URL}
               label="Drop cover photo here"
-              className={classes.editBannerPicture}
               uid={this.props.uid}
               height="70vh"
               width="100%"
@@ -57,22 +55,26 @@ class Profile extends Component {
                   {this.props.displayName}
                 </Heading>
 
-                <Flex className={classes.profileTitleCtn}>
+                <Box ml="-56px" py={2}>
                   <FirebaseInput
                     label={`${FIELDS.SPECIALTY} in`}
-                    color="primary"
+                    labelColor="white"
+                    labelPosition="left"
+                    labelSize={2}
                     name={FIELDS.LOCATION}
                     placeholder="Enter city or specify Nomad"
                     type="text"
+                    width="250px"
                   />
-                </Flex>
+                </Box>
               </Flex>
             </Absolute>
           </Relative>
 
-          <div className={classes.profileSummaryCtn}>
-            <div className={classes.editProfilePictureCtn}>
+          <div>
+            <Absolute color="white" mt={-6} pl={4}>
               <DropImage
+                circle
                 defaultImage="/public/images/avatar.png"
                 imageURL={this.props[FIELDS.AVATAR_URL]}
                 uid={this.props.uid}
@@ -81,74 +83,70 @@ class Profile extends Component {
                 label="Drop profile photo here"
                 style={{
                   borderRadius: '50%',
-                  color: 'white',
                 }}
                 height="250px"
                 width="250px"
               />
-            </div>
+            </Absolute>
 
-            <div className={classes.summaryText}>
-              <Flex justify="flex-start" wrap>
-                <div className={classes.summaryStats}>
-                  <Rank color="black" type="Earned" value="005" />
-                  <Rank color="black" type="Potential" value="99" />
-                </div>
+            <Flex direction="column" mt={4}>
+              <Flex align="center" justify="center">
+                <Rank color="black" type="Earned" value="005" />
+                <Rank color="black" type="Potential" value="99" />
 
                 <Button className="chatButton">Open Chat</Button>
-
-                <Flex
-                  align="center"
-                  justify="flex-start"
-                  className={classes.socialLinks}
-                >
-                  <IconButton
-                    fill={
-                      this.state.activeSocial === SOCIAL.FACEBOOK
-                        ? 'facebook'
-                        : 'primary'
-                    }
-                    id={SOCIAL.FACEBOOK}
-                    name="facebook"
-                    onClick={e => this.setActiveIcon(e)}
-                  />
-
-                  <IconButton
-                    fill={
-                      this.state.activeSocial === SOCIAL.LINKEDIN
-                        ? 'linkedin'
-                        : 'primary'
-                    }
-                    color="white"
-                    id={SOCIAL.LINKEDIN}
-                    name="linkedin"
-                    onClick={e => this.setActiveIcon(e)}
-                  />
-
-                  <IconButton
-                    fill={
-                      this.state.activeSocial === SOCIAL.TWITTER
-                        ? 'twitter'
-                        : 'primary'
-                    }
-                    color="white"
-                    id={SOCIAL.TWITTER}
-                    name="twitter"
-                    onClick={e => this.setActiveIcon(e)}
-                  />
-
-                  <FirebaseInput
-                    color="primary"
-                    name={`${this.state.activeSocial.toLowerCase()}${URL}`}
-                    placeholder={`Add a ${this.state.activeSocial} Account`}
-                    type="text"
-                  />
-                </Flex>
               </Flex>
-            </div>
+
+              <Flex align="flex-start" justify="center" my={4}>
+                <IconButton
+                  fill={
+                    this.state.activeSocial === SOCIAL.FACEBOOK
+                      ? 'facebook'
+                      : 'primary'
+                  }
+                  id={SOCIAL.FACEBOOK}
+                  my={1}
+                  name="facebook"
+                  onClick={e => this.setActiveIcon(e)}
+                />
+
+                <IconButton
+                  fill={
+                    this.state.activeSocial === SOCIAL.LINKEDIN
+                      ? 'linkedin'
+                      : 'primary'
+                  }
+                  color="white"
+                  id={SOCIAL.LINKEDIN}
+                  my={1}
+                  name="linkedin"
+                  onClick={e => this.setActiveIcon(e)}
+                />
+
+                <IconButton
+                  fill={
+                    this.state.activeSocial === SOCIAL.TWITTER
+                      ? 'twitter'
+                      : 'primary'
+                  }
+                  color="white"
+                  id={SOCIAL.TWITTER}
+                  my={1}
+                  name="twitter"
+                  onClick={e => this.setActiveIcon(e)}
+                />
+
+                <FirebaseInput
+                  ml={4}
+                  name={`${this.state.activeSocial.toLowerCase()}${URL}`}
+                  placeholder={`Add a ${this.state.activeSocial} Account`}
+                  type="text"
+                />
+              </Flex>
+            </Flex>
           </div>
 
-          <Flex className={classes.statusCtn} justify="space-around">
+          <Flex justify="space-around">
             <Heading color="primary" level={3}>
               Your availability status appears here
             </Heading>
@@ -156,13 +154,12 @@ class Profile extends Component {
           </Flex>
 
           <Flex justify="space-around" mb={2} p={3}>
-            <Flex direction="column" className={classes.skills}>
+            <Flex direction="column">
               <Heading color="accent1" level={5}>
                 Skills
               </Heading>
 
               <FirebaseInput
-                color="primary"
                 name={FIELDS.SPECIALTY}
                 placeholder="Add a another skill"
                 type="text"
@@ -170,22 +167,19 @@ class Profile extends Component {
               />
             </Flex>
 
-            <Flex direction="column" className={classes.portfolio}>
+            <Flex direction="column">
               <Heading color="accent1" level={5}>
                 Portfolio
               </Heading>
 
               <FirebaseInput
-                color="primary"
                 name={FIELDS.PORTFOLIO}
                 placeholder="Add a link to your portfolio"
                 type="text"
                 label="Portfolio Link"
-                validations={['required', 'email']}
               />
 
               <FirebaseInput
-                color="primary"
                 name={FIELDS.BEHANCE_URL}
                 placeholder="Link up your Behance"
                 type="text"
@@ -193,7 +187,6 @@ class Profile extends Component {
               />
 
               <FirebaseInput
-                color="primary"
                 name={FIELDS.DRIBBBLE_URL}
                 placeholder="Link up your Dribbble"
                 type="text"
