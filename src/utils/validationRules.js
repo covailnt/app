@@ -4,7 +4,7 @@ export default {
       return value.toString().trim().length > 0
     },
     hint: () => {
-      return 'Required'
+      return '*Required'
     },
   },
   email: {

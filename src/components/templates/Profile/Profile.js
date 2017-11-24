@@ -181,6 +181,7 @@ class Profile extends Component {
                 placeholder="Add a link to your portfolio"
                 type="text"
                 label="Portfolio Link"
+                validations={['required', 'email']}
               />
 
               <FirebaseInput

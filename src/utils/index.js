@@ -1,6 +1,6 @@
 export media from './mediaQuery'
 export PrivateRoute from './PrivateRoute'
 export shade from './colorShade'
-export rules from './validationRules'
+export validationRules from './validationRules'
 export pickSpace from './pickSpace'
 export omitSpace from './omitSpace'

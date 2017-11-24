@@ -1,10 +1,9 @@
-import { Label } from 'components/elements'
+import { Box, Label, Text } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import theme from 'theme'
-import { rules } from 'utils'
+import { validationRules } from 'utils'
 
-import classes from './Input.scss'
+import { StyledInput } from './styles'
 
 class Input extends Component {
   constructor(props) {
@@ -24,15 +23,17 @@ class Input extends Component {
 
   validate(e) {
     const errors = []
+
     if (this.props.validations) {
       this.props.validations.forEach(v => {
         // if current value doesn't pass validation
-        if (!rules[v].test(e.target.value)) {
+        if (!validationRules[v].test(e.target.value)) {
           errors.push(v)
         }
       })
       this.setState({ errors })
     }
+
     return errors
   }
 
@@ -43,44 +44,42 @@ class Input extends Component {
       <div className={this.props.className}>
         {label && <Label htmlFor={this.props.name}>{label}</Label>}
 
-        <input
-          className={`input-${this.props.type}
-            ${this.props.className || ''}
-            ${classes.input}
-            ${this.state.errors.length > 0 && classes.formError}`}
+        <Box>
+          {this.state.errors.map(err => (
+            <Text color="red5" fontSize={1} key={err}>
+              {validationRules[err].hint(this.props.name)}
+            </Text>
+          ))}
+        </Box>
+
+        <StyledInput
+          bg="gray1"
+          borderColor={this.props.borderColor}
+          color="black"
+          hasErrors={this.state.errors.length > 0}
+          mb={3}
           name={this.props.name}
           onBlur={this.props.onBlur}
           onChange={this.handleChange}
+          p={1}
           placeholder={this.props.placeholder}
-          style={{
-            border:
-              this.props.color &&
-              this.state.errors.length === 0 &&
-              `2px solid ${theme.colors[this.props.color]}`,
-          }}
           type={this.props.type}
           value={this.props.value}
         />
 
         {this.props.labelAfter && label}
-
-        <div className={classes.errorMessages}>
-          {this.state.errors
-            .map(err => {
-              return rules[err].hint(this.props.name)
-            })
-            .join('; ')}
-        </div>
       </div>
     )
   }
 }
 
 Input.defaultProps = {
+  borderColor: 'primary',
   type: 'text',
 }
 
 Input.propTypes = {
+  borderColor: PropTypes.string,
   checked: PropTypes.bool,
   className: PropTypes.string,
   color: PropTypes.string,
