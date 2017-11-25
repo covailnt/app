@@ -13,11 +13,29 @@
     "react"
   ],
   "plugins": [
-    "babel-plugin-styled-components",
-    "react-hot-loader/babel",
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          ".config": "./src/.config",
+          "actions": "./src/actions",
+          "components": "./src/components",
+          "reducers": "./src/reducers",
+          "sagas": "./src/sagas",
+          "styled": "./src/styled",
+          "theme": "./src/theme",
+          "utils": "./src/utils"
+        }
+      }
+    ],
     "transform-export-extensions",
     "transform-object-rest-spread",
-    "transform-regenerator"
+    "transform-regenerator",
+    [
+      "styled-components",
+      { "ssr": true, "displayName": true, "preprocess": false }
+    ]
   ],
   "env": {
     "production": {

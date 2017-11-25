@@ -159,7 +159,7 @@ class Sidebar extends Component {
                   <Link
                     bg={menuBg}
                     key={item.route}
-                    to={item.route}
+                    href={item.route}
                     mb={1}
                     px={4}
                     py={2}

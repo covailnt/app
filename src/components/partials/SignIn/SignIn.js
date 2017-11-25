@@ -1,10 +1,10 @@
 import { signInRequested } from 'actions'
 import { Button } from 'components/elements'
 import { Input } from 'components/partials'
+import Link from 'next/link'
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from 'utils/constants'
 
 class SignIn extends Component {
@@ -101,7 +101,7 @@ class SignIn extends Component {
           </Button>
 
           <Link
-            to="/signup/create-account"
+            href="/signup/create-account"
             onClick={() => this.closeLogInModal()}
           >
             Need to create an account?

@@ -1,78 +1,82 @@
+import RouteLink from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link as RouterLink } from 'react-router-dom'
-import { color, space } from 'styled'
 import styled from 'styled-components'
+import { color, space } from 'styled-system'
 import { ifProp } from 'styled-tools'
-import { omitSpace, shade } from 'utils'
+import { colorShade, omitProps } from 'utils'
 
 // If you want to have a standard link like one that links to an
 //  outside page, then pass a string to the `href` prop
 // If you want a react router link then pass a string to the `route` prop
 // If you want to wrap it in a <li> tag, pass `li` as a boolean
 
-export const StandardLink = styled(props => (
-  <a {...omitSpace(props, ['block', 'to', 'li'])} />
-))`
+export const A = styled(props => {
+  return (
+    <a
+      {...omitProps(props, ['absolute', 'block', 'li', 'padding', 'margin'])}
+    />
+  )
+})`
   display: ${ifProp('block', 'block', 'default')};
   text-decoration: none;
   &:hover {
-    background-color: ${props => shade(props.bg, 0.1)};
+    color: ${props => (props.bg ? colorShade(props.bg, 0.1) : null)};
   }
   ${color};
 `
 
-const RouteLink = styled(props => (
-  <RouterLink {...omitSpace(props, ['block', 'href', 'li'])} />
-))`
-  display: ${ifProp('block', 'block', 'default')};
-  text-decoration: none;
-  &:hover {
-    background-color: ${props => shade(props.bg, 0.1)};
-  }
-  ${color} ${space};
-`
-
-const ListItem = styled.li`
+const Li = styled.li`
   ${space};
 `
 
 const Link = props => {
-  if (props.to) {
-    return props.li ? (
-      <li>
-        <RouteLink {...props} />
-      </li>
-    ) : (
-      <RouteLink {...props} />
-    )
+  if (props.absolute) {
+    if (props.li) {
+      return (
+        <Li>
+          <A {...props} />
+        </Li>
+      )
+    } else {
+      return <A {...props} />
+    }
   } else {
-    return props.li ? (
-      <ListItem>
-        <StandardLink {...props} />
-      </ListItem>
-    ) : (
-      <StandardLink {...props} />
-    )
+    if (props.li) {
+      return (
+        <Li>
+          <RouteLink>
+            <A {...props}>{props.children}</A>
+          </RouteLink>
+        </Li>
+      )
+    } else {
+      return (
+        <RouteLink>
+          <A {...props}>{props.children}</A>
+        </RouteLink>
+      )
+    }
   }
 }
 
 Link.displayName = 'Link'
 
 Link.propTypes = {
+  absolute: PropTypes.bool,
   block: PropTypes.bool,
   color: PropTypes.string,
   children: PropTypes.node,
   li: PropTypes.bool,
-  to: PropTypes.string,
-  href: PropTypes.string,
+  href: PropTypes.string.isRequired,
 }
 
 Link.defaultProps = {
+  absolute: false,
   bg: 'black',
   block: true,
   color: 'white',
-  li: true,
+  li: false,
 }
 
 export default Link

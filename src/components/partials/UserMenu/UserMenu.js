@@ -42,23 +42,23 @@ class UserMenu extends Component {
         />
         {this.state.open && (
           <StyledList bg="black" px={3}>
-            <Link to="/" p={3}>
+            <Link href="/" p={3}>
               Home
             </Link>
 
-            <Link to="/profile" p={3}>
+            <Link href="/profile" p={3}>
               Secret Profile
             </Link>
 
-            <Link to="/signup" p={3}>
+            <Link href="/signup" p={3}>
               Sign Up Landing Page
             </Link>
 
-            <Link to="/signup/create-account/step-1" p={3}>
+            <Link href="/signup/create-account/step-1" p={3}>
               SignUp-Step-1
             </Link>
 
-            <Link to="/">
+            <Link href="/">
               <Button
                 onClick={() =>
                   appStore.dispatch({ type: SIGN_OUT_REQUESTED, user: null })

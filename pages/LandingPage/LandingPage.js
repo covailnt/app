@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading, Icon, Logo } from 'components/elements'
+import Link from 'next/link'
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 export default class LandingPage extends Component {
   render() {
@@ -19,7 +19,7 @@ export default class LandingPage extends Component {
                 Covailnt let’s you see your fellow freelancers bandwidth in real
                 time, so you always know who’s free.
               </Heading>
-              <Link to="/signup/create-account">
+              <Link href="/signup/create-account">
                 <Button>I&apos;m in! Let&apos;s setup my free profile.</Button>
               </Link>
             </Box>
@@ -107,7 +107,7 @@ export default class LandingPage extends Component {
                 </strong>in an environment that rewards your relationships,
                 collaboration and transparency
               </p>
-              <Link to="/signup/create-account">
+              <Link href="/signup/create-account">
                 <Button background="white" color="primary">
                   I&apos;m in! Let&apos;s setup my profile
                 </Button>
