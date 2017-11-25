@@ -16,17 +16,7 @@
     [
       "module-resolver",
       {
-        "root": ["./"],
-        "alias": {
-          ".config": "./src/.config",
-          "actions": "./src/actions",
-          "components": "./src/components",
-          "reducers": "./src/reducers",
-          "sagas": "./src/sagas",
-          "styled": "./src/styled",
-          "theme": "./src/theme",
-          "utils": "./src/utils"
-        }
+        "root": ["./src"]
       }
     ],
     "transform-export-extensions",

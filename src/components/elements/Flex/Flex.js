@@ -1,8 +1,10 @@
-import { Box } from 'components/elements'
 import PropTypes from 'prop-types'
 import { width } from 'styled'
+import { responsiveStyle } from 'styled'
 import styled from 'styled-components'
-import { borderRadius, responsiveStyle } from 'styled-system'
+import { borderRadius } from 'styled-system'
+
+import Box from '../Box'
 
 const align = responsiveStyle('align-items', 'align')
 const direction = responsiveStyle('flex-direction', 'direction')

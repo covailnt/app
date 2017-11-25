@@ -11,12 +11,10 @@ const responsiveStyles = (...args) => props => {
       : arg
   prop = prop || cssProperty
   const n = props[prop]
-  console.log('test', prop)
   if (!is(n)) return null
   const mediaQueries = breaks()
   props.theme = theme
   const scale = get(props, ['theme', key || prop].join('.'), {})
-
   const sx = val => get(scale, '' + val, numberToPx ? px(val) : val)
 
   if (!Array.isArray(n)) {
