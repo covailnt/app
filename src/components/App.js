@@ -1,6 +1,3 @@
-import 'theme/normalize.css'
-import 'theme/Global.scss'
-
 import { Home, Profile, SignUp } from 'components/templates'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
