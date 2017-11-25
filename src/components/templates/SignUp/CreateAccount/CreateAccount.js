@@ -1,5 +1,5 @@
 import { signInRequested } from 'actions'
-import { Button, Flex, Heading } from 'components/elements'
+import { Box, Button, Flex, Heading } from 'components/elements'
 import { Input } from 'components/partials'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -13,8 +13,6 @@ import {
   NEW_EMAIL,
   PROVIDER,
 } from 'utils/constants'
-
-import classes from './CreateAccount.scss'
 
 class CreateAccount extends Component {
   constructor(props) {
@@ -50,18 +48,15 @@ class CreateAccount extends Component {
   }
   render() {
     return (
-      <Flex>
-        <Flex
-          align="center"
-          className={classes.fields}
-          direction="column"
-          justify="center"
-        >
+      <Flex align="center" direction="column" justify="center">
+        <Box width={1 / 2} my={5}>
           <Heading level={1} color="primary">
             Let&apos;s do this thing
           </Heading>
-          <div className={classes.form}>
+
+          <Box mx={3}>
             <Heading level={3}>We just need your email address</Heading>
+
             <Input
               color="primary"
               name={FIELDS.EMAIL}
@@ -71,9 +66,11 @@ class CreateAccount extends Component {
               value={this.state.email}
               validations={['required', 'email']}
             />
+
             <Heading level={5}>
               We&apos;ll send you an email to set your password later.
             </Heading>
+
             <Button
               onClick={() => this.createUserWithEmail()}
               disabled={!this.state.validEmail}
@@ -83,34 +80,33 @@ class CreateAccount extends Component {
             <br />
 
             <Heading level={3}>Or social sign-in</Heading>
+
             <Button
               background="facebook"
               onClick={() => this.signIn(PROVIDER, FACEBOOK)}
             >
               Create account with Facebook
             </Button>
+
             <Button
               background="github"
               onClick={() => this.signIn(PROVIDER, GITHUB)}
             >
               Create account with Github
             </Button>
+
             <Button
               background="google"
               onClick={() => this.signIn(PROVIDER, GOOGLE)}
             >
               Create account with Google
             </Button>
-          </div>
-        </Flex>
+          </Box>
+        </Box>
 
-        <div className={classes.deskLampWrapper}>
-          <img
-            className={classes.deskLamp}
-            alt="DeskLamp"
-            src="/public/images/deskLamp.png"
-          />
-        </div>
+        <Box width={1 / 2} my={5}>
+          <img alt="DeskLamp" src="/public/images/deskLamp.png" />
+        </Box>
       </Flex>
     )
   }
