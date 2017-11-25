@@ -38,7 +38,7 @@ class UserMenu extends Component {
           margin="0 20px"
           padding="5px"
           size="50px"
-          src={user.photoURL || '/public/images/avatar.png'}
+          src={user.photoURL || '/static/images/avatar.png'}
         />
         {this.state.open && (
           <StyledList bg="black" px={3}>

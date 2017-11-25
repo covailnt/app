@@ -33,7 +33,7 @@ class Profile extends Component {
           <Relative>
             <DropImage
               circle
-              defaultImage="/public/images/profile/defaultBanner.jpg"
+              defaultImage="/static/images/profile/defaultBanner.jpg"
               imageURL={this.props[FIELDS.BANNER_URL]}
               setImage={this.props.setImage}
               imageName={FIELDS.BANNER_URL}
@@ -75,7 +75,7 @@ class Profile extends Component {
             <Absolute color="white" mt={-6} pl={4}>
               <DropImage
                 circle
-                defaultImage="/public/images/avatar.png"
+                defaultImage="/static/images/avatar.png"
                 imageURL={this.props[FIELDS.AVATAR_URL]}
                 uid={this.props.uid}
                 imageName={FIELDS.AVATAR_URL}

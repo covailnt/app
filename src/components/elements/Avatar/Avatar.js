@@ -13,7 +13,7 @@ const Avatar = ({ onClick, size, src }) => {
 }
 
 Avatar.defaultProps = {
-  src: '/public/images/avatar.png',
+  src: '/static/images/avatar.png',
   size: '100px',
 }
 

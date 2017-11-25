@@ -60,7 +60,7 @@ const DonutChart = ({ size, strokewidth, value }) => {
             transform={rotateval}
           />
         </Svg>
-        <Img alt="avatar" src="/public/images/avatar.png" width={size * 0.85} />
+        <Img alt="avatar" src="/static/images/avatar.png" width={size * 0.85} />
       </Relative>
     </Flex>
   )
