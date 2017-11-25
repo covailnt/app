@@ -12,14 +12,15 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => {
         ) : (
           // eslint-disable-next-line
           <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-        )}
+        )
+      }
     />
   )
 }
 
 PrivateRoute.propTypes = {
   component: PropTypes.func.isRequired,
-  authed: PropTypes.object.isRequired,
+  authed: PropTypes.object,
 }
 
 export default PrivateRoute

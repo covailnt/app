@@ -7,8 +7,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from 'utils/constants'
 
-import classes from './SignIn.scss'
-
 class SignIn extends Component {
   constructor(props) {
     super(props)
@@ -58,7 +56,6 @@ class SignIn extends Component {
           Log In
         </Button>
         <Modal
-          className={`modal ${classes.loginModal}`}
           isOpen={this.state.logInModalIsOpen}
           onRequestClose={this.closeLogInModal}
           contentLabel="Example Modal"
@@ -71,7 +68,6 @@ class SignIn extends Component {
             value={this.state.email}
             validations={['required', 'email']}
             label="Email"
-            className={classes.loginInput}
           />
           <Input
             type="password"
@@ -79,14 +75,14 @@ class SignIn extends Component {
             value={this.state.password}
             validations={['required']}
             label="Password"
-            className={classes.loginInput}
           />
           <Button
             onClick={() =>
               this.signIn(EMAIL, {
                 email: this.state.email,
                 password: this.state.password,
-              })}
+              })
+            }
             disabled={!(this.state.validEmail && this.state.validPassword)}
           >
             Log In With Email
