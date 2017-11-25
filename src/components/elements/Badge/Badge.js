@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import { color, space } from 'styled'
 import styled from 'styled-components'
+import { fontSizes } from 'theme'
 
 const Badge = styled.div`
   border-radius: 99999px;
   display: inline-block;
-  font-size: ${props => props.theme.fontSizes[0]}px;
+  font-size: ${fontSizes[0]}px;
   font-weight: 600;
   ${color} ${space};
 `

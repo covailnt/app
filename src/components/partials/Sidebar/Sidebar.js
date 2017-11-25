@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { breakpoints } from 'theme'
-import { shade } from 'utils'
+import { colorShade } from 'utils'
 import {
   KINDA_BUSY,
   KINDA_LIGHT,
@@ -109,7 +109,7 @@ class Sidebar extends Component {
       { badge: '2', text: 'Collab Sessions', route: '/collab' },
     ]
 
-    const menuBg = shade('black', 0.1)
+    const menuBg = colorShade('black', 0.1)
 
     return (
       <Aux>

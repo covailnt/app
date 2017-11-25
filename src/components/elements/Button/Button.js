@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { color, space } from 'styled'
 import styled from 'styled-components'
-import { colors, radii, radius } from 'theme'
-import { shade } from 'utils'
+import { colors, fontSizes, radii, radius } from 'theme'
+import { colorShade } from 'utils'
 
 const Button = styled.button`
   -webkit-font-smoothing: antialiased;
@@ -21,7 +21,7 @@ const Button = styled.button`
   }
   &:hover {
     background-color: ${props =>
-      props.disabled ? null : shade(props.bg, -0.25)};
+      props.disabled ? null : colorShade(props.bg, -0.25)};
   }
   ${color} ${fullWidth} ${space} ${size};
 `
@@ -72,25 +72,25 @@ function size(props) {
     case 'small':
       return {
         height: '32px',
-        fontSize: `${props.theme.fontSizes[0]}px`,
+        fontSize: `${fontSizes[0]}px`,
         padding: '0 12px',
       }
     case 'medium':
       return {
         height: '40px',
-        fontSize: `${props.theme.fontSizes[1]}px`,
+        fontSize: `${fontSizes[1]}px`,
         padding: '0 18px',
       }
     case 'large':
       return {
         height: '48px',
-        fontSize: `${props.theme.fontSizes[2]}px`,
+        fontSize: `${fontSizes[2]}px`,
         padding: '0 22px',
       }
     default:
       return {
         height: '40px',
-        fontSize: `${props.theme.fontSizes[1]}px`,
+        fontSize: `${fontSizes[1]}px`,
         padding: '0 18px',
       }
   }

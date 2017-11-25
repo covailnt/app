@@ -11,7 +11,14 @@ export const space = [0, 4, 8, 16, 32, 64, 128]
 
 export const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
 
-export const weights = [400, 700]
+export const regular = 400
+export const bold = 600
+
+// styled-system's `fontWeight` function can hook into the `fontWeights` object
+export const fontWeights = {
+  regular,
+  bold,
+}
 
 export const radii = [0, 2, 5]
 export const radius = '5px'
@@ -59,15 +66,17 @@ export const colors = Object.assign({}, flattened, {
 })
 
 const theme = {
+  bold,
   breakpoints,
-  space,
-  fontSizes,
-  weights,
-  font,
-  monospace,
   colors,
+  font,
+  fontSizes,
+  fontWeights,
+  monospace,
   radii,
   radius,
+  regular,
+  space,
 }
 
 export default theme

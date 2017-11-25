@@ -1,6 +1,6 @@
 import { colors } from 'theme'
 
-export default function shade(color, percent) {
+export default function colorShade(color, percent) {
   if (color.slice(0, 3) !== 'rgb') {
     color = colors[color]
   }

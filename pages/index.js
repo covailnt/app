@@ -1,9 +1,8 @@
+import { Badge } from 'components/elements'
 import React from 'react'
 
-// import { LandingPage } from './LandingPage'
-
 const HomePage = () => {
-  return <div>Hello World</div>
+  return <Badge>1-</Badge>
 }
 
 export default HomePage
