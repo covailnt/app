@@ -1,7 +1,7 @@
+import { color, space, width } from '~/styled'
 import { omit } from 'lodash'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { color, space, width } from 'styled'
 import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 

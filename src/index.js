@@ -1,14 +1,13 @@
 import 'react-hot-loader/patch'
 
+import firebase from '~/.config'
+import App from '~/components/App'
 import { isPreloadingStore, userFetchRequested } from 'actions'
-import App from 'components/App'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import appStore from 'reducers'
 import watch from 'redux-watch'
-
-import firebase from '.config'
 
 const renderApp = Component => {
   ReactDOM.render(
@@ -29,7 +28,7 @@ export const unsubscribePreload = appStore.subscribe(
       renderApp(App)
 
       if (module.hot) {
-        module.hot.accept('components/App', () => {
+        module.hot.accept('~/components/App', () => {
           renderApp(App)
         })
       }

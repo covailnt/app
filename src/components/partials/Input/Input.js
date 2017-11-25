@@ -1,7 +1,7 @@
-import { Box, Flex, Label, Text } from 'components/elements'
+import { Box, Flex, Label, Text } from '~/components/elements'
+import { pickSpace, validationRules } from '~/utils'
 import { array, bool, func, number, oneOf, string } from 'prop-types'
 import React, { Component } from 'react'
-import { pickSpace, validationRules } from 'utils'
 
 import { StyledInput } from './styles'
 

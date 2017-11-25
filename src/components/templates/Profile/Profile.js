@@ -1,19 +1,19 @@
-import { setImage } from 'actions'
 import {
   Absolute,
   Button,
   Heading,
   IconButton,
   Relative,
-} from 'components/elements'
-import { Box, Flex } from 'components/elements'
-import { DropImage, Rank } from 'components/groups'
-import { FirebaseInput } from 'components/partials'
-import { AuthenticatedTemplate } from 'components/yields'
+} from '~/components/elements'
+import { Box, Flex } from '~/components/elements'
+import { DropImage, Rank } from '~/components/groups'
+import { FirebaseInput } from '~/components/partials'
+import { AuthenticatedTemplate } from '~/components/yields'
+import { FIELDS, SOCIAL, URL } from '~/utils/constants'
+import { setImage } from 'actions'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { FIELDS, SOCIAL, URL } from 'utils/constants'
 
 class Profile extends Component {
   constructor() {

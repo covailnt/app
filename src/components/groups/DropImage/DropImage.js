@@ -1,10 +1,9 @@
-import { Box, Flex, Icon } from 'components/elements'
+import firebase from '~/.config'
+import { Box, Flex, Icon } from '~/components/elements'
 import { bool, func, object, string } from 'prop-types'
 import React from 'react'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
-
-import firebase from '.config'
 
 const StyledDropzone = styled(Dropzone)`
   background-repeat: no-repeat;

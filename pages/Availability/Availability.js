@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading } from 'components/elements'
+import { Box, Button, Flex, Heading } from '~/components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 

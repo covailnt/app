@@ -1,7 +1,7 @@
+import { color, space } from '~/styled'
+import { fontSizes } from '~/theme'
 import PropTypes from 'prop-types'
-import { color, space } from 'styled'
 import styled from 'styled-components'
-import { fontSizes } from 'theme'
 
 const Badge = styled.div`
   border-radius: 99999px;

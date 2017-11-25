@@ -1,6 +1,6 @@
-import { color, space } from 'styled'
+import { color, space } from '~/styled'
+import { colors } from '~/theme'
 import styled from 'styled-components'
-import { colors } from 'theme'
 
 const border = props => {
   if (props.hasErrors) {

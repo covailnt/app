@@ -1,7 +1,7 @@
-import { Flex, Text } from 'components/elements'
+import { Flex, Text } from '~/components/elements'
+import { colors } from '~/theme'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { colors } from 'theme'
 
 const Rank = ({ color, type, value }) => {
   return (

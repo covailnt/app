@@ -1,8 +1,8 @@
+import { color, space } from '~/styled'
+import { bold, regular } from '~/theme'
 import PropTypes from 'prop-types'
-import { color, space } from 'styled'
 import styled from 'styled-components'
 import { fontSize, responsiveStyle } from 'styled-system'
-import { bold, regular } from 'theme'
 
 const caps = props =>
   props.caps

@@ -1,11 +1,11 @@
+import { Button } from '~/components/elements'
+import { Input } from '~/components/partials'
+import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from '~/utils/constants'
 import { signInRequested } from 'actions'
-import { Button } from 'components/elements'
-import { Input } from 'components/partials'
 import Link from 'next/link'
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
-import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from 'utils/constants'
 
 class SignIn extends Component {
   constructor(props) {

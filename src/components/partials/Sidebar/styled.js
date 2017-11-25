@@ -1,10 +1,10 @@
-import { Flex } from 'components/elements'
+import { Flex } from '~/components/elements'
+import { media } from '~/utils'
 import { omit } from 'lodash'
 import React from 'react'
 import { Fixed } from 'rebass'
 import styled from 'styled-components'
 import { ifProp } from 'styled-tools'
-import { media } from 'utils'
 
 export const FlexStyled = styled(props => (
   <Flex {...omit(props, ['isOpen'])} />

@@ -1,8 +1,8 @@
-import { Flex, IconButton } from 'components/elements'
-import { Absolute, Label, Relative } from 'components/elements'
+import { Flex, IconButton } from '~/components/elements'
+import { Absolute, Label, Relative } from '~/components/elements'
+import { pickSpace } from '~/utils'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { pickSpace } from 'utils'
 
 import { Select } from './styled'
 

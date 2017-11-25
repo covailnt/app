@@ -1,5 +1,5 @@
+import { color, space } from '~/styled'
 import PropTypes from 'prop-types'
-import { color, space } from 'styled'
 import styled from 'styled-components'
 import { fontSize, fontWeight } from 'styled-system'
 

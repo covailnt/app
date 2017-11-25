@@ -1,11 +1,10 @@
+import firebase from '~/.config'
+import { FIELDS } from '~/utils/constants'
 import { isPreloadingStore, userFetchFailed, userFetchSucceeded } from 'actions'
 import { USER_FETCH_REQUESTED } from 'actions/types'
 import { omit, values } from 'lodash'
 import { call, put, takeLatest } from 'redux-saga/effects'
 import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
-import { FIELDS } from 'utils/constants'
-
-import firebase from '.config'
 
 function* getVals(userAuthInfo) {
   const properties = values(FIELDS)

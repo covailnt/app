@@ -1,8 +1,8 @@
-import { Flex, Relative } from 'components/elements'
+import { Flex, Relative } from '~/components/elements'
+import { colors } from '~/theme'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from 'theme'
 
 const Img = styled.img`
   border-radius: 50%;

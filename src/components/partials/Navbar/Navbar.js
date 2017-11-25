@@ -1,9 +1,9 @@
-import { Flex } from 'components/elements'
+import { Flex } from '~/components/elements'
+import { media } from '~/utils'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { media } from 'utils'
 
 const StyledFlex = styled(Flex)`
   ${media.lessThan('sm')`

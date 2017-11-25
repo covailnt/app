@@ -1,6 +1,6 @@
+import theme from '~/theme'
 import PropTypes from 'prop-types'
 import React from 'react'
-import theme from 'theme'
 
 const Heading = ({ align, className, color, children, display, level }) => {
   const Header = `h${level}`

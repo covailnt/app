@@ -1,10 +1,10 @@
+import { colorShade, omitProps } from '~/utils'
 import RouteLink from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 import { color, space } from 'styled-system'
 import { ifProp } from 'styled-tools'
-import { colorShade, omitProps } from 'utils'
 
 // If you want to have a standard link like one that links to an
 //  outside page, then pass a string to the `href` prop

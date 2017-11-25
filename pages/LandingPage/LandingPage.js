@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Icon, Logo } from 'components/elements'
+import { Box, Button, Flex, Heading, Icon, Logo } from '~/components/elements'
 import Link from 'next/link'
 import React, { Component } from 'react'
 

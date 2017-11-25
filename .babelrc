@@ -14,9 +14,9 @@
   ],
   "plugins": [
     [
-      "module-resolver",
+      "babel-plugin-root-import",
       {
-        "root": ["./src"]
+        "rootPathSuffix": "src"
       }
     ],
     "transform-export-extensions",

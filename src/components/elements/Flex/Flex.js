@@ -1,6 +1,5 @@
+import { responsiveStyle, width } from '~/styled'
 import PropTypes from 'prop-types'
-import { width } from 'styled'
-import { responsiveStyle } from 'styled'
 import styled from 'styled-components'
 import { borderRadius } from 'styled-system'
 

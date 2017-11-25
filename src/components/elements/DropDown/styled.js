@@ -1,4 +1,4 @@
-import { color, space } from 'styled'
+import { color, space } from '~/styled'
 import styled from 'styled-components'
 
 export const Select = styled.select`

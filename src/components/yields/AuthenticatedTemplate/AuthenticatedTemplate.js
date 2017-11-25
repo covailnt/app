@@ -1,6 +1,6 @@
-import { Flex } from 'components/elements'
-import { Rank } from 'components/groups'
-import { Navbar, Sidebar, UserMenu } from 'components/partials'
+import { Flex } from '~/components/elements'
+import { Rank } from '~/components/groups'
+import { Navbar, Sidebar, UserMenu } from '~/components/partials'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 

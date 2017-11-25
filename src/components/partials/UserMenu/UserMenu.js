@@ -1,10 +1,10 @@
+import { Avatar, Button, Link, Relative } from '~/components/elements'
+import { color, space } from '~/styled'
 import { SIGN_OUT_REQUESTED } from 'actions/types'
-import { Avatar, Button, Link, Relative } from 'components/elements'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import appStore from 'reducers'
-import { color, space } from 'styled'
 import styled from 'styled-components'
 
 const StyledList = styled.ul`

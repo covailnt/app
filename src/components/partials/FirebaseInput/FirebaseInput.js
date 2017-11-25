@@ -1,5 +1,5 @@
+import { Input } from '~/components/partials'
 import { setInputVal } from 'actions'
-import { Input } from 'components/partials'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'

@@ -1,6 +1,6 @@
+import { Box, Button, Flex, Heading } from '~/components/elements'
+import { Input } from '~/components/partials'
 import { signInRequested } from 'actions'
-import { Box, Button, Flex, Heading } from 'components/elements'
-import { Input } from 'components/partials'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'

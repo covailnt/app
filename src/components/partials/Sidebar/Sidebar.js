@@ -1,4 +1,3 @@
-import { setInputVal } from 'actions'
 import {
   Aux,
   Badge,
@@ -8,14 +7,10 @@ import {
   Link,
   List,
   Text,
-} from 'components/elements'
-import { DonutChart } from 'components/groups'
-import { throttle } from 'lodash'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { breakpoints } from 'theme'
-import { colorShade } from 'utils'
+} from '~/components/elements'
+import { DonutChart } from '~/components/groups'
+import { breakpoints } from '~/theme'
+import { colorShade } from '~/utils'
 import {
   KINDA_BUSY,
   KINDA_LIGHT,
@@ -24,7 +19,12 @@ import {
   REALLY_BUSY,
   REALLY_LIGHT,
   SLAMMED,
-} from 'utils/constants'
+} from '~/utils/constants'
+import { setInputVal } from 'actions'
+import { throttle } from 'lodash'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import { FlexStyled, StatusCtn, ToggleOpen } from './styled'
 

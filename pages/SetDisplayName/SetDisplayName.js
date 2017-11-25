@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Heading } from 'components/elements'
-import { FirebaseInput } from 'components/partials'
+import { Box, Button, Flex, Heading } from '~/components/elements'
+import { FirebaseInput } from '~/components/partials'
+import { FIELDS } from '~/utils/constants'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { FIELDS } from 'utils/constants'
 
 export default class SetDisplayName extends Component {
   render() {

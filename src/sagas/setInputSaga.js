@@ -1,9 +1,8 @@
+import firebase from '~/.config'
 import { INPUT_UPDATE_SUCCESSFUL, SET_INPUT_VAL } from 'actions/types'
 import { throttle } from 'lodash'
 import { put, select, takeLatest } from 'redux-saga/effects'
 import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
-
-import firebase from '.config'
 
 function* updateFirebaseInput(action) {
   try {

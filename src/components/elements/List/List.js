@@ -1,6 +1,6 @@
+import { color, space } from '~/styled'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { color, space } from 'styled'
 import styled from 'styled-components'
 
 const Ol = styled.ol`
