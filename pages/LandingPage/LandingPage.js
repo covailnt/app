@@ -25,7 +25,7 @@ export default class LandingPage extends Component {
             </Box>
             <Box width={1 / 2}>
               <img
-                src="/public/images/signup/avatarConnections.png"
+                src="/static/images/signup/avatarConnections.png"
                 alt="users with donut charts"
                 style={{ maxWidth: '100%' }}
               />
@@ -46,7 +46,7 @@ export default class LandingPage extends Component {
                 </Heading>
               </div>
 
-              <img src="/public/images/signup/ladyAvatar.png" alt="avatar" />
+              <img src="/static/images/signup/ladyAvatar.png" alt="avatar" />
             </Flex>
           </Box>
 
@@ -65,7 +65,7 @@ export default class LandingPage extends Component {
               </Box>
               <Box width={1 / 2}>
                 <img
-                  src="/public/images/signup/rankEarned.png"
+                  src="/static/images/signup/rankEarned.png"
                   alt="rank earned"
                 />
               </Box>
@@ -87,7 +87,7 @@ export default class LandingPage extends Component {
               </Box>
               <Box>
                 <img
-                  src="/public/images/signup/rankPotential.png"
+                  src="/static/images/signup/rankPotential.png"
                   alt="rank potential"
                 />
               </Box>
@@ -95,7 +95,7 @@ export default class LandingPage extends Component {
           </Box>
 
           <Box bg="gray1" mb={5} py={3}>
-            <img src="/public/images/signup/profile.png" alt="profile" />
+            <img src="/static/images/signup/profile.png" alt="profile" />
           </Box>
 
           <Box bg="primary" pt={5}>

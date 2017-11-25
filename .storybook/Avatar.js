@@ -4,4 +4,4 @@ import React from 'react'
 
 storiesOf('Avatar', module)
   .add('default', () => <Avatar />)
-  .add('user ', () => <Avatar src="/public/images/avatar.png" />)
+  .add('user ', () => <Avatar src="/static/images/avatar.png" />)

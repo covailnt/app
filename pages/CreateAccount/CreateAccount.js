@@ -105,7 +105,7 @@ class CreateAccount extends Component {
         </Box>
 
         <Box width={1 / 2} my={5}>
-          <img alt="DeskLamp" src="/public/images/deskLamp.png" />
+          <img alt="DeskLamp" src="/static/images/deskLamp.png" />
         </Box>
       </Flex>
     )

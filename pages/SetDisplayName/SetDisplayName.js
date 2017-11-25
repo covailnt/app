@@ -43,7 +43,7 @@ export default class SetDisplayName extends Component {
           </Box>
         </Box>
         <Box width={1 / 2} my={5}>
-          <img alt="DeskLamp" src="/public/images/signup/onLamp.png" />
+          <img alt="DeskLamp" src="/static/images/signup/onLamp.png" />
         </Box>
       </Flex>
     )

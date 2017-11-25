@@ -14,7 +14,7 @@ export default class Availability extends Component {
             You simply answer &quot;This week I am&quot;
           </Heading>
           <img
-            src="/public/images/signup/availability.png"
+            src="/static/images/signup/availability.png"
             alt="Availability"
           />
           <Box>
