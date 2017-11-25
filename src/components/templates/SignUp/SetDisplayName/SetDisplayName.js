@@ -1,26 +1,21 @@
-import { Button, Flex, Heading } from 'components/elements'
+import { Box, Button, Flex, Heading } from 'components/elements'
 import { FirebaseInput } from 'components/partials'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FIELDS } from 'utils/constants'
 
-import classes from './SetDisplayName.scss'
-
 export default class SetDisplayName extends Component {
   render() {
     return (
-      <Flex>
-        <Flex
-          className={classes.fields}
-          direction="column"
-          justify="flex-start"
-          align="center"
-        >
+      <Flex direction="column" justify="flex-start" align="center">
+        <Box width={1 / 2} my={5}>
           <Heading level={1} color="primary">
             Boom... You&apos;re in!
           </Heading>
-          <div className={classes.form}>
+
+          <Box mx={2}>
             <Heading level={4}>What do you want to be called on here?</Heading>
+
             <FirebaseInput
               color="primary"
               name={FIELDS.DISPLAY_NAME}
@@ -29,6 +24,7 @@ export default class SetDisplayName extends Component {
             />
 
             <Heading level={4}>What type of work do you do?</Heading>
+
             <FirebaseInput
               color="primary"
               name={FIELDS.SPECIALTY}
@@ -44,15 +40,11 @@ export default class SetDisplayName extends Component {
             <Link to="/signup/create-account/availability">
               <Button>On to step 2 of 2</Button>
             </Link>
-          </div>
-        </Flex>
-        <div className={classes.onLampWrapper}>
-          <img
-            className={classes.onLamp}
-            alt="DeskLamp"
-            src="/public/images/signup/onLamp.png"
-          />
-        </div>
+          </Box>
+        </Box>
+        <Box width={1 / 2} my={5}>
+          <img alt="DeskLamp" src="/public/images/signup/onLamp.png" />
+        </Box>
       </Flex>
     )
   }
