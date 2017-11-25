@@ -1,8 +1,6 @@
-import { Button, Flex, Heading } from 'components/elements'
+import { Box, Button, Flex, Heading } from 'components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import classes from './Availability.scss'
 
 export default class Availability extends Component {
   render() {
@@ -11,7 +9,7 @@ export default class Availability extends Component {
         <Heading level={1} color="primary">
           How Availability Works
         </Heading>
-        <div className={classes.content}>
+        <Box mb={5}>
           <Heading level={4}>
             You simply answer &quot;This week I am&quot;
           </Heading>
@@ -19,7 +17,7 @@ export default class Availability extends Component {
             src="/public/images/signup/availability.png"
             alt="Availability"
           />
-          <div className={classes.bottomCtn}>
+          <Box>
             <Heading level={4}>
               Your availablity is visible wherever your profile photo shows
               across the application
@@ -33,8 +31,8 @@ export default class Availability extends Component {
             <Link to="/profile">
               <Button>Gotcha, Show me my profile</Button>
             </Link>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </Flex>
     )
   }
