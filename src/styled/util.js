@@ -35,9 +35,12 @@ export const merge = (a, b) =>
   )
 
 // ====================================================================
-
-export const get = (obj, path, fallback) =>
-  path.split('.').reduce((a, b) => (a && a[b] ? a[b] : null), obj) || fallback
+export const get = (obj, path, fallback) => {
+  const stuff =
+    path.split('.').reduce((a, b) => (a && a[b] ? a[b] : null), obj) || fallback
+  console.log(stuff)
+  return stuff
+}
 
 // keeping for backwards-compatibility only
 export const idx = (keys, obj) => get(obj, keys.join('.')) || null
