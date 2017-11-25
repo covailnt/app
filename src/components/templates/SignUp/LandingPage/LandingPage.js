@@ -1,86 +1,58 @@
-import { Button, Flex, Heading, Icon, Logo } from 'components/elements'
+import { Box, Button, Flex, Heading, Icon, Logo } from 'components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import classes from './LandingPage.scss'
 
 export default class LandingPage extends Component {
   render() {
     return (
-      <div className={classes.landingPageCtn}>
-        <div className={classes.headerCtn}>
-          <div className={classes.headerContentCtn}>
-            <Logo />
-          </div>
-        </div>
+      <Flex direction="column">
+        <Logo />
 
         <main>
-          <div>
-            <Flex
-              align="center"
-              className={`${classes.introCtn} ${classes.layerCtn}`}
-              justify="center"
-              wrap
-            >
-              <div className={classes.leftCtn}>
-                <Heading level={2}>
-                  What if you could spend less time resourcing, and more time
-                  collaborating?
-                </Heading>
-                <Heading level={3}>
-                  Covailnt let’s you see your fellow freelancers bandwidth in
-                  real time, so you always know who’s free.
-                </Heading>
-                <Link to="/signup/create-account">
-                  <Button>
-                    I&apos;m in! Let&apos;s setup my free profile.
-                  </Button>
-                </Link>
-              </div>
-              <div className={classes.rightCtn}>
-                <img
-                  src="/public/images/signup/avatarConnections.png"
-                  alt="users with donut charts"
-                  style={{ maxWidth: '100%' }}
-                />
-              </div>
-            </Flex>
-          </div>
+          <Flex align="center" justify="center" py={3} wrap>
+            <Box width={1 / 2}>
+              <Heading level={2}>
+                What if you could spend less time resourcing, and more time
+                collaborating?
+              </Heading>
+              <Heading level={3}>
+                Covailnt let’s you see your fellow freelancers bandwidth in real
+                time, so you always know who’s free.
+              </Heading>
+              <Link to="/signup/create-account">
+                <Button>I&apos;m in! Let&apos;s setup my free profile.</Button>
+              </Link>
+            </Box>
+            <Box width={1 / 2}>
+              <img
+                src="/public/images/signup/avatarConnections.png"
+                alt="users with donut charts"
+                style={{ maxWidth: '100%' }}
+              />
+            </Box>
+          </Flex>
 
-          <div className={classes.middleCtn}>
-            <Flex
-              align="center"
-              className={`${classes.aboutCtn} ${classes.layerCtn}`}
-              justify="center"
-              wrap
-            >
+          <Box bg="gray1">
+            <Flex align="center" justify="center" wrap>
               <Heading level={1}>What is Covailnt about?</Heading>
 
-              <div className={classes.leftCtn}>
-                <div className="text-ctn">
-                  <Icon name="clock" />
-                  <Heading level={2}>Real-time availability</Heading>
-                  <Heading level={5}>
-                    Work needs to be done. Determine a connection&apos;;s
-                    bandwidth with a glance of a profile photo. Gone are the
-                    back and forth emails that start with "Hey, you busy?"
-                  </Heading>
-                </div>
+              <div className="text-ctn">
+                <Icon name="clock" />
+                <Heading level={2}>Real-time availability</Heading>
+                <Heading level={5}>
+                  Work needs to be done. Determine a connection&apos;;s
+                  bandwidth with a glance of a profile photo. Gone are the back
+                  and forth emails that start with "Hey, you busy?"
+                </Heading>
               </div>
-              <div className={classes.rightCtn}>
-                <img src="/public/images/signup/ladyAvatar.png" alt="avatar" />
-              </div>
-            </Flex>
-          </div>
 
-          <div className={classes.middleCtn}>
-            <Flex
-              align="center"
-              className={classes.layerCtn}
-              justify="center"
-              wrap
-            >
-              <div className={classes.leftCtn}>
+              <img src="/public/images/signup/ladyAvatar.png" alt="avatar" />
+            </Flex>
+          </Box>
+
+          <Box bg="gray2">
+            <Flex align="center" justify="center" wrap>
+              <Box width={1 / 2}>
                 <div className="text-ctn">
                   <Icon name="star" />
                   <Heading level={2}>Real-time availability</Heading>
@@ -90,24 +62,19 @@ export default class LandingPage extends Component {
                     Covailnt Rank rewards that balance.
                   </Heading>
                 </div>
-              </div>
-              <div className={classes.rightCtn}>
+              </Box>
+              <Box width={1 / 2}>
                 <img
                   src="/public/images/signup/rankEarned.png"
                   alt="rank earned"
                 />
-              </div>
+              </Box>
             </Flex>
-          </div>
+          </Box>
 
-          <div className={classes.middleCtn}>
-            <Flex
-              align="center"
-              className={classes.layerCtn}
-              justify="center"
-              wrap
-            >
-              <div className={classes.leftCtn}>
+          <Box>
+            <Flex align="center" justify="center" wrap>
+              <Box>
                 <div className="text-ctn">
                   <Icon name="lightning" />
                   <Heading level={2}>Showcased Potential</Heading>
@@ -117,28 +84,23 @@ export default class LandingPage extends Component {
                     who&apos;s a good bet.
                   </Heading>
                 </div>
-              </div>
-              <div className={classes.rightCtn}>
+              </Box>
+              <Box>
                 <img
                   src="/public/images/signup/rankPotential.png"
                   alt="rank potential"
                 />
-              </div>
+              </Box>
             </Flex>
-          </div>
+          </Box>
 
-          <div className={classes.imageCtn}>
+          <Box bg="gray1" mb={5} py={3}>
             <img src="/public/images/signup/profile.png" alt="profile" />
-          </div>
+          </Box>
 
-          <div className={classes.bottomCtn}>
-            <Flex
-              align="center"
-              className={classes.layerCtn}
-              justify="flex-start"
-              wrap
-            >
-              <p className={classes.bottomText}>
+          <Box bg="primary" pt={5}>
+            <Flex align="center" justify="flex-start" wrap>
+              <p>
                 Covailnt{' '}
                 <strong>
                   connects you to the freelancers you already know,{' '}
@@ -151,9 +113,9 @@ export default class LandingPage extends Component {
                 </Button>
               </Link>
             </Flex>
-          </div>
+          </Box>
         </main>
-      </div>
+      </Flex>
     )
   }
 }

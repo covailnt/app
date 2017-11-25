@@ -1,6 +1,5 @@
 import { Button, Flex, Heading } from 'components/elements'
 import { FirebaseInput } from 'components/partials'
-import { SignUpTemplate } from 'components/yields'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FIELDS } from 'utils/constants'
@@ -10,7 +9,7 @@ import classes from './SetDisplayName.scss'
 export default class SetDisplayName extends Component {
   render() {
     return (
-      <SignUpTemplate>
+      <Flex>
         <Flex
           className={classes.fields}
           direction="column"
@@ -54,7 +53,7 @@ export default class SetDisplayName extends Component {
             src="/public/images/signup/onLamp.png"
           />
         </div>
-      </SignUpTemplate>
+      </Flex>
     )
   }
 }

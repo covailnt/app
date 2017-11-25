@@ -1,5 +1,4 @@
-import { Button, Heading } from 'components/elements'
-import { SignUpTemplate } from 'components/yields'
+import { Button, Flex, Heading } from 'components/elements'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ import classes from './Availability.scss'
 export default class Availability extends Component {
   render() {
     return (
-      <SignUpTemplate>
+      <Flex>
         <Heading level={1} color="primary">
           How Availability Works
         </Heading>
@@ -36,7 +35,7 @@ export default class Availability extends Component {
             </Link>
           </div>
         </div>
-      </SignUpTemplate>
+      </Flex>
     )
   }
 }
