@@ -7,9 +7,6 @@
   "scripts": {
     "start": "next start",
     "dev": "next",
-    "build": "next build",
-    "deploy":
-      "npm run env:dev && npm run clean && npm run dist && firebase deploy",
     "eslint-check":
       "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "format":
@@ -21,7 +18,21 @@
     "precommit": "lint-staged",
     "sort": "import-sort --overwrite \"src\"",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "prebuild": "rimraf \"dist/functions\"",
+    "build": "yarn build-functions && yarn build-app",
+    "postbuild": "cd \"dist/functions\" && yarn",
+    "build-app": "cd \"src/app\" && yarn build",
+    "build-functions":
+      "babel \"src/functions\" --out-dir \"dist/functions\" --copy-files --ignore \"node_modules\"",
+    "predeploy": "yarn build",
+    "deploy": "firebase deploy",
+    "postinstall": "yarn install-app && yarn install-functions",
+    "install-app": "cd \"src/app\" && yarn",
+    "install-functions": "cd \"src/functions\" && yarn",
+    "next": "cd \"src/app\" && yarn dev",
+    "preserve": "yarn build",
+    "serve": "firebase serve"
   },
   "lint-staged": {
     "*.{js,json,css}": [
@@ -41,6 +52,7 @@
     "@storybook/addon-info": "^3.2.15",
     "@storybook/react": "^3.2.15",
     "@storybook/storybook-deployer": "^2.0.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
@@ -85,8 +97,8 @@
     "lodash": "^4.17.4",
     "palx": "^1.0.2",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "react-dropzone": "^4.2.1",
     "react-modal": "^3.1.0",
     "react-redux": "^5.0.6",
