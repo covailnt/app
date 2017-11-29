@@ -3,22 +3,8 @@
   "version": "0.0.1",
   "description": "Covailnt App",
   "name": "covailnt",
-  "main": "",
   "scripts": {
-    "start": "next start",
-    "dev": "next",
-    "eslint-check":
-      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "format":
-      "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
-    "icons": "node src/utils/scripts/parseIcons",
-    "lint": "eslint ./src",
-    "lint:css": "stylelint './src/**/**/*.js'",
-    "lint-staged": "lint-staged",
-    "precommit": "lint-staged",
-    "sort": "import-sort --overwrite \"src\"",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "deploy-storybook": "storybook-to-ghpages",
+    "dev": "cd \"src/app\" && yarn dev",
     "prebuild": "rimraf \"dist/functions\"",
     "build": "yarn build-functions && yarn build-app",
     "postbuild": "cd \"dist/functions\" && yarn",
@@ -30,9 +16,20 @@
     "postinstall": "yarn install-app && yarn install-functions",
     "install-app": "cd \"src/app\" && yarn",
     "install-functions": "cd \"src/functions\" && yarn",
-    "next": "cd \"src/app\" && yarn dev",
     "preserve": "yarn build",
-    "serve": "firebase serve"
+    "serve": "firebase serve --only functions,hosting",
+    "eslint-check":
+      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "format":
+      "prettier-eslint --write \"src/**/**/*.js\" \"src/**/**/**/*.js\" \"src/**/**/**/**/*.js\" \"_src/**/**/*.js\" \"_src/**/**/**/*.js\" \"_src/**/**/**/**/*.js\"",
+    "icons": "node src/utils/scripts/parseIcons",
+    "lint": "eslint ./src",
+    "lint:css": "stylelint './src/**/**/*.js'",
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged",
+    "sort": "import-sort --overwrite \"src\"",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "lint-staged": {
     "*.{js,json,css}": [
