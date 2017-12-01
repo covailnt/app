@@ -1,3 +1,6 @@
+import firebase from '~/.config'
+import { userFetchRequested } from '~/store/actions'
+import { SIGN_IN_REQUESTED } from '~/store/actions/types'
 import {
   CREATE_USER,
   EMAIL,
@@ -8,13 +11,9 @@ import {
   PROVIDER,
   SUCCESS,
 } from '~/utils/constants'
-import { put, takeLatest } from 'redux-saga/effects'
-
-import { SIGN_IN_REQUESTED } from '~/store/actions/types'
-import firebase from '~/.config'
 import generator from 'generate-password'
+import { put, takeLatest } from 'redux-saga/effects'
 import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
-import { userFetchRequested } from '~/store/actions'
 
 const success = data => ({ result: SUCCESS, user: data.user })
 

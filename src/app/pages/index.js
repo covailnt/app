@@ -1,19 +1,14 @@
-import * as firebase from 'firebase'
-
-import React, { Component } from 'react'
-import { isPreloadingStore, userFetchRequested } from '~/store/actions'
-
-import Header from '~/components/Header'
-import clientCredentials from '~/.config'
+import firebase from '~/.config'
+import { Heading } from '~/components/elements'
+import { SignIn, UserMenu } from '~/components/partials'
 import { connectRedux } from '~/store'
+import { isPreloadingStore, userFetchRequested } from '~/store/actions'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
 class Index extends Component {
   static async getInitialProps({ store }) {
     console.log('getting initial props')
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(clientCredentials)
-    }
 
     if (!store.getState().user) {
       console.log('no user get firebase auth')
@@ -34,14 +29,24 @@ class Index extends Component {
     }
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
   render() {
-    return <div>Hello</div>
+    const { user } = this.props
+    return (
+      <main>
+        {user ? <UserMenu /> : <SignIn />}
+        <Heading level={1}>You are Home</Heading>
+      </main>
+    )
   }
 }
 
-export default connectRedux(Index)
+Index.propTypes = {
+  history: PropTypes.object,
+  user: PropTypes.object,
+}
+
+const mapStateToProps = state => {
+  return { user: state.user }
+}
+
+export default connectRedux(mapStateToProps)(Index)
