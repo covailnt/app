@@ -16,7 +16,7 @@
     [
       "babel-plugin-root-import",
       {
-        "rootPathSuffix": "src"
+        "rootPathSuffix": ""
       }
     ],
     "transform-export-extensions",
