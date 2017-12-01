@@ -4,18 +4,16 @@
   "description": "Covailnt App",
   "name": "covailnt",
   "scripts": {
-    "dev": "cd \"src/app\" && yarn dev",
+    "dev": "cd \"src/app\" && next",
+    "postinstall": "cd \"src/functions\" && yarn",
     "prebuild": "rimraf \"dist/functions\"",
     "build": "yarn build-functions && yarn build-app",
-    "postbuild": "cd \"dist/functions\" && yarn",
-    "build-app": "cd \"src/app\" && yarn build",
+    "build-app": "cd \"src/app\" && next build",
     "build-functions":
       "babel \"src/functions\" --out-dir \"dist/functions\" --copy-files --ignore \"node_modules\"",
+    "postbuild": "cd \"dist/functions\" && yarn",
     "predeploy": "yarn build",
     "deploy": "firebase deploy",
-    "postinstall": "yarn install-app && yarn install-functions",
-    "install-app": "cd \"src/app\" && yarn",
-    "install-functions": "cd \"src/functions\" && yarn",
     "preserve": "yarn build",
     "serve": "firebase serve --only functions,hosting",
     "eslint-check":
