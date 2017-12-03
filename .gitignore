@@ -9,6 +9,7 @@ logs
 # Block Config
 dev.config.js
 prod.config.js
+server.config.js
 dist
 
 # Runtime data
