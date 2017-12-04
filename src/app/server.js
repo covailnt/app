@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const FileStore = require('session-file-store')(session)
+const FirebaseStore = require('connect-session-firebase')(session)
 const next = require('next')
 const admin = require('firebase-admin')
 
@@ -10,13 +10,12 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const firebase = admin.initializeApp(
-  {
-    credential: admin.credential.cert(require('./.config/server.config')),
-    databaseURL: 'https://covailnt-a08da.firebaseio.com/',
-  },
-  'server',
-)
+const firebase = admin.initializeApp({
+  credential: admin.credential.cert(
+    require('./.config/serverFirebaseKey.json'),
+  ),
+  databaseURL: 'https://covailnt-a08da.firebaseio.com/',
+})
 
 app.prepare().then(() => {
   const server = express()
@@ -25,25 +24,28 @@ app.prepare().then(() => {
 
   server.use(
     session({
-      secret: 'geheimnis',
-      saveUninitialized: true,
-      store: new FileStore({ path: '/tmp/sessions', secret: 'geheimnis' }),
+      store: new FirebaseStore({
+        database: firebase.database(),
+      }),
+      secret: 'keyboard cat',
       resave: false,
+      saveUninitialized: true,
       rolling: true,
       httpOnly: true,
       cookie: { maxAge: 604800000 }, // week
     }),
   )
 
-  server.use((req, res, next) => {
-    req.firebaseServer = firebase
-    next()
-  })
+  // server.use((req, res, next) => {
+  //   req.firebaseServer = firebase
+  //   next()
+  // })
 
   server.post('/api/login', (req, res) => {
     if (!req.body) return res.sendStatus(400)
 
     const token = req.body.token
+
     firebase
       .auth()
       .verifyIdToken(token)

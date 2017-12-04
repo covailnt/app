@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node server.js",
     "dev": "cd \"src/app\" && node server.js",
+    "s": "cd \"src/app\" && next",
     "postinstall": "cd \"src/functions\" && yarn",
     "prebuild": "rimraf \"dist/functions\"",
     "build": "yarn build-functions && yarn build-app",
@@ -84,8 +85,9 @@
     "svgi": "^1.1.0"
   },
   "dependencies": {
-    "cross-env": "^5.1.1",
     "body-parser": "^1.17.1",
+    "connect-session-firebase": "^5.3.0",
+    "cross-env": "^5.1.1",
     "express": "^4.14.0",
     "express-session": "^1.15.2",
     "firebase": "^4.6.0",

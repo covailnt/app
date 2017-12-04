@@ -1,5 +1,5 @@
 import { Avatar, Button, Link, Relative } from '~/components/elements'
-import { SIGN_OUT_REQUESTED } from '~/store/actions'
+import { signOutRequested } from '~/store/actions'
 import { color, space } from '~/styled'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -28,8 +28,6 @@ class UserMenu extends Component {
     this.setState({ open: !this.state.open })
   }
   render() {
-    const { user, store } = this.props
-
     return (
       <Relative>
         <Avatar
@@ -37,7 +35,7 @@ class UserMenu extends Component {
           margin="0 20px"
           padding="5px"
           size="50px"
-          src={user.photoURL || '/static/images/avatar.png'}
+          src={this.props.picture}
         />
         {this.state.open && (
           <StyledList bg="black" px={3}>
@@ -58,13 +56,7 @@ class UserMenu extends Component {
             </Link>
 
             <Link href="/">
-              <Button
-                onClick={() =>
-                  store.dispatch({ type: SIGN_OUT_REQUESTED, user: null })
-                }
-              >
-                Sign Out
-              </Button>
+              <Button onClick={() => this.props.signOut()}>Sign Out</Button>
             </Link>
           </StyledList>
         )}
@@ -73,12 +65,13 @@ class UserMenu extends Component {
   }
 }
 
+UserMenu.defaultProps = {
+  picture: '/static/images/avatar.png',
+}
+
 UserMenu.propTypes = {
-  user: PropTypes.object,
+  picture: PropTypes.string.isRequired,
+  signOut: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => {
-  return { user: state.user }
-}
-
-export default connect(mapStateToProps)(UserMenu)
+export default connect(null, { signOut: signOutRequested })(UserMenu)

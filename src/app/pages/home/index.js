@@ -9,24 +9,24 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 class Index extends Component {
-  static async getInitialProps({ req, store }) {
+  static getInitialProps({ req }) {
+    // Get user from server/express session
     const user = req && req.session ? req.session.decodedToken : null
-
-    return { user, store }
+    return { user }
   }
 
   componentDidMount() {
+    console.log('s user ====>', this.props)
+
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        // this.setState({ user: user })
         const userAuthData = {
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
           uid: user.uid,
         }
-        console.log('user ====>', user)
-        this.props.store.dispatch(userFetchRequested(userAuthData))
+        // this.props.store.dispatch(userFetchRequested(userAuthData))
 
         return user.getIdToken().then(token => {
           return fetch('/api/login', {
@@ -37,8 +37,7 @@ class Index extends Component {
           })
         })
       } else {
-        // this.setState({ user: null })
-        this.props.store.dispatch(isPreloadingStore(false))
+        // this.props.store.dispatch(isPreloadingStore(false))
         fetch('/api/logout', {
           method: 'POST',
           credentials: 'same-origin',
@@ -50,10 +49,10 @@ class Index extends Component {
   render() {
     const { user } = this.props
     return (
-      <main>
-        {user ? <UserMenu /> : <SignIn />}
+      <div>
+        {user ? <UserMenu photo={user.picture} /> : <SignIn />}
         <Heading level={1}>You are Home</Heading>
-      </main>
+      </div>
     )
   }
 }
@@ -63,8 +62,4 @@ Index.propTypes = {
   user: PropTypes.object,
 }
 
-const mapStateToProps = state => {
-  return { user: state.user }
-}
-
-export default connectRedux(mapStateToProps)(Index)
+export default connectRedux()(Index)

@@ -21,11 +21,11 @@ export default class App extends Component {
           <ThemeProvider theme={theme}>
             <Switch>
               <Route exact path="/" component={Home} />
-              <PrivateRoute
+              {/* <PrivateRoute
                 authed={appStore.getState().user}
                 path="/profile"
                 component={Profile}
-              />
+              /> */}
               <Route path="/signup" component={SignUp} />
             </Switch>
           </ThemeProvider>

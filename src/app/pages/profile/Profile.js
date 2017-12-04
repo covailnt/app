@@ -17,9 +17,9 @@ import React, { Component } from 'react'
 class Profile extends Component {
   static async getInitialProps({ res, store }) {
     // Reroute to home page if there is no user
-    if (!store.getState().user) {
-      // res.redirect('/home')
-    }
+    // if (!store.getState().user) {
+    // res.redirect('/home')
+    // }
   }
   constructor() {
     super()
