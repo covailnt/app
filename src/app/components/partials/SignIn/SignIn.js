@@ -2,6 +2,7 @@ import { Button, Link } from '~/components/elements'
 import { Input } from '~/components/partials'
 import { signInRequested } from '~/store/actions'
 import { EMAIL, FACEBOOK, GITHUB, GOOGLE, PROVIDER } from '~/utils/constants'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
@@ -110,6 +111,10 @@ class SignIn extends Component {
       </div>
     )
   }
+}
+
+SignIn.propTypes = {
+  signInRequested: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {

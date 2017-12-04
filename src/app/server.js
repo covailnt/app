@@ -36,10 +36,11 @@ app.prepare().then(() => {
     }),
   )
 
-  // server.use((req, res, next) => {
-  //   req.firebaseServer = firebase
-  //   next()
-  // })
+  // The function below can be used if we ever need to compute db data in getInitialProps
+  server.use((req, res, next) => {
+    req.firebaseServer = firebase
+    next()
+  })
 
   server.post('/api/login', (req, res) => {
     if (!req.body) return res.sendStatus(400)
