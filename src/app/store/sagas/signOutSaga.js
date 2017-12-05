@@ -1,10 +1,10 @@
 import 'isomorphic-unfetch'
+import 'regenerator-runtime'
 
 import firebase from '~/.config'
 import { signOut } from '~/store/actions'
 import { SIGN_OUT_REQUESTED } from '~/store/actions/types'
 import { put, takeLatest } from 'redux-saga/effects'
-import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 
 function removeUserServerSession() {
   fetch('/api/logout', {

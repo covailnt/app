@@ -1,4 +1,5 @@
 import 'isomorphic-unfetch'
+import 'regenerator-runtime'
 
 import firebase from '~/.config'
 import { userFetchRequested } from '~/store/actions'
@@ -15,7 +16,6 @@ import {
 } from '~/utils/constants'
 import generator from 'generate-password'
 import { put, takeLatest } from 'redux-saga/effects'
-import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 
 const success = data => {
   saveSessionOnServer(data.user)
@@ -52,7 +52,6 @@ function* createUserWithEmail(data) {
 
       user.sendEmailVerification().catch(e => console.log(e))
 
-      // userData.redirect = true
       userData.history = data.history
 
       return success({ user: userData })
@@ -90,8 +89,6 @@ function* signInWithProvider(data) {
     .signInWithPopup(authProvider)
     .then(user => {
       const userData = user.user
-
-      // userData.redirect = true
 
       if (data.history) {
         userData.history = data.history
@@ -132,7 +129,6 @@ function* signIn(action) {
         email: user.email,
         history: user.history || false,
         picture: user.picture ? user.picture : null,
-        // redirect: user.redirect || false,
         uid: user.uid,
       }
 

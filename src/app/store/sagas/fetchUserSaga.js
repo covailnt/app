@@ -1,10 +1,11 @@
+import 'regenerator-runtime'
+
 import firebase from '~/.config'
 import { userFetchFailed, userFetchSucceeded } from '~/store/actions'
 import { USER_FETCH_REQUESTED } from '~/store/actions/types'
 import l from '~/utils'
 import { getUserData } from '~/utils'
 import { call, put, takeLatest } from 'redux-saga/effects'
-import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 
 function* fetchUserData(action) {
   try {
