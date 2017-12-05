@@ -1,3 +1,5 @@
+import 'isomorphic-unfetch'
+
 import firebase from '~/.config'
 import { userFetchRequested } from '~/store/actions'
 import { SIGN_IN_REQUESTED } from '~/store/actions/types'
@@ -15,7 +17,22 @@ import generator from 'generate-password'
 import { put, takeLatest } from 'redux-saga/effects'
 import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 
-const success = data => ({ result: SUCCESS, user: data.user })
+const success = data => {
+  saveSessionOnServer(data.user)
+
+  return { result: SUCCESS, user: data.user }
+}
+
+function saveSessionOnServer(user) {
+  user.getIdToken().then(token => {
+    return fetch('/api/login', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      credentials: 'same-origin',
+      body: JSON.stringify({ token }),
+    })
+  })
+}
 
 function* createUserWithEmail(data) {
   const password = generator.generate({
@@ -35,7 +52,7 @@ function* createUserWithEmail(data) {
 
       user.sendEmailVerification().catch(e => console.log(e))
 
-      userData.redirect = true
+      // userData.redirect = true
       userData.history = data.history
 
       return success({ user: userData })
@@ -73,7 +90,8 @@ function* signInWithProvider(data) {
     .signInWithPopup(authProvider)
     .then(user => {
       const userData = user.user
-      userData.redirect = true
+
+      // userData.redirect = true
 
       if (data.history) {
         userData.history = data.history
@@ -110,11 +128,11 @@ function* signIn(action) {
       const user = signInResult.user
 
       const userAuthData = {
-        displayName: user.displayName ? user.displayName : null,
+        userName: user.userName ? user.userName : null,
         email: user.email,
         history: user.history || false,
-        photoURL: user.photoURL ? user.photoURL : null,
-        redirect: user.redirect || false,
+        picture: user.picture ? user.picture : null,
+        // redirect: user.redirect || false,
         uid: user.uid,
       }
 

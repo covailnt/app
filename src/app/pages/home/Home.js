@@ -1,59 +1,20 @@
-import 'isomorphic-unfetch'
-
-import firebase from '~/.config'
 import { Heading } from '~/components/elements'
 import { SignIn, UserMenu } from '~/components/partials'
 import { connectRedux } from '~/store'
-import { isPreloadingStore, userFetchRequested } from '~/store/actions'
-import l from '~/utils'
 import { getUserData } from '~/utils'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 class Index extends Component {
   static async getInitialProps({ req, store }) {
-    // Get user from server/express session
-    const user = req && req.session ? req.session.decodedToken : null
+    const userSessionData = req && req.session ? req.session.decodedToken : null
     let userData = null
 
-    if (user) {
-      userData = await getUserData(req.firebaseServer, user)
+    if (userSessionData) {
+      userData = await getUserData(req.firebaseServer, userSessionData, store)
     }
 
-    l('returning user', userData)
     return { user: userData }
-  }
-
-  componentDidMount() {
-    l('component did mount')
-
-    // firebase.auth().onAuthStateChanged(user => {
-    //   l('logged in', user)
-    //   if (user) {
-    //     const userAuthData = {
-    //       displayName: user.displayName,
-    //       email: user.email,
-    //       photoURL: user.photoURL,
-    //       uid: user.uid,
-    //     }
-    // this.props.store.dispatch(userFetchRequested(userAuthData))
-
-    // return user.getIdToken().then(token => {
-    //   return fetch('/api/login', {
-    //     method: 'POST',
-    //     headers: new Headers({ 'Content-Type': 'application/json' }),
-    //     credentials: 'same-origin',
-    //     body: JSON.stringify({ token }),
-    //   })
-    // })
-    //   } else {
-    //     // this.props.store.dispatch(isPreloadingStore(false))
-    //     fetch('/api/logout', {
-    //       method: 'POST',
-    //       credentials: 'same-origin',
-    //     })
-    //   }
-    // })
   }
 
   render() {

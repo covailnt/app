@@ -23,10 +23,10 @@ export const SOCIAL = {
 
 // Input fields
 export const FIELDS = {
-  AVATAR_URL: 'photoURL',
+  AVATAR_URL: 'picture',
   BANNER_URL: 'bannerURL',
   BEHANCE_URL: 'behanceURL',
-  DISPLAY_NAME: 'displayName',
+  DISPLAY_NAME: 'userName',
   DRIBBBLE_URL: 'dribbbleURL',
   EMAIL: 'email',
   FACEBOOK_URL: 'facebookURL',

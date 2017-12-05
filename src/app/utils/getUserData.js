@@ -1,13 +1,14 @@
+import { userFetchSucceeded } from '~/store/actions'
 import l from '~/utils'
 import { FIELDS } from '~/utils/constants'
 import { omit, values } from 'lodash'
 
-const getUserData = (firebase, userAuthData) => {
+const getUserData = (firebase, userAuthData, store) => {
   l('in getting user data')
   const user = {
-    displayName: userAuthData.name,
+    userName: userAuthData.name,
     email: userAuthData.email,
-    photoURL: userAuthData.picture,
+    picture: userAuthData.picture,
     uid: userAuthData.user_id,
   }
 
@@ -17,25 +18,25 @@ const getUserData = (firebase, userAuthData) => {
   l('have firebase ref getting snapshot')
 
   return ref.once('value').then(snapshot => {
-    // If snapshot.val() exists, user has signed in before
     l('in snapshot function')
-    const vals = {}
+    const isFirstSignIn = snapshot.val()
+    const values = {}
 
-    if (snapshot.val()) {
+    if (isFirstSignIn) {
       l('snapshot exists')
 
       properties.forEach(property => {
         if (snapshot.val()[property]) {
-          vals[property] = snapshot.val()[property]
+          values[property] = snapshot.val()[property]
         }
       })
-
-      return vals
+    } else {
+      ref.set(omit(user, 'uid'))
     }
 
-    ref.set(omit(user, 'uid'))
+    store.dispatch(userFetchSucceeded(values))
 
-    return vals
+    return values
   })
 }
 

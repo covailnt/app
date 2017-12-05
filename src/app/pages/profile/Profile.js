@@ -56,7 +56,7 @@ class Profile extends Component {
           >
             <Flex align="center" direction="column" justify="center">
               <Heading align="center" color="white" level={1}>
-                {this.props.displayName}
+                {this.props.userName}
               </Heading>
 
               <Box ml="-56px" py={2}>
@@ -205,7 +205,7 @@ class Profile extends Component {
 
 Profile.propTypes = {
   bannerURL: PropTypes.string,
-  displayName: PropTypes.string,
+  userName: PropTypes.string,
   image: PropTypes.string,
   uid: PropTypes.string,
   user: PropTypes.object,
@@ -218,7 +218,7 @@ const mapStateToProps = state => {
     return {
       [FIELDS.AVATAR_URL]: state.user[FIELDS.AVATAR_URL],
       [FIELDS.BANNER_URL]: state.user[FIELDS.BANNER_URL],
-      displayName: state.user.displayName,
+      userName: state.user.userName,
       uid: state.user.uid,
     }
   } else {

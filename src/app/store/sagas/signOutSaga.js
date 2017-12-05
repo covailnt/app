@@ -1,12 +1,22 @@
-import { put, takeLatest } from 'redux-saga/effects'
+import 'isomorphic-unfetch'
 
-import { SIGN_OUT_REQUESTED } from '~/store/actions/types'
 import firebase from '~/.config'
-import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
 import { signOut } from '~/store/actions'
+import { SIGN_OUT_REQUESTED } from '~/store/actions/types'
+import { put, takeLatest } from 'redux-saga/effects'
+import regeneratorRuntime from 'regenerator-runtime' // eslint-disable-line
+
+function removeUserServerSession() {
+  fetch('/api/logout', {
+    method: 'POST',
+    credentials: 'same-origin',
+  })
+}
 
 function* signUserOut() {
   try {
+    removeUserServerSession()
+
     const isSignedOut = yield firebase
       .auth()
       .signOut()
