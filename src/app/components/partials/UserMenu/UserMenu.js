@@ -55,7 +55,7 @@ class UserMenu extends Component {
               SignUp-Step-1
             </Link>
 
-            <Link href="/">
+            <Link href="/home">
               <Button onClick={() => this.props.signOut()}>Sign Out</Button>
             </Link>
           </StyledList>
