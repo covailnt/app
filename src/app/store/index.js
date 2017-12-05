@@ -1,4 +1,3 @@
-import preloadingReducer from '~/store/reducers/Preloading'
 import userReducer from '~/store/reducers/User'
 import rootSaga from '~/store/sagas'
 import withReduxSaga from 'next-redux-saga'
@@ -11,7 +10,6 @@ const sagaMiddleware = createSagaMiddleware()
 
 export function configureStore(initialState) {
   const rootReducer = combineReducers({
-    preloadingStore: preloadingReducer,
     user: userReducer,
   })
 

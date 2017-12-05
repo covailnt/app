@@ -1,4 +1,3 @@
-export isPreloadingStore from './isPreloadingStore'
 export setImage from './setImage'
 export setInputVal from './setInputVal'
 export setUserAuthData from './setUserAuthData'
